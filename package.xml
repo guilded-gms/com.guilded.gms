@@ -6,7 +6,6 @@
 		<standalone>1</standalone>
 		<version>2.0.0 Alpha 1</version>
 		<date>2012-01-06</date>
-		<unique>2012-01-06</unique>
 	</packageinformation>
 	
 	<authorinformation>
@@ -16,6 +15,7 @@
 	
 	<requiredpackages>
 		<!-- general -->
+		<requiredpackage minversion="2.0.0 alpha 1">com.woltlab.wcf</requiredpackage>
 		<requiredpackage file="required/com.woltlab.wcf.acl.tar.gz">com.woltlab.wcf.acl</requiredpackage>
 		<requiredpackage file="required/com.woltlab.wcf.bbcode.tar.gz">com.woltlab.wcf.bbcode</requiredpackage>
 		<requiredpackage file="required/com.woltlab.wcf.visitTracker.tar.gz">com.woltlab.wcf.visitTracker</requiredpackage>
