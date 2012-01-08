@@ -6,7 +6,6 @@
 		<standalone>1</standalone>
 		<version>2.0.0 Alpha 1</version>
 		<date>2012-01-06</date>
-		<unique>2012-01-06</unique>
 	</packageinformation>
 	
 	<authorinformation>
@@ -16,7 +15,7 @@
 	
 	<requiredpackages>
 		<!-- general -->
-		<requiredpackage file="required/com.woltlab.wcf.acl.tar.gz">com.woltlab.wcf.acl</requiredpackage>
+		<!--<requiredpackage file="required/com.woltlab.wcf.acl.tar.gz">com.woltlab.wcf.acl</requiredpackage>
 		<requiredpackage file="required/com.woltlab.wcf.bbcode.tar.gz">com.woltlab.wcf.bbcode</requiredpackage>
 		<requiredpackage file="required/com.woltlab.wcf.visitTracker.tar.gz">com.woltlab.wcf.visitTracker</requiredpackage>
 		<requiredpackage file="required/com.woltlab.wcf.ckeditor.tar.gz">com.woltlab.wcf.ckeditor</requiredpackage>
@@ -26,17 +25,20 @@
 		<requiredpackage file="required/com.woltlab.wcf.like.tar.gz">com.woltlab.wcf.like</requiredpackage>
 		<requiredpackage file="required/com.woltlab.wcf.comment.tar.gz">com.woltlab.wcf.comment</requiredpackage>
 		<requiredpackage file="required/com.woltlab.wcf.message.tar.gz">com.woltlab.wcf.message</requiredpackage>
-		<requiredpackage file="required/com.woltlab.wcf.message.sidebar.tar.gz">com.woltlab.wcf.message.sidebar</requiredpackage>
+		<requiredpackage file="required/com.woltlab.wcf.message.sidebar.tar.gz">com.woltlab.wcf.message.sidebar</requiredpackage>-->
 		
 		<!-- guilded -->
 		<requiredpackage file="required/com.guilded.wcf.game.tar.gz">com.guilded.wcf.game</requiredpackage>
-		<requiredpackage file="required/com.guilded.wcf.character.tar.gz">com.guilded.wcf.character</requiredpackage>
+		<!--<requiredpackage file="required/com.guilded.wcf.character.tar.gz">com.guilded.wcf.character</requiredpackage>-->
 	</requiredpackages>
 	
 	<instructions type="install">
 		<!-- TAR -->
 		<instruction type="file">files.tar</instruction>
 		<instruction type="template">templates.tar</instruction>
+		
+		<!-- SQL -->
+		<instruction type="sql">install.sql</instruction>
 		
 		<!-- XML -->
 		<instruction type="pageMenu">pagemenu.xml</instruction>
