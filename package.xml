@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package name="com.guilded.wcf.character" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
+	<packageinformation>
+		<packagename>Character and Guild System</packagename>
+		<packagedescription>Provides functions to handle characters and guilds.</packagedescription>
+		<isunique>1</isunique>
+		<version>1.0.0 Alpha 1</version>
+		<date>2012-01-19</date>
+	</packageinformation>
+	
+	<authorinformation>
+		<author>Guilded Team</author>
+		<authorurl>http://www.guilded.eu</authorurl>
+	</authorinformation>
+	
+	<requiredpackages>
+		<requiredpackage minversion="2.0.0 Alpha 1">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="1.0.0 Alpha 1">com.guilded.wcf.game</requiredpackage>
+	</requiredpackages>
+	
+	<instructions type="install">
+		<!--<instruction type="packageInstallationPlugin">pip.xml</instruction>-->
+		<instruction type="file">files.tar</instruction>
+		<instruction type="sql">install.sql</instruction>
+		
+		<!--<instruction type="coreObject">coreObject.xml</instruction>
+		<instruction type="option">options.xml</instruction>
+		<instruction type="language">language/*.xml</instruction>-->
+	</instructions>
+</package>
