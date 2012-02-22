@@ -1,5 +1,5 @@
 <?php
-namespace app\page;
+namespace ams\page;
 use wcf\page\AbstractPage;
 
 class IndexPage extends AbstractPage {
