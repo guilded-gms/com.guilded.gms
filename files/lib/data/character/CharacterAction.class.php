@@ -16,28 +16,28 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see	wcf\data\AbstractDatabaseObjectAction::$permissionsCreate
 	 */
-	protected $permissionsCreate = array('admin.user.canAddUser');
+	protected $permissionsCreate = array('user.character.canAddCharacter');
 	
 	/**
 	 * @see	wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
 	 */
-	protected $permissionsDelete = array('admin.user.canDeleteUser');
+	protected $permissionsDelete = array('user.character.canDeleteCharacter');
 	
 	/**
 	 * @see	wcf\data\AbstractDatabaseObjectAction::$permissionsUpdate
 	 */
-	protected $permissionsUpdate = array('admin.user.canEditUser');
+	protected $permissionsUpdate = array('user.character.canEditCharacter');
 	
 	/**
-	 * Validates parameters to search for users and -groups.
+	 * Validates parameters to search for characters and -groups.
 	 */
 	public function validateGetList() {
 		if (!isset($this->parameters['data']['searchString'])) {
 			throw new ValidateActionException("Missing parameter 'searchString'");
 		}
 		
-		if (!isset($this->parameters['data']['includeUserGroups'])) {
-			throw new ValidateActionException("Missing parameter 'includeUserGroups'");
+		if (!isset($this->parameters['data']['includeCharacterGroups'])) {
+			throw new ValidateActionException("Missing parameter 'includeCharacterGroups'");
 		}
 		
 		if (isset($this->parameters['data']['excludedSearchValues']) && !is_array($this->parameters['data']['excludedSearchValues'])) {
@@ -46,7 +46,7 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 	}
 	
 	/**
-	 * Returns a list of users and -groups based upon given search criteria.
+	 * Returns a list of characters and -groups based upon given search criteria.
 	 * 
 	 * @return	array<array>
 	 */
@@ -58,8 +58,8 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 		}
 		$list = array();
 	
-		if ($this->parameters['data']['includeUserGroups']) {
-			$accessibleGroups = UserGroup::getAccessibleGroups();
+		if ($this->parameters['data']['includeCharacterGroups']) {
+			$accessibleGroups = CharacterGroup::getAccessibleGroups();
 			foreach ($accessibleGroups as $group) {
 				$groupName = $group->getName();
 				if (!in_array($groupName, $excludedSearchValues)) {
@@ -76,22 +76,22 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 		}
 		
 		$conditionBuilder = new PreparedStatementConditionBuilder();
-		$conditionBuilder->add("username LIKE ?", array($searchString.'%'));
+		$conditionBuilder->add("name LIKE ?", array($searchString.'%'));
 		if (count($excludedSearchValues)) {
-			$conditionBuilder->add("username NOT IN (?)", array($excludedSearchValues));
+			$conditionBuilder->add("name NOT IN (?)", array($excludedSearchValues));
 		}
 	
-		// find users
-		$sql = "SELECT	userID, username
-			FROM	wcf".WCF_N."_user
+		// find characters
+		$sql = "SELECT	characterID, name
+			FROM	wcf".WCF_N."_character
 			".$conditionBuilder;
 		$statement = WCF::getDB()->prepareStatement($sql);
 		$statement->execute($conditionBuilder->getParameters());
 		while ($row = $statement->fetchArray()) {
 			$list[] = array(
-				'label' => $row['username'],
-				'objectID' => $row['userID'],
-				'type' => 'user'
+				'label' => $row['name'],
+				'objectID' => $row['characterID'],
+				'type' => 'character'
 			);
 		}
 	
