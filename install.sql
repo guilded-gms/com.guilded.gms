@@ -4,7 +4,8 @@ CREATE TABLE wcf1_guild (
 	packageID 		INT(10) NOT NULL,
 	userID	 		INT(10) NOT NULL, --owner
 	name 			VARCHAR(255) NOT NULL,
-	server 			VARCHAR(255)
+	server 			VARCHAR(255),
+	image 			VARCHAR(255)
 );
 
 DROP TABLE IF EXISTS wcf1_character;
