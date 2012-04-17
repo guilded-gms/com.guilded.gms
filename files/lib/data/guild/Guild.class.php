@@ -1,5 +1,6 @@
 <?php
 namespace wcf\data\guild;
+use wcf\data\DatabaseObject;
 use wcf\system\request\IRouteController;
 use wcf\system\WCF;
 

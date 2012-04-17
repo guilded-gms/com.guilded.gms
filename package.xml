@@ -19,9 +19,11 @@
 	</requiredpackages>
 	
 	<instructions type="install">
-		<!--<instruction type="packageInstallationPlugin">pip.xml</instruction>-->
 		<instruction type="file">files.tar</instruction>
+		<instruction type="template">templates.tar</instruction>
 		<instruction type="sql">install.sql</instruction>
+		
+		<instruction type="templateListener">templateListener.xml</instruction>
 		
 		<!--<instruction type="coreObject">coreObject.xml</instruction>
 		<instruction type="option">options.xml</instruction>
