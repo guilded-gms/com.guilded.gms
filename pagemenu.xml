@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/pagemenu.xsd">
 	<import>
-		<pagemenuitem name="guilded.header.menu.index">
+		<pagemenuitem name="gms.header.menu.index">
 			<link>index.php/Index</link>
 			<position>header</position>
-		</pagemenuitem>
-		
-		<pagemenuitem name="guilded.footer.menu.index">
-			<link>index.php/Index</link>
-			<position>footer</position>
 		</pagemenuitem>
 	</import>
 </data>

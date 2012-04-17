@@ -14,10 +14,10 @@ class GMSCore extends AbstractApplication {
 	 * @see AbstractApplication::__construct()
 	 */
 	public function __construct() {
-		$this->packageID = PackageDependencyHandler::getPackageID('com.guilded.gms');
+		$this->packageID = PackageDependencyHandler::getInstance()->getPackageID('com.guilded.gms');
 		
 		$this->initTPL();
-		PageMenu::getInstance()->setActiveMenuItem('guilded.header.menu.index');
+		PageMenu::getInstance()->setActiveMenuItem('gms.header.menu.index');
 		
 		WCF::getBreadcrumbs()->add(new Breadcrumb(WCF::getLanguage()->get('gms.header.menu.index'), LinkHandler::getInstance()->getLink('Index', array('application' => 'gms'))));
 	}

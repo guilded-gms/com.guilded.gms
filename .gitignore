@@ -1,3 +1,5 @@
 $ cat .gitignore
 *.tar*
 *.gz
+*.tar
+*.txt

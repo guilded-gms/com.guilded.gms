@@ -15,21 +15,23 @@
 	
 	<requiredpackages>
 		<!-- general -->
-		<!--<requiredpackage file="required/com.woltlab.wcf.acl.tar.gz">com.woltlab.wcf.acl</requiredpackage>
-		<requiredpackage file="required/com.woltlab.wcf.bbcode.tar.gz">com.woltlab.wcf.bbcode</requiredpackage>
-		<requiredpackage file="required/com.woltlab.wcf.visitTracker.tar.gz">com.woltlab.wcf.visitTracker</requiredpackage>
-		<requiredpackage file="required/com.woltlab.wcf.ckeditor.tar.gz">com.woltlab.wcf.ckeditor</requiredpackage>
-		<requiredpackage file="required/com.woltlab.wcf.notification.tar.gz">com.woltlab.wcf.notification</requiredpackage>
-		<requiredpackage file="required/com.woltlab.wcf.recaptcha.tar.gz">com.woltlab.wcf.recaptcha</requiredpackage>
-		<requiredpackage file="required/com.woltlab.wcf.user.tar.gz">com.woltlab.wcf.user</requiredpackage>
-		<requiredpackage file="required/com.woltlab.wcf.like.tar.gz">com.woltlab.wcf.like</requiredpackage>
-		<requiredpackage file="required/com.woltlab.wcf.comment.tar.gz">com.woltlab.wcf.comment</requiredpackage>
-		<requiredpackage file="required/com.woltlab.wcf.message.tar.gz">com.woltlab.wcf.message</requiredpackage>
-		<requiredpackage file="required/com.woltlab.wcf.message.sidebar.tar.gz">com.woltlab.wcf.message.sidebar</requiredpackage>-->
+		<requiredpackage file="required/com.woltlab.wcf.acl.tar">com.woltlab.wcf.acl</requiredpackage>
+		<requiredpackage file="required/com.woltlab.wcf.acp.language.tar">com.woltlab.wcf.acp.language</requiredpackage>
+		<requiredpackage file="required/com.woltlab.wcf.label.tar">com.woltlab.wcf.label</requiredpackage>
+		<requiredpackage file="required/com.woltlab.wcf.bbcode.tar">com.woltlab.wcf.bbcode</requiredpackage>
+		<requiredpackage file="required/com.woltlab.wcf.visitTracker.tar">com.woltlab.wcf.visitTracker</requiredpackage>
+		<requiredpackage file="required/com.woltlab.wcf.ckeditor.tar">com.woltlab.wcf.ckeditor</requiredpackage>
+		<requiredpackage file="required/com.woltlab.wcf.recaptcha.tar">com.woltlab.wcf.recaptcha</requiredpackage>
+		<requiredpackage file="required/com.woltlab.wcf.user.tar">com.woltlab.wcf.user</requiredpackage>
+		<requiredpackage file="required/com.woltlab.wcf.like.tar">com.woltlab.wcf.like</requiredpackage>
+		<requiredpackage file="required/com.woltlab.wcf.comment.tar">com.woltlab.wcf.comment</requiredpackage>
+		<requiredpackage file="required/com.woltlab.wcf.attachment.tar">com.woltlab.wcf.attachment</requiredpackage>
+		<requiredpackage file="required/com.woltlab.wcf.message.tar">com.woltlab.wcf.message</requiredpackage>
+		<requiredpackage file="required/com.woltlab.wcf.message.sidebar.tar">com.woltlab.wcf.message.sidebar</requiredpackage>
 		
 		<!-- guilded -->
 		<requiredpackage file="required/com.guilded.wcf.game.tar.gz">com.guilded.wcf.game</requiredpackage>
-		<!--<requiredpackage file="required/com.guilded.wcf.character.tar.gz">com.guilded.wcf.character</requiredpackage>-->
+		<requiredpackage file="required/com.guilded.wcf.character.tar.gz">com.guilded.wcf.character</requiredpackage>
 	</requiredpackages>
 	
 	<instructions type="install">
