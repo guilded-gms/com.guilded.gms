@@ -6,5 +6,5 @@ class CharacterList extends DatabaseObjectList {
 	/**
 	 * @see	wcf\data\DatabaseObjectList::$className
 	 */
-	public $className = 'wcf\data\character\Character';
+	public $className = 'wcf\data\character\Character';	
 }

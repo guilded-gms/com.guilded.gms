@@ -1,5 +1,6 @@
 <?php
 namespace wcf\data\character;
+use wcf\data\game\Game;
 use wcf\system\request\IRouteController;
 use wcf\system\WCF;
 
@@ -15,6 +16,12 @@ class Character extends DatabaseObject implements IRouteController{
 	protected static $databaseTableIndexName = 'characterID';
 	
 	/**
+	 * game object
+	 * @type wcf\data\game\Game
+	 */
+	protected $gameObject = null;
+	
+	/**
 	 * @see	wcf\system\request\IRouteController::getID()
 	 */
 	public function getID() {
@@ -26,5 +33,16 @@ class Character extends DatabaseObject implements IRouteController{
 	 */
 	public function getTitle() {
 		return $this->name;
+	}
+	
+	/**
+	 * Returns game object.
+	 */
+	public function getGame() {
+		if($this->gameObject === null) {
+			$this->gameObject = new Game($this->gameID);
+		}
+		
+		return $this->gameObject;
 	}
 }

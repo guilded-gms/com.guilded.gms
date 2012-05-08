@@ -1,40 +1,23 @@
 {if $__wcf->user->userID}
 	<!-- character menu -->
 	<li id="characterMenu" class="dropdown">
-		<a class="dropdownToggle" data-toggle="characterMenu">Icon Primary-Character</a>
+		<a class="dropdownToggle" data-toggle="characterMenu">{if $__wcf->getCharacterHandler()->getPrimaryCharacter()}{$__wcf->getCharacterHandler()->getPrimaryCharacter()->characterName}{else}{lang}wcf.character.noPrimary{/lang}{/if}</a>
 		<ul class="dropdownMenu">
-			{*
-				Iterates through all characters; onClick set to primary an refresh innerHtml "charactermenu span"
-			*}
-			<li><a href="{link controller='Character'}{/link}" class="box48">
-				<div><img src="/gms_complete/wcf/icon/wowL.png" /></div>
-				
-				<hgroup class="containerHeadline">
-					<h1>Niridia</h1>
-					<h2>85 / Mensch / Hexenmeister</h2>
-					<h2>Paradoxum / Arthas</h2>
-				</hgroup>
-			</a></li>
-			<li><a href="{link controller='Character'}{/link}" class="box48">
-				<div><img src="/gms_complete/wcf/icon/wowL.png" /></div>
-				
-				<hgroup class="containerHeadline">
-					<h1>Kivah</h1>
-					<h2 style="color: #000;">85 / Mensch / Priester</h2>
-					<h2>Paradoxum / Arthas</h2>
-				</hgroup>
-			</a></li>
-			<li><a href="{link controller='Character'}{/link}" class="box48">
-				<div><img src="/gms_complete/wcf/icon/riftL.png" /></div>
-				
-				<hgroup class="containerHeadline">
-					<h1>Fayh</h1>
-					<h2 style="color: #8F8FEE;">35 / Mathosianer / Krieger</h2>
-					<h2>Le Guild / Tr&uuml;bkopf</h2>
-				</hgroup>
-			</a></li>
+			{foreach from=$__wcf->getCharacterHandler()->getCharacters() item=$character}
+				<li>
+					<a href="{link controller='Character'}{/link}" class="box48">
+						<div>{@$character->getGame()->getIconOutput('L')}</div>
+						
+						<hgroup class="containerHeadline">
+							<h1>{$character->characterName}</h1>
+							<h2 style="color: #000;">{$character->getOption('level')} / {$character->getOption('race')} / {$character->getPrimaryClass()}</h2>
+							<h2>{if $character->getGuild()}{$character->getGuild()->guildName} / {$character->getGuild()->getRealm()}{else}{lang}wcf.character.noGuild{/lang}{/if}</h2>
+						</hgroup>
+					</a>
+				</li>
+			{/foreach}
 			<li class="dropdownDivider"></li>
-			<li><a href="{link controller='CharacterEdit'}t={@SECURITY_TOKEN}{/link}" onclick="WCF.System.Confirmation.show('{lang}wcf.user.logout.sure{/lang}', $.proxy(function (action) { if (action == 'confirm') window.location.href = $(this).attr('href'); }, this)); return false;">{lang}wcf.character.manage{/lang}</a></li>
+			<li><a href="{link controller='CharacterAdd'}t={@SECURITY_TOKEN}{/link}">{lang}wcf.character.add{/lang}</a></li>
 		</ul>
 	</li>
 {/if}

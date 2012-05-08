@@ -17,7 +17,7 @@ CREATE TABLE wcf1_character (
 	packageID 		INT(10) NOT NULL,
 	gameID			INT(10) NOT NULL,
 	userID	 		INT(10) NOT NULL, --owner
-	guildID			INT(10),
+	guildID			INT(10) DEFAULT NULL,
 	name 			VARCHAR(255) NOT NULL
 );
 

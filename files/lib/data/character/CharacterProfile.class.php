@@ -22,4 +22,11 @@ class CharacterProfile extends DatabaseObjectDecorator {
 		
 	const GENDER_MALE = 1;
 	const GENDER_FEMALE = 2;
+	
+	/**
+	 * Returns CharacterProfile by given id
+	 */
+	public function getCharacterProfile($characterID) {
+		// \todo implement this
+	}
 }

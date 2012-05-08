@@ -24,9 +24,9 @@
 		<instruction type="sql">install.sql</instruction>
 		
 		<instruction type="templateListener">templateListener.xml</instruction>
+		<instruction type="coreObject">coreObject.xml</instruction>
 		
-		<!--<instruction type="coreObject">coreObject.xml</instruction>
-		<instruction type="option">options.xml</instruction>
+		<!--<instruction type="option">options.xml</instruction>
 		<instruction type="language">language/*.xml</instruction>-->
 	</instructions>
 </package>
