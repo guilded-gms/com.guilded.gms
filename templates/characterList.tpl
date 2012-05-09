@@ -1,7 +1,7 @@
 {include file='documentHeader'}
 
 <head>
-	<title>{lang}wcf.character.guilds{/lang} {if $pageNo > 1}- {lang}wcf.page.pageNo{/lang} {/if}- {PAGE_TITLE|language}</title>
+	<title>{lang}wcf.character.characters{/lang} {if $pageNo > 1}- {lang}wcf.page.pageNo{/lang} {/if}- {PAGE_TITLE|language}</title>
 	{include file='headInclude' sandbox=false}
 </head>
 
@@ -12,21 +12,21 @@
 <header class="box48 boxHeadline">
 	<img src="{icon size='L'}users1{/icon}" alt="" class="icon48" />
 	<hgroup>
-		<h1>{lang}wcf.character.guilds{/lang} <span class="badge">{#$items}</span></h1>
+		<h1>{lang}wcf.character.characters{/lang} <span class="badge">{#$items}</span></h1>
 	</hgroup>
 </header>
 
 <div class="contentNavigation">
-	{pages print=true assign=pagesLinks controller='GuildList' link="pageNo=%d&sortField=$sortField&sortOrder=$sortOrder"}
+	{pages print=true assign=pagesLinks controller='CharacterList' link="pageNo=%d&sortField=$sortField&sortOrder=$sortOrder"}
 </div>
 
 <div class="container marginTop shadow">
-	<ol class="containerList guildList">
+	<ol class="containerList characterList">
 		{*
-		{foreach from=$objects item=guild}
+		{foreach from=$objects item=character}
 			<li>
 				<div class="box48">
-					<a href="{link controller='Guild' object=$guild}{/link}" title="{$guild->name}" class="framed">IMAGE</a>
+					<a href="{link controller='Character' object=$character}{/link}" title="{$character->getTitle()}" class="framed">IMAGE</a>
 						
 					<div>
 						

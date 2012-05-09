@@ -5,7 +5,7 @@ CREATE TABLE wcf1_guild (
 	packageID 		INT(10) NOT NULL,
 	gameID			INT(10) NOT NULL,
 	userID	 		INT(10) NOT NULL, --owner
-	name 			VARCHAR(255) NOT NULL,
+	guildName 		VARCHAR(255) NOT NULL,
 	server 			VARCHAR(255),
 	image 			VARCHAR(255)
 );
@@ -18,7 +18,8 @@ CREATE TABLE wcf1_character (
 	gameID			INT(10) NOT NULL,
 	userID	 		INT(10) NOT NULL, --owner
 	guildID			INT(10) DEFAULT NULL,
-	name 			VARCHAR(255) NOT NULL
+	characterName 	VARCHAR(255) NOT NULL,
+	isPrimary		TINYINT(1) DEFAULT 0
 );
 
 -- add foreign keys

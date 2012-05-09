@@ -2,7 +2,7 @@
 namespace wcf\page;
 use wcf\system\menu\page\PageMenu;
 
-class GuildListPage extends SortablePage {
+class CharacterListPage extends SortablePage {
 	/**
 	 * @see wcf\page\AbstractPage::$neededPermissions
 	 */
@@ -11,23 +11,23 @@ class GuildListPage extends SortablePage {
 	/**
 	 * @see wcf\page\SortablePage::$defaultSortField
 	 */
-	public $defaultSortField = 'guildName';
+	public $defaultSortField = 'characterName';
 	
 	/**
 	 * @see wcf\page\SortablePage::$validSortFields
 	 */
-	public $validSortFields = array('guildName');
+	public $validSortFields = array('characterName');
 	
 	/**
 	 * @see	wcf\page\MultipleLinkPage::$objectListClassName
 	 */	
-	public $objectListClassName = 'wcf\data\guild\GuildList';
+	public $objectListClassName = 'wcf\data\character\CharacterList';
 	
 	/**
 	 * @see	wcf\page\IPage::show()
 	 */
 	public function show() {
-		PageMenu::getInstance()->setActiveMenuItem('wcf.character.guilds');
+		PageMenu::getInstance()->setActiveMenuItem('wcf.character.characters');
 		
 		parent::show();
 	}

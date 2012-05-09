@@ -88,18 +88,11 @@ class CharacterAddForm extends AbstractOptionListForm {
 		parent::validate();
 		
 		// validate character name
-		try {
-			if (!I18nHandler::getInstance()->validateValue('characterName')) {
-				throw new UserInputException('characterName');
-			}
-		}
-		catch (UserInputException $e) {
-			$this->errorType[$e->getField()] = $e->getType();
-		}
-	
-		if (count($this->errorType) > 0) {
-			throw new UserInputException('characterName', $this->errorType);
+		if (empty($this->characterName)) {
+			throw new UserInputException('characterName', 'empty');
 		}		
+		
+		// \todo validate character name exists for game
 	}
 	
 	/**
