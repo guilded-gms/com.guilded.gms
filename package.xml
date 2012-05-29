@@ -25,6 +25,7 @@
 		
 		<instruction type="templateListener">templateListener.xml</instruction>
 		<instruction type="coreObject">coreObject.xml</instruction>
+        <instruction type="userMenu">userMenu.xml</instruction>
 		
 		<!--<instruction type="option">options.xml</instruction>
 		<instruction type="language">language/*.xml</instruction>-->
