@@ -1,6 +1,8 @@
 <?php
 namespace wcf\page;
 use wcf\data\character\CharacterProfile;
+use wcf\system\breadcrumb\Breadcrumb;
+use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
 
 /**

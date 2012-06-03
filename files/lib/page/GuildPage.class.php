@@ -1,6 +1,9 @@
 <?php
 namespace wcf\page;
 use wcf\data\guild\GuildProfile;
+use wcf\system\exception\IllegalLinkException;
+use wcf\system\breadcrumb\Breadcrumb;
+use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
 
 /**

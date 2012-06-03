@@ -35,7 +35,7 @@ class CharacterProfile extends DatabaseObjectDecorator {
 	 * @param	integer	$characterID
 	 * @return	wcf\data\character\CharacterProfile	 
 	 */
-	public function getCharacterProfile($characterID) {
+	public static function getCharacterProfile($characterID) {
 		$characters = self::getCharacterProfiles(array($characterID));
 		
 		return (isset($characters[$characterID]) ? $characters[$characterID] : null);
@@ -60,7 +60,7 @@ class CharacterProfile extends DatabaseObjectDecorator {
 		
 		if (!empty($characterIDs)) {
 			$characterList = new CharacterProfileList();
-			$characterList->getConditionBuilder()->add("character.characterID IN (?)", array($characterIDs));
+			$characterList->getConditionBuilder()->add("character_table.characterID IN (?)", array($characterIDs));
 			$characterList->sqlLimit = 0;
 			$characterList->readObjects();
 			

@@ -1,6 +1,8 @@
 <?php
 namespace wcf\page;
 use wcf\system\menu\page\PageMenu;
+use wcf\system\request\LinkHandler;
+use wcf\util\HeaderUtil;
 
 class GuildListPage extends SortablePage {
 	/**
@@ -22,6 +24,19 @@ class GuildListPage extends SortablePage {
 	 * @see	wcf\page\MultipleLinkPage::$objectListClassName
 	 */	
 	public $objectListClassName = 'wcf\data\guild\GuildList';
+
+	/**
+	 * @see	wcf\page\IPage::show()
+	 */
+	public function readData() {
+        parent::readData();
+
+        //redirect to guild profile
+        if ($this->countItems() == 1) {
+            HeaderUtil::redirect(LinkHandler::getLink('Guild', array('object' => $this->objectList->current())));
+            exit;
+        }
+	}
 	
 	/**
 	 * @see	wcf\page\IPage::show()

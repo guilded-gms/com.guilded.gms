@@ -14,11 +14,14 @@ class CharacterHandler extends SingletonFactory {
 	/**
 	 * Returns list of user characters.
 	 */
-	public function getCharacters() {
+	public function getCharacters($gameID = 0) {
 		if($this->characterList === null) {
 			$this->characterList = new CharacterProfileList();
 			$this->characterList->sqlLimit = 0;
-			$this->characterList->getConditionBuilder()->add('character.userID = ?', array(WCF::getUser()->userID));
+			$this->characterList->getConditionBuilder()->add('character_table.userID = ?', array(WCF::getUser()->userID));
+            if (!empty($gameID)) {
+                $this->characterList->getConditionBuilder()->add('character_table.gameID = ?', array($gameID));
+            }
 			$this->characterList->readObjects();
 		}
 		

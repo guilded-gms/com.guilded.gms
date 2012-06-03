@@ -6,7 +6,7 @@
 			{foreach from=$__wcf->getCharacterHandler()->getCharacters() item=$character}
 				<li>
 					<a href="{link controller='Character'}{/link}" class="box48">
-						<div>{@$character->getGame()->getIconOutput('L')}</div>
+						<div>{@$character->getGame()->getImageTag(48)}</div>
 						
 						<hgroup class="containerHeadline">
 							<h1>{$character->characterName}</h1>

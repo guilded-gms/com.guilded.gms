@@ -1,20 +1,20 @@
 <?php
-namespace wcf\data\character;
+namespace wcf\data\guild;
 
 /**
  * Represents a list of character profiles.
  */
-class CharacterProfileList extends CharacterList {
+class GuildProfileList extends GuildList {
 	/**
 	 * @see	wcf\data\DatabaseObjectList::$sqlOrderBy
 	 */
-	public $sqlOrderBy = 'character_table.characterName';
+	public $sqlOrderBy = 'guild.guildName';
 	
 	/**
 	 * decorator class name
 	 * @var string
 	 */
-	public $decoratorClassName = 'wcf\data\character\CharacterProfile';
+	public $decoratorClassName = 'wcf\data\guild\GuildProfile';
 	
 	/**
 	 * @see	wcf\data\DatabaseObjectList::readObjects()
@@ -23,8 +23,8 @@ class CharacterProfileList extends CharacterList {
 		if ($this->objectIDs === null) $this->readObjectIDs();
 		parent::readObjects();
 		
-		foreach ($this->objects as $characterID => $character) {
-			$this->objects[$characterID] = new $this->decoratorClassName($character);
+		foreach ($this->objects as $guildID => $guild) {
+			$this->objects[$guildID] = new $this->decoratorClassName($guild);
 		}
 	}
 }

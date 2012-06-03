@@ -19,8 +19,7 @@ class Guild extends DatabaseObject implements IRouteController{
 	 * List of guild members.
 	 */
 	protected $characters = array();
-	
-	
+
 	/**
 	 * @see	wcf\system\request\IRouteController::getID()
 	 */
