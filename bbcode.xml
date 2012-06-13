@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/bbcode.xsd">
+	<import>
+		<bbcode name="character">
+			<wysiwygicon>characterM.png</wysiwygicon>
+			<classname>wcf\system\bbcode\CharacterBBCode</classname>
+				<allowedchildren>none</allowedchildren>
+				<attributes>
+					<attribute name="0">
+						<validationpattern>^\w+$</validationpattern>
+					</attribute>
+				</attributes>
+		</bbcode>
+	</import>
+</data>

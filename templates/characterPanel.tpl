@@ -10,8 +10,7 @@
 						
 						<hgroup class="containerHeadline">
 							<h1>{$character->characterName}</h1>
-							<h2 style="color: #000;">{$character->getOption('level')} / {$character->getOption('race')} / {$character->getPrimaryClass()}</h2>
-							<h2>{if $character->getGuild()}{$character->getGuild()->guildName} / {$character->getGuild()->getRealm()}{else}{lang}wcf.character.noGuild{/lang}{/if}</h2>
+							{include file='characterInformation' object=$character}
 						</hgroup>
 					</a>
 				</li>

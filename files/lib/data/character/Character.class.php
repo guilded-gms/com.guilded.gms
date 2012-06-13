@@ -44,6 +44,24 @@ class Character extends DatabaseObject implements IRouteController{
 	}
 	
 	/**
+	 * Returns Character-object by characterName.
+	 *
+	 * @param	string		$characterName
+	 * @return	User
+	 */
+	public static function getCharacterByName($characterName) {
+		$sql = "SELECT	*
+			FROM	wcf".WCF_N."_character
+			WHERE	name = ?";
+		$statement = WCF::getDB()->prepareStatement($sql);
+		$statement->execute(array($username));
+		$row = $statement->fetchArray();
+		if (!$row) $row = array();
+		
+		return new Character(null, $row);
+	}	
+	
+	/**
 	 * Returns game object.
 	 */
 	public function getGame() {
