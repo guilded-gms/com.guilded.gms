@@ -35,14 +35,10 @@
 	</requiredpackages>
 	
 	<instructions type="install">
-		<!-- TAR -->
 		<instruction type="file">files.tar</instruction>
 		<instruction type="template">templates.tar</instruction>
-		
-		<!-- SQL -->
 		<instruction type="sql">install.sql</instruction>
-		
-		<!-- XML -->
 		<instruction type="pageMenu">pagemenu.xml</instruction>
+		<instruction type="language">language/*.xml</instruction>
 	</instructions>
 </package>
