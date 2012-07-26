@@ -6,6 +6,15 @@ use wcf\util\HeaderUtil;
 
 class IndexPage extends AbstractPage {
 	/**
+	 * @see	wcf\page\AbstractPage::assignVariables()
+	 */
+	public function assignVariables() {
+		parent::assignVariables();
+		
+		DashboardHandler::getInstance()->loadBoxes('com.guilded.gms.IndexPage', $this);
+	}
+
+	/**
 	 * @see IPage::show()
 	 */
 	public function show() {
