@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/acpMenu.xsd">
+	<import>
+		<acpmenuitem name="wcf.acp.menu.link.management">
+			<showorder>4</showorder>
+		</acpmenuitem>
+		
+		<!-- guilds -->
+		<acpmenuitem name="wcf.acp.menu.link.management.guild">
+			<parent>wcf.acp.menu.link.management</parent>
+			<showorder>1</showorder>
+		</acpmenuitem>
+
+		<acpmenuitem name="wcf.acp.menu.link.management.guild.general">
+			<parent>wcf.acp.menu.link.management.guild</parent>
+			<showorder>1</showorder>
+		</acpmenuitem>
+
+		<acpmenuitem name="wcf.acp.menu.link.management.guild.list">
+			<link>index.php/GuildList/</link>
+			<parent>wcf.acp.menu.link.management.guild.general</parent>
+			<permissions>admin.guilded.guild.canViewList</permissions>
+			<showorder>1</showorder>
+		</acpmenuitem>
+		<acpmenuitem name="wcf.acp.menu.link.management.guild.add">
+			<link>index.php/GuildAdd/</link>
+			<parent>wcf.acp.menu.link.management.guild.general</parent>
+			<permissions>admin.guilded.guild.canAddGuild</permissions>
+			<showorder>3</showorder>
+		</acpmenuitem>
+		<!-- /guilds -->
+
+		<!-- characters -->
+		<acpmenuitem name="wcf.acp.menu.link.management.character">
+			<parent>wcf.acp.menu.link.management</parent>
+			<showorder>2</showorder>
+		</acpmenuitem>
+
+		<acpmenuitem name="wcf.acp.menu.link.management.character.general">
+			<parent>wcf.acp.menu.link.management.character</parent>
+			<showorder>1</showorder>
+		</acpmenuitem>
+
+		<acpmenuitem name="wcf.acp.menu.link.management.character.list">
+			<link>index.php/CharacterList/</link>
+			<parent>wcf.acp.menu.link.management.character</parent>
+			<permissions>admin.guilded.character.canViewList</permissions>
+			<showorder>1</showorder>
+		</acpmenuitem>
+		<acpmenuitem name="wcf.acp.menu.link.management.character.add">
+			<link>index.php/CharacterAdd/</link>
+			<parent>wcf.acp.menu.link.management.character</parent>
+			<permissions>admin.guilded.character.canAddGuild</permissions>
+			<showorder>2</showorder>
+		</acpmenuitem>
+		<!-- /characters -->
+	</import>
+</data>

@@ -5,6 +5,16 @@ use wcf\data\character\CharacterProfileList;
 use wcf\system\SingletonFactory;
 use wcf\system\WCF;
 
+/**
+ * Handler for characters
+ *
+ * @author 		Jeffrey Reichardt
+ * @copyright	2012-2013 DevLabor Unternehmergesellschaft (haftungsbeschränkt)
+ * @license		Creative Commons <BY-NC-SA> (http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode)
+ * @package	com.guilded.wcf.character
+ * @subpackage	system.character
+ * @category 	Guilded
+ */
 class CharacterHandler extends SingletonFactory {
 	/**
 	 * list of character objects
@@ -13,6 +23,8 @@ class CharacterHandler extends SingletonFactory {
 
 	/**
 	 * Returns list of user characters.
+	 *
+	 * @return 	array<\wcf\data\character\Character>
 	 */
 	public function getCharacters($gameID = 0) {
 		if($this->characterList === null) {
@@ -30,10 +42,12 @@ class CharacterHandler extends SingletonFactory {
 	
 	/**
 	 * Returns primary character.
+	 *
+	 * @return 	wcf\data\character\Character
 	 */
-	public function getPrimaryCharacter() {
+	public function getPrimaryCharacter($gameID = DEFAULT_GAME_ID) {
 		foreach ($this->getCharacters() as $character) {
-			if ($character->isPrimary) {
+			if ($character->isPrimary && $character->gameID == $gameID) {
 				return $character;
 			}
 		}

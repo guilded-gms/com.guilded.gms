@@ -5,7 +5,7 @@ use wcf\data\game\Game;
 use wcf\system\request\IRouteController;
 use wcf\system\WCF;
 
-class Character extends DatabaseObject implements IRouteController{
+class Character extends DatabaseObject implements IRouteController {
 	/**
 	 * @see	wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -63,6 +63,8 @@ class Character extends DatabaseObject implements IRouteController{
 	
 	/**
 	 * Returns game object.
+	 *
+	 * @return	wcf\data\game\Game
 	 */
 	public function getGame() {
 		if($this->gameObject === null) {

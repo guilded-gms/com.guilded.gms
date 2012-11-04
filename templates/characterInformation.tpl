@@ -1,1 +1,1 @@
-{* TODO: color, comma separated *}<h2 style="color: #000;">{@$object->level} / {@$object->getPrimaryRace()} / {@$object->getPrimaryClass()}</h2><h2>{if $object->getGuild()}{$object->getGuild()->guildName} / {$object->getGuild()->getRealm()}{else}{lang}wcf.character.noGuild{/lang}{/if}</h2>
+<ul class="dataList">	<li>{@$object->level}</li>	<li>{@$object->getPrimaryRace()}</li>	<li>{@$object->getPrimaryClass()}</li></ul>{if $object->getGuild()}	<ul class="dataList">		<li>{$object->getGuild()->guildName}</li>		<li>{$object->getGuild()->getRealm()}</li>	</ul>{/if}

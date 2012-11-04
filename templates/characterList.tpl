@@ -16,6 +16,8 @@
 	</hgroup>
 </header>
 
+{* \todo "add character" - button *}
+
 <div class="contentNavigation">
 	{pages print=true assign=pagesLinks controller='CharacterList' link="pageNo=%d&sortField=$sortField&sortOrder=$sortOrder"}
 </div>

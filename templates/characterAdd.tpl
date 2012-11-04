@@ -4,10 +4,12 @@
 	<title>{lang}wcf.character.{@$action}{/lang} - {lang}wcf.user.menu.settings{/lang} - {PAGE_TITLE|language}</title>
 	{include file='headInclude'}
 	
+	<script type="text/javascript" src="{@$__wcf->getPath()}js/WCF.Game.js"></script>
 	<script type="text/javascript">
 	//<![CDATA[
 	$(function() {
-		var $availableGames = { {implode from=$availableGames key=gameID item=title}{@$gameID}: '{$title}'{/implode} };
+		/* var $availableGames = { {implode from=$availableGames key=gameID item=title}{@$gameID}: '{$title}'{/implode} }; */
+		var $availableGames = { 1:'World of Warcraft', 2:'Guild Wars 2' };
 		var $optionValues = { };
 		new WCF.GameSelectInput('characterName', $optionValues, $availableGames);
 	});
@@ -57,7 +59,7 @@
 				</dd>
 			</dl>
 			
-			{event name='dataFields'}
+			{event name='fields'}
 		</fieldset>
 		
 		{event name='fieldsets'}

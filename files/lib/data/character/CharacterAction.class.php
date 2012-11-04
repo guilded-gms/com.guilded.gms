@@ -4,6 +4,7 @@ use wcf\data\AbstractDatabaseObjectAction;
 use wcf\system\database\util\PreparedStatementConditionBuilder;
 use wcf\system\exception\PermissionDeniedException;
 use wcf\system\exception\ValidateActionException;
+use wcf\system\option\character\CharacterOptionHandler;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
 
@@ -57,23 +58,6 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 			$excludedSearchValues = $this->parameters['data']['excludedSearchValues'];
 		}
 		$list = array();
-	
-		if ($this->parameters['data']['includeCharacterGroups']) {
-			$accessibleGroups = CharacterGroup::getAccessibleGroups();
-			foreach ($accessibleGroups as $group) {
-				$groupName = $group->getName();
-				if (!in_array($groupName, $excludedSearchValues)) {
-					$pos = StringUtil::indexOfIgnoreCase($groupName, $searchString);
-					if ($pos !== false && $pos == 0) {
-						$list[] = array(
-							'label' => $groupName,
-							'objectID' => $group->groupID,
-							'type' => 'group'
-						);
-					}
-				}
-			}
-		}
 		
 		$conditionBuilder = new PreparedStatementConditionBuilder();
 		$conditionBuilder->add("name LIKE ?", array($searchString.'%'));
@@ -96,5 +80,45 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 		}
 	
 		return $list;
+	}
+	
+	/**
+	 * Validates execution of setting character as primary.
+	 */
+	public function validateSetPrimary() {
+		parent::validateUpdate();
+	}
+	
+	/**
+	 * Sets character as primary character.
+	 */
+	public function setPrimary() {
+		// \todo
+		//update all characters for games to isPrimary = 0
+		//update this character
+	}
+
+
+	public function validateGetOptions() {	}
+
+	/**
+ 	 * Gets all options for character.
+ 	 */
+	public function getOptions() {
+		$returnValues = array(
+			'template' => ''
+		);
+
+		//build options
+		$optionHandler = new CharacterOptionHandler($this->cacheName, $this->cacheClass, false, '', '', false);
+		$options = $optionHandler->getOptionTree();
+
+		// parse template
+		WCF::getTPL()->assign(array(
+			'options' => $options
+		));
+		$returnValues['template'] = WCF::getTPL()->fetch('characterOptions');
+
+		return $returnValues;
 	}
 }

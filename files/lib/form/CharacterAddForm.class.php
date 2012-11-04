@@ -6,6 +6,7 @@ use wcf\data\character\CharacterAction;
 use wcf\data\character\CharacterEditor;
 use wcf\system\exception\SystemException;
 use wcf\system\exception\UserInputException;
+use wcf\system\language\I18nHandler;
 use wcf\system\WCF;
 use wcf\util\ClassUtil;
 use wcf\util\StringUtil;
@@ -130,7 +131,7 @@ class CharacterAddForm extends AbstractOptionListForm {
 		parent::readData();
 		
 		$this->optionTree = $this->optionHandler->getOptionTree();
-		if (!count($_POST)) {
+		if (!count($_POST) && count($this->optionTree)) {
 			$this->activeTabMenuItem = $this->optionTree[0]['object']->categoryName;
 		}
 	}
@@ -148,7 +149,8 @@ class CharacterAddForm extends AbstractOptionListForm {
 			'optionTree' => $this->optionTree,
 			'action' => 'add',
 			'activeTabMenuItem' => $this->activeTabMenuItem,
-			'activeMenuItem' => $this->activeMenuItem
+			'activeMenuItem' => $this->activeMenuItem,
+			'availableGames' => WCF::getGameHandler()->getGames()
 		));
 	}
 	

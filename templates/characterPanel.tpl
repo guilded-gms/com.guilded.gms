@@ -1,7 +1,7 @@
 {if $__wcf->user->userID}
 	<!-- character menu -->
 	<li id="characterMenu" class="dropdown">
-		<a class="dropdownToggle" data-toggle="characterMenu">{if $__wcf->getCharacterHandler()->getPrimaryCharacter()}{$__wcf->getCharacterHandler()->getPrimaryCharacter()->characterName}{else}{lang}wcf.character.noPrimary{/lang}{/if}</a>
+		<a class="dropdownToggle framed" data-toggle="characterMenu">{if $__wcf->getCharacterHandler()->getPrimaryCharacter()}<img alt="Game-Icon" style="width: 24px; height: 24px" src="{$__wcf->getPath()}/images/avatars/avatar-default.svg"> {$__wcf->getCharacterHandler()->getPrimaryCharacter()->characterName}{else}<img alt="" style="width: 24px; height: 24px" src="{$__wcf->getPath()}/images/avatars/avatar-default.svg"> {lang}wcf.character.noPrimary{/lang}{/if}</a>
 		<ul class="dropdownMenu">
 			{foreach from=$__wcf->getCharacterHandler()->getCharacters() item=$character}
 				<li>
