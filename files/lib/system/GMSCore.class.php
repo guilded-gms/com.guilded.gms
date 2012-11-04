@@ -11,9 +11,9 @@ class GMSCore extends AbstractApplication {
 	protected $packageID = 0;
 	
 	/**
-	 * @see AbstractApplication::__construct()
+	 * @see SingletonFactory::init()
 	 */
-	public function __construct() {
+	public function init() {
 		$this->packageID = PackageDependencyHandler::getInstance()->getPackageID('com.guilded.gms');
 		
 		$this->initTPL();
