@@ -42,7 +42,7 @@
 				<div>
 					<hgroup class="containerHeadline">
 						<h1><a href="{link controller='UsersOnlineList'}{/link}">{lang}wcf.user.usersOnline{/lang}</a> <span class="badge">{#$usersOnlineList->stats[total]}</span></h1>
-						<h2>{lang}wcf.user.usersOnline.detail{/lang} {lang}wiki.index.usersOnline.record{/lang}</h2>
+						<h2>{lang}wcf.user.usersOnline.detail{/lang} {lang}gms.index.usersOnline.record{/lang}</h2>
 					</hgroup>
 					<ul class="dataList">
 						{foreach from=$usersOnlineList->getObjects() item=userOnline}
@@ -65,8 +65,8 @@
 				<img src="{icon}chartVertical{/icon}" alt="" class="icon24" />
 				<div>
 					<hgroup class="containerHeadline">
-						<h1>{lang}wiki.global.statistics{/lang}</h1>
-						<h2>{lang}wiki.global.statistics.description{/lang}</h2>
+						<h1>{lang}gms.global.statistics{/lang}</h1>
+						<h2>{lang}gms.global.statistics.description{/lang}</h2>
 					</hgroup>
 				</div>
 			</li>

@@ -2,6 +2,7 @@
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/option.xsd">
 	<import>	
 		<categories>
+			<!-- guilded -->
 			<category name="guilded"></category>
 			<category name="guilded.index">
 				<parent>guilded</parent>
@@ -9,9 +10,23 @@
 			<category name="guilded.index.general">
 				<parent>guilded.index</parent>
 			</category>
+			<!-- /guilded -->
 		</categories>
 		
 		<options>
+			<!-- module -->
+			<option name="module_calendar">
+				<categoryname>"module.system</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>	
+			<option name="module_dkp">
+				<categoryname>"module.system</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>	
+			<!-- /module -->			
+		
 			<!-- general -->
 			<option name="install_date">
 				<categoryname>general</categoryname>

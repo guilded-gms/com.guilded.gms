@@ -35,6 +35,8 @@
 		<!-- guilded -->
 		<requiredpackage file="required/com.guilded.wcf.game.tar.gz">com.guilded.wcf.game</requiredpackage>
 		<requiredpackage file="required/com.guilded.wcf.character.tar.gz">com.guilded.wcf.character</requiredpackage>
+		<requiredpackage file="required/com.guilded.wcf.event.tar.gz">com.guilded.wcf.event</requiredpackage>
+		<requiredpackage file="required/com.guilded.wcf.credit.tar.gz">com.guilded.wcf.credit</requiredpackage>
 	</requiredpackages>
 	
 	<instructions type="install">
@@ -44,9 +46,10 @@
 		<instruction type="sql">install.sql</instruction>
 		
 		<instruction type="option">option.xml</instruction>
-		<instruction type="pageMenu">pagemenu.xml</instruction>
+		<instruction type="pageMenu">pageMenu.xml</instruction>
 		<instruction type="objectType">objectType.xml</instruction>
 		<instruction type="dashboardBox">dashboardBox.xml</instruction>
+		<instruction type="templateListener">templateListener.xml</instruction>
 		
 		<instruction type="language">language/*.xml</instruction>
 	</instructions>

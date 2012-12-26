@@ -2,5 +2,11 @@
 <language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de">
 	<category name="gms.header.menu">
 		<item name="gms.header.menu.index"><![CDATA[Startseite]]></item>
+		<item name="gms.header.menu.calendar"><![CDATA[Kalender]]></item>
+		<item name="gms.header.menu.dkp"><![CDATA[Punktestand]]></item>
 	</category>
+
+	<category name="gms.calendar">
+		<item name="gms.calendar.events"><![CDATA[Ereignisse]]></item>
+	</category>	
 </language>

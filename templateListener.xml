@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/templateListener.xsd">
+	<import>		
+		<!-- user -->
+		<templatelistener name="guildedCopyright">
+			<environment>user</environment>
+			<templatename>footer</templatename>
+			<eventname>copyright</eventname>
+			<templatecode><![CDATA[<address class="copyright marginTop"><a href="http://guilded.eu" title="">Software: <strong>Guilded {@PACKAGE_VERSION}</strong>, entwickelt vom <strong>Guilded Team</strong></a></address>]]></templatecode>
+		</templatelistener>
+		<!-- /user -->
+	</import>
+</data>

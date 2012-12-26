@@ -4,6 +4,7 @@ use wcf\page\AbstractPage;
 use wcf\data\user\online\UsersOnlineList;
 use wcf\data\option\OptionAction;
 use wcf\system\dashboard\DashboardHandler;
+use wcf\system\WCF;
 use wcf\util\FileUtil;
 use wcf\util\HeaderUtil;
 

@@ -8,25 +8,12 @@ use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
 
 class GMSCore extends AbstractApplication {
-	protected $packageID = 0;
-	
 	/**
-	 * @see SingletonFactory::init()
+	 * @see IApplication::__run()
 	 */
-	public function init() {
-		$this->packageID = PackageDependencyHandler::getInstance()->getPackageID('com.guilded.gms');
-		
-		$this->initTPL();
+	public function __run() {
 		PageMenu::getInstance()->setActiveMenuItem('gms.header.menu.index');
 		
 		WCF::getBreadcrumbs()->add(new Breadcrumb(WCF::getLanguage()->get('gms.header.menu.index'), LinkHandler::getInstance()->getLink('Index', array('application' => 'gms'))));
-	}
-	
-	/**
-	 * Initializes templates
-	 */
-	protected function initTPL() {
-		self::getTPL()->addTemplatePath($this->packageID, GMS_DIR.'templates/');
-		self::getTPL()->assign('__gms', $this);
 	}
 }

@@ -5,5 +5,13 @@
 			<link>index.php/Index</link>
 			<position>header</position>
 		</pagemenuitem>
+		<pagemenuitem name="gms.header.menu.calendar">
+			<link>index.php/EventListPage/</link>
+			<position>header</position>
+		</pagemenuitem>		
+		<pagemenuitem name="gms.header.menu.dkp">
+			<link>index.php/EventCreditListPage/</link>
+			<position>header</position>
+		</pagemenuitem>
 	</import>
 </data>
