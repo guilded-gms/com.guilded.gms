@@ -36,13 +36,8 @@ class CharacterProfileAction extends CharacterAction {
 	public function getCharacterProfile() {
 		$characterID = reset($this->objectIDs);
 		
-		$characterProfileList = new CharacterProfileList();
-		$characterProfileList->getConditionBuilder()->add("character_table.characterID = ?", array($characterID));
-		$characterProfileList->readObjects();
-		$characterProfiles = $characterProfileList->getObjects();
-		
 		WCF::getTPL()->assign(array(
-			'character' => reset($characterProfiles)
+			'character' => CharacterProfile::getCharacterProfile($characterID)
 		));
 		
 		return array(

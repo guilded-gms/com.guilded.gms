@@ -50,8 +50,8 @@ class CharacterManagementPage extends AbstractPage {
 	}
 
     /**
-     * @see wcf\page\IPage::show()
-     */
+	 * @see wcf\page\IPage::show()
+	 */
     public function show() {
         if (!WCF::getUser()->userID) {
 			throw new PermissionDeniedException();

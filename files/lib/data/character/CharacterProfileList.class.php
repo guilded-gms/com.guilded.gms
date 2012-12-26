@@ -8,7 +8,7 @@ class CharacterProfileList extends CharacterList {
 	/**
 	 * @see	wcf\data\DatabaseObjectList::$sqlOrderBy
 	 */
-	public $sqlOrderBy = 'character_table.characterName';
+	public $sqlOrderBy = 'character_table.name';
 	
 	/**
 	 * decorator class name

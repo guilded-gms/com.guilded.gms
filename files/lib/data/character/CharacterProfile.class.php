@@ -1,20 +1,28 @@
 <?php
 namespace wcf\data\character;
 use wcf\data\DatabaseObjectDecorator;
-use wcf\system\database\util\PreparedStatementConditionBuilder;
+use wcf\system\breadcrumb\Breadcrumb;
+use wcf\system\breadcrumb\IBreadcrumbProvider;
+use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
 
 /**
  * Decorates the character object and provides functions to retrieve data for character profiles.
  *
- * @author		Jeffrey Reichardt
- * @copyright	2012 Guilded.eu
- * @license		CC by-nc-sa
- * @package	com.guilded.wcf.character
+ * @author	Jeffrey Reichardt
+ * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @license	CreativeCommons by-nc-sa <http://creativecommons.org/licenses/by-nc-sa/3.0/deed.de>
+ * @package	com.woltlab.wcf.character
  * @subpackage	data.character
- * @category 	Community Framework
+ * @category	Guilded 2.0
  */
-class CharacterProfile extends DatabaseObjectDecorator {
+class CharacterProfile extends DatabaseObjectDecorator implements IBreadcrumbProvider {
+	/**
+	 * Gender of character
+	 */
+	const GENDER_MALE = 1;
+	const GENDER_FEMALE = 2;
+
 	/**
 	 * @see wcf\data\DatabaseObjectDecorator::$baseClass
 	 */
@@ -25,9 +33,6 @@ class CharacterProfile extends DatabaseObjectDecorator {
 	 * @var	array<wcf\data\character\CharacterProfile>
 	 */
 	protected static $characterProfiles = array();
-	
-	const GENDER_MALE = 1;
-	const GENDER_FEMALE = 2;
 	
 	/**
 	 * Returns a new CharacterProfile object by given id
@@ -44,7 +49,7 @@ class CharacterProfile extends DatabaseObjectDecorator {
 	/**
 	 * Returns a list of character profiles.
 	 * 
-	 * @param	array				$userIDs
+	 * @param	array	$userIDs
 	 * @return	array<wcf\data\character\UserProfile>
 	 */
 	public static function getCharacterProfiles(array $characterIDs) {
@@ -70,5 +75,14 @@ class CharacterProfile extends DatabaseObjectDecorator {
 		}
 		
 		return $characters;
+	}	
+	
+	/**
+	 * @see	wcf\system\breadcrumb\IBreadcrumbProvider::getBreadcrumb()
+	 */
+	public function getBreadcrumb() {
+		return new Breadcrumb($this->name, LinkHandler::getInstance()->getLink('Character', array(
+			'object' => $this
+		)));
 	}	
 }

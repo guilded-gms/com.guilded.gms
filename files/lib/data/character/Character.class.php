@@ -2,10 +2,11 @@
 namespace wcf\data\character;
 use wcf\data\DatabaseObject;
 use wcf\data\game\Game;
+use wcf\system\api\rest\response\IRESTfulResponse;
 use wcf\system\request\IRouteController;
 use wcf\system\WCF;
 
-class Character extends DatabaseObject implements IRouteController {
+class Character extends DatabaseObject implements IRouteController, IRESTfulResponse {
 	/**
 	 * @see	wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -40,7 +41,7 @@ class Character extends DatabaseObject implements IRouteController {
 	 * @see	wcf\system\request\IRouteController::getTitle()
 	 */
 	public function getTitle() {
-		return $this->characterName;
+		return $this->name;
 	}
 	
 	/**
@@ -72,5 +73,12 @@ class Character extends DatabaseObject implements IRouteController {
 		}
 		
 		return $this->gameObject;
+	}
+	
+	/**
+	 * @see	IRESTfulResponse::getResponseFields()
+	 */
+	public function getResponseFields() {
+		return array_keys($this->data);
 	}
 }

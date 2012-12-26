@@ -1,9 +1,57 @@
+-- character profile menu
+DROP TABLE IF EXISTS wcf1_character_profile_menu_item;
+CREATE TABLE wcf1_character_profile_menu_item (
+	menuItemID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	packageID			INT(10) NOT NULL,
+	menuItem 			VARCHAR(255) NOT NULL,
+	showOrder 			INT(10) NOT NULL DEFAULT 0,
+	permissions 		TEXT NULL,
+	options 			TEXT NULL,
+	className 			VARCHAR(255) NOT NULL,
+	UNIQUE KEY (packageID, menuItem)
+);
+
+-- guild profile menu
+DROP TABLE IF EXISTS wcf1_guild_profile_menu_item;
+CREATE TABLE wcf1_guild_profile_menu_item (
+	menuItemID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	packageID 			INT(10) NOT NULL,
+	menuItem 			VARCHAR(255) NOT NULL,
+	showOrder 			INT(10) NOT NULL DEFAULT 0,
+	permissions 		TEXT NULL,
+	options 			TEXT NULL,
+	className 			VARCHAR(255) NOT NULL,
+	UNIQUE KEY (packageID, menuItem)
+);
+
+-- alliance
+DROP TABLE IF EXISTS wcf1_alliance;
+CREATE TABLE wcf1_alliance (
+	allianceID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	gameID				INT(10) NOT NULL,
+	name				VARCHAR(255) NOT NULL		
+);
+
+DROP TABLE IF EXISTS wcf1_alliance_to_guild;
+CREATE TABLE wcf1_alliance_to_guild(
+	allianceID			INT(10) NOT NULL,
+	guildID				INT(10) NOT NULL,
+	UNIQUE KEY(allianceID, guildID)
+);
+
+DROP TABLE IF EXISTS wcf1_alliance_to_character;
+CREATE TABLE wcf1_alliance_to_character(
+	allianceID			INT(10) NOT NULL,
+	characterID			INT(10) NOT NULL,
+	UNIQUE KEY(allianceID, characterID)
+);
+
 -- guild
 DROP TABLE IF EXISTS wcf1_guild;
 CREATE TABLE wcf1_guild (
 	guildID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	gameID			INT(10) NOT NULL,
-	guildName 		VARCHAR(255) NOT NULL,
+	name	 		VARCHAR(255) NOT NULL,
 	server 			VARCHAR(255),
 	image 			VARCHAR(255)
 );
@@ -50,7 +98,7 @@ CREATE TABLE wcf1_character (
 	gameID			INT(10) NOT NULL,
 	userID	 		INT(10) NOT NULL, --owner
 	guildID			INT(10) DEFAULT NULL,
-	characterName 	VARCHAR(255) NOT NULL,
+	name		 	VARCHAR(255) NOT NULL,
 	isPrimary		TINYINT(1) DEFAULT 0
 );
 
@@ -89,6 +137,22 @@ CREATE TABLE wcf1_character_option_value  (
 	UNIQUE KEY characterID (characterID, optionID)
 );
 
+-- character groups (e.g. raid group, battle groups, ..)
+DROP TABLE IF EXISTS wcf1_character_group;
+CREATE TABLE wcf1_character_group (
+	groupID				INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	guildID				INT(10) DEFAULT NULL,
+	name				VARCHAR(255) NOT NULL
+);
+
+DROP TABLE IF EXISTS wcf1_character_group_to_character;
+CREATE TABLE wcf1_character_group_to_character(
+	groupID				INT(10) NOT NULL,
+	characterID			INT(10) NOT NULL,
+	UNIQUE KEY(groupID, characterID)
+);
+
+-- recruitment
 DROP TABLE IF EXISTS wcf1_guild_recruitment_tender;
 CREATE TABLE wcf1_guild_recruitment_tender(
     tenderID    INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

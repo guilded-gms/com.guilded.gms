@@ -2,7 +2,10 @@
 namespace wcf\data\guild;
 use wcf\data\DatabaseObjectDecorator;
 use wcf\data\guild\GuildProfileList;
+use wcf\system\breadcrumb\Breadcrumb;
+use wcf\system\breadcrumb\IBreadcrumbProvider;
 use wcf\system\database\util\PreparedStatementConditionBuilder;
+use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
 
 /**
@@ -15,7 +18,7 @@ use wcf\system\WCF;
  * @subpackage	data.guild
  * @category 	Community Framework
  */
-class GuildProfile extends DatabaseObjectDecorator {
+class GuildProfile extends DatabaseObjectDecorator implements IBreadcrumbProvider {
 	/**
 	 * @see wcf\data\DatabaseObjectDecorator::$baseClass
 	 */
@@ -31,14 +34,14 @@ class GuildProfile extends DatabaseObjectDecorator {
 	 * Returns image tag in given size.
 	 */
 	public function getImageTag($size = 0) {
-		return '<img src="'.StringUtil::encodeHTML($this->image).'" alt=""'.($size > 0 ? ' style="max-width:'.$size.'px;max-height:'.$size.'px;"':'').' />';
+		return '<img src="'.StringUtil::encodeHTML($this->image).'" alt="'.($size > 0 ? ' style="max-width:'.$size.'px;max-height:'.$size.'px;"':'').' title="'.$this->getTitle().'" />';
 	}
 
 	/**
-     * Returns guild object by given guildID.
-     *
-     * @return wcf\data\guild\GuildProfile
-     */
+	 * Returns guild object by given guildID.
+	 *
+	 * @return wcf\data\guild\GuildProfile
+	 */
     public static function getGuildProfile($guildID) {
         $guilds = self::getGuildProfiles(array($guildID));
 
@@ -48,7 +51,7 @@ class GuildProfile extends DatabaseObjectDecorator {
 	/**
 	 * Returns a list of guild profiles.
 	 *
-	 * @param	array				$guildIDs
+	 * @param	array	$guildIDs
 	 * @return	array<wcf\data\guild\GuildProfile>
 	 */
 	public static function getGuildProfiles(array $guildIDs) {
@@ -75,4 +78,13 @@ class GuildProfile extends DatabaseObjectDecorator {
 
 		return $guilds;
 	}
+	
+	/**
+	 * @see	wcf\system\breadcrumb\IBreadcrumbProvider::getBreadcrumb()
+	 */
+	public function getBreadcrumb() {
+		return new Breadcrumb($this->name, LinkHandler::getInstance()->getLink('Guild', array(
+			'object' => $this
+		)));
+	}	
 }

@@ -13,8 +13,12 @@ use wcf\system\WCF;
  * @package     com.guilded.wcf.character
  * @subpackage	page
  */
-
-class CharacterPage extends AbstractPage {
+class CharacterPage extends AbstractPage {	
+	/**
+	 * @see	wcf\page\AbstractPage::$neededPermissions
+	 */
+	public $neededPermissions = array(); // todo add permission for profile
+	
 	/**
 	 * Character id
 	 * @var integer
@@ -26,6 +30,12 @@ class CharacterPage extends AbstractPage {
 	 * @var wcf\data\character\CharacterProfile
 	 */
 	public $character = null;
+	
+	/**
+	 * profile content for active menu item
+	 * @var	string
+	 */
+	public $profileContent = '';	
 
 	/**
 	 * @see wcf\page\IPage::readParameters()
@@ -48,6 +58,11 @@ class CharacterPage extends AbstractPage {
 
         // add breadcrumbs
 		WCF::getBreadcrumbs()->add(new Breadcrumb(WCF::getLanguage()->get('wcf.character.characters'), LinkHandler::getInstance()->getLink('CharacterList')));
+		
+		// get profile content
+		$activeMenuItem = CharacterProfileMenu::getInstance()->getActiveMenuItem();
+		$contentManager = $activeMenuItem->getContentManager();
+		$this->profileContent = $contentManager->getContent($this->user->userID);		
     }
 
 	/**
@@ -58,7 +73,8 @@ class CharacterPage extends AbstractPage {
 
 		WCF::getTPL()->assign(array(
 			'characterID' => $this->characterID,
-            'character' => $this->character
+            'character' => $this->character,
+			'profileContent' => $this->profileContent
 		));
-	}
+	}	
 }

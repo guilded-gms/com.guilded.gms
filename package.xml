@@ -15,8 +15,9 @@
 	
 	<requiredpackages>
 		<requiredpackage minversion="2.0.0 Alpha 1">com.woltlab.wcf</requiredpackage>
-		<requiredpackage minversion="1.0.0 Alpha 1">com.guilded.wcf.game</requiredpackage>
+		<requiredpackage minversion="1.0.0 Alpha 1">com.guilded.wcf.user</requiredpackage>
 		<requiredpackage minversion="1.0.0 Alpha 1">com.woltlab.wcf.bbcode</requiredpackage>
+		<requiredpackage minversion="1.0.0 Alpha 1">com.guilded.wcf.game</requiredpackage>
 	</requiredpackages>
 	
 	<instructions type="install">
@@ -24,12 +25,15 @@
 		<instruction type="template">templates.tar</instruction>
 		<instruction type="sql">install.sql</instruction>
 		
+		<instruction type="packageInstallationPlugin">packageInstallationPlugin.xml</instruction>
 		<instruction type="templateListener">templateListener.xml</instruction>
 		<instruction type="coreObject">coreObject.xml</instruction>
         <instruction type="userMenu">userMenu.xml</instruction>
         <instruction type="acpMenu">acpMenu.xml</instruction>
 		<instruction type="userGroupOption">userGroupOption.xml</instruction>
 		<instruction type="bbcode">bbcode.xml</instruction>
+		<instruction type="characterProfileMenu">characterProfileMenu.xml</instruction>
+		<instruction type="guildProfileMenu">guildProfileMenu.xml</instruction>
 
 		<!--<instruction type="option">option.xml</instruction>-->
 		<instruction type="language">language/*.xml</instruction>
