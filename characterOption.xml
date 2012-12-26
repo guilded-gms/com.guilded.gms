@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data xmlns="http://www.guilded.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.guilded.eu http://www.guilded.eu/XSD/characterOption.xsd">
+	<import>
+		<categories>
+			<category name="profile">
+				<showorder>1</showorder>
+			</category>
+			
+			<!-- profile -->
+			<category name="profile.system">
+				<parent>profile</parent>
+			</category>
+			<category name="profile.details">
+				<parent>profile</parent>
+			</category>
+			<!-- /profile -->
+		</categories>
+
+		<options>
+			<!-- system -->
+			<option name="classes">
+				<categoryname>profile.system</categoryname>
+				<optiontype>gameclassesselect</optiontype>
+				<outputclass>wcf\system\option\character\SelectOptionsCharacterOptionOutput</outputclass>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="races">
+				<categoryname>profile.system</categoryname>
+				<optiontype>gameracesselect</optiontype>
+				<outputclass>wcf\system\option\character\SelectOptionsCharacterOptionOutput</outputclass>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="guild">
+				<categoryname>profile.system</categoryname>
+				<optiontype>guildselect</optiontype>
+				<outputclass>wcf\system\option\character\SelectOptionsCharacterOptionOutput</outputclass>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<!-- /system -->
+		
+			<!-- details -->
+			<option name="about">
+				<categoryname>profile.details</categoryname>
+				<optiontype>message</optiontype>
+				<outputclass>wcf\system\option\character\MessageCharacterOptionOutput</outputclass>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="gender">
+				<categoryname>profile.details</categoryname>
+				<optiontype>radioButton</optiontype>
+				<outputclass>wcf\system\option\character\SelectOptionsCharacterOptionOutput</outputclass>
+				<selectoptions><![CDATA[0:wcf.global.noDeclaration
+1:wcf.character.gender.male
+2:wcf.character.gender.female]]>
+				</selectoptions>
+				<defaultvalue>0</defaultvalue>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<!-- /details -->
+		</options>
+	</import>
+</data>

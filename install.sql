@@ -51,9 +51,7 @@ DROP TABLE IF EXISTS wcf1_guild;
 CREATE TABLE wcf1_guild (
 	guildID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	gameID			INT(10) NOT NULL,
-	name	 		VARCHAR(255) NOT NULL,
-	server 			VARCHAR(255),
-	image 			VARCHAR(255)
+	name	 		VARCHAR(255) NOT NULL
 );
 
 DROP TABLE IF EXISTS wcf1_guild_option;
@@ -97,7 +95,6 @@ CREATE TABLE wcf1_character (
 	characterID		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	gameID			INT(10) NOT NULL,
 	userID	 		INT(10) NOT NULL, --owner
-	guildID			INT(10) DEFAULT NULL,
 	name		 	VARCHAR(255) NOT NULL,
 	isPrimary		TINYINT(1) DEFAULT 0
 );

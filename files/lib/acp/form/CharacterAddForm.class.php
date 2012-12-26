@@ -1,27 +1,27 @@
 <?php
 namespace wcf\acp\form;
-use wcf\data\guild\GuildAction;
+use wcf\data\character\CharacterAction;
 
 /**
- * Shows guild add form.
+ * Shows character add form.
  *
  * @author 		Jeffrey Reichardt
  * @copyright	2012-2013 DevLabor Unternehmergesellschaft (haftungsbeschränkt)
  * @license		Creative Commons <BY-NC-SA> (http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode)
- * @package     com.guilded.wcf.character
+ * @package     com.charactered.wcf.character
  * @subpackage	acp.form
- * @category 	Guilded
+ * @category 	Charactered
  */
-class GuildAddForm extends GuildOptionListForm {
+class CharacterAddForm extends CharacterOptionListForm {
 /**
 	 * @see wcf\acp\form\ACPForm::$activeMenuItem
 	 */
-	public $activeMenuItem = 'wcf.acp.menu.link.guild.add';
+	public $activeMenuItem = 'wcf.acp.menu.link.character.add';
 	
 	/**
 	 * @see wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('admin.guild.canAddGuild');
+	public $neededPermissions = array('admin.character.canAddCharacter');
 	
 	public $name = '';
 	public $gameID = 0;	
@@ -60,9 +60,9 @@ class GuildAddForm extends GuildOptionListForm {
 	public function save() {
 		parent::save();
 		
-		// save guild
+		// save character
 		$saveOptions = $this->optionHandler->save();
-		$this->objectAction = new GuildAction(array(), 'create', array(
+		$this->objectAction = new CharacterAction(array(), 'create', array(
 			'data' => array_merge($this->additionalFields, array(
 				'name' => $this->name,
 				'gameID' => $this->gameID
