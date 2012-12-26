@@ -3,53 +3,59 @@
 <head>
 	<title>{lang}wcf.character.profile{/lang} - {lang}wcf.character.characters{/lang} - {PAGE_TITLE|language}</title>
 	{include file='headInclude'}
+
+	{event name='javascriptInclude'}
+	<script type="text/javascript">
+		//<![CDATA[
+		$(function() {		
+			new WCF.Character.Profile.TabMenu({@$character->characterID});
+			
+			WCF.TabMenu.init();
+						
+			{event name='javascriptInit'}
+		});
+		//]]>
+	</script>	
 </head>
 
 <body{if $templateName|isset} id="tpl{$templateName|ucfirst}"{/if}>
 
+<body{if $templateName|isset} id="tpl{$templateName|ucfirst}"{/if}>
+
 {capture assign='sidebar'}
-    <nav id="sidebarContent" class="sidebarContent">
-        <ul>
-            <li class="sidebarContainer">
-                <dl class="statsDataList">
-                    {event name='statistics'}
-                </dl>
-            </li>
-        </ul>
-    </nav>
+	{include file='characterSidebar'}
 {/capture}
 
 {include file='header' sidebarOrientation='left'}
 
 <header class="boxHeadline userHeadline">
 	<hgroup>
-		<h1>{$character->characterName}</h1>
-		<h2>
-            <ul class="dataList">
-                <li>Spiel: World of Warcraft: Mists of Pandaria</li>
-                <li>Gilde: Paradoxum</li>
-            </ul>
-        </h2>
+		<h1>{@$character->getTitle()}</h1>
 	</hgroup>
-
-	<ul id="profileButtonContainer" class="buttonList">
+	
+	<ul class="dataList">
+		<li>{$character->characterID}</li>
 	</ul>
 </header>
 
-<section id="profileContent" class="marginTop tabMenuContainer">
+{include file='userNotice'}
+
+<section id="profileContent" class="marginTop tabMenuContainer" data-active="{$__wcf->getCharacterProfileMenu()->getActiveMenuItem()->getIdentifier()}">
 	<nav class="tabMenu">
 		<ul>
-            <li><a>&Uuml;ber Kivah</a></li>
-            <li><a>Ausrüstung</a></li>
-            <li><a>Historie</a></li>
-            <li><a>Ereignisse</a></li>
+			{foreach from=$__wcf->getCharacterProfileMenu()->getMenuItems() item=menuItem}
+				<li><a href="{$__wcf->getAnchor($menuItem->getIdentifier())}" title="{lang}{@$menuItem->menuItem}{/lang}">{lang}wcf.character.profile.menu.{@$menuItem->menuItem}{/lang}</a></li>
+			{/foreach}
 		</ul>
 	</nav>
-    
-    <div class="container tabMenuContent shadow">
-        ...list options...<br/>
-        ...news...
-    </div>
+	
+	{foreach from=$__wcf->getCharacterProfileMenu()->getMenuItems() item=menuItem}
+		<div id="{$menuItem->getIdentifier()}" class="container tabMenuContent" data-menu-item="{$menuItem->menuItem}">
+			{if $menuItem === $__wcf->getCharacterProfileMenu()->getActiveMenuItem()}
+				{@$profileContent}
+			{/if}
+		</div>
+	{/foreach}
 </section>
 
 {include file='footer'}

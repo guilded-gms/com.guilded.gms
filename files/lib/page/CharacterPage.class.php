@@ -62,7 +62,7 @@ class CharacterPage extends AbstractPage {
 		// get profile content
 		$activeMenuItem = CharacterProfileMenu::getInstance()->getActiveMenuItem();
 		$contentManager = $activeMenuItem->getContentManager();
-		$this->profileContent = $contentManager->getContent($this->user->userID);		
+		$this->profileContent = $contentManager->getContent($this->character->characterID);		
     }
 
 	/**

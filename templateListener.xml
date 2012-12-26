@@ -8,11 +8,17 @@
 			<templatecode><![CDATA[{include file='characterPanel'}]]></templatecode>
 		</templatelistener>
 		
-		<templatelistener name="javascriptInclude">
+		<templatelistener name="characterJavascriptInclude">
 			<environment>user</environment>
 			<templatename>headInclude</templatename>
 			<eventname>javascriptInclude</eventname>
 			<templatecode><![CDATA[<script type="text/javascript" src="{@$__wcf->getPath('wcf')}js/WCF.Character.js"></script>]]></templatecode>
+		</templatelistener>
+		<templatelistener name="guildJavascriptInclude">
+			<environment>user</environment>
+			<templatename>headInclude</templatename>
+			<eventname>javascriptInclude</eventname>
+			<templatecode><![CDATA[<script type="text/javascript" src="{@$__wcf->getPath('wcf')}js/WCF.Guild.js"></script>]]></templatecode>
 		</templatelistener>
 	</import>
 </data>

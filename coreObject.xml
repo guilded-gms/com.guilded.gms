@@ -4,5 +4,11 @@
 		<coreobject>
 			<objectname><![CDATA[wcf\system\character\CharacterHandler]]></objectname>
 		</coreobject>
+		<coreobject>
+			<objectname><![CDATA[wcf\system\menu\character\profile\CharacterProfileMenu]]></objectname>
+		</coreobject>
+		<coreobject>
+			<objectname><![CDATA[wcf\system\menu\guild\profile\GuildProfileMenu]]></objectname>
+		</coreobject>
 	</import>
 </data>
