@@ -89,6 +89,16 @@ CREATE TABLE wcf1_guild_option_value  (
 	UNIQUE KEY guildID (guildID, optionID)
 );
 
+-- guild activity
+DROP TABLE IF EXISTS wcf1_guild_activity;
+CREATE TABLE wcf1_guild_activity (
+	activityID		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	guildID INT(10) NOT NULL,	
+	time			INT(10) NOT NULL,
+	activityName	VARCHAR(255) NOT NULL,
+	additionalData	MEDIUMTEXT
+);
+
 -- character
 DROP TABLE IF EXISTS wcf1_character;
 CREATE TABLE wcf1_character (
@@ -132,6 +142,16 @@ CREATE TABLE wcf1_character_option_value  (
 	optionID INT(10) NOT NULL,
 	optionValue MEDIUMTEXT NOT NULL,
 	UNIQUE KEY characterID (characterID, optionID)
+);
+
+-- character activity
+DROP TABLE IF EXISTS wcf1_character_activity;
+CREATE TABLE wcf1_character_activity (
+	activityID		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	characterID 	INT(10) NOT NULL,	
+	time			INT(10) NOT NULL,
+	activityName	VARCHAR(255) NOT NULL,
+	additionalData	MEDIUMTEXT
 );
 
 -- character groups (e.g. raid group, battle groups, ..)
