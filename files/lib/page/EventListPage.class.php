@@ -8,6 +8,8 @@ use wcf\system\WCF;
  * Shows the event list page.
  */
 class EventListPage extends SortablePage {
+	
+
 	/**
 	 * list of event views
 	 * 

@@ -6,11 +6,11 @@
 			<position>header</position>
 		</pagemenuitem>
 		<pagemenuitem name="gms.header.menu.calendar">
-			<link>index.php/EventListPage/</link>
+			<link>index.php/EventList/</link>
 			<position>header</position>
 		</pagemenuitem>		
 		<pagemenuitem name="gms.header.menu.dkp">
-			<link>index.php/EventCreditListPage/</link>
+			<link>index.php/EventCreditList/</link>
 			<position>header</position>
 		</pagemenuitem>
 	</import>

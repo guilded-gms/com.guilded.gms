@@ -21,7 +21,7 @@
 {include file='header'}
 
 <header class="box48 boxHeadline">
-	<img src="{icon size='L'}home1{/icon}" alt="" class="icon48" />
+	<img src="{icon size='L'}home{/icon}" alt="" class="icon48" />
 	<hgroup>
 		<h1>{PAGE_TITLE|language}</h1>
 		{hascontent}<h2>{content}{PAGE_DESCRIPTION|language}{/content}</h2>{/hascontent}
@@ -36,7 +36,7 @@
 
 <div class="container marginTop shadow">
 	<ul class="containerList">
-		{if INDEX_ENABLE_ONLINE_LIST && $usersOnlineList->stats[total]}
+		{if GMS_INDEX_ENABLE_ONLINE_LIST && $usersOnlineList->stats[total]}
 			<li class="box24">
 				<img src="{icon}users{/icon}" alt="" class="icon24" />
 				<div>
@@ -49,7 +49,7 @@
 							<li><a href="{link controller='User' object=$userOnline->getDecoratedObject()}{/link}" class="userLink" data-user-id="{@$userOnline->userID}">{@$userOnline->getFormattedUsername()}</a></li>
 						{/foreach}
 					</ul>
-					{if INDEX_ENABLE_USERS_ONLINE_LEGEND && $usersOnlineList->getUsersOnlineMarkings()|count}
+					{if GMS_INDEX_ENABLE_USERS_ONLINE_LEGEND && $usersOnlineList->getUsersOnlineMarkings()|count}
 						<p>{lang}wcf.user.usersOnline.marking.legend{/lang}:</p>
 						<ul class="dataList">
 							{foreach from=$usersOnlineList->getUsersOnlineMarkings() item=usersOnlineMarking}
@@ -60,7 +60,7 @@
 				</div>
 			</li>
 		{/if}
-		{if INDEX_ENABLE_STATS}
+		{if GMS_INDEX_ENABLE_STATS}
 			<li class="box24">
 				<img src="{icon}chartVertical{/icon}" alt="" class="icon24" />
 				<div>
