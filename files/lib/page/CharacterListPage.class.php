@@ -11,12 +11,12 @@ class CharacterListPage extends SortablePage {
 	/**
 	 * @see wcf\page\SortablePage::$defaultSortField
 	 */
-	public $defaultSortField = 'characterName';
+	public $defaultSortField = 'name';
 	
 	/**
 	 * @see wcf\page\SortablePage::$validSortFields
 	 */
-	public $validSortFields = array('characterName');
+	public $validSortFields = array('name');
 	
 	/**
 	 * @see	wcf\page\MultipleLinkPage::$objectListClassName

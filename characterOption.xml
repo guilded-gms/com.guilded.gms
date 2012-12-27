@@ -32,13 +32,6 @@
 				<visible>15</visible>
 				<editable>3</editable>
 			</option>
-			<option name="guild">
-				<categoryname>profile.system</categoryname>
-				<optiontype>guildselect</optiontype>
-				<outputclass>wcf\system\option\character\SelectOptionsCharacterOptionOutput</outputclass>
-				<visible>15</visible>
-				<editable>3</editable>
-			</option>
 			<!-- /system -->
 		
 			<!-- details -->

@@ -1,6 +1,7 @@
 <?php
 namespace wcf\data\guild;
 use wcf\data\DatabaseObject;
+use wcf\data\character\CharacterList;
 use wcf\data\guild\recruitment\tender\GuildRecruitmentTenderList;
 use wcf\system\api\rest\response\IRESTfulResponse;
 use wcf\system\request\IRouteController;
@@ -23,10 +24,10 @@ class Guild extends DatabaseObject implements IRouteController, IRESTfulResponse
 	protected $characters = array();
 	
 	/**
-	 * List of guild members.
+	 * List of guild tenders.
 	 */
 	protected $tenders = array();
-
+	
 	/**
 	 * @see	wcf\system\request\IRouteController::getID()
 	 */
@@ -54,17 +55,28 @@ class Guild extends DatabaseObject implements IRouteController, IRESTfulResponse
 			
 			$this->characters = $characterList->getObjects();
 		}
-		
+
 		return $this->characters;
+	}
+	
+	/**
+	 * @see	wcf\data\DatabaseObject::handleData()
+	 */
+	protected function handleData($data) {
+		parent::handleData($data);
+		
+		// add characters to data, so we can access them by api
+		$this->data['characters'] = $this->getCharacters();
 	}
 	
 	/**
 	 * Checks wether given character is a member of this guild
 	 *
-	 * @return boolean
+	 * @return	boolean
 	 */
 	public function isMember($characterID) {
 		$characters = $this->getCharacters();
+		
 		return isset($characters[$characterID]);
 	}
 	
@@ -89,6 +101,6 @@ class Guild extends DatabaseObject implements IRouteController, IRESTfulResponse
 	 * @see	IRESTfulResponse::getResponseFields()
 	 */
 	public function getResponseFields() {
-		return array_keys(array_merge($this->data, array('characters')));
+		return array_keys($this->data);
 	}	
 }

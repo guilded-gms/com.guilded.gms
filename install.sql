@@ -104,6 +104,7 @@ DROP TABLE IF EXISTS wcf1_character;
 CREATE TABLE wcf1_character (
 	characterID		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	gameID			INT(10) NOT NULL,
+	guildID			INT(10) NOT NULL,
 	userID	 		INT(10) NOT NULL, --owner
 	name		 	VARCHAR(255) NOT NULL,
 	isPrimary		TINYINT(1) DEFAULT 0
