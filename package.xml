@@ -16,7 +16,6 @@
 	<requiredpackages>
 		<requiredpackage minversion="2.0.0 Alpha 1">com.woltlab.wcf</requiredpackage>
 		<!-- general -->
-		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.acl/lastSuccessfulBuild/artifact/com.woltlab.wcf.acl.tar">com.woltlab.wcf.acl</requiredpackage>
 		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.acp.language/lastSuccessfulBuild/artifact/com.woltlab.wcf.acp.language.tar">com.woltlab.wcf.acp.language</requiredpackage>
 		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.label/lastSuccessfulBuild/artifact/com.woltlab.wcf.label.tar">com.woltlab.wcf.label</requiredpackage>
 		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.bbcode/lastSuccessfulBuild/artifact/com.woltlab.wcf.bbcode.tar">com.woltlab.wcf.bbcode</requiredpackage>
