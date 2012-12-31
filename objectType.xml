@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/object-type.xsd">
+	<import>
+		<!-- clipboard -->
+		<type>
+			<name>com.guilded.wcf.character</name>
+			<definitionname>com.woltlab.wcf.clipboardItem</definitionname>
+			<listclassname>wcf\data\character\CharacterList</listclassname>
+		</type>
+		<!-- /clipboard -->
+		
+		<!-- search 
+		<type>
+			<name>com.guilded.wcf.character</name>
+			<definitionname>com.woltlab.wcf.searchableObjectType</definitionname>
+			<classname>wcf\system\search\CharacterSearch</classname>
+		</type>
+		<type>
+			<name>com.guilded.wcf.guild</name>
+			<definitionname>com.woltlab.wcf.searchableObjectType</definitionname>
+			<classname>wcf\system\search\GuildSearch</classname>
+		</type>
+		 /search -->
+		
+		<!-- location -->
+		<type>
+			<name>com.guilded.wcf.characterPage</name>
+			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
+			<controller>wcf\page\CharacterPage</controller>
+			<languagevariable>wcf.user.usersOnline.location.characterPage</languagevariable>
+		</type>
+		<type>
+			<name>com.guilded.wcf.guildPage</name>
+			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
+			<controller>wcf\page\GuildPage</controller>
+			<languagevariable>wcf.user.usersOnline.location.guildPage</languagevariable>
+		</type>
+		<!-- /location -->
+	</import>
+</data>

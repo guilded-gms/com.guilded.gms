@@ -28,6 +28,7 @@
 		<instruction type="packageInstallationPlugin">packageInstallationPlugin.xml</instruction>
 		<instruction type="templateListener">templateListener.xml</instruction>
 		<instruction type="coreObject">coreObject.xml</instruction>
+		<instruction type="objectType">objectType.xml</instruction>
         <instruction type="userMenu">userMenu.xml</instruction>
         <instruction type="acpMenu">acpMenu.xml</instruction>
 		<instruction type="userGroupOption">userGroupOption.xml</instruction>

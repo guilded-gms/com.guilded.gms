@@ -1,1 +1,1 @@
-<span class="characterLink" data-character-id="{$character->characterID}">{@$character->characterName}</span>
+<span class="characterLink" data-character-id="{$character->characterID}">{@$character->name}</span>

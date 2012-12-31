@@ -17,13 +17,13 @@
 		</acpmenuitem>
 
 		<acpmenuitem name="wcf.acp.menu.link.management.guild.list">
-			<link>index.php/GuildList/</link>
+			<controller><![CDATA[wcf\acp\page\GuildListPage]]></controller>
 			<parent>wcf.acp.menu.link.management.guild.general</parent>
 			<permissions>admin.guilded.guild.canViewList</permissions>
 			<showorder>1</showorder>
 		</acpmenuitem>
 		<acpmenuitem name="wcf.acp.menu.link.management.guild.add">
-			<link>index.php/GuildAdd/</link>
+			<controller><![CDATA[wcf\acp\form\GuildAddForm]]></controller>
 			<parent>wcf.acp.menu.link.management.guild.general</parent>
 			<permissions>admin.guilded.guild.canAddGuild</permissions>
 			<showorder>3</showorder>
@@ -42,13 +42,13 @@
 		</acpmenuitem>
 
 		<acpmenuitem name="wcf.acp.menu.link.management.character.list">
-			<link>index.php/CharacterList/</link>
+			<controller><![CDATA[wcf\acp\page\CharacterListPage]]></controller>
 			<parent>wcf.acp.menu.link.management.character</parent>
 			<permissions>admin.guilded.character.canViewList</permissions>
 			<showorder>1</showorder>
 		</acpmenuitem>
 		<acpmenuitem name="wcf.acp.menu.link.management.character.add">
-			<link>index.php/CharacterAdd/</link>
+			<controller><![CDATA[wcf\acp\form\CharacterAddForm]]></controller>
 			<parent>wcf.acp.menu.link.management.character</parent>
 			<permissions>admin.guilded.character.canAddGuild</permissions>
 			<showorder>2</showorder>
