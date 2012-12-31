@@ -2,15 +2,15 @@
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/pagemenu.xsd">
 	<import>
 		<pagemenuitem name="gms.header.menu.index">
-			<link>index.php/Index</link>
+			<controller>gms\page\IndexPage</controller>
 			<position>header</position>
 		</pagemenuitem>
 		<pagemenuitem name="gms.header.menu.calendar">
-			<link>index.php/EventList/</link>
+			<controller>gms\page\EventListPage</controller>
 			<position>header</position>
 		</pagemenuitem>		
 		<pagemenuitem name="gms.header.menu.dkp">
-			<link>index.php/EventCreditList/</link>
+			<controller>gms\page\EventCreditListPage</controller>
 			<position>header</position>
 		</pagemenuitem>
 	</import>

@@ -2,7 +2,7 @@
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/object-type.xsd">
 	<import>		
 		<type>
-			<name>com.guilded.gms.IndexPage</name>
+			<name>com.guilded.gms.indexPage</name>
 			<definitionname>com.woltlab.wcf.user.dashboardContainer</definitionname>
 			<allowcontent>1</allowcontent>
 			<allowsidebar>1</allowsidebar>

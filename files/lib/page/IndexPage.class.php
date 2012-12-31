@@ -60,7 +60,7 @@ class IndexPage extends AbstractPage {
 	public function assignVariables() {
 		parent::assignVariables();
 		
-		DashboardHandler::getInstance()->loadBoxes('com.guilded.gms.IndexPage', $this);
+		DashboardHandler::getInstance()->loadBoxes('com.guilded.gms.indexPage', $this);
 
 		WCF::getTPL()->assign(array(
 			'usersOnlineList' => $this->usersOnlineList
