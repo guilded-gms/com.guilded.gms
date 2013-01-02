@@ -1,5 +1,5 @@
 <?php
-namespace wcf\data\guild;
+namespace wcf\data\alliance;
 use wcf\data\DatabaseObject;
 use wcf\data\character\CharacterList;
 use wcf\data\guild\GuildList;
@@ -7,7 +7,17 @@ use wcf\system\api\rest\response\IRESTfulResponse;
 use wcf\system\request\IRouteController;
 use wcf\system\WCF;
 
-class GuildAlliance extends DatabaseObject implements IRouteController, IRestfulResponse {
+/**
+ * Represents an alliance of guilds and characters
+ *
+ * @author	Jeffrey Reichardt
+ * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @license	CreativeCommons by-nc-sa <http://creativecommons.org/licenses/by-nc-sa/3.0/deed.de>
+ * @package	com.guilded.wcf.character
+ * @subpackage	data.alliance
+ * @category	Guilded 2.0
+*/
+class Alliance extends DatabaseObject implements IRouteController, IRestfulResponse {
 	/**
 	 * @see	wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -19,12 +29,14 @@ class GuildAlliance extends DatabaseObject implements IRouteController, IRestful
 	protected static $databaseTableIndexName = 'allianceID';
 
 	/**
-	 * List of guilds.
+	 * List of guilds
+	 * @type	array<wcf\data\guild\Guild>
 	 */
 	protected $guilds = array();
 
 	/**
-	 * List of characters.
+	 * List of characters
+	 * @type	array<wcf\data\character\Character>	 
 	 */
 	protected $characters = array();
 
@@ -43,7 +55,7 @@ class GuildAlliance extends DatabaseObject implements IRouteController, IRestful
 	}
 	
 	/**
-	 * Returns list of all guild members
+	 * Returns a list of all guild members
 	 */
 	public function getGuilds() {
 		if (empty($this->guilds)) {
@@ -59,7 +71,7 @@ class GuildAlliance extends DatabaseObject implements IRouteController, IRestful
 	}
 	
 	/**
-	 * Returns list of all characters
+	 * Returns a list of all characters
 	 */
 	public function getCharacters() {
 		if (empty($this->characters)) {
@@ -78,7 +90,7 @@ class GuildAlliance extends DatabaseObject implements IRouteController, IRestful
 	}
 
 	/**
-	 * @see	IRESTfulResponse::getResponseFields()
+	 * @see	wcf\system\api\rest\response\IRESTfulResponse::getResponseFields()
 	 */
 	public function getResponseFields() {
 		return array_keys(array_merge($this->data, array('guilds', 'characters')));

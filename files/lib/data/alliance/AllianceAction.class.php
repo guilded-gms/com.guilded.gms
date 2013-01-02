@@ -1,5 +1,5 @@
 <?php
-namespace wcf\data\guild\alliance;
+namespace wcf\data\alliance;
 use wcf\data\AbstractDatabaseObjectAction;
 use wcf\system\database\util\PreparedStatementConditionBuilder;
 use wcf\system\exception\PermissionDeniedException;
@@ -7,26 +7,36 @@ use wcf\system\exception\ValidateActionException;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
 
-class GuildAllianceAction extends AbstractDatabaseObjectAction {
+/**
+ * Alliance-related actions
+ *
+ * @author	Jeffrey Reichardt
+ * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @license	CreativeCommons by-nc-sa <http://creativecommons.org/licenses/by-nc-sa/3.0/deed.de>
+ * @package	com.guilded.wcf.character
+ * @subpackage	data.alliance
+ * @category	Guilded 2.0
+*/
+class AllianceAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see	wcf\data\AbstractDatabaseObjectAction::$className
 	 */
-	public $className = 'wcf\data\guild\alliance\GuildAllianceEditor';
+	public $className = 'wcf\data\alliance\GuildAllianceEditor';
 	
 	/**
 	 * @see	wcf\data\AbstractDatabaseObjectAction::$permissionsCreate
 	 */
-	protected $permissionsCreate = array('user.guild.alliance.canAddAlliance');
+	protected $permissionsCreate = array('user.alliance.canAddAlliance');
 	
 	/**
 	 * @see	wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
 	 */
-	protected $permissionsDelete = array('user.guild.alliance.canDeleteAlliance');
+	protected $permissionsDelete = array('user.alliance.canDeleteAlliance');
 	
 	/**
 	 * @see	wcf\data\AbstractDatabaseObjectAction::$permissionsUpdate
 	 */
-	protected $permissionsUpdate = array('user.guild.alliance.canEditAlliance');
+	protected $permissionsUpdate = array('user.alliance.canEditAlliance');
 
 	/**
 	 * Validates assign method.
