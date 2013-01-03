@@ -12,12 +12,12 @@ use wcf\system\WCF;
  *
  * @author	Jeffrey Reichardt
  * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
- * @license	CreativeCommons by-nc-sa <http://creativecommons.org/licenses/by-nc-sa/3.0/deed.de>
+ * @license	CC BY-NC-SA 3.0 <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.wcf.character
  * @subpackage	data.alliance
  * @category	Guilded 2.0
 */
-class Alliance extends DatabaseObject implements IRouteController, IRestfulResponse {
+class Alliance extends DatabaseObject implements IRestfulResponse, IRouteController {
 	/**
 	 * @see	wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -55,6 +55,17 @@ class Alliance extends DatabaseObject implements IRouteController, IRestfulRespo
 	}
 	
 	/**
+	 * @see	wcf\data\DatabaseObject::handleData()
+	 */
+	protected function handleData($data) {
+		parent::handleData($data);
+		
+		// add to data, so we can access them by api
+		$this->data['guilds'] = $this->getGuilds();
+		$this->data['characters'] = $this->getCharacters();
+	}
+	
+	/**
 	 * Returns a list of all guild members
 	 */
 	public function getGuilds() {
@@ -76,10 +87,9 @@ class Alliance extends DatabaseObject implements IRouteController, IRestfulRespo
 	public function getCharacters() {
 		if (empty($this->characters)) {
 			$guildIDs = array_keys($this->getGuilds());
-			
-			// \todo add character with guildIDs
+
 			$characterList = new CharacterList;
-			$characterList->sqlJoins .= "LEFT JOIN wcf".WCF_N."_alliance_to_character alliance_to_character ON (alliance_to_character.characterID = character_table.characterID)";
+			$characterList->sqlJoins .= "LEFT JOIN wcf".WCF_N."_alliance_to_character alliance_to_character ON (alliance_to_character.characterID = character_table.characterID)".(!empty($guildIDs) ? " OR (character_table.guildID IN (".implode(',', $guildIDs)."))" : "");
 			$characterList->getConditionBuilder()->add('alliance_to_character.allianceID = ?', array($this->allianceID));
 			$characterList->readObjects();
 			
@@ -93,6 +103,6 @@ class Alliance extends DatabaseObject implements IRouteController, IRestfulRespo
 	 * @see	wcf\system\api\rest\response\IRESTfulResponse::getResponseFields()
 	 */
 	public function getResponseFields() {
-		return array_keys(array_merge($this->data, array('guilds', 'characters')));
+		return array_keys($this->data);
 	}		
 }

@@ -7,7 +7,7 @@ use wcf\system\menu\page\PageMenu;
  *
  * @author	Jeffrey Reichardt
  * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
- * @license	CreativeCommons by-nc-sa <http://creativecommons.org/licenses/by-nc-sa/3.0/deed.de>
+ * @license	CC BY-NC-SA 3.0 <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.wcf.character
  * @subpackage	page
  * @category	Guilded 2.0

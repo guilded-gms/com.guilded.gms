@@ -7,7 +7,7 @@ use wcf\system\api\rest\response\IRESTfulResponse;
 use wcf\system\request\IRouteController;
 use wcf\system\WCF;
 
-class Guild extends DatabaseObject implements IRouteController, IRESTfulResponse {
+class Guild extends DatabaseObject implements IRESTfulResponse, IRouteController {
 	/**
 	 * @see	wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -20,11 +20,13 @@ class Guild extends DatabaseObject implements IRouteController, IRESTfulResponse
 
 	/**
 	 * List of guild members.
+	 * @var	array<wcf\data\character\Character>
 	 */
 	protected $characters = array();
 	
 	/**
 	 * List of guild tenders.
+	 * @var	array<wcf\data\guild\recruitment\tender\GuildRecruitmentTender>
 	 */
 	protected $tenders = array();
 	
@@ -87,7 +89,7 @@ class Guild extends DatabaseObject implements IRouteController, IRESTfulResponse
 	 */
 	public function getTenders() {
 		if (empty($this->tenders)) {
-			$recruitmentTenderList = new GuildRecruitmentTenderList;
+			$recruitmentTenderList = new GuildRecruitmentTenderList();
 			$recruitmentTenderList->getConditionBuilder()->add('guildID = ?', array($this->guildID));
 			$recruitmentTenderList->readObjects();
 			

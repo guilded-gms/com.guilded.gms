@@ -57,6 +57,7 @@ CREATE TABLE wcf1_guild (
 DROP TABLE IF EXISTS wcf1_guild_option;
 CREATE TABLE wcf1_guild_option  (
 	optionID INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	packageID INT(10) NOT NULL,	
 	optionName VARCHAR(255) NOT NULL DEFAULT '',
 	categoryName VARCHAR(255) NOT NULL DEFAULT '',
 	optionType VARCHAR(255) NOT NULL DEFAULT '',
@@ -73,6 +74,7 @@ CREATE TABLE wcf1_guild_option  (
 DROP TABLE IF EXISTS wcf1_guild_option_category;
 CREATE TABLE wcf1_guild_option_category (
 	categoryID INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	packageID INT(10) NOT NULL,	
 	categoryName VARCHAR(255) NOT NULL DEFAULT '',
 	parentCategoryName VARCHAR(255) NOT NULL DEFAULT '',
 	showOrder INT(10) NOT NULL DEFAULT 0,
@@ -113,6 +115,7 @@ CREATE TABLE wcf1_character (
 DROP TABLE IF EXISTS wcf1_character_option;
 CREATE TABLE wcf1_character_option  (
 	optionID INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	packageID INT(10) NOT NULL,	
 	optionName VARCHAR(255) NOT NULL DEFAULT '',
 	categoryName VARCHAR(255) NOT NULL DEFAULT '',
 	optionType VARCHAR(255) NOT NULL DEFAULT '',
@@ -129,6 +132,7 @@ CREATE TABLE wcf1_character_option  (
 DROP TABLE IF EXISTS wcf1_character_option_category;
 CREATE TABLE wcf1_character_option_category (
 	categoryID INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	packageID INT(10) NOT NULL,	
 	categoryName VARCHAR(255) NOT NULL DEFAULT '',
 	parentCategoryName VARCHAR(255) NOT NULL DEFAULT '',
 	showOrder INT(10) NOT NULL DEFAULT 0,
@@ -202,6 +206,7 @@ CREATE TABLE wcf1_guild_recruitment_application(
 DROP TABLE IF EXISTS wcf1_guild_recruitment_option;
 CREATE TABLE wcf1_guild_recruitment_option  (
 	optionID INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	packageID INT(10) NOT NULL,
 	optionName VARCHAR(255) NOT NULL DEFAULT '',
 	categoryName VARCHAR(255) NOT NULL DEFAULT '',
 	optionType VARCHAR(255) NOT NULL DEFAULT '',
@@ -218,6 +223,7 @@ CREATE TABLE wcf1_guild_recruitment_option  (
 DROP TABLE IF EXISTS wcf1_guild_recruitment_option_category;
 CREATE TABLE wcf1_guild_recruitment_option_category (
 	categoryID INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	packageID INT(10) NOT NULL,	
 	categoryName VARCHAR(255) NOT NULL DEFAULT '',
 	parentCategoryName VARCHAR(255) NOT NULL DEFAULT '',
 	showOrder INT(10) NOT NULL DEFAULT 0,

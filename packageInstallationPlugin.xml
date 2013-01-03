@@ -3,5 +3,7 @@
 	<import>
 		<pip name="characterProfileMenu">wcf\system\package\plugin\CharacterProfileMenuPackageInstallationPlugin</pip>
 		<pip name="guildProfileMenu">wcf\system\package\plugin\GuildProfileMenuPackageInstallationPlugin</pip>
+		<pip name="characterOption">wcf\system\package\plugin\CharacterOptionPackageInstallationPlugin</pip>
+		<pip name="guildOption">wcf\system\package\plugin\GuildOptionPackageInstallationPlugin</pip>
 	</import>
 </data>
