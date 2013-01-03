@@ -16,10 +16,8 @@
 	<requiredpackages>
 		<requiredpackage minversion="2.0.0 Alpha 1">com.woltlab.wcf</requiredpackage>
 		<!-- general -->
-		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.acp.language/lastSuccessfulBuild/artifact/com.woltlab.wcf.acp.language.tar">com.woltlab.wcf.acp.language</requiredpackage>
 		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.label/lastSuccessfulBuild/artifact/com.woltlab.wcf.label.tar">com.woltlab.wcf.label</requiredpackage>
 		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.bbcode/lastSuccessfulBuild/artifact/com.woltlab.wcf.bbcode.tar">com.woltlab.wcf.bbcode</requiredpackage>
-		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.visitTracker/lastSuccessfulBuild/artifact/com.woltlab.wcf.visitTracker.tar">com.woltlab.wcf.visitTracker</requiredpackage>
 		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.ckeditor/lastSuccessfulBuild/artifact/com.woltlab.wcf.ckeditor.tar">com.woltlab.wcf.ckeditor</requiredpackage>
 		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.recaptcha/lastSuccessfulBuild/artifact/com.woltlab.wcf.recaptcha.tar">com.woltlab.wcf.recaptcha</requiredpackage>
 		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.user/lastSuccessfulBuild/artifact/com.woltlab.wcf..tar">com.woltlab.wcf.user</requiredpackage>
