@@ -6,7 +6,7 @@ use wcf\system\menu\page\PageMenu;
  * Shows a list of characters
  *
  * @author	Jeffrey Reichardt
- * @copyright	2012-2013 DevLabor UG (haftungsbeschr‰nkt)
+ * @copyright	2012-2013 DevLabor UG (haftungsbeschr√§nkt)
  * @license	CC BY-NC-SA 3.0 <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.wcf.character
  * @subpackage	page

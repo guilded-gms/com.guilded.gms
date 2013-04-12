@@ -8,6 +8,16 @@ use wcf\system\exception\SystemException;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
 
+/**
+ * Package-installation-plugin implementation for character option.
+ *
+ * @author	Jeffrey Reichardt
+ * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @license	CC BY-NC-SA 3.0 <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
+ * @package	com.guilded.wcf.character
+ * @subpackage	system.package.plugin
+ * @category	Guilded 2.0
+*/
 class CharacterOptionPackageInstallationPlugin extends AbstractOptionPackageInstallationPlugin {
 	/**
 	 * @see	wcf\system\package\plugin\AbstractPackageInstallationPlugin::$tableName
@@ -18,7 +28,7 @@ class CharacterOptionPackageInstallationPlugin extends AbstractOptionPackageInst
 	 * list of names of tags which aren't considered as additional data
 	 * @var	array<string>
 	 */
-	public static $reservedTags = array('name', 'optiontype', 'defaultvalue', 'validationpattern', 'required', 'editable', 'visible', 'searchable', 'showorder', 'outputclass', 'selectoptions', 'enableoptions', 'disabled', 'categoryname', 'permissions', 'options', 'attrs', 'cdata');
+	public static $reservedTags = array('name', 'optiontype', 'defaultvalue', 'validationpattern', 'required', 'showorder', 'outputclass', 'selectoptions', 'enableoptions', 'disabled', 'categoryname', 'permissions', 'options', 'attrs', 'cdata');
 	
 	/**
 	 * @see	wcf\system\package\plugin\AbstractOptionPackageInstallationPlugin::saveCategory()
@@ -53,7 +63,7 @@ class CharacterOptionPackageInstallationPlugin extends AbstractOptionPackageInst
 	protected function saveOption($option, $categoryName, $existingOptionID = 0) {
 		// default values
 		$optionName = $optionType = $validationPattern = $outputClass = $selectOptions = $enableOptions = $permissions = $options = '';
-		$required = $editable = $visible = $searchable = $disabled = $askDuringRegistration = 0;
+		$required = $disabled = 0;
 		$defaultValue = $showOrder = null;
 		
 		// get values
@@ -62,10 +72,6 @@ class CharacterOptionPackageInstallationPlugin extends AbstractOptionPackageInst
 		if (isset($option['defaultvalue'])) $defaultValue = $option['defaultvalue'];
 		if (isset($option['validationpattern'])) $validationPattern = $option['validationpattern'];
 		if (isset($option['required'])) $required = intval($option['required']);
-		if (isset($option['askduringregistration'])) $askDuringRegistration = intval($option['askduringregistration']);
-		if (isset($option['editable'])) $editable = intval($option['editable']);
-		if (isset($option['visible'])) $visible = intval($option['visible']);
-		if (isset($option['searchable'])) $searchable = intval($option['searchable']);
 		if (isset($option['showorder'])) $showOrder = intval($option['showorder']);
 		if (isset($option['outputclass'])) $outputClass = $option['outputclass'];
 		if (isset($option['selectoptions'])) $selectOptions = $option['selectoptions'];
@@ -108,11 +114,7 @@ class CharacterOptionPackageInstallationPlugin extends AbstractOptionPackageInst
 			'selectOptions' => $selectOptions,
 			'enableOptions' => $enableOptions,
 			'required' => $required,
-			'askDuringRegistration' => $askDuringRegistration,
-			'editable' => $editable,
-			'visible' => $visible,
 			'outputClass' => $outputClass,
-			'searchable' => $searchable,
 			'showOrder' => $showOrder,
 			'disabled' => $disabled,
 			'permissions' => $permissions,

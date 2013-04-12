@@ -6,7 +6,17 @@ use wcf\system\api\rest\response\IRESTfulResponse;
 use wcf\system\request\IRouteController;
 use wcf\system\WCF;
 
-class Character extends DatabaseObject implements IRouteController, IRESTfulResponse {
+/**
+ * Represents a character.
+ *
+ * @author	Jeffrey Reichardt
+ * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @license	CC BY-NC-SA 3.0 <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
+ * @package	com.guilded.wcf.character
+ * @subpackage	data.character
+ * @category	Guilded 2.0
+*/
+class Character extends DatabaseObject implements IRESTfulResponse, IRouteController {
 	/**
 	 * @see	wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -21,20 +31,19 @@ class Character extends DatabaseObject implements IRouteController, IRESTfulResp
 	 * game object
 	 * @type wcf\data\game\Game
 	 */
-	protected $gameObject = null;
+	protected $game = null;	
+	
+	/**
+	 * userprofile object
+	 * @type wcf\data\user\UserProfile
+	 */
+	protected $user = null;
 
 	/**
 	 * @see	wcf\data\IStorableObject::getDatabaseTableAlias()
 	 */
 	public static function getDatabaseTableAlias() {
 		return static::$databaseTableName.'_table';
-	}
-
-	/**
-	 * @see	wcf\system\request\IRouteController::getID()
-	 */
-	public function getID() {
-		return $this->characterID;
 	}
 	
 	/**
@@ -68,13 +77,26 @@ class Character extends DatabaseObject implements IRouteController, IRESTfulResp
 	 * @return	wcf\data\game\Game
 	 */
 	public function getGame() {
-		if($this->gameObject === null) {
-			$this->gameObject = new Game($this->gameID);
+		if($this->game === null) {
+			$this->game = new Game($this->gameID);
 		}
 		
-		return $this->gameObject;
+		return $this->game;
 	}
 	
+	/**
+	 * Returns UserProfile object.
+	 *
+	 * @return	wcf\data\user\UserProfile
+	 */
+	public function getUser() {
+		if($this->user === null) {
+			$this->user = new UserProfile(new User($this->userID));
+		}
+		
+		return $this->user;
+	}
+
 	/**
 	 * @see	IRESTfulResponse::getResponseFields()
 	 */

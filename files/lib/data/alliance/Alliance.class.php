@@ -39,13 +39,6 @@ class Alliance extends DatabaseObject implements IRestfulResponse, IRouteControl
 	 * @type	array<wcf\data\character\Character>	 
 	 */
 	protected $characters = array();
-
-	/**
-	 * @see	wcf\system\request\IRouteController::getID()
-	 */
-	public function getID() {
-		return $this->allianceID;
-	}
 	
 	/**
 	 * @see	wcf\system\request\IRouteController::getTitle()

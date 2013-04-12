@@ -20,14 +20,14 @@
 			<!-- system -->
 			<option name="classes">
 				<categoryname>profile.system</categoryname>
-				<optiontype>gameclassesselect</optiontype>
+				<optiontype>gameClassSelect</optiontype>
 				<outputclass>wcf\system\option\character\SelectOptionsCharacterOptionOutput</outputclass>
 				<visible>15</visible>
 				<editable>3</editable>
 			</option>
 			<option name="races">
 				<categoryname>profile.system</categoryname>
-				<optiontype>gameracesselect</optiontype>
+				<optiontype>gameRaceSelect</optiontype>
 				<outputclass>wcf\system\option\character\SelectOptionsCharacterOptionOutput</outputclass>
 				<visible>15</visible>
 				<editable>3</editable>

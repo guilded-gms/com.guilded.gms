@@ -63,10 +63,14 @@ CREATE TABLE wcf1_guild_option  (
 	optionType VARCHAR(255) NOT NULL DEFAULT '',
 	defaultValue MEDIUMTEXT,
 	validationPattern TEXT,
+	selectOptions MEDIUMTEXT,
 	enableOptions MEDIUMTEXT,
+	required TINYINT(1) DEFAULT 0,
+	disabled TINYINT(1) DEFAULT 0,
 	showOrder INT(10) NOT NULL DEFAULT 0,
 	permissions TEXT,
 	options TEXT,
+	outputClass VARCHAR(255) DEFAULT '',
 	additionalData MEDIUMTEXT,
 	UNIQUE KEY optionName (optionName)
 );
@@ -121,10 +125,14 @@ CREATE TABLE wcf1_character_option  (
 	optionType VARCHAR(255) NOT NULL DEFAULT '',
 	defaultValue MEDIUMTEXT,
 	validationPattern TEXT,
+	selectOptions MEDIUMTEXT,
 	enableOptions MEDIUMTEXT,
+	required TINYINT(1) DEFAULT 0,
+	disabled TINYINT(1) DEFAULT 0,
 	showOrder INT(10) NOT NULL DEFAULT 0,
 	permissions TEXT,
 	options TEXT,
+	outputClass VARCHAR(255) DEFAULT '',
 	additionalData MEDIUMTEXT,
 	UNIQUE KEY optionName (optionName)
 );

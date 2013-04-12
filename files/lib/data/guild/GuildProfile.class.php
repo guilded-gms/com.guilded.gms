@@ -11,12 +11,12 @@ use wcf\system\WCF;
 /**
  * Decorates the guild object and provides functions to retrieve data for guild profiles.
  *
- * @author		Jeffrey Reichardt
- * @copyright	2012 Guilded.eu
- * @license		CC by-nc-sa
- * @package	com.guilded.wcf.guild
+ * @author	Jeffrey Reichardt
+ * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @license	CC BY-NC-SA 3.0 <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
+ * @package	com.guilded.wcf.character
  * @subpackage	data.guild
- * @category 	Community Framework
+ * @category 	Guilded 2.0
  */
 class GuildProfile extends DatabaseObjectDecorator implements IBreadcrumbProvider {
 	/**

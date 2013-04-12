@@ -12,7 +12,7 @@ use wcf\system\WCF;
  * @author	Jeffrey Reichardt
  * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
  * @license	CC BY-NC-SA 3.0 <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
- * @package	com.woltlab.wcf.character
+ * @package	com.guilded.wcf.character
  * @subpackage	data.character
  * @category	Guilded 2.0
  */
@@ -35,7 +35,7 @@ class CharacterProfile extends DatabaseObjectDecorator implements IBreadcrumbPro
 	protected static $characterProfiles = array();
 	
 	/**
-	 * Returns a new CharacterProfile object by given id
+	 * Returns a CharacterProfile object by given id
 	 * 
 	 * @param	integer	$characterID
 	 * @return	wcf\data\character\CharacterProfile	 
@@ -49,8 +49,8 @@ class CharacterProfile extends DatabaseObjectDecorator implements IBreadcrumbPro
 	/**
 	 * Returns a list of character profiles.
 	 * 
-	 * @param	array	$userIDs
-	 * @return	array<wcf\data\character\UserProfile>
+	 * @param	array	$characterIDs
+	 * @return	array<wcf\data\character\CharacterProfile>
 	 */
 	public static function getCharacterProfiles(array $characterIDs) {
 		$characters = array();

@@ -7,7 +7,7 @@ use wcf\system\api\rest\response\IRESTfulResponse;
 use wcf\system\request\IRouteController;
 use wcf\system\WCF;
 
-class Guild extends DatabaseObject implements IRESTfulResponse, IRouteController {
+class Guild extends DatabaseObject implements IRouteController, IRESTfulResponse {
 	/**
 	 * @see	wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -29,13 +29,6 @@ class Guild extends DatabaseObject implements IRESTfulResponse, IRouteController
 	 * @var	array<wcf\data\guild\recruitment\tender\GuildRecruitmentTender>
 	 */
 	protected $tenders = array();
-	
-	/**
-	 * @see	wcf\system\request\IRouteController::getID()
-	 */
-	public function getID() {
-		return $this->guildID;
-	}
 	
 	/**
 	 * @see	wcf\system\request\IRouteController::getTitle()
@@ -67,23 +60,22 @@ class Guild extends DatabaseObject implements IRESTfulResponse, IRouteController
 	protected function handleData($data) {
 		parent::handleData($data);
 		
-		// add characters to data, so we can access them by api
+		// add characters to data, so we can access them by RESTful-API
 		$this->data['characters'] = $this->getCharacters();
 	}
 	
 	/**
-	 * Checks wether given character is a member of this guild
+	 * Checks wether given character is a member of this guild.
 	 *
+	 * @param	integer	$characterID
 	 * @return	boolean
 	 */
-	public function isMember($characterID) {
-		$characters = $this->getCharacters();
-		
-		return isset($characters[$characterID]);
+	public function isMember($characterID) {		
+		return isset($this->characters[$characterID]);
 	}
 	
 	/**
-	 * Returns list of all tenders
+	 * Returns list of all tenders.
 	 *
 	 * @return	array<wcf\data\guild\recruitment\tender\GuildRecruitmentTender>
 	 */
