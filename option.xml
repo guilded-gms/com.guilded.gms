@@ -3,7 +3,7 @@
 	<import>	
 		<categories>
 			<!-- guilded -->
-			<category name="guilded"></category>
+			<!-- <category name="guilded"></category> provided by com.guilded.wcf.game -->
 			<category name="guilded.index">
 				<parent>guilded</parent>
 			</category>
@@ -68,11 +68,6 @@
 				<optiontype>boolean</optiontype>
 				<defaultvalue>0</defaultvalue>
 				<options>module_users_online</options>
-			</option>
-			<option name="index_page_redirect">
-				<categoryname>guilded.index.general</categoryname>
-				<optiontype>Text</optiontype>
-				<defaultvalue></defaultvalue>
 			</option>
 			<!-- /index.general -->
 		</options>	

@@ -2,7 +2,7 @@
 namespace gms\system\dashboard\box;
 use wcf\data\dashboard\box\DashboardBox;
 use wcf\page\IPage;
-use wcf\system\dashboard\box\AbstractDashboardBoxSidebar;
+use wcf\system\dashboard\box\AbstractContentDashboardBox;
 use wcf\system\WCF;
 
 /**
@@ -15,7 +15,7 @@ use wcf\system\WCF;
  * @subpackage	system.dashboard
  * @category	Guilded 2.0
 */
-class NewsDashboardBox extends AbstractDashboardBoxSidebar {	
+class NewsDashboardBox extends AbstractContentDashboardBox {	
 	protected $newsEntriesList = null;
 
 	/**
@@ -24,7 +24,7 @@ class NewsDashboardBox extends AbstractDashboardBoxSidebar {
 	public function init(DashboardBox $box, IPage $page) {
 		parent::init($box, $page);
 
-		// \todo init $newsEntriesList
+		// @todo init $newsEntriesList
 	}
 	
 	/**

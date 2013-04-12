@@ -1,7 +1,7 @@
 {include file='documentHeader'}
 
 <head>
-	<title>{lang}gms.header.menu.index{/lang} - {PAGE_TITLE|language}</title>
+	<title>{if $__wcf->getPageMenu()->getLandingPage()->menuItem != 'gms.header.menu.index'}{lang}gms.header.menu.index{/lang} - {/if}{PAGE_TITLE|language}</title>
 	
 	{include file='headInclude' sandbox=false}
 </head>
@@ -20,12 +20,17 @@
 
 {include file='header'}
 
-<header class="box48 boxHeadline">
-	<img src="{icon size='L'}home{/icon}" alt="" class="icon48" />
-	<hgroup>
-		<h1>{PAGE_TITLE|language}</h1>
-		{hascontent}<h2>{content}{PAGE_DESCRIPTION|language}{/content}</h2>{/hascontent}
-	</hgroup>
+<header class="boxHeadline">
+	{if $__wcf->getPageMenu()->getLandingPage()->menuItem == 'gms.header.menu.index'}
+		<hgroup>
+			<h1>{PAGE_TITLE|language}</h1>
+			{hascontent}<h2>{content}{PAGE_DESCRIPTION|language}{/content}</h2>{/hascontent}
+		</hgroup>
+	{else}
+		<hgroup>
+			<h1>{lang}gms.header.menu.index{/lang}</h1>
+		</hgroup>
+	{/if}
 </header>
 
 {include file='userNotice'}
@@ -36,9 +41,9 @@
 
 <div class="container marginTop shadow">
 	<ul class="containerList">
-		{if GMS_INDEX_ENABLE_ONLINE_LIST && $usersOnlineList->stats[total]}
+		{if INDEX_ENABLE_ONLINE_LIST && $usersOnlineList->stats[total]}
 			<li class="box24">
-				<img src="{icon}users{/icon}" alt="" class="icon24" />
+				<img src="" alt="" class="icon24" /> <!-- @todo user icon -->
 				<div>
 					<hgroup class="containerHeadline">
 						<h1><a href="{link controller='UsersOnlineList'}{/link}">{lang}wcf.user.usersOnline{/lang}</a> <span class="badge">{#$usersOnlineList->stats[total]}</span></h1>
@@ -49,7 +54,7 @@
 							<li><a href="{link controller='User' object=$userOnline->getDecoratedObject()}{/link}" class="userLink" data-user-id="{@$userOnline->userID}">{@$userOnline->getFormattedUsername()}</a></li>
 						{/foreach}
 					</ul>
-					{if GMS_INDEX_ENABLE_USERS_ONLINE_LEGEND && $usersOnlineList->getUsersOnlineMarkings()|count}
+					{if INDEX_ENABLE_USERS_ONLINE_LEGEND && $usersOnlineList->getUsersOnlineMarkings()|count}
 						<p>{lang}wcf.user.usersOnline.marking.legend{/lang}:</p>
 						<ul class="dataList">
 							{foreach from=$usersOnlineList->getUsersOnlineMarkings() item=usersOnlineMarking}
@@ -60,9 +65,9 @@
 				</div>
 			</li>
 		{/if}
-		{if GMS_INDEX_ENABLE_STATS}
+		{if INDEX_ENABLE_STATS}
 			<li class="box24">
-				<img src="{icon}chartVertical{/icon}" alt="" class="icon24" />
+				<img src="" alt="" class="icon24" /> <!-- @todo chartVertical -->
 				<div>
 					<hgroup class="containerHeadline">
 						<h1>{lang}gms.global.statistics{/lang}</h1>

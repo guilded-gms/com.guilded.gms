@@ -32,15 +32,15 @@ class IndexPage extends AbstractPage {
 		parent::readData();
 
 		// users online
-		if (GMS_INDEX_ENABLE_ONLINE_LIST) {
+		if (INDEX_ENABLE_ONLINE_LIST) {
 			$this->usersOnlineList = new UsersOnlineList();
 			$this->usersOnlineList->readStats();
 			$this->usersOnlineList->getConditionBuilder()->add('session.userID IS NOT NULL');
 			$this->usersOnlineList->readObjects();
 
 			// check users online record
-			$usersOnlineTotal = (GMS_USERS_ONLINE_RECORD_NO_GUESTS ? $this->usersOnlineList->stats['members'] : $this->usersOnlineList->stats['total']);
-			if ($usersOnlineTotal > GMS_USERS_ONLINE_RECORD) {
+			$usersOnlineTotal = (USERS_ONLINE_RECORD_NO_GUESTS ? $this->usersOnlineList->stats['members'] : $this->usersOnlineList->stats['total']);
+			if ($usersOnlineTotal > USERS_ONLINE_RECORD) {
 				// save new record
 				$optionAction = new OptionAction(array(), 'import', array('data' => array(
 						'users_online_record' => $usersOnlineTotal,
@@ -60,23 +60,10 @@ class IndexPage extends AbstractPage {
 	public function assignVariables() {
 		parent::assignVariables();
 		
-		DashboardHandler::getInstance()->loadBoxes('com.guilded.gms.indexPage', $this);
+		DashboardHandler::getInstance()->loadBoxes('com.guilded.gms.IndexPage', $this);
 
 		WCF::getTPL()->assign(array(
 			'usersOnlineList' => $this->usersOnlineList
 		));
-	}
-
-	/**
-	 * @see	IPage::show()
-	 */
-	public function show() {
-		// redirecting to another start page
-		if (FileUtil::isURL(GMS_INDEX_PAGE_REDIRECT)) {
-			HeaderUtil::redirect(GMS_INDEX_PAGE_REDIRECT, false);
-			exit;
-		}
-	
-		parent::show();
 	}
 }
