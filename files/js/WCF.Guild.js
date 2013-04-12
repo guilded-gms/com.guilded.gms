@@ -53,10 +53,10 @@ WCF.Guild.ProfilePreview = WCF.Popover.extend({
 			var $elementID = this._activeElementID;
 			var self = this;
 			this._proxy.setOption('success', function(data, textStatus, jqXHR) {
-				// cache user profile
-				self._characterProfiles[$characterID] = data.returnValues.template;
+				// cache guild profile
+				self._guildProfiles[$guildID] = data.returnValues.template;
 				
-				// show user profile
+				// show guild profile
 				self._insertContent($elementID, data.returnValues.template, true);
 			});
 			this._proxy.sendRequest();

@@ -69,7 +69,6 @@ class GuildAddForm extends GuildOptionListForm {
 			)), 
 			'options' => $saveOptions
 		));
-		// \todo additionalFields
 		$this->objectAction->executeAction();
 		
 		$this->saved();

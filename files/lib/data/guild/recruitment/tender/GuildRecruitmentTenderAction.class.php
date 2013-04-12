@@ -7,7 +7,7 @@ use wcf\system\WCF;
  * Recruitment tender related actions.
  *
  * @author	Jeffrey Reichardt
- * @copyright	2012-2013 DevLabor UG (haftungsbeschr�nkt)
+ * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
  * @license	Creative Commons <BY-NC-SA> (http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode)
  * @package	com.guilded.wcf.character
  * @subpackage	data.guild.recruitment.tender

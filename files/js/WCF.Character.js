@@ -53,10 +53,10 @@ WCF.Character.ProfilePreview = WCF.Popover.extend({
 			var $elementID = this._activeElementID;
 			var self = this;
 			this._proxy.setOption('success', function(data, textStatus, jqXHR) {
-				// cache user profile
+				// cache character profile
 				self._characterProfiles[$characterID] = data.returnValues.template;
 				
-				// show user profile
+				// show character profile
 				self._insertContent($elementID, data.returnValues.template, true);
 			});
 			this._proxy.sendRequest();
@@ -302,7 +302,7 @@ WCF.Character.SelectInput.prototype = {
 		this._closeSelection();
 		this._element.blur().focus();
 		
-		// \todo reload race, class and role edit, if exist (_linkedElements)
+		// @todo reload race, class and role edit, if exist (_linkedElements)
         this._loadOptions();
 	},
 

@@ -69,7 +69,6 @@ class CharacterAddForm extends CharacterOptionListForm {
 			)), 
 			'options' => $saveOptions
 		));
-		// \todo additionalFields
 		$this->objectAction->executeAction();
 		
 		$this->saved();
