@@ -15,20 +15,6 @@
 	
 	<requiredpackages>
 		<requiredpackage minversion="2.0.0 Alpha 1">com.woltlab.wcf</requiredpackage>
-		<!-- general -->
-		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.label/lastSuccessfulBuild/artifact/com.woltlab.wcf.label.tar">com.woltlab.wcf.label</requiredpackage>
-		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.bbcode/lastSuccessfulBuild/artifact/com.woltlab.wcf.bbcode.tar">com.woltlab.wcf.bbcode</requiredpackage>
-		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.ckeditor/lastSuccessfulBuild/artifact/com.woltlab.wcf.ckeditor.tar">com.woltlab.wcf.ckeditor</requiredpackage>
-		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.recaptcha/lastSuccessfulBuild/artifact/com.woltlab.wcf.recaptcha.tar">com.woltlab.wcf.recaptcha</requiredpackage>
-		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.user/lastSuccessfulBuild/artifact/com.woltlab.wcf..tar">com.woltlab.wcf.user</requiredpackage>
-		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.like/lastSuccessfulBuild/artifact/com.woltlab.wcf.like.tar">com.woltlab.wcf.like</requiredpackage>
-		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.comment/lastSuccessfulBuild/artifact/com.woltlab.wcf.comment.tar">com.woltlab.wcf.comment</requiredpackage>
-		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.attachment/lastSuccessfulBuild/artifact/com.woltlab.wcf.attachment.tar">com.woltlab.wcf.attachment</requiredpackage>
-		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.search/lastSuccessfulBuild/artifact/com.woltlab.wcf.search.tar">com.woltlab.wcf.search</requiredpackage>
-		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.message/lastSuccessfulBuild/artifact/com.woltlab.wcf.message.tar">com.woltlab.wcf.message</requiredpackage>
-		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.message.sidebar/lastSuccessfulBuild/artifact/com.woltlab.wcf.message.sidebar.tar">com.woltlab.wcf.message.sidebar</requiredpackage>
-		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.moderation/lastSuccessfulBuild/artifact/com.woltlab.wcf.moderation.tar">com.woltlab.wcf.moderation</requiredpackage>
-		<requiredpackage file="http://jenkins.codingcorner.info/job/WoltLab-com.woltlab.wcf.conversation/lastSuccessfulBuild/artifact/com.woltlab.wcf.conversation.tar">com.woltlab.wcf.conversation</requiredpackage>
 		
 		<!-- guilded -->
 		<requiredpackage file="required/com.guilded.wcf.game.tar.gz">com.guilded.wcf.game</requiredpackage>
