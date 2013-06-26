@@ -15,12 +15,6 @@
 			<templatecode><![CDATA[<h1>Guilded 2.0</h1><img src="{@$__wcf->getPath('gms')}images/guilded-logo1.png" height="80" alt="Guilded 2.0" title="Guilded 2.0" />]]>
 			</templatecode>
 		</templatelistener>
-		<templatelistener name="guildedStylesheetImport">
-			<environment>user</environment>
-			<templatename>headInclude</templatename>
-			<eventname>stylesheetImport</eventname>
-			<templatecode><![CDATA[@import url("{@$__wcf->getPath('gms')}style/guilded.less") screen;]]></templatecode>
-		</templatelistener>
 		<!-- /environment: user -->
 	</import>
 </data>

@@ -14,62 +14,23 @@
 		</categories>
 		
 		<options>
-			<!-- module -->
-			<option name="module_calendar">
-				<categoryname>"module.system</categoryname>
-				<optiontype>boolean</optiontype>
-				<defaultvalue>1</defaultvalue>
-			</option>	
-			<option name="module_dkp">
-				<categoryname>"module.system</categoryname>
-				<optiontype>boolean</optiontype>
-				<defaultvalue>1</defaultvalue>
-			</option>	
-			<!-- /module -->			
-		
 			<!-- general -->
-			<option name="install_date">
+			<option name="gms_install_date">
 				<categoryname>general</categoryname>
 				<optiontype>integer</optiontype>
 				<hidden>1</hidden>
 			</option>
-			<option name="users_online_record">
+			<option name="gms_users_online_record">
 				<categoryname>general</categoryname>
 				<optiontype>integer</optiontype>
 				<hidden>1</hidden>
 			</option>
-			<option name="users_online_record_time">
+			<option name="gms_users_online_record_time">
 				<categoryname>general</categoryname>
 				<optiontype>integer</optiontype>
 				<hidden>1</hidden>
 			</option>
 			<!-- /general -->
-			
-			<!-- index.general -->
-			<option name="index_enable_stats">
-				<categoryname>guilded.index.general</categoryname>
-				<optiontype>boolean</optiontype>
-				<defaultvalue>1</defaultvalue>
-			</option>
-			<option name="index_enable_online_list">
-				<categoryname>guilded.index.general</categoryname>
-				<optiontype>boolean</optiontype>
-				<defaultvalue>1</defaultvalue>
-				<options>module_users_online</options>
-			</option>
-			<option name="users_online_record_no_guests">
-				<categoryname>guilded.index.general</categoryname>
-				<optiontype>boolean</optiontype>
-				<defaultvalue>0</defaultvalue>
-				<options>module_users_online</options>
-			</option>
-			<option name="index_enable_users_online_legend">
-				<categoryname>guilded.index.general</categoryname>
-				<optiontype>boolean</optiontype>
-				<defaultvalue>0</defaultvalue>
-				<options>module_users_online</options>
-			</option>
-			<!-- /index.general -->
 		</options>	
 	</import>
 </data>
