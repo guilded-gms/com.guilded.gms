@@ -15,7 +15,7 @@
     </authorinformation>
 	
 	<requiredpackages>
-		<requiredpackage minversion="2.0.0 Alpha 1">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="2.0.0 Beta 4">com.woltlab.wcf</requiredpackage>
 		
 		<!-- guilded -->
 		<requiredpackage file="required/com.guilded.wcf.game.tar.gz">com.guilded.wcf.game</requiredpackage>
@@ -33,6 +33,6 @@
 		<instruction type="dashboardBox">dashboardBox.xml</instruction>
 		<instruction type="templateListener">templateListener.xml</instruction>
 		
-		<instruction type="language">language/*.xml</instruction>
+		<instruction type="language">lang/*.xml</instruction>
 	</instructions>
 </package>
