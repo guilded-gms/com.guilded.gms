@@ -23,6 +23,11 @@
 		<requiredpackage file="required/com.guilded.wcf.credit.tar.gz">com.guilded.wcf.credit</requiredpackage>
 		<requiredpackage file="required/com.guilded.wcf.event.tar.gz">com.guilded.wcf.event</requiredpackage>
 	</requiredpackages>
+
+	<optionalpackages>
+		<optionalpackage file="optional/com.guilded.wcf.game.wow.tar.gz">com.guilded.wcf.game.wow</optionalpackage>
+		<optionalpackage file="optional/com.cls-design.style.altitude.tar">com.cls-design.style.altitude</optionalpackage>
+	</optionalpackages>
 	
 	<instructions type="install">
 		<instruction type="file">files.tar</instruction>
@@ -32,7 +37,8 @@
 		<instruction type="objectType">objectType.xml</instruction>
 		<instruction type="dashboardBox">dashboardBox.xml</instruction>
 		<instruction type="templateListener">templateListener.xml</instruction>
-		
+		<instruction type="script">acp/install_com.guilded.gms.php</instruction>
+
 		<instruction type="language">lang/*.xml</instruction>
 	</instructions>
 </package>

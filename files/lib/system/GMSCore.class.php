@@ -18,22 +18,22 @@ use wcf\system\WCF;
 */
 class GMSCore extends AbstractApplication {
 	/**
-	 * @see AbstractApplication::$abbreviation
+	 * @see \wcf\system\application\AbstractApplication::$abbreviation
 	 */
 	protected $abbreviation = 'gms';
 
 	/**
-	 * @see IApplication::__run()
+	 * @see \wcf\system\application\IApplication::__run()
 	 */
 	public function __run() {
-		if(!$this->isActiveApplication()) {
+		if (!$this->isActiveApplication()) {
 			return;
 		}
 		
 		// activate pageMenu item
-		PageMenu::getInstance()->setActiveMenuItem($this->abbreviation.'.header.menu.index');
+		PageMenu::getInstance()->setActiveMenuItem($this->abbreviation . '.header.menu.index');
 			
 		// add breadcrumb
-		WCF::getBreadcrumbs()->add(new Breadcrumb(WCF::getLanguage()->get($this->abbreviation.'.header.menu.index'), LinkHandler::getInstance()->getLink('Index', array('application' => $this->abbreviation))));
+		WCF::getBreadcrumbs()->add(new Breadcrumb(WCF::getLanguage()->get($this->abbreviation . '.header.menu.index'), LinkHandler::getInstance()->getLink('Index', array('application' => $this->abbreviation))));
 	}
 }

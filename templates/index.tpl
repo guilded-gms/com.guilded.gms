@@ -39,45 +39,32 @@
 	{if $__boxContent|isset}{@$__boxContent}{/if}
 </section>
 
-<div class="container marginTop shadow">
-	<ul class="containerList">
-		{if INDEX_ENABLE_ONLINE_LIST && $usersOnlineList->stats[total]}
-			<li class="box24">
-				<img src="" alt="" class="icon24" /> <!-- @todo user icon -->
-				<div>
-					<hgroup class="containerHeadline">
-						<h1><a href="{link controller='UsersOnlineList'}{/link}">{lang}wcf.user.usersOnline{/lang}</a> <span class="badge">{#$usersOnlineList->stats[total]}</span></h1>
-						<h2>{lang}wcf.user.usersOnline.detail{/lang} {lang}gms.index.usersOnline.record{/lang}</h2>
-					</hgroup>
-					<ul class="dataList">
-						{foreach from=$usersOnlineList->getObjects() item=userOnline}
-							<li><a href="{link controller='User' object=$userOnline->getDecoratedObject()}{/link}" class="userLink" data-user-id="{@$userOnline->userID}">{@$userOnline->getFormattedUsername()}</a></li>
-						{/foreach}
-					</ul>
-					{if INDEX_ENABLE_USERS_ONLINE_LEGEND && $usersOnlineList->getUsersOnlineMarkings()|count}
-						<p>{lang}wcf.user.usersOnline.marking.legend{/lang}:</p>
-						<ul class="dataList">
-							{foreach from=$usersOnlineList->getUsersOnlineMarkings() item=usersOnlineMarking}
-								<li>{@$usersOnlineMarking}</li>
-							{/foreach}
-						</ul>
-					{/if}
-				</div>
-			</li>
-		{/if}
-		{if INDEX_ENABLE_STATS}
-			<li class="box24">
-				<img src="" alt="" class="icon24" /> <!-- @todo chartVertical -->
-				<div>
-					<hgroup class="containerHeadline">
-						<h1>{lang}gms.global.statistics{/lang}</h1>
-						<h2>{lang}gms.global.statistics.description{/lang}</h2>
-					</hgroup>
-				</div>
-			</li>
-		{/if}
-	</ul>
-</div>
+{hascontent}
+	<div class="container marginTop">
+		<ul class="containerList infoBoxList">
+			{content}
+				{if GMS_INDEX_ENABLE_ONLINE_LIST}
+					{include file='usersOnlineInfoBox'}
+				{/if}
+
+				{if GMS_INDEX_ENABLE_STATS}
+					<li class="box32 statsInfoBox">
+						<span class="icon icon32 icon-bar-chart"></span>
+
+						<div>
+							<div class="containerHeadline">
+								<h3>{lang}gms.index.stats{/lang}</h3>
+								<p>{lang}gms.index.stats.detail{/lang}</p>
+							</div>
+						</div>
+					</li>
+				{/if}
+
+				{event name='infoBoxes'}
+			{/content}
+		</ul>
+	</div>
+{/hascontent}
 
 {include file='footer'}
 
