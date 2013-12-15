@@ -17,7 +17,7 @@ use wcf\system\request\LinkHandler;
  * @subpackage	data.guild
  * @category 	Guilded 2.0
  */
-class GuildProfile extends DatabaseObjectDecorator implements IBreadcrumbProvider {
+class GuildProfile extends GMSDatabaseObjectDecorator implements IBreadcrumbProvider {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

@@ -9,7 +9,7 @@ use wcf\system\WCF;
 /**
  * Provides functions to edit character profile menu items.
  */
-class CharacterProfileMenuItemEditor extends DatabaseObjectEditor implements IEditableCachedObject {
+class CharacterProfileMenuItemEditor extends GMSDatabaseObjectEditor implements IEditableCachedObject {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

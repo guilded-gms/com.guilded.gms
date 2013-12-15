@@ -1,6 +1,6 @@
 <?php
 namespace gms\data\guild\profile\menu\item;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 use wcf\data\user\profile\menu\item\UserProfileMenuItem;
 use wcf\system\exception\SystemException;
 use wcf\util\ClassUtil;

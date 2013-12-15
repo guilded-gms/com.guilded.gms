@@ -1,6 +1,6 @@
 <?php
 namespace gms\data\game\combatant;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 
 /**
  * Represents a combatant (npc).
@@ -12,7 +12,7 @@ use wcf\data\DatabaseObject;
  * @subpackage	data.game.combatant
  * @category	Guilded 2.0
  */
-class GameCombatant extends DatabaseObject {
+class GameCombatant extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

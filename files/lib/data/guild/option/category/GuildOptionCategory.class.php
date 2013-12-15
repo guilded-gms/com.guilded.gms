@@ -1,9 +1,9 @@
 <?php
 namespace gms\data\guild\option\category;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 use wcf\system\WCF;
 
-class GuildOptionCategory extends DatabaseObject {
+class GuildOptionCategory extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

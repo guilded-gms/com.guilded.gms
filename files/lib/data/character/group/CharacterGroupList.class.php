@@ -2,7 +2,7 @@
 namespace gms\data\character\group;
 use wcf\data\DatabaseObjectList;
 
-class CharacterGroupList extends DatabaseObjectList {
+class CharacterGroupList extends GMSDatabaseObjectList {
 	/**
 	 * @see	\wcf\data\DatabaseObjectList::$className
 	 */

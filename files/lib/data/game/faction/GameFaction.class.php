@@ -1,6 +1,6 @@
 <?php
 namespace gms\data\game\faction;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 
 /**
  * Represents a game faction.
@@ -12,7 +12,7 @@ use wcf\data\DatabaseObject;
  * @subpackage	data.game.faction
  * @category	Guilded 2.0
  */
-class GameFaction extends DatabaseObject {
+class GameFaction extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

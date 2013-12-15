@@ -54,5 +54,22 @@
 			<showorder>2</showorder>
 		</acpmenuitem>
 		<!-- /characters -->
+
+		<acpmenuitem name="gms.acp.menu.link.community.event.category">
+			<parent>wcf.acp.menu.link.community</parent>
+		</acpmenuitem>
+
+		<acpmenuitem name="gms.acp.menu.link.community.event.category.list">
+			<controller><![CDATA[gms\acp\page\EventCategoryListPage]]></controller>
+			<parent>gms.acp.menu.link.community.event.category</parent>
+			<permissions>admin.event.category.canManage</permissions>
+			<showorder>1</showorder>
+		</acpmenuitem>
+		<acpmenuitem name="gms.acp.menu.link.community.event.category.add">
+			<controller><![CDATA[gms\acp\form\EventCategoryAddForm]]></controller>
+			<parent>gms.acp.menu.link.community.event.category</parent>
+			<permissions>admin.event.category.canManage</permissions>
+			<showorder>2</showorder>
+		</acpmenuitem>
 	</import>
 </data>

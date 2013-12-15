@@ -12,7 +12,7 @@ use wcf\data\DatabaseObjectList;
  * @subpackage	data.guild.option
  * @category 	Community Framework
  */
-class GuildOptionList extends DatabaseObjectList {
+class GuildOptionList extends GMSDatabaseObjectList {
 	/**
 	 * @see	\wcf\data\DatabaseObjectList::$className
 	 */

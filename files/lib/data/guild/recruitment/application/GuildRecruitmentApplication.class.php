@@ -1,6 +1,6 @@
 <?php
 namespace gms\data\guild\recruitment\application;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 use wcf\system\WCF;
 
 /**
@@ -13,7 +13,7 @@ use wcf\system\WCF;
  * @subpackage	data.guild.recruitment.application
  * @category	Guilded 2.0
  */
-class GuildRecruitmentApplication extends DatabaseObject {
+class GuildRecruitmentApplication extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

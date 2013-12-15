@@ -1,9 +1,9 @@
 <?php
 namespace gms\data\character\activity;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 use wcf\system\WCF;
 
-class CharacterActivity extends DatabaseObject {
+class CharacterActivity extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

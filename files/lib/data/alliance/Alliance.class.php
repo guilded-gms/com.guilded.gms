@@ -2,7 +2,7 @@
 namespace gms\data\alliance;
 use gms\data\character\CharacterList;
 use gms\data\guild\GuildList;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 use wcf\system\request\IRouteController;
 
 /**
@@ -15,7 +15,7 @@ use wcf\system\request\IRouteController;
  * @subpackage	data.alliance
  * @category	Guilded 2.0
  */
-class Alliance extends DatabaseObject implements IRouteController {
+class Alliance extends GMSDatabaseObject implements IRouteController {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

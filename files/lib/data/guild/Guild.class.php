@@ -4,7 +4,7 @@ use gms\data\character\CharacterList;
 use gms\data\game\Game;
 use gms\data\guild\recruitment\application\GuildRecruitmentApplicationList;
 use gms\data\guild\recruitment\tender\GuildRecruitmentTenderList;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 use wcf\system\request\IRouteController;
 
 /**
@@ -17,7 +17,7 @@ use wcf\system\request\IRouteController;
  * @subpackage	data.guild
  * @category	Guilded 2.0
  */
-class Guild extends DatabaseObject implements IRouteController {
+class Guild extends GMSDatabaseObject implements IRouteController {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

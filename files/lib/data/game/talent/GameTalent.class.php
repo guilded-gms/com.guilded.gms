@@ -1,6 +1,6 @@
 <?php
 namespace gms\data\game\talent;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 
 /**
  * Represents a game talent.
@@ -12,7 +12,7 @@ use wcf\data\DatabaseObject;
  * @subpackage	data.game.talent
  * @category	Guilded 2.0
  */
-class GameTalent extends DatabaseObject {
+class GameTalent extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

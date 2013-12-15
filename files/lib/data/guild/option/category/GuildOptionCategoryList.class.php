@@ -5,7 +5,7 @@ use wcf\data\DatabaseObjectList;
 /**
  * Represents an list of guild option categories.
  */
-class GuildOptionCategoryList extends DatabaseObjectList {
+class GuildOptionCategoryList extends GMSDatabaseObjectList {
 	/**
 	 * @see	\wcf\data\DatabaseObjectList::$className
 	 */

@@ -12,7 +12,7 @@ use wcf\data\DatabaseObjectEditor;
  * @subpackage	data.character.option.category
  * @category	Guilded 2.0
  */
-class CharacterOptionCategoryEditor extends DatabaseObjectEditor {
+class CharacterOptionCategoryEditor extends GMSDatabaseObjectEditor {
 	/**
 	 * @see	\gms\data\character\option\category\CharacterOptionCategory::$baseClass
 	 */

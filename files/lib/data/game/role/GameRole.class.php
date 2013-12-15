@@ -1,6 +1,6 @@
 <?php
 namespace gms\data\game\role;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 
 /**
  * Represents a game role.
@@ -12,7 +12,7 @@ use wcf\data\DatabaseObject;
  * @subpackage	data.game.role
  * @category	Guilded 2.0
  */
-class GameRole extends DatabaseObject {
+class GameRole extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

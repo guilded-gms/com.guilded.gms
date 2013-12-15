@@ -2,7 +2,7 @@
 namespace gms\data\character\activity;
 use wcf\data\DatabaseObjectList;
 
-class CharacterActivityList extends DatabaseObjectList {
+class CharacterActivityList extends GMSDatabaseObjectList {
 	/**
 	 * @see	\wcf\data\DatabaseObjectList::$className
 	 */

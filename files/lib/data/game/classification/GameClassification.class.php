@@ -1,7 +1,7 @@
 <?php
 namespace gms\data\game\classification;
 use gms\data\game\Game;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 
 /**
  * Represents a game class.
@@ -13,7 +13,7 @@ use wcf\data\DatabaseObject;
  * @subpackage	data.game.class
  * @category	Guilded 2.0
  */
-class GameClassification extends DatabaseObject {
+class GameClassification extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

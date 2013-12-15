@@ -1,7 +1,7 @@
 <?php
 namespace gms\data\character\group;
 use gms\data\character\CharacterProfile;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 use wcf\system\WCF;
 
 /**
@@ -14,7 +14,7 @@ use wcf\system\WCF;
  * @subpackage	data.character
  * @category	Guilded 2.0
  */
-class CharacterGroup extends DatabaseObject {
+class CharacterGroup extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

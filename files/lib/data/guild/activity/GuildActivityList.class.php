@@ -2,7 +2,7 @@
 namespace gms\data\guild\activity;
 use wcf\data\DatabaseObjectList;
 
-class GuildActivityList extends DatabaseObjectList {
+class GuildActivityList extends GMSDatabaseObjectList {
 	/**
 	 * @see	\wcf\data\DatabaseObjectList::$className
 	 */

@@ -1,6 +1,6 @@
 <?php
 namespace gms\data\character\option\category;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 use wcf\system\WCF;
 
 /*
@@ -13,7 +13,7 @@ use wcf\system\WCF;
  * @subpackage	data.character.option.category
  * @category	Guilded 2.0
  */
-class CharacterOptionCategory extends DatabaseObject {
+class CharacterOptionCategory extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

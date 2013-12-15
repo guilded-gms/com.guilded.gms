@@ -1,6 +1,6 @@
 <?php
 namespace gms\data\game\race;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 
 /**
  * Represents a game race.
@@ -12,7 +12,7 @@ use wcf\data\DatabaseObject;
  * @subpackage	data.game.race
  * @category	Guilded 2.0
  */
-class GameRace extends DatabaseObject {
+class GameRace extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

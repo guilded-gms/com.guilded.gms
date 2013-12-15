@@ -12,4 +12,4 @@ use wcf\data\DatabaseObjectList;
  * @subpackage	data.guild.profile.menu.item
  * @category	Guilded 2.0
  */
-class GuildProfileMenuItemList extends DatabaseObjectList { }
+class GuildProfileMenuItemList extends GMSDatabaseObjectList { }

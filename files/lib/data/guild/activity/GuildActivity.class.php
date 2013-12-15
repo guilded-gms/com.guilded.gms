@@ -1,9 +1,9 @@
 <?php
 namespace gms\data\guild\activity;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 use wcf\system\WCF;
 
-class GuildActivity extends DatabaseObject {
+class GuildActivity extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

@@ -2,7 +2,7 @@
 namespace gms\data\game\role;
 use wcf\data\DatabaseObjectEditor;
 
-class GameRoleEditor extends DatabaseObjectEditor {
+class GameRoleEditor extends GMSDatabaseObjectEditor {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

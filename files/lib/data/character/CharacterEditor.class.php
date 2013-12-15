@@ -14,7 +14,7 @@ use wcf\system\WCF;
  * @subpackage	data.character
  * @category	Guilded 2.0
  */
-class CharacterEditor extends DatabaseObjectEditor {
+class CharacterEditor extends GMSDatabaseObjectEditor {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

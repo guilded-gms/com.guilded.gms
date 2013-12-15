@@ -13,7 +13,7 @@ use wcf\system\WCF;
  * @subpackage	data.guild.option
  * @category 	Community Framework
  */
-class GuildOptionEditor extends DatabaseObjectEditor {
+class GuildOptionEditor extends GMSDatabaseObjectEditor {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

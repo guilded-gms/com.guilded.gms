@@ -1,7 +1,7 @@
 <?php
 namespace gms\data\game\instance;
 use gms\data\game\combatant\GameCombatantList;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 
 /**
  * Represents a game instance.
@@ -13,7 +13,7 @@ use wcf\data\DatabaseObject;
  * @subpackage	data.game.instance
  * @category	Guilded 2.0
  */
-class GameInstance extends DatabaseObject {
+class GameInstance extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

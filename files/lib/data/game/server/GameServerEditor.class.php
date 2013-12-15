@@ -12,7 +12,7 @@ use wcf\system\WCF;
  * @subpackage	data.game.server
  * @category	Guilded 2.0
  */
-class GameServerEditor extends DatabaseObjectEditor {
+class GameServerEditor extends GMSDatabaseObjectEditor {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

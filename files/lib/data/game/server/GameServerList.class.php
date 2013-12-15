@@ -11,7 +11,7 @@ use wcf\data\DatabaseObjectList;
  * @subpackage	data.game.server
  * @category	Guilded 2.0
  */
-class GameServerList extends DatabaseObjectList {
+class GameServerList extends GMSDatabaseObjectList {
 	/**
 	 * @see	\wcf\data\DatabaseObjectList::$className
 	 */

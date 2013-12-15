@@ -1,6 +1,6 @@
 <?php
 namespace gms\data\game\item;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 
 /**
  * Represents a game item.
@@ -12,7 +12,7 @@ use wcf\data\DatabaseObject;
  * @subpackage	data.game.item
  * @category	Guilded 2.0
  */
-class GameItem extends DatabaseObject {
+class GameItem extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

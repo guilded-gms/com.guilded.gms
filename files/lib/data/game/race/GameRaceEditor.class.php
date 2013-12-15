@@ -2,7 +2,7 @@
 namespace gms\data\game\race;
 use wcf\data\DatabaseObjectEditor;
 
-class GameRaceEditor extends DatabaseObjectEditor {
+class GameRaceEditor extends GMSDatabaseObjectEditor {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

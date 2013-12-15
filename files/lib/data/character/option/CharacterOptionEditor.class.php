@@ -13,7 +13,7 @@ use wcf\system\WCF;
  * @subpackage	data.character.option
  * @category	Guilded 2.0
  */
-class CharacterOptionEditor extends DatabaseObjectEditor {
+class CharacterOptionEditor extends GMSDatabaseObjectEditor {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

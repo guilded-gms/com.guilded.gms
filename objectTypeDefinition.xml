@@ -2,11 +2,23 @@
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/object-type-definition.xsd">
 	<import>
 		<definition>
-			<name>com.guilded.game.provider</name>
+			<name>com.guilded.gms.creditableObject</name>
+			<!--<interfacename>gms\data\ICreditableObject</interfacename>-->
+		</definition>
+		<definition>
+			<name>com.guilded.gms.event.type</name>
+			<interfacename>gms\system\event\type\IEventType</interfacename>
+		</definition>
+		<definition>
+			<name>com.guilded.gms.event.view</name>
+			<interfacename>gms\system\event\view\IEventView</interfacename>
+		</definition>
+		<definition>
+			<name>com.guilded.gms.game.provider</name>
 			<interfacename>gms\system\game\provider\IGameProvider</interfacename>
 		</definition>
 		<definition>
-			<name>com.guilded.game.item.tooltip</name>
+			<name>com.guilded.gms.game.item.tooltip</name>
 			<interfacename>gms\system\game\item\tooltip\IGameItemTooltip</interfacename>
 		</definition>
 	</import>

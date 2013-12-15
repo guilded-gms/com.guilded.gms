@@ -6,7 +6,7 @@ use gms\data\game\instance\GameInstanceList;
 use gms\data\game\item\GameItemList;
 use gms\data\game\race\GameRaceList;
 use gms\data\game\role\GameRoleList;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 use wcf\system\game\provider\GameProviderHandler;
 use wcf\system\request\IRouteController;
 use wcf\system\style\StyleHandler;
@@ -23,7 +23,7 @@ use wcf\util\StringUtil;
  * @subpackage	data.game
  * @category	Guilded 2.0
  */
-class Game extends DatabaseObject implements IRouteController {
+class Game extends GMSDatabaseObject implements IRouteController {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

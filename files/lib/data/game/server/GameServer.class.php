@@ -1,6 +1,6 @@
 <?php
 namespace gms\data\game\server;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 use gms\data\game\Game;
 use wcf\data\ITitledObject;
 
@@ -13,7 +13,7 @@ use wcf\data\ITitledObject;
  * @subpackage	data.game.server
  * @category	Guilded 2.0
  */
-class GameServer extends DatabaseObject implements ITitledObject {
+class GameServer extends GMSDatabaseObject implements ITitledObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */
