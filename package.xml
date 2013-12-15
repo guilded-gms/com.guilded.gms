@@ -19,7 +19,7 @@
 	</requiredpackages>
 
 	<optionalpackages>
-		<optionalpackage file="optional/com.guilded.game.wow.tar.gz">com.guilded.game.wow</optionalpackage>
+		<optionalpackage file="optional/com.guilded.gms.game.wow.tar.gz">com.guilded.gms.game.wow</optionalpackage>
 		<optionalpackage file="optional/com.cls-design.style.altitude.tar">com.cls-design.style.altitude</optionalpackage>
 	</optionalpackages>
 	

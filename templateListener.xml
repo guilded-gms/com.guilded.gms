@@ -6,30 +6,44 @@
 			<environment>user</environment>
 			<templatename>header</templatename>
 			<eventname>topMenu</eventname>
-			<templatecode><![CDATA[{include file='characterPanel'}]]></templatecode>
+			<templatecode><![CDATA[{include file='characterPanel' application='gms'}]]></templatecode>
 		</templatelistener>
 
-		<templatelistener name="gmsJavascriptInclude">
+		<templatelistener name="javascriptInclude">
 			<environment>user</environment>
 			<templatename>headInclude</templatename>
 			<eventname>javascriptInclude</eventname>
-			<templatecode><![CDATA[<script data-relocate="true" src="{@$__gms->getPath()}js/GMS.js"></script>]]></templatecode> <!-- @todo handle debug mode -->
+			<templatecode><![CDATA[{include file='__javascriptInclude' application='gms'}]]></templatecode>
 		</templatelistener>
 
-		<templatelistener name="guildedCopyright">
+		<templatelistener name="copyright">
 			<environment>user</environment>
 			<templatename>footer</templatename>
 			<eventname>copyright</eventname>
-			<templatecode><![CDATA[<address class="copyright marginTop"><a href="http://guilded.eu" title="">Software: <strong>Guilded {@PACKAGE_VERSION}</strong>, entwickelt vom <strong>Guilded Team</strong></a></address>]]></templatecode>
+			<templatecode><![CDATA[{include file='__copyright' application='gms'}]]></templatecode>
 		</templatelistener>
 
-		<templatelistener name="guildedHeaderLogoInclude">
+		<templatelistener name="headerLogo">
 			<environment>user</environment>
 			<templatename>header</templatename>
 			<eventname>headerLogo</eventname>
-			<templatecode><![CDATA[<h1>Guilded 2.0</h1><img src="{@$__gms->getPath('gms')}images/guilded-logo1.png" height="80" alt="Guilded 2.0" title="Guilded 2.0" />]]>
-			</templatecode>
+			<templatecode><![CDATA[{include file='__headerLogo' application='gms'}]]></templatecode>
 		</templatelistener>
 		<!-- /environment: user -->
+
+		<!-- environment: admin -->
+		<templatelistener name="headerLogo">
+			<environment>admin</environment>
+			<templatename>header</templatename>
+			<eventname>headerLogo</eventname>
+			<templatecode><![CDATA[{include file='__headerLogo' application='gms'}]]></templatecode>
+		</templatelistener>
+		<templatelistener name="gmsVersion">
+			<environment>admin</environment>
+			<templatename>index</templatename>
+			<eventname>softwareVersions</eventname>
+			<templatecode><![CDATA[{include file='__gmsVersion' application='gms'}]]></templatecode>
+		</templatelistener>
+		<!-- /environment: admin -->
 	</import>
 </data>

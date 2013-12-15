@@ -119,7 +119,7 @@
 
 		<!-- comment -->
 		<type>
-			<name>com.guilded.gms.event</name>
+			<name>com.guilded.gms.event.comment</name>
 			<definitionname>com.woltlab.wcf.comment.commentableContent</definitionname>
 			<classname>gms\system\comment\manager\EventCommentManager</classname>
 		</type>

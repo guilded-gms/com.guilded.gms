@@ -2,6 +2,7 @@
 namespace gms\page;
 use gms\data\guild\GuildProfile;
 use wcf\system\breadcrumb\Breadcrumb;
+use wcf\system\dashboard\DashboardHandler;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
@@ -66,6 +67,8 @@ class GuildPage extends AbstractPage {
 	 */
 	public function assignVariables() {
 		parent::assignVariables();
+
+		DashboardHandler::getInstance()->loadBoxes('com.guilded.gms.GuildPage', $this);
 
 		WCF::getTPL()->assign(array(
 			'guildID' => $this->guildID,

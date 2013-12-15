@@ -1,6 +1,7 @@
 <?php
 namespace gms\page;
 use wcf\data\event\Event;
+use wcf\system\comment\CommentHandler;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\WCF;
 
@@ -16,6 +17,24 @@ class EventPage extends AbstractPage {
 	 * @var wcf\data\event\Event
 	 */
 	public $event = null;
+
+	/**
+	 * comment object type id
+	 * @var	integer
+	 */
+	public $commentObjectTypeID = 0;
+
+	/**
+	 * comment manager object
+	 * @var	\wcf\system\comment\manager\ICommentManager
+	 */
+	public $commentManager = null;
+
+	/**
+	 * list of comments
+	 * @var	\wcf\data\comment\StructuredCommentList
+	 */
+	public $commentList = null;
 	
 	/**
 	 * @see wcf\page\IPage::readParameters()
@@ -37,7 +56,11 @@ class EventPage extends AbstractPage {
 	public function readData() {
 		parent::readData();
 
-		// \todo get comments
+		// get comments
+		// @todo check commenting with ACL
+		$this->commentObjectTypeID = CommentHandler::getInstance()->getObjectTypeID('com.guilded.gms.event.comment');
+		$this->commentManager = CommentHandler::getInstance()->getObjectType($this->commentObjectTypeID)->getProcessor();
+		$this->commentList = CommentHandler::getInstance()->getCommentList($this->commentManager, $this->commentObjectTypeID, $this->eventID);
 	}
 	
 	/**
@@ -48,7 +71,10 @@ class EventPage extends AbstractPage {
 		
 		WCF::getTPL()->assign(array(
 			'eventID' => $this->eventID,
-			'event' => $this->event
+			'event' => $this->event,
+			'commentList' => $this->commentList,
+			'commentObjectTypeID' => $this->commentObjectTypeID,
+			'lastCommentTime' => ($this->commentList ? $this->commentList->getMinCommentTime() : 0),
 		));
 	}
 }

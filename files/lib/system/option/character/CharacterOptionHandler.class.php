@@ -3,6 +3,7 @@ namespace gms\system\option\character;
 use gms\data\character\option\ViewableCharacterOption;
 use gms\data\character\Character;
 use gms\data\game\Game;
+use gms\system\option\IGameOptionType;
 use wcf\data\option\category\OptionCategory;
 use wcf\data\option\Option;
 use wcf\system\exception\CharacterInputException;
@@ -139,15 +140,16 @@ class CharacterOptionHandler extends OptionHandler {
 	}
 
 	/**
-	 * @todo implement game filter
+	 * @see	\wcf\system\option\OptionHandler::getTypeObject()
 	 */
-	protected function checkOption(Option $option) {
-		$returnValue = parent::checkOption($option);
+	public function getTypeObject($type) {
+		parent::getTypeObject($type);
 
-		if ($this->game !== null) {
-			// then??
+		// set game id
+		if ($this->typeObjects[$type] instanceof IGameOptionType) {
+			$this->typeObjects[$type]->setGame($this->game);
 		}
 
-		return $returnValue;
+		return $this->typeObjects[$type];
 	}
 }

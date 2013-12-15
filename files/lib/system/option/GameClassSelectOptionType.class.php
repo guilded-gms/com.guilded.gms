@@ -1,7 +1,7 @@
 <?php
 namespace gms\system\option;
-use wcf\data\option\Option;
-use wcf\system\WCF;
+use gms\data\game\classification\GameClassificationList;
+use gms\data\game\Game;
 
 /**
  * Select Option for game-classes.
@@ -13,28 +13,36 @@ use wcf\system\WCF;
  * @subpackage	system.option
  * @category	Guilded 2.0
 */
-class GameClassSelectOptionType extends SelectOptionType {
-	protected $gameID = 0;
+class GameClassSelectOptionType extends SelectOptionType implements IGameOptionType {
+	/**
+	 * game object
+	 * @var    \gms\data\game\Game
+	 */
+	protected $game = null;
 
 	/**
 	 * Get possible select-options.
 	 *
-	 * @todo set gameID
+	 * @return array
 	 */
 	public function parseSelectOptions(){
 		$result = array();
-		
-		$sql = "SELECT  
-					classID, title
-				FROM wcf".WCF_N."_game_class
-				WHERE	(gameID = ?)";
-		$statement = WCF::getDB()->prepareStatement($sql);
-		$statement->execute(array($this->gameID));
-		
-		while($row = $statement->fetchArray()){
-			$result[$row['classID']] = WCF::getLanguage()->get('gms.game.' . $row['title'] . '.title');
+
+		$classList = new GameClassificationList();
+		$classList->getConditionBuilder()->add('gameID = ?', array($this->game->gameID));
+		$classList->readObjects();
+
+		foreach ($classList->getObjects() as $race) {
+			$result[$race->raceID] = $race->getTitle();
 		}
 		
 		return $result;
+	}
+
+	/**
+	 * @see \gms\system\option\IGameOptionType::setGame()
+	 */
+	public function setGame(Game $game) {
+		$this->game = $game;
 	}
 }

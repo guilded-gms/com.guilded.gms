@@ -1,5 +1,6 @@
 <?php
 namespace gms\system\option;
+use gms\data\game\Game;
 use gms\data\game\race\GameRaceList;
 
 /**
@@ -12,17 +13,23 @@ use gms\data\game\race\GameRaceList;
  * @subpackage	system.option
  * @category	Guilded 2.0
 */
-class GameRaceSelectOptionType extends SelectOptionType {	
+class GameRaceSelectOptionType extends SelectOptionType implements IGameOptionType {
+	/**
+	 * game object
+	 * @var \gms\data\game\Game
+	 */
+	protected $game = null;
+
 	/**
 	 * Get possible select-options.
 	 *
-	 * @todo set gameID
+	 * @return array
 	 */
 	public function parseSelectOptions(){
 		$result = array();
 
 		$raceList = new GameRaceList();
-		$raceList->getConditionBuilder()->add('gameID = ?', array(DEFAULT_GAME_ID));
+		$raceList->getConditionBuilder()->add('gameID = ?', array($this->game->gameID));
 		$raceList->readObjects();
 		
 		foreach ($raceList->getObjects() as $race) {
@@ -30,5 +37,12 @@ class GameRaceSelectOptionType extends SelectOptionType {
 		}
 		
 		return $result;
+	}
+
+	/**
+	 * @see \gms\system\option\IGameOptionType::setGame()
+	 */
+	public function setGame(Game $game) {
+		$this->game = $game;
 	}
 }

@@ -32,10 +32,20 @@ class GameCharacterProfileMenuContent extends SingletonFactory implements IChara
 	/**
 	 * Checks given game of availability.
 	 *
-	 * @param Game $game
+	 * @param \gms\data\game\Game $game
 	 * @return	boolean
 	 */
 	public function checkGame(Game $game) {
-		return ($game->title != 'wow'); // @todo check by get_called_class() and namespace
+		$className = get_class($this);
+
+		$sql = "SELECT game.gameID
+				FROM wcf".WCF_N."_object_type object_type
+				INNER JOIN wcf".WCF_N."_game game ON (game.packageID = object_type.packageID)
+				WHERE (object_type.className = ?)";
+		$statement = WCF::getDB()->prepareStatement($sql);
+		$statement->execute(array($className));
+		$row = $statement->fetchArray();
+
+		return ($game->gameID == $row['gameID']);
 	}
 }

@@ -18,4 +18,5 @@ if (!defined('PAGE_TITLE') || !PAGE_TITLE) {
 }
 
 // @todo set up dashboard boxes
+	// @todo set up serverStatus on GuildPage
 // @todo set mod permissions

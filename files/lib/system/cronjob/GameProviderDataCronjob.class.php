@@ -1,19 +1,21 @@
 <?php
 namespace gms\system\cronjob;
 use gms\data\game\server\GameServerEditor;
+use gms\data\guild\GuildAction;
 use gms\data\guild\GuildList;
 use wcf\data\cronjob\Cronjob;
 use wcf\system\cronjob\AbstractCronjob;
 use wcf\system\game\GameHandler;
-use wcf\system\WCF;
 
 /**
  * Synchronizes game data from external provider.
- * 
+ *
  * @author	Jeffrey Reichardt
- * @copyright	{{COPYRIGHT}}
+ * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @license	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.gms
- * @category	{{PROJECT-CATEGORY}}
+ * @subpackage	system.cronjob
+ * @category	Guilded 2.0
  */
 class GameProviderDataCronjob extends AbstractCronjob {
 	/**
@@ -58,6 +60,14 @@ class GameProviderDataCronjob extends AbstractCronjob {
 				}
 
 				// @todo update guild data
+				/*
+				$guildAction = new GuildAction(array($guild->guildID), 'update', array(
+					'data' => array(
+
+					)
+				));
+				$guildAction->executeAction();
+				*/
 			}
 		}
 	}

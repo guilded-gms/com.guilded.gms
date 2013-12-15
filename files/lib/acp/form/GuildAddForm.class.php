@@ -47,13 +47,6 @@ class GuildAddForm extends GuildOptionListForm {
 	public $additionalFields = array();
 
 	/**
-	 * list of installed games
-	 * @todo check if needed (GameHandler)
-	 * @var    array
-	 */
-	public $games = array();
-	
-	/**
 	 * @see	\wcf\form\Form::readFormParameters()
 	 */
 	public function readFormParameters() {
@@ -133,7 +126,6 @@ class GuildAddForm extends GuildOptionListForm {
 		WCF::getTPL()->assign(array(
 			'name' => $this->name,
 			'gameID' => $this->gameID,
-			'games' => $this->games,
 			'optionTree' => $this->optionTree
 		));
 	}
