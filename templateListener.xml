@@ -2,17 +2,32 @@
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/templateListener.xsd">
 	<import>		
 		<!-- environment: user -->
+		<templatelistener name="characterPanel">
+			<environment>user</environment>
+			<templatename>header</templatename>
+			<eventname>topMenu</eventname>
+			<templatecode><![CDATA[{include file='characterPanel'}]]></templatecode>
+		</templatelistener>
+
+		<templatelistener name="gmsJavascriptInclude">
+			<environment>user</environment>
+			<templatename>headInclude</templatename>
+			<eventname>javascriptInclude</eventname>
+			<templatecode><![CDATA[<script data-relocate="true" src="{@$__gms->getPath()}js/GMS.js"></script>]]></templatecode> <!-- @todo handle debug mode -->
+		</templatelistener>
+
 		<templatelistener name="guildedCopyright">
 			<environment>user</environment>
 			<templatename>footer</templatename>
 			<eventname>copyright</eventname>
 			<templatecode><![CDATA[<address class="copyright marginTop"><a href="http://guilded.eu" title="">Software: <strong>Guilded {@PACKAGE_VERSION}</strong>, entwickelt vom <strong>Guilded Team</strong></a></address>]]></templatecode>
 		</templatelistener>
+
 		<templatelistener name="guildedHeaderLogoInclude">
 			<environment>user</environment>
 			<templatename>header</templatename>
 			<eventname>headerLogo</eventname>
-			<templatecode><![CDATA[<h1>Guilded 2.0</h1><img src="{@$__wcf->getPath('gms')}images/guilded-logo1.png" height="80" alt="Guilded 2.0" title="Guilded 2.0" />]]>
+			<templatecode><![CDATA[<h1>Guilded 2.0</h1><img src="{@$__gms->getPath('gms')}images/guilded-logo1.png" height="80" alt="Guilded 2.0" title="Guilded 2.0" />]]>
 			</templatecode>
 		</templatelistener>
 		<!-- /environment: user -->

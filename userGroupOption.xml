@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/userGroupOption.xsd">
+	<import>
+		<categories>
+			<category name="user.character">
+				<parent>user</parent>
+			</category>
+			<category name="user.guild">
+				<parent>user</parent>
+			</category>
+			<category name="user.alliance">
+				<parent>user</parent>
+			</category>
+
+			<category name="admin.alliance">
+				<parent>admin</parent>
+			</category>
+			<category name="admin.character">
+				<parent>admin</parent>
+			</category>
+			<category name="admin.guild">
+				<parent>admin</parent>
+			</category>
+			<category name="admin.system.game">
+				<parent>admin.system</parent>
+			</category>
+		</categories>
+		
+		<options>
+			<!-- admin.system.game -->
+			<option name="admin.system.game.canManage">
+				<categoryname>admin.system.game</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /admin.system.game -->
+
+			<!-- user.character -->
+			<option name="user.character.canManage">
+				<categoryname>user.character</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.character.canViewProfile">
+				<categoryname>user.character</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /user.character -->
+
+			<!-- user.guild -->
+			<option name="user.guild.canViewProfile">
+				<categoryname>user.guild</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /user.guild -->
+
+			<!-- user.alliance -->
+			<option name="user.alliance.canViewProfile">
+				<categoryname>user.character</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /user.alliance -->
+
+			<!-- admin.character -->
+			<option name="admin.character.canManage">
+				<categoryname>admin.character</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /user.character -->
+
+			<!-- admin.alliance -->
+			<option name="admin.alliance.canManage">
+				<categoryname>admin.alliance</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /user.alliance -->
+
+			<!-- admin.guild -->
+			<option name="admin.guild.canManage">
+				<categoryname>admin.guild</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /user.guild -->
+		</options>
+	</import>
+</data>

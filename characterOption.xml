@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data xmlns="http://www.guilded.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.guilded.eu http://www.guilded.eu/XSD/characterOption.xsd">
+	<import>
+		<categories>
+			<category name="profile">
+				<showorder>1</showorder>
+			</category>
+			
+			<!-- profile -->
+			<category name="profile.general">
+				<parent>profile</parent>
+			</category>
+			<category name="profile.details">
+				<parent>profile</parent>
+			</category>
+			<!-- /profile -->
+		</categories>
+
+		<options>
+			<!-- system -->
+			<option name="level">
+				<categoryname>profile.general</categoryname>
+				<optiontype>integer</optiontype>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="classes">
+				<categoryname>profile.general</categoryname>
+				<optiontype>gameClassSelect</optiontype>
+				<outputclass>gms\system\option\character\CharacterOptionOutputSelectOptions</outputclass>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="races">
+				<categoryname>profile.general</categoryname>
+				<optiontype>gameRaceSelect</optiontype>
+				<outputclass>gms\system\option\character\CharacterOptionOutputSelectOptions</outputclass>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="roles">
+				<categoryname>profile.general</categoryname>
+				<optiontype>gameRoleSelect</optiontype>
+				<outputclass>gms\system\option\character\CharacterOptionOutputSelectOptions</outputclass>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<!-- /system -->
+		
+			<!-- details -->
+			<option name="rankTitle">
+				<categoryname>profile.details</categoryname>
+				<optiontype>text</optiontype>
+				<outputclass>gms\system\option\character\CharacterOptionOutputRankTitle</outputclass>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="about">
+				<categoryname>profile.details</categoryname>
+				<optiontype>message</optiontype>
+				<outputclass>gms\system\option\character\CharacterOptionOutputMessage</outputclass>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="gender">
+				<categoryname>profile.details</categoryname>
+				<optiontype>radioButton</optiontype>
+				<outputclass>gms\system\option\character\SelectOptionsCharacterOptionOutput</outputclass>
+				<selectoptions><![CDATA[0:wcf.global.noDeclaration
+1:gms.character.gender.male
+2:gms.character.gender.female]]>
+				</selectoptions>
+				<defaultvalue>0</defaultvalue>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<!-- /details -->
+		</options>
+	</import>
+</data>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data xmlns="http://www.guilded.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.guilded.eu http://www.guilded.eu/XSD/guildOption.xsd">
+	<import>
+		<categories>
+			<category name="profile">
+				<showorder>1</showorder>
+			</category>
+			
+			<!-- profile -->
+			<category name="profile.system">
+				<parent>profile</parent>
+			</category>
+			<!-- /profile -->
+		</categories>
+
+		<options>
+			<!-- system -->
+			<option name="server">
+				<categoryname>profile.system</categoryname>
+				<optiontype>text</optiontype>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<!-- /system -->
+		</options>
+	</import>
+</data>

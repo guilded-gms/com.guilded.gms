@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/acpMenu.xsd">
+	<import>	
+		<!-- games -->
+		<acpmenuitem name="gms.acp.menu.link.game">
+			<parent>wcf.acp.menu.link.system</parent>
+			<permissions>admin.system.game.canManage</permissions>
+		</acpmenuitem>
+				
+		<acpmenuitem name="gms.acp.menu.link.game.list">
+			<controller><![CDATA[gms\acp\page\GameListPage]]></controller>
+			<parent>gms.acp.menu.link.game</parent>
+			<permissions>admin.system.game.canManage</permissions>
+			<showorder>1</showorder>
+		</acpmenuitem>
+		<!-- /games -->
+
+		<!-- guilds -->
+		<acpmenuitem name="gms.acp.menu.link.community.guild">
+			<parent>wcf.acp.menu.link.community</parent>
+			<showorder>1</showorder>
+		</acpmenuitem>
+
+		<acpmenuitem name="gms.acp.menu.link.community.guild.list">
+			<controller><![CDATA[gms\acp\page\GuildListPage]]></controller>
+			<parent>gms.acp.menu.link.community.guild</parent>
+			<permissions>admin.guilded.guild.canManage</permissions>
+			<showorder>1</showorder>
+		</acpmenuitem>
+		<acpmenuitem name="gms.acp.menu.link.community.guild.add">
+			<controller><![CDATA[gms\acp\form\GuildAddForm]]></controller>
+			<parent>gms.acp.menu.link.community.guild</parent>
+			<permissions>admin.guilded.guild.canManage</permissions>
+			<showorder>2</showorder>
+		</acpmenuitem>
+		<!-- /guilds -->
+
+		<!-- characters -->
+		<acpmenuitem name="gms.acp.menu.link.community.character">
+			<parent>wcf.acp.menu.link.community</parent>
+			<showorder>2</showorder>
+		</acpmenuitem>
+
+		<acpmenuitem name="gms.acp.menu.link.community.character.list">
+			<controller><![CDATA[gms\acp\page\CharacterListPage]]></controller>
+			<parent>gms.acp.menu.link.community.character</parent>
+			<permissions>admin.guilded.character.canManage</permissions>
+			<showorder>1</showorder>
+		</acpmenuitem>
+		<acpmenuitem name="gms.acp.menu.link.community.character.add">
+			<controller><![CDATA[gms\acp\form\CharacterAddForm]]></controller>
+			<parent>gms.acp.menu.link.community.character</parent>
+			<permissions>admin.guilded.character.canManage</permissions>
+			<showorder>2</showorder>
+		</acpmenuitem>
+		<!-- /characters -->
+	</import>
+</data>

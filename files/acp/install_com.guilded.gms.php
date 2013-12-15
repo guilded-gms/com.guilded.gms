@@ -1,5 +1,4 @@
 <?php
-use wcf\data\guild\GuildEditor;
 use wcf\system\WCF;
 
 // set install date

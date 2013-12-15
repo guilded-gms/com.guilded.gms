@@ -15,30 +15,38 @@
     </authorinformation>
 	
 	<requiredpackages>
-		<requiredpackage minversion="2.0.0 Beta 4">com.woltlab.wcf</requiredpackage>
-		
-		<!-- guilded -->
-		<requiredpackage file="required/com.guilded.wcf.game.tar.gz">com.guilded.wcf.game</requiredpackage>
-		<requiredpackage file="required/com.guilded.wcf.character.tar.gz">com.guilded.wcf.character</requiredpackage>
-		<requiredpackage file="required/com.guilded.wcf.credit.tar.gz">com.guilded.wcf.credit</requiredpackage>
-		<requiredpackage file="required/com.guilded.wcf.event.tar.gz">com.guilded.wcf.event</requiredpackage>
+		<requiredpackage minversion="2.0.0 RC 1">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 
 	<optionalpackages>
-		<optionalpackage file="optional/com.guilded.wcf.game.wow.tar.gz">com.guilded.wcf.game.wow</optionalpackage>
+		<optionalpackage file="optional/com.guilded.game.wow.tar.gz">com.guilded.game.wow</optionalpackage>
 		<optionalpackage file="optional/com.cls-design.style.altitude.tar">com.cls-design.style.altitude</optionalpackage>
 	</optionalpackages>
 	
 	<instructions type="install">
+		<instruction type="sql">install.sql</instruction>
+
 		<instruction type="file">files.tar</instruction>
 		<instruction type="template">templates.tar</instruction>
-		
-		<instruction type="option">option.xml</instruction>
-		<instruction type="objectType">objectType.xml</instruction>
+
+		<instruction type="packageInstallationPlugin">packageInstallationPlugin.xml</instruction>
+		<instruction type="acpMenu">acpMenu.xml</instruction>
+		<instruction type="bbcode">bbcode.xml</instruction>
+		<instruction type="characterOption">characterOption.xml</instruction>
+		<instruction type="characterProfileMenu">characterProfileMenu.xml</instruction>
+		<instruction type="coreObject">coreObject.xml</instruction>
 		<instruction type="dashboardBox">dashboardBox.xml</instruction>
+		<instruction type="guildOption">guildOption.xml</instruction>
+		<instruction type="guildProfileMenu">guildProfileMenu.xml</instruction>
+		<instruction type="objectType">objectType.xml</instruction>
+		<instruction type="option">option.xml</instruction>
 		<instruction type="templateListener">templateListener.xml</instruction>
+		<instruction type="userGroupOption">userGroupOption.xml</instruction>
+		<instruction type="userProfileMenu">userProfileMenu.xml</instruction>
+		<instruction type="userMenu">userMenu.xml</instruction>
+		<instruction type="userOption">userOption.xml</instruction>
 		<instruction type="script">acp/install_com.guilded.gms.php</instruction>
 
-		<instruction type="language">lang/*.xml</instruction>
+		<instruction type="language">language/*.xml</instruction>
 	</instructions>
 </package>

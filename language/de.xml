@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de">
+	<category name="gms.header.menu">
+		<item name="gms.header.menu.index"><![CDATA[Startseite]]></item>
+	</category>
+
+	<category name="gms.game">
+		<!-- server -->
+		<item name="gms.game.server.type.pve"><![CDATA[PvE]]></item>
+		<item name="gms.game.server.type.pvp"><![CDATA[PvP]]></item>
+		<item name="gms.game.server.type.rp"><![CDATA[RP]]></item>
+		<item name="gms.game.server.type.rppvp"><![CDATA[RP-PvP]]></item>
+		<!-- item -->
+		<item name="gms.game.item.notFound"><![CDATA[Gegenstand nicht gefunden]]></item>
+	</category>
+
+	<category name="wcf.acp.menu">
+		<item name="wcf.acp.menu.link.community.guild"><![CDATA[Gilden]]></item>
+		<item name="wcf.acp.menu.link.community.guild.list"><![CDATA[Gilden auflisten]]></item>
+		<item name="wcf.acp.menu.link.community.guild.add"><![CDATA[Gilde hinzufügen]]></item>
+		<item name="wcf.acp.menu.link.community.character"><![CDATA[Charaktere]]></item>
+		<item name="wcf.acp.menu.link.community.character.list"><![CDATA[Charaktere auflisten]]></item>
+		<item name="wcf.acp.menu.link.community.character.add"><![CDATA[Charakter hinzufügen]]></item>
+	</category>
+
+	<category name="wcf.user.menu">
+		<item name="wcf.user.menu.profile.character"><![CDATA[Charaktere]]></item>
+	</category>
+
+	<category name="gms.character">
+		<item name="gms.character.add"><![CDATA[Charakter hinzufügen]]></item>
+		<item name="gms.character.edit"><![CDATA[Charakter bearbeiten]]></item>
+		<item name="gms.character.profile"><![CDATA[Charakter-Profil]]></item>
+		<item name="gms.character.characters"><![CDATA[Charaktere]]></item>
+		<item name="gms.character.noPrimary"><![CDATA[Charakter wählen]]></item>
+		<item name="gms.character.information"><![CDATA[Information]]></item>
+		<item name="gms.character.characterName"><![CDATA[Name]]></item>
+		<item name="gms.character.characterName.description"><![CDATA[Wählen Sie das Spiel aus und geben Sie den Namen des Charakters an.]]></item>
+
+		<item name="gms.character.option.category.profile.general"><![CDATA[Allgemein]]></item>
+		<item name="gms.character.option.category.profile.details"><![CDATA[Details]]></item>
+		<item name="gms.character.option.level"><![CDATA[Stufe]]></item>
+		<item name="gms.character.option.classes"><![CDATA[Klasse]]></item>
+		<item name="gms.character.option.races"><![CDATA[Rasse]]></item>
+		<item name="gms.character.option.gender"><![CDATA[Geschlecht]]></item>
+		<item name="gms.character.gender.male"><![CDATA[männlich]]></item>
+		<item name="gms.character.gender.female"><![CDATA[weiblich]]></item>
+
+		<item name="gms.character.content.about.empty"><![CDATA[Keine Daten vorhanden]]></item>
+	</category>
+
+	<category name="gms.guild">
+		<item name="gms.guild.add"><![CDATA[Gilde hinzufügen]]></item>
+		<item name="gms.guild.edit"><![CDATA[Gilde bearbeiten]]></item>
+		<item name="gms.guild.profile"><![CDATA[Gilden-Profil]]></item>
+		<item name="gms.guild.guilds"><![CDATA[Gilden]]></item>
+	</category>
+</language>

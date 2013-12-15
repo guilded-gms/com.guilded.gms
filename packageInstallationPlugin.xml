@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/packageInstallationPlugin.xsd">
+	<import>
+		<pip name="characterOption">wcf\system\package\plugin\CharacterOptionPackageInstallationPlugin</pip>
+		<pip name="characterProfileMenu">wcf\system\package\plugin\CharacterProfileMenuPackageInstallationPlugin</pip>
+		<pip name="guildOption">wcf\system\package\plugin\GuildOptionPackageInstallationPlugin</pip>
+		<pip name="guildProfileMenu">wcf\system\package\plugin\GuildProfileMenuPackageInstallationPlugin</pip>
+		<pip name="game">gms\system\package\plugin\GamePackageInstallationPlugin</pip>
+	</import>
+</data>

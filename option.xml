@@ -3,12 +3,18 @@
 	<import>	
 		<categories>
 			<!-- guilded -->
-			<!-- <category name="guilded"></category> provided by com.guilded.wcf.game -->
+			<category name="guilded"></category>
+			<category name="guilded.general">
+				<parent>guilded</parent>
+			</category>
 			<category name="guilded.index">
 				<parent>guilded</parent>
 			</category>
 			<category name="guilded.index.general">
 				<parent>guilded.index</parent>
+			</category>
+			<category name="guilded.recruitment">
+				<parent>guilded</parent>
 			</category>
 			<!-- /guilded -->
 		</categories>
@@ -22,7 +28,18 @@
 			</option>
 			<!-- /general -->
 
-			<!-- index.general -->
+			<!-- guilded.general -->
+			<option name="default_game_id">
+				<categoryname>guilded.general</categoryname>
+				<optiontype>GameSelect</optiontype>
+			</option>
+			<option name="default_guild_id">
+				<categoryname>guilded.general</categoryname>
+				<optiontype>GuildSelect</optiontype>
+			</option>
+			<!-- /guilded.general -->
+
+			<!-- guilded.index.general -->
 			<option name="gms_index_enable_stats">
 				<categoryname>guilded.index.general</categoryname>
 				<optiontype>boolean</optiontype>
@@ -34,7 +51,15 @@
 				<defaultvalue>1</defaultvalue>
 				<options>module_users_online</options>
 			</option>
-			<!-- /index.general -->
+			<!-- /guilded.index.general -->
+
+			<!-- guilded.recruitment -->
+			<option name="guild_recruitment_decline_character">
+				<categoryname>guilded.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<!-- /guilded.recruitment -->
 		</options>	
 	</import>
 </data>
