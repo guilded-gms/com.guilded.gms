@@ -12,9 +12,9 @@ use wcf\data\DatabaseObjectList;
  * @subpackage	data.alliance
  * @category	Guilded 2.0
  */
-class AllianceList extends GMSDatabaseObjectList {
+class AllianceList extends DatabaseObjectList {
 	/**
 	 * @see	\wcf\data\DatabaseObjectList::$className
 	 */
-	public $className = 'wcf\data\alliance\Alliance';
+	public $className = 'gms\data\alliance\Alliance';
 }

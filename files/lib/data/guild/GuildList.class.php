@@ -12,7 +12,7 @@ use wcf\data\DatabaseObjectList;
  * @subpackage	data.guild
  * @category	Guilded 2.0
  */
-class GuildList extends GMSDatabaseObjectList {
+class GuildList extends DatabaseObjectList {
 	/**
 	 * @see	\wcf\data\DatabaseObjectList::$className
 	 */

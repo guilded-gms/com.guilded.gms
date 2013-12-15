@@ -2,7 +2,7 @@
 namespace gms\data\game\instance;
 use wcf\data\DatabaseObjectList;
 
-class GameInstanceList extends GMSDatabaseObjectList {
+class GameInstanceList extends DatabaseObjectList {
 	/**
 	 * @see	\wcf\data\DatabaseObjectList::$className
 	 */

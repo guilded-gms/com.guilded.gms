@@ -17,5 +17,5 @@ class AllianceEditor extends GMSDatabaseObjectEditor {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */
-	protected static $baseClass = 'wcf\data\alliance\Alliance';
+	protected static $baseClass = 'gms\data\alliance\Alliance';
 }

@@ -21,7 +21,7 @@ class AllianceAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$className
 	 */
-	public $className = 'wcf\data\alliance\GuildAllianceEditor';
+	public $className = 'gms\data\alliance\GuildAllianceEditor';
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsCreate

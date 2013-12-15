@@ -12,9 +12,9 @@ use wcf\data\DatabaseObjectList;
  * @subpackage	data.credit
  * @category	Guilded 2.0
  */
-class CreditList extends GMSDatabaseObjectList {
+class CreditList extends DatabaseObjectList {
 	/**
 	 * @see	wcf\data\DatabaseObjectList::$className
 	 */
-	public $className = 'wcf\data\credit\Credit';	
+	public $className = 'gms\data\credit\Credit';
 }

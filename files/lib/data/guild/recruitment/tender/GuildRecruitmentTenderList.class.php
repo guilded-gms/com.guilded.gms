@@ -2,7 +2,7 @@
 namespace gms\data\guild\recruitment\tender;
 use wcf\data\DatabaseObjectList;
 
-class GuildRecruitmentTenderList extends GMSDatabaseObjectList {
+class GuildRecruitmentTenderList extends DatabaseObjectList {
 	/**
 	 * @see	\wcf\data\DatabaseObjectList::$className
 	 */

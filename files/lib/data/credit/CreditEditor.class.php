@@ -17,5 +17,5 @@ class CreditEditor extends GMSDatabaseObjectEditor {
 	/**
 	 * @see	wcf\data\DatabaseObjectDecorator::$baseClass
 	 */
-	protected static $baseClass = 'wcf\data\credit\Credit';
+	protected static $baseClass = 'gms\data\credit\Credit';
 }

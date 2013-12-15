@@ -35,6 +35,7 @@
 		<instruction type="characterOption">characterOption.xml</instruction>
 		<instruction type="characterProfileMenu">characterProfileMenu.xml</instruction>
 		<instruction type="coreObject">coreObject.xml</instruction>
+		<instruction type="cronjob">cronjob.xml</instruction>
 		<instruction type="dashboardBox">dashboardBox.xml</instruction>
 		<instruction type="guildOption">guildOption.xml</instruction>
 		<instruction type="guildProfileMenu">guildProfileMenu.xml</instruction>

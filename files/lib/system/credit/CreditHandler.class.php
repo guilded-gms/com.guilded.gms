@@ -17,7 +17,7 @@ use wcf\system\cache\CacheHandler;
 class CreditHandler extends SingletonFactory {
 	/**
 	 * cached credits
-	 * @var	array<wcf\data\credit\Credit>
+	 * @var	array<gms\data\credit\Credit>
 	 */
 	protected $credits = array();
 
@@ -43,7 +43,7 @@ class CreditHandler extends SingletonFactory {
 	 * Returns all credit of object with the given object type id and object id.
 	 * 
 	 * @param	integer	$objectTypeID
-	 * @return	array<wcf\data\credit\Credit>
+	 * @return	array<gms\data\credit\Credit>
 	 */
 	public function getCredits($objectTypeID) {
 		if (isset($this->credits[$objectTypeID])) {
@@ -58,7 +58,7 @@ class CreditHandler extends SingletonFactory {
 	 * 
 	 * @param	integer	$objectTypeID
 	 * @param	integer	$objectID
-	 * @return	wcf\data\credit\Credit
+	 * @return	gms\data\credit\Credit
 	 */
 	public function getCreditsByID($objectTypeID, $objectID) {
 		if (isset($this->creditIDs[$objectTypeID][$objectID])) {

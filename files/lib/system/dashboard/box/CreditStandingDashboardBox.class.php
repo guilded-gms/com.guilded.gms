@@ -1,6 +1,6 @@
 <?php
 namespace gms\system\dashboard\box;
-use wcf\data\credit\CreditList;
+use gms\data\credit\CreditList;
 use wcf\data\dashboard\box\DashboardBox;
 use wcf\page\IPage;
 use wcf\system\dashboard\box\AbstractDashboardBoxSidebar;
@@ -19,7 +19,7 @@ use wcf\system\WCF;
 class CreditStandingDashboardBox extends AbstractDashboardBoxSidebar {
 	/**
 	 * credit object type list
-	 * @var	wcf\data\credit\Credit
+	 * @var	gms\data\credit\Credit
 	 */
 	public $creditTypeList = null;
 	

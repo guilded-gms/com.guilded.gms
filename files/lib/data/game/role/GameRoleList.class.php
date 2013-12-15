@@ -2,7 +2,7 @@
 namespace gms\data\game\role;
 use wcf\data\DatabaseObjectList;
 
-class GameRoleList extends GMSDatabaseObjectList {
+class GameRoleList extends DatabaseObjectList {
 	/**
 	 * @see	\wcf\data\DatabaseObjectList::$className
 	 */

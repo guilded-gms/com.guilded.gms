@@ -17,5 +17,5 @@ class CreditAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see	wcf\data\AbstractDatabaseObjectAction::$className
 	 */
-	public $className = 'wcf\data\credit\CreditEditor';
+	public $className = 'gms\data\credit\CreditEditor';
 }

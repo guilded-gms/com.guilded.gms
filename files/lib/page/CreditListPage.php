@@ -28,6 +28,6 @@ class CreditListPage extends SortablePage {
 	/**
 	 * @see	wcf\page\MultipleLinkPage::$objectListClassName
 	 */	
-	public $objectListClassName = 'wcf\data\credit\CreditList';
+	public $objectListClassName = 'gms\data\credit\CreditList';
     
 }

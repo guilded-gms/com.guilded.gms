@@ -112,6 +112,8 @@ CREATE TABLE gms1_game_server (
   name				VARCHAR(255),
   status			VARCHAR(55),
   type				VARCHAR(55),
+  population		INT(10) DEFAULT NULL,
+  queue				TINYINT(1) DEFAULT 0,
   isOnline			TINYINT(1) DEFAULT 1,
   UNIQUE KEY(gameID, name)
 ) ENGINE=INNODB CHARSET=utf8;

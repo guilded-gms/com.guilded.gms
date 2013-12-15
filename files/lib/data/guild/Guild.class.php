@@ -2,6 +2,7 @@
 namespace gms\data\guild;
 use gms\data\character\CharacterList;
 use gms\data\game\Game;
+use gms\data\game\server\GameServer;
 use gms\data\guild\recruitment\application\GuildRecruitmentApplicationList;
 use gms\data\guild\recruitment\tender\GuildRecruitmentTenderList;
 use gms\data\GMSDatabaseObject;
@@ -53,6 +54,12 @@ class Guild extends GMSDatabaseObject implements IRouteController {
 	protected $game = null;
 
 	/**
+	 * server object
+	 * @var	\gms\data\game\server\GameServer
+	 */
+	protected $server = null;
+
+	/**
 	 * @see	\wcf\system\request\IRouteController::getTitle()
 	 */
 	public function getTitle() {
@@ -74,7 +81,6 @@ class Guild extends GMSDatabaseObject implements IRouteController {
 		return $this->characterList;
 	}
 
-
 	/**
 	 * Returns game object.
 	 *
@@ -86,6 +92,19 @@ class Guild extends GMSDatabaseObject implements IRouteController {
 		}
 
 		return $this->game;
+	}
+
+	/**
+	 * Returns server object.
+	 *
+	 * @return	\gms\data\game\server\GameServer
+	 */
+	public function getServer() {
+		if ($this->server === null) {
+			$this->server = new GameServer(null, null, $this->gameID, $this->server);
+		}
+
+		return $this->server;
 	}
 
 	/**
@@ -127,15 +146,6 @@ class Guild extends GMSDatabaseObject implements IRouteController {
 		}
 
 		return $this->applicationList;
-	}
-
-	/**
-	 * Return name of server.
-	 *
-	 * @return	string
-	 */
-	public function getServer() {
-		return $this->server;
 	}
 
 	/**

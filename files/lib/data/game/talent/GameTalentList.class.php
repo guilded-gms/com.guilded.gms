@@ -2,7 +2,7 @@
 namespace gms\data\game\talent;
 use wcf\data\DatabaseObjectList;
 
-class GameTalentList extends GMSDatabaseObjectList {
+class GameTalentList extends DatabaseObjectList {
 	/**
 	 * @see	\wcf\data\DatabaseObjectList::$className
 	 */

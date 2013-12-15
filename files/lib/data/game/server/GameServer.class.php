@@ -14,6 +14,10 @@ use wcf\data\ITitledObject;
  * @category	Guilded 2.0
  */
 class GameServer extends GMSDatabaseObject implements ITitledObject {
+	const POPULATION_LOW = 0;
+	const POPULATION_MEDIUM = 1;
+	const POPULATION_HIGH = 2;
+
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -29,6 +33,8 @@ class GameServer extends GMSDatabaseObject implements ITitledObject {
 	 * @var \gms\data\game\Game
 	 */
 	protected $game = null;
+
+	// @todo implement constructor (.., $gameID, $name)
 
 	/**
 	 * Returns the title of the object.
