@@ -34,7 +34,7 @@ class CharacterOptionEditor extends GMSDatabaseObjectEditor {
 	public function enable($enable = true) {
 		$value = intval(!$enable);
 		
-		$sql = "UPDATE	wcf".WCF_N."_character_option
+		$sql = "UPDATE	".CharacterOption::getDatabaseTableName()."
 				SET	disabled = ?
 				WHERE	optionID = ?";
 		$statement = WCF::getDB()->prepareStatement($sql);

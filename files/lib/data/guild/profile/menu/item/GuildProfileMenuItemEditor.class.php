@@ -48,7 +48,7 @@ class GuildProfileMenuItemEditor extends GMSDatabaseObjectEditor implements IEdi
 	 */
 	public function delete() {
 		// update show order
-		$sql = "UPDATE	wcf".WCF_N."_guild_profile_menu_item
+		$sql = "UPDATE	gms".WCF_N."_guild_profile_menu_item
 				SET		showOrder = showOrder - 1
 				WHERE	showOrder >= ?";
 		$statement = WCF::getDB()->prepareStatement($sql);
@@ -65,7 +65,7 @@ class GuildProfileMenuItemEditor extends GMSDatabaseObjectEditor implements IEdi
 	protected function updateShowOrder($showOrder) {
 		if ($this->showOrder != $showOrder) {
 			if ($showOrder < $this->showOrder) {
-				$sql = "UPDATE	wcf".WCF_N."_guild_profile_menu_item
+				$sql = "UPDATE	gms".WCF_N."_guild_profile_menu_item
 						SET		showOrder = showOrder + 1
 						WHERE	showOrder >= ? AND
 								showOrder < ?";
@@ -76,7 +76,7 @@ class GuildProfileMenuItemEditor extends GMSDatabaseObjectEditor implements IEdi
 				));
 			}
 			else if ($showOrder > $this->showOrder) {
-				$sql = "UPDATE	wcf".WCF_N."_guild_profile_menu_item
+				$sql = "UPDATE	gms".WCF_N."_guild_profile_menu_item
 						SET		showOrder = showOrder - 1
 						WHERE	showOrder <= ? AND
 								showOrder > ?";
@@ -99,7 +99,7 @@ class GuildProfileMenuItemEditor extends GMSDatabaseObjectEditor implements IEdi
 		if ($showOrder == 0) {
 			// get next number in row
 			$sql = "SELECT	MAX(showOrder) AS showOrder
-					FROM	wcf".WCF_N."_guild_profile_menu_item";
+					FROM	gms".WCF_N."_guild_profile_menu_item";
 			$statement = WCF::getDB()->prepareStatement($sql);
 			$statement->execute();
 			$row = $statement->fetchArray();
@@ -107,7 +107,7 @@ class GuildProfileMenuItemEditor extends GMSDatabaseObjectEditor implements IEdi
 			else $showOrder = 1;
 		}
 		else {
-			$sql = "UPDATE	wcf".WCF_N."_guild_profile_menu_item
+			$sql = "UPDATE	gms".WCF_N."_guild_profile_menu_item
 					SET		showOrder = showOrder + 1
 					WHERE	showOrder >= ?";
 			$statement = WCF::getDB()->prepareStatement($sql);

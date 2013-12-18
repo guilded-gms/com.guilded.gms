@@ -35,7 +35,7 @@ class GamePackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin
 	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::handleDelete()
 	 */
 	protected function handleDelete(array $items) {
-		$sql = "DELETE FROM	wcf".WCF_N."_".$this->tableName." WHERE title = ?";
+		$sql = "DELETE FROM	gms".WCF_N."_".$this->tableName." WHERE title = ?";
 		$statement = WCF::getDB()->prepareStatement($sql);
 
 		foreach ($items as $item) {
@@ -63,7 +63,7 @@ class GamePackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin
 	 */
 	protected function findExistingItem(array $data) {
 		$sql = "SELECT	*
-				FROM wcf".WCF_N."_".$this->tableName."
+				FROM gms".WCF_N."_".$this->tableName."
 				WHERE title = ?";
 		$parameters = array(
 			Package::getAbbreviation($this->installation->getPackage()->getName())
@@ -84,7 +84,7 @@ class GamePackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin
 		// set default game
 		if (!defined('DEFAULT_GAME_ID') || !DEFAULT_GAME_ID) {
 			$sql = "SELECT gameID
-			FROM wcf".WCF_N."_game";
+			FROM gms".WCF_N."_game";
 			$statement = WCF::getDB()->prepareStatement($sql);
 			$row = $statement->fetchArray();
 

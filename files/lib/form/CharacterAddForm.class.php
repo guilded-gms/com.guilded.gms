@@ -115,9 +115,8 @@ class CharacterAddForm extends AbstractOptionListForm {
 		}		
 		
 		// validate existing character name for game
-		$sql = "SELECT
-					COUNT(*) AS count
-				FROM wcf".WCF_N."_character character_table
+		$sql = "SELECT COUNT(*) AS count
+				FROM gms".WCF_N."_character character_table
 				WHERE 	(character_table.name = ?) AND
 						(character_table.gameID = ?)";
 		$statement = WCF::getDB()->prepareStatement($sql);

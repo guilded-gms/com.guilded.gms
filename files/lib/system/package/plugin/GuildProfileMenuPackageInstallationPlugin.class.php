@@ -32,7 +32,7 @@ class GuildProfileMenuPackageInstallationPlugin extends AbstractXMLPackageInstal
 	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::handleDelete()
 	 */
 	protected function handleDelete(array $items) {
-		$sql = "DELETE FROM	wcf".WCF_N."_".$this->tableName."
+		$sql = "DELETE FROM	gms".WCF_N."_".$this->tableName."
 			WHERE		menuItem = ?
 					AND packageID = ?";
 		$statement = WCF::getDB()->prepareStatement($sql);
@@ -67,7 +67,7 @@ class GuildProfileMenuPackageInstallationPlugin extends AbstractXMLPackageInstal
 	 */
 	protected function findExistingItem(array $data) {
 		$sql = "SELECT	*
-			FROM	wcf".WCF_N."_".$this->tableName."
+			FROM	gms".WCF_N."_".$this->tableName."
 			WHERE	menuItem = ?
 				AND packageID = ?";
 		$parameters = array(

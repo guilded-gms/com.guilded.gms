@@ -1,5 +1,6 @@
 <?php
 namespace gms\data\character\option\category;
+use gms\data\character\option\CharacterOption;
 use gms\data\GMSDatabaseObject;
 use wcf\system\WCF;
 
@@ -30,8 +31,8 @@ class CharacterOptionCategory extends GMSDatabaseObject {
 	public function __construct($categoryID, $row = null, CharacterOptionCategory $category = null) {
 		if ($categoryID !== null) {
 			$sql = "SELECT	option_category.*,
-					(SELECT COUNT(DISTINCT optionName) FROM wcf".WCF_N."_character_option WHERE categoryName = option_category.categoryName) AS options
-				FROM	wcf".WCF_N."_character_option_category option_category
+					(SELECT COUNT(DISTINCT optionName) FROM ".CharacterOption::getDatabaseTableName()." WHERE categoryName = option_category.categoryName) AS options
+				FROM	".CharacterOptionCategory::getDatabaseTableName()." option_category
 				WHERE	option_category.categoryID = ?";
 			$statement = WCF::getDB()->prepareStatement($sql);
 			$statement->execute(array($categoryID));
@@ -59,7 +60,7 @@ class CharacterOptionCategory extends GMSDatabaseObject {
 	 */
 	public static function getCategoryByName($categoryName, $packageID) {
 		$sql = "SELECT	*
-			FROM	wcf".WCF_N."_character_option_category
+			FROM	".CharacterOptionCategory::getDatabaseTableName()."
 			WHERE	categoryName = ?
 				AND packageID = ?";
 		$statement = WCF::getDB()->prepareStatement($sql);

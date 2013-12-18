@@ -95,9 +95,9 @@ class CharacterOptionPackageInstallationPlugin extends AbstractOptionPackageInst
 		
 		// get optionID if it was installed by this package already
 		$sql = "SELECT	*
-			FROM	wcf".WCF_N."_".$this->tableName."
-			WHERE	optionName = ?
-			AND	packageID = ?";
+				FROM	gms".WCF_N."_".$this->tableName."
+				WHERE	(optionName = ?) AND
+						(packageID = ?)";
 		$statement = WCF::getDB()->prepareStatement($sql);
 		$statement->execute(array(
 			$optionName,
@@ -143,7 +143,7 @@ class CharacterOptionPackageInstallationPlugin extends AbstractOptionPackageInst
 	public function uninstall() {
 		// get optionsIDs from package
 		$sql = "SELECT	optionID
-			FROM	wcf".WCF_N."_character_option
+			FROM	gms".WCF_N."_character_option
 			WHERE	packageID = ?";
 		$statement = WCF::getDB()->prepareStatement($sql);
 		$statement->execute(array($this->installation->getPackageID()));

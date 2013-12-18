@@ -1,5 +1,6 @@
 <?php
 namespace gms\data\character\profile\menu\item;
+use wcf\data\character\profile\menu\item\CharacterProfileMenuItem;
 use wcf\data\DatabaseObjectEditor;
 use wcf\data\IEditableCachedObject;
 use wcf\system\cache\builder\CharacterProfileMenuCacheBuilder;
@@ -41,7 +42,7 @@ class CharacterProfileMenuItemEditor extends GMSDatabaseObjectEditor implements 
 	 */
 	public function delete() {
 		// update show order
-		$sql = "UPDATE	wcf".WCF_N."_character_profile_menu_item
+		$sql = "UPDATE	".CharacterProfileMenuItem::getDatabaseTableName()."
 				SET		showOrder = showOrder - 1
 				WHERE	showOrder >= ?";
 		$statement = WCF::getDB()->prepareStatement($sql);
@@ -58,7 +59,7 @@ class CharacterProfileMenuItemEditor extends GMSDatabaseObjectEditor implements 
 	protected function updateShowOrder($showOrder) {
 		if ($this->showOrder != $showOrder) {
 			if ($showOrder < $this->showOrder) {
-				$sql = "UPDATE	wcf".WCF_N."_character_profile_menu_item
+				$sql = "UPDATE	".CharacterProfileMenuItem::getDatabaseTableName()."
 						SET		showOrder = showOrder + 1
 						WHERE	showOrder >= ? AND
 								showOrder < ?";
@@ -69,7 +70,7 @@ class CharacterProfileMenuItemEditor extends GMSDatabaseObjectEditor implements 
 				));
 			}
 			else if ($showOrder > $this->showOrder) {
-				$sql = "UPDATE	wcf".WCF_N."_character_profile_menu_item
+				$sql = "UPDATE	".CharacterProfileMenuItem::getDatabaseTableName()."
 						SET		showOrder = showOrder - 1
 						WHERE	showOrder <= ? AND
 								showOrder > ?";
@@ -92,7 +93,7 @@ class CharacterProfileMenuItemEditor extends GMSDatabaseObjectEditor implements 
 		if ($showOrder == 0) {
 			// get next number in row
 			$sql = "SELECT	MAX(showOrder) AS showOrder
-					FROM	wcf".WCF_N."_character_profile_menu_item";
+					FROM	".CharacterProfileMenuItem::getDatabaseTableName();
 			$statement = WCF::getDB()->prepareStatement($sql);
 			$statement->execute();
 			$row = $statement->fetchArray();
@@ -100,7 +101,7 @@ class CharacterProfileMenuItemEditor extends GMSDatabaseObjectEditor implements 
 			else $showOrder = 1;
 		}
 		else {
-			$sql = "UPDATE	wcf".WCF_N."_character_profile_menu_item
+			$sql = "UPDATE	".CharacterProfileMenuItem::getDatabaseTableName()."
 					SET		showOrder = showOrder + 1
 					WHERE	showOrder >= ?";
 			$statement = WCF::getDB()->prepareStatement($sql);

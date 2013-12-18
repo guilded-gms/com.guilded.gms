@@ -70,7 +70,7 @@ class Character extends GMSDatabaseObject implements IRouteController {
 	 */
 	public static function getCharacterByName($characterName) {
 		$sql = "SELECT	*
-			FROM	wcf".WCF_N."_character
+			FROM	".self::getDatabaseTableName()."
 			WHERE	name = ?";
 		$statement = WCF::getDB()->prepareStatement($sql);
 		$statement->execute(array($characterName));

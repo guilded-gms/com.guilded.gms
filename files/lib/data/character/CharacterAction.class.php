@@ -74,7 +74,7 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 	
 		// find characters
 		$sql = "SELECT	characterID, name
-			FROM	wcf".WCF_N."_character
+			FROM	".Character::getDatabaseTableName()."
 			".$conditionBuilder;
 		$statement = WCF::getDB()->prepareStatement($sql);
 		$statement->execute($conditionBuilder->getParameters());

@@ -43,7 +43,7 @@ class GameSelectOptionType extends SelectOptionType {
 		
 		$sql = "SELECT  
 					gameID, title
-				FROM wcf".WCF_N."_game";
+				FROM gms".WCF_N."_game";
 		$statement = WCF::getDB()->prepareStatement($sql);
 		$statement->execute();
 		

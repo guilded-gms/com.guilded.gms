@@ -1,6 +1,7 @@
 <?php
 namespace gms\data\guild;
 use wcf\data\AbstractDatabaseObjectAction;
+use wcf\data\guild\Guild;
 use wcf\system\database\util\PreparedStatementConditionBuilder;
 use wcf\system\exception\PermissionDeniedException;
 use wcf\system\exception\ValidateActionException;
@@ -93,7 +94,7 @@ class GuildAction extends AbstractDatabaseObjectAction {
 	
 		// find guilds
 		$sql = "SELECT	guildID, name
-			FROM	wcf".WCF_N."_guild
+				FROM	".Guild::getDatabaseTableName()."
 			".$conditionBuilder;
 		$statement = WCF::getDB()->prepareStatement($sql);
 		$statement->execute($conditionBuilder->getParameters());

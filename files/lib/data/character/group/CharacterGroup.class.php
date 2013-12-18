@@ -40,7 +40,7 @@ class CharacterGroup extends GMSDatabaseObject {
 		if (empty($this->characters)) {
 			$sql = "SELECT
 						character_group_to_character.*
-					FROM 	wcf" . WCF_N . "_character_group_to_character character_group_to_character
+					FROM 	gms".WCF_N."_character_group_to_character character_group_to_character
 					WHERE	character_group_to_character.groupID = ?";
 			$statement = WCF::getDB()->prepareStatement($sql);
 			$statement->execute(array($this->groupID));

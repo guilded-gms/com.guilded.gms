@@ -51,7 +51,7 @@ class Alliance extends GMSDatabaseObject implements IRouteController {
 	public function getGuilds() {
 		if (empty($this->guilds)) {
 			$guildList = new GuildList;
-			$guildList->sqlJoins .= "INNER JOIN wcf".WCF_N."_alliance_to_guild alliance_to_guild ON (alliance_to_guild.guildID = guild.guildID)";
+			$guildList->sqlJoins .= "INNER JOIN gms".WCF_N."_alliance_to_guild alliance_to_guild ON (alliance_to_guild.guildID = guild.guildID)";
 			$guildList->getConditionBuilder()->add('alliance_to_guild.allianceID = ?', array($this->allianceID));
 			$guildList->readObjects();
 			
@@ -69,7 +69,7 @@ class Alliance extends GMSDatabaseObject implements IRouteController {
 			$guildIDs = array_keys($this->getGuilds());
 
 			$characterList = new CharacterList;
-			$characterList->sqlJoins .= "LEFT JOIN wcf".WCF_N."_alliance_to_character alliance_to_character ON (alliance_to_character.characterID = character_table.characterID)".(!empty($guildIDs) ? " OR (character_table.guildID IN (".implode(',', $guildIDs)."))" : "");
+			$characterList->sqlJoins .= "LEFT JOIN gms".WCF_N."_alliance_to_character alliance_to_character ON (alliance_to_character.characterID = character_table.characterID)".(!empty($guildIDs) ? " OR (character_table.guildID IN (".implode(',', $guildIDs)."))" : "");
 			$characterList->getConditionBuilder()->add('alliance_to_character.allianceID = ?', array($this->allianceID));
 			$characterList->readObjects();
 			

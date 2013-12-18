@@ -1,6 +1,7 @@
 <?php
 namespace gms\data\guild\option;
 use wcf\data\DatabaseObjectEditor;
+use wcf\data\guild\option\GuildOption;
 use wcf\system\WCF;
 
 /**
@@ -18,54 +19,7 @@ class GuildOptionEditor extends GMSDatabaseObjectEditor {
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */
 	protected static $baseClass = 'gms\data\guild\option\GuildOption';
-	
-	/**
-	 * @see	\wcf\data\IEditableObject::create()
-	 */
-	public static function create(array $parameters = array()) {
-		$guildOption = parent::create($parameters);
-		
-		// alter the table "wcf".WCF_N."_guild_option_value" with this new option
-		WCF::getDB()->getEditor()->addColumn('wcf'.WCF_N.'_guild_option_value', 'guildOption'.$guildOption->optionID, self::getColumnDefinition($parameters['optionType']));
-		
-			// add the default value to this column
-		if (isset($parameters['$defaultValue'])) {
-			$sql = "UPDATE	wcf".WCF_N."_guild_option_value
-				SET	guildOption".$guildOption->optionID." = ?";
-			$statement = WCF::getDB()->prepareStatement($sql);
-			$statement->execute(array($parameters['defaultValue']));
-		}
-		
-		return $guildOption;
-	}
-	
-	/**
-	 * @see	\wcf\data\IEditableObject::update()
-	 */
-	public function update(array $parameters = array()) {
-		parent::update($parameters);
-		
-		// alter the table "wcf".WCF_N."_guild_option_value" with this new option
-		WCF::getDB()->getEditor()->alterColumn(
-			'wcf'.WCF_N.'_guild_option_value',
-			'guildOption'.$this->optionID,
-			'guildOption'.$this->optionID,
-			self::getColumnDefinition($parameters['optionType'])
-		);
-	}
-	
-	/**
-	 * @see	\wcf\data\IEditableObject::delete()
-	 */
-	public function delete() {
-		$sql = "DELETE FROM	wcf".WCF_N."_guild_option
-			WHERE		optionID = ?";
-		$statement = WCF::getDB()->prepareStatement($sql);
-		$statement->execute(array($this->optionID));
-		
-		$sql = WCF::getDB()->getEditor()->dropColumn('wcf'.WCF_N.'_guild_option_value', 'guildOption'.$this->optionID);
-	}
-	
+
 	/**
 	 * Disables this option.
 	 */
@@ -81,9 +35,9 @@ class GuildOptionEditor extends GMSDatabaseObjectEditor {
 	public function enable($enable = true) {
 		$value = intval(!$enable);
 		
-		$sql = "UPDATE	wcf".WCF_N."_guild_option
-			SET	disabled = ?
-			WHERE	optionID = ?";
+		$sql = "UPDATE	".GuildOption::getDatabaseTableName()."
+				SET	disabled = ?
+				WHERE	optionID = ?";
 		$statement = WCF::getDB()->prepareStatement($sql);
 		$statement->execute(array($value, $this->optionID));
 	}
