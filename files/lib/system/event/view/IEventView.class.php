@@ -1,22 +1,25 @@
 <?php
 namespace gms\system\event\view;
 
+use wcf\data\user\User;
+
 interface IEventView {
 	/**
-	 * Name of template
-	 * @var string
-	 */
-	protected $templateName = '';
-	
-	/**
-	 * Returns identifier of view
+	 * Returns the number of items for view.
 	 *
-	 * @return	string
+	 * @return	integer
 	 */
-	public function getIdentifier();
-	
+	public function getNumberOfItems();
+
 	/**
-	 * Fetches template and returns content.
+	 * Returns true if this menu item is accessible by current user.
+	 *
+	 * @return	boolean
+	 */
+	public function isAccessible();
+
+	/**
+	 * Returns content for this view.
 	 *
 	 * @return	string
 	 */

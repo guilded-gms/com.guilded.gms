@@ -1,7 +1,7 @@
 {include file='documentHeader'}
 
 <head>
-	<title>{lang}gms.character.guilds{/lang} {if $pageNo > 1}- {lang}wcf.page.pageNo{/lang} {/if}- {PAGE_TITLE|language}</title>
+	<title>{lang}gms.guild.guilds{/lang} {if $pageNo > 1}- {lang}wcf.page.pageNo{/lang} {/if}- {PAGE_TITLE|language}</title>
 	{include file='headInclude' sandbox=false}
 </head>
 
@@ -10,7 +10,7 @@
 {include file='header' sandbox=false sidebarOrientation='right'}
 
 <header class="box48 boxHeadline">
-    <h1>{lang}gms.character.guilds{/lang} <span class="badge">{#$items}</span></h1>
+    <h1>{lang}gms.guild.guilds{/lang} <span class="badge">{#$items}</span></h1>
 </header>
 
 <div class="contentNavigation">

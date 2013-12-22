@@ -1,6 +1,5 @@
 <?php
 namespace gms\system\event\view;
-use wcf\system\event\view\AbstractEventView;
 
 class MonthEventView extends AbstractEventView {
 	protected $templateName = 'eventViewMonth';

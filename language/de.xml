@@ -14,6 +14,13 @@
 		<item name="gms.game.item.notFound"><![CDATA[Gegenstand nicht gefunden]]></item>
 	</category>
 
+	<category name="gms.acp.game">
+		<item name="gms.acp.game.list"><![CDATA[Spiele auflisten]]></item>
+		<item name="gms.acp.game.add"><![CDATA[Spiel hinzufügen]]></item>
+		<item name="gms.acp.game.edit"><![CDATA[Spiel bearbeiten]]></item>
+		<item name="gms.acp.game.delete.sure"><![CDATA[Soll dieses Spiel wirklich gelöscht werden?]]></item>
+	</category>
+
 	<category name="wcf.acp.menu">
 		<item name="wcf.acp.menu.link.community.guild"><![CDATA[Gilden]]></item>
 		<item name="wcf.acp.menu.link.community.guild.list"><![CDATA[Gilden auflisten]]></item>

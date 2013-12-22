@@ -1,7 +1,7 @@
 {include file='header'}
 
 <header class="boxHeadline">
-	<h1>{lang}wcf.acp.game.{$action}{/lang}</h1>
+	<h1>{lang}gms.acp.game.{$action}{/lang}</h1>
 </header>
 
 {include file='formError'}

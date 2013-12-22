@@ -13,7 +13,7 @@ class EventViewHandler extends SingleFactory {
 	 */
 	protected function init() {
 		// get available object types
-		$this->objectTypes = ObjectTypeCache::getInstance()->getObjectTypes('com.guilded.gms.view');
+		$this->objectTypes = ObjectTypeCache::getInstance()->getObjectTypes('com.guilded.gms.event.view');
 		foreach ($this->objectTypes as $typeName => $object) {
 			$this->objectTypes[$typeName] = $object->getProcessor();
 		}
@@ -31,9 +31,9 @@ class EventViewHandler extends SingleFactory {
 	/**
 	 * Returns objectType by given name
 	 */
-	public static function getObjectTypeByName($typeName) {
-		if (isset($this->objectTypes[$typeName])) {
-			return $this->objectTypes[$typeName];
+	public function getObjectType($objectType) {
+		if (isset($this->objectTypes[$objectType])) {
+			return $this->objectTypes[$objectType];
 		}
 		
 		return null;

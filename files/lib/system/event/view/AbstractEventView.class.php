@@ -1,7 +1,5 @@
 <?php
 namespace gms\system\event\view;
-use wcf\system\event\view\IEventView;
-use wcf\util\StringUtil;
 
 abstract class AbstractEventView implements IEventView {
 	/**
@@ -30,14 +28,7 @@ abstract class AbstractEventView implements IEventView {
 	public function getEventType() {
 		return $this->eventType;
 	}
-	
-	/**
-	 * @see IEventView::getIdentifier()
-	 */
-	public function getIdentifier() {
-		return StringUtil::firstCharToLowerCase(get_called_class());
-	}
-	
+
 	/**
 	 * @see IEventView::getOutput()
 	 */
@@ -50,6 +41,6 @@ abstract class AbstractEventView implements IEventView {
 			'eventList' => $this->getEventType()->getEvents()
 		));
 	
-		return WCF::getTpl()->fetch($this->templateName);
+		return WCF::getTpl()->fetch($this->templateName, 'gms');
 	}
 }

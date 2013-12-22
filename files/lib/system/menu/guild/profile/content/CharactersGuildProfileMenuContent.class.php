@@ -25,7 +25,7 @@ class CharactersGuildProfileMenuContent extends SingletonFactory implements IGui
 	public function getContent(Guild $guild) {
 		WCF::getTPL()->assign(array(
 			'characters' => $guild->getCharacters(),
-			'guildID' => $guild->guildID,
+			'guildID' => $guild->guildID
 		));
 		
 		return WCF::getTPL()->fetch('guildProfileCharacters');
