@@ -43,6 +43,15 @@ class GameHandler extends SingletonFactory {
 	}
 
 	/**
+	 * Sets game object
+	 *
+	 * @param	\gms\data\game\Game
+	 */
+	public function setGame(Game $game) {
+		$this->game = $game;
+	}
+
+	/**
 	 * Returns game object
 	 *
 	 * @return	\gms\data\game\Game

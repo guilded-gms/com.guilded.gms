@@ -102,7 +102,7 @@ class Character extends GMSDatabaseObject implements IRouteController {
 		if ($this->user === null) {
 			$this->user = new UserProfile(new User($this->userID));
 		}
-		
+
 		return $this->user;
 	}
 

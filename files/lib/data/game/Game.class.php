@@ -34,12 +34,62 @@ class Game extends GMSDatabaseObject implements IRouteController {
 	 */
 	protected static $databaseTableIndexName = 'gameID';
 
+	/**
+	 * list of game factions
+	 * @var    \gms\data\game\faction\GameFactionList
+	 */
 	protected $factionList = null;
+
+	/**
+	 * list of game races
+	 * @var    \gms\data\game\race\GameRaceList
+	 */
 	protected $raceList = null;
+
+	/**
+	 * list of game classes
+	 * @var    \gms\data\game\classification\GameClassificationList
+	 */
 	protected $classList = null;
+
+	/**
+	 * list of game roles
+	 * @var    \gms\data\game\role\GameRoleList
+	 */
 	protected $roleList = null;
+
+	/**
+	 * list of game classes
+	 * @var    \gms\data\game\instance\GameInstanceList
+	 */
 	protected $instanceList = null;
+
+	/**
+	 * list of game items
+	 * @var    \gms\data\game\item\GameItemList
+	 */
 	protected $itemList = null;
+
+	/**
+	 * Returns game by given abbreviation.
+	 *
+	 * @param	string	$abbreviation
+	 * @return	\gms\data\game\Game|null
+	 */
+	public static function getGameByAbbreviation($abbreviation) {
+		$sql = "SELECT game.*
+				FROM	".static::getDatabaseTableName()."
+				WHERE	(game.title = ?)";
+		$statement = WCF::getDB()->prepareStatement($sql);
+		$statement->execute(array($abbreviation));
+		$row = $statement->fetchArray();
+
+		if ($row !== null) {
+			return new Game($row);
+		}
+
+		return null;
+	}
 
 	/**
 	 * Returns title of game.
@@ -127,7 +177,7 @@ class Game extends GMSDatabaseObject implements IRouteController {
 	/**
 	 * Returns a list of available classes.
 	 *
-	 * @return	\gms\data\game\class\GameClassificationList
+	 * @return	\gms\data\game\classification\GameClassificationList
 	 */
 	public function getClassList() {
 		if ($this->classList === null) {

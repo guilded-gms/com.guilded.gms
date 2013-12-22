@@ -1,6 +1,7 @@
 <?php
 namespace gms\system\dashboard\box;
 use gms\data\game\server\GameServerList;
+use gms\page\GuildPage;
 use wcf\data\dashboard\box\DashboardBox;
 use wcf\page\IPage;
 use wcf\system\WCF;
@@ -29,7 +30,7 @@ class GameServerStatusDashboardBox extends AbstractSidebarDashboardBox {
 
 		$this->serverList = new GameServerList();
 
-		if ($page->guildID && $page->guild !== null) {
+		if ($page instanceof GuildPage && $page->guild !== null) {
 			// show specific server status
 			$this->serverList->getConditionBuilder()->add('game_server.gameID = ?', array($page->guild->gameID));
 			$this->serverList->getConditionBuilder()->add('game_server.name = ?', array($page->guild->server));
