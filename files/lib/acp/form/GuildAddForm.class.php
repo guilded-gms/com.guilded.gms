@@ -1,6 +1,10 @@
 <?php
 namespace gms\acp\form;
 use gms\data\guild\GuildAction;
+use gms\system\game\GameHandler;
+use wcf\system\menu\acp\ACPMenu;
+use wcf\system\WCF;
+use wcf\system\WCFACP;
 
 /**
  * Shows guild add form.
@@ -41,6 +45,12 @@ class GuildAddForm extends GuildOptionListForm {
 	public $name = '';
 
 	/**
+	 * guild shown in public area
+	 * @var    integer
+	 */
+	public $isPublic = 0;
+
+	/**
 	 * additional data for insert and edit
 	 * @var	array
 	 */
@@ -54,6 +64,7 @@ class GuildAddForm extends GuildOptionListForm {
 		
 		if (isset($_POST['name'])) $this->name = $_POST['name'];
 		if (isset($_POST['gameID'])) $this->gameID = intval($_POST['gameID']);
+		if (isset($_POST['isPublic'])) $this->isPublic = intval($_POST['isPublic']);
 	}
 	
 	/**
@@ -82,7 +93,8 @@ class GuildAddForm extends GuildOptionListForm {
 		$this->objectAction = new GuildAction(array(), 'create', array(
 			'data' => array_merge($this->additionalFields, array(
 				'name' => $this->name,
-				'gameID' => $this->gameID
+				'gameID' => $this->gameID,
+				'isPublic' => $this->isPublic
 			)), 
 			'options' => $savedOptions
 		));
@@ -96,6 +108,7 @@ class GuildAddForm extends GuildOptionListForm {
 		//reset values
 		$this->name = '';
 		$this->gameID = 0;
+		$this->isPublic = 0;
 
 		$this->optionHandler->resetOptionValues();
 	}
@@ -122,11 +135,13 @@ class GuildAddForm extends GuildOptionListForm {
 	 */
 	public function assignVariables() {
 		parent::assignVariables();
-		
+
 		WCF::getTPL()->assign(array(
 			'name' => $this->name,
 			'gameID' => $this->gameID,
-			'optionTree' => $this->optionTree
+			'isPublic' => $this->isPublic,
+			'optionTree' => $this->optionTree,
+			'availableGames' => $this->games
 		));
 	}
 	
@@ -135,7 +150,7 @@ class GuildAddForm extends GuildOptionListForm {
 	 */
 	public function show() {
 		// set active menu item
-		ACPMenu::getInstance()->setActiveMenuItem($this->menuItemName);
+		ACPMenu::getInstance()->setActiveMenuItem($this->activeMenuItem); //$this->menuItemName);
 		
 		// check master password
 		WCFACP::checkMasterPassword();
