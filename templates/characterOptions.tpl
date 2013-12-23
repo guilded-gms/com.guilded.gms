@@ -3,7 +3,7 @@
         <fieldset>
             <legend>{lang}gms.character.option.category.{@$categoryLevel2[object]->categoryName}{/lang}</legend>
 
-            {include file='characterProfileOptionFieldList' options=$categoryLevel2[options] langPrefix='gms.character.option.'}
+            {include file='characterProfileOptionFieldList' application='gms' options=$categoryLevel2[options] langPrefix='gms.character.option.'}
         </fieldset>
     {/foreach}
 {/foreach}

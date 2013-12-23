@@ -13,7 +13,7 @@
                         <div class="containerHeadline">
                             <h3><a href="{link controller='Character' object=$character application='gms'}{/link}"><span class="class class-priest">{$character->name}</span></a>{if $character->isPrimary} <span class="icon icon16 icon-ok jsPrimaryIcon"></span>{/if}</h3>
 
-                            {include file='characterInformation' object=$character}
+                            {include file='characterInformation' application='gms' object=$character}
                         </div>
                     </div>
 				</li>

@@ -3,7 +3,7 @@
 <head>
 	<title>{if $__wcf->getPageMenu()->getLandingPage()->menuItem != 'gms.header.menu.index'}{lang}gms.header.menu.index{/lang} - {/if}{PAGE_TITLE|language}</title>
 	
-	{include file='headInclude' sandbox=false}
+	{include file='headInclude'}
 </head>
 
 <body id="tpl{$templateName|ucfirst}">

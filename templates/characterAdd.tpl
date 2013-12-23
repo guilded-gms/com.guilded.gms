@@ -62,7 +62,7 @@
 	</div>
 
     <div class="container marginTop containerPadding optionList">
-        {include file='characterOptions'}
+        {include file='characterOptions' application='gms'}
     </div>
 
 	<div class="formSubmit">

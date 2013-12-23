@@ -32,7 +32,7 @@
 
 <body id="tpl{$templateName|ucfirst}">
 
-{include file='characterSidebar' assign='sidebar'}
+{include file='characterSidebar' application='gms' assign='sidebar'}
 
 {include file='header' sidebarOrientation='left'}
 

@@ -38,7 +38,7 @@
 				{foreach from=$characters item=character}
 					{if $character->gameID == $game->gameID}
 						{content}
-							{include file='characterListItem'}
+							{include file='characterListItem' application='gms'}
 						{/content}
 					{/if}
 				{/foreach}

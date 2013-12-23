@@ -6,7 +6,7 @@
 		</div>
 
 		<div class="details characterInformation">
-			{include file='characterInformation'}
+			{include file='characterInformation' application='gms'}
 		</div>
 	</div>
 </li>

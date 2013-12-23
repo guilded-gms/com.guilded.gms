@@ -2,7 +2,7 @@
 
 <head>
 	<title>{lang}wcf.event.view.{$activeView}{/lang} - {lang}gms.calendar.events{/lang} - {PAGE_TITLE|language}</title>
-	{include file='headInclude' sandbox=false}
+	{include file='headInclude'}
 	
 	<script type="text/javascript">
 		//<![CDATA[
@@ -18,7 +18,7 @@
 
 <body{if $templateName|isset} id="tpl{$templateName|ucfirst}"{/if}>
 
-{include file='header' sandbox=false sidebarOrientation='left'}
+{include file='header' sidebarOrientation='left'}
 
 <header class="boxHeadline userHeadline">
 	<hgroup>
@@ -42,7 +42,7 @@
 	{/foreach}
 </section>
 
-{include file='footer' sandbox=false}
+{include file='footer'}
 
 </body>
 </html>

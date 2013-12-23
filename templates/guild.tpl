@@ -23,7 +23,7 @@
 <body{if $templateName|isset} id="tpl{$templateName|ucfirst}"{/if}>
 
 {capture assign='sidebar'}
-	{include file='guildSidebar'}
+	{include file='guildSidebar' application='gms'}
 {/capture}
 
 {include file='header' sidebarOrientation='left'}

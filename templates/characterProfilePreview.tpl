@@ -4,6 +4,6 @@
 	</header>
 	
 	<div class="characterInformation">
-		{include file='characterInformation' object=$character}
+		{include file='characterInformation' application='gms' object=$character}
 	</div>
 </div>

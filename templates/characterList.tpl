@@ -23,7 +23,7 @@
     <div class="container marginTop">
         <ol class="containerList doubleColumned characterList">
             {foreach from=$objects item=character}
-                {include file='characterListItem'}
+                {include file='characterListItem' application='gms'}
             {/foreach}
         </ol>
     </div>
