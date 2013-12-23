@@ -1,6 +1,7 @@
 <?php
 namespace gms\form;
 use gms\data\character\CharacterAction;
+use gms\data\game\Game;
 use gms\system\game\GameHandler;
 use wcf\acp\form\AbstractOptionListForm;
 use wcf\system\breadcrumb\Breadcrumb;
@@ -37,11 +38,6 @@ class CharacterAddForm extends AbstractOptionListForm {
 	 * @see	\wcf\page\AbstractPage::$templateName
 	 */
 	public $templateName = 'characterAdd';
-	
-	/**
-	 * @see	\wcf\acp\form\AbstractOptionListForm::$cacheName
-	 */
-	public $cacheName = 'character-option'; // @todo delete this
 	
 	/**
 	 * active tab menu item name
@@ -100,6 +96,12 @@ class CharacterAddForm extends AbstractOptionListForm {
 
 		if (isset($_POST['activeTabMenuItem'])) $this->activeTabMenuItem = $_POST['activeTabMenuItem'];
 		if (isset($_POST['activeMenuItem'])) $this->activeMenuItem = $_POST['activeMenuItem'];
+
+		// set game for handler
+		$game = new Game($this->gameID);
+		if ($game !== null) {
+			$this->optionHandler->setGame($game);
+		}
 	}
 	
 	/**
@@ -127,7 +129,7 @@ class CharacterAddForm extends AbstractOptionListForm {
 			throw new UserInputException('characterName', 'taken');
 		}
 	}
-	
+
 	/**
 	 * @see	\wcf\form\IForm::save()
 	 */
@@ -166,7 +168,7 @@ class CharacterAddForm extends AbstractOptionListForm {
 		parent::readData();
 
 		// add breadcrumbs
-		Breadcrumbs::getInstance()->add(new Breadcrumb(WCF::getLanguage()->get('wcf.user.menu.profile.character'), LinkHandler::getInstance()->getLink('CharacterManagement')));
+		Breadcrumbs::getInstance()->add(new Breadcrumb(WCF::getLanguage()->get('wcf.user.menu.profile.character'), LinkHandler::getInstance()->getLink('CharacterManagement', array('application' => 'gms'))));
 
 		$this->optionHandler->setGame(GameHandler::getInstance()->getGame());
 		$this->optionTree = $this->optionHandler->getOptionTree();
@@ -197,14 +199,14 @@ class CharacterAddForm extends AbstractOptionListForm {
 	 */
 	protected function getTypeObject($type) {
 		if (!isset($this->typeObjects[$type])) {
-			$className = 'wcf\system\option\character\\'.StringUtil::firstCharToUpperCase($type).'CharacterOptionType';
+			$className = 'gms\system\option\character\\'.StringUtil::firstCharToUpperCase($type).'CharacterOptionType';
 			
 			// create instance
 			if (!class_exists($className)) {
 				throw new SystemException("unable to find class '".$className."'");
 			}
-			if (!ClassUtil::isInstanceOf($className, 'wcf\system\option\character\ICharacterOptionType')) {
-				throw new SystemException("'".$className."' should implement wcf\system\option\character\ICharacterOptionType");
+			if (!ClassUtil::isInstanceOf($className, 'gms\system\option\character\ICharacterOptionType')) {
+				throw new SystemException("'".$className."' should implement gms\system\option\character\ICharacterOptionType");
 			}
 			$this->typeObjects[$type] = new $className();
 		}

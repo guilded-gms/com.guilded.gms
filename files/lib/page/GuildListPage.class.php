@@ -1,5 +1,6 @@
 <?php
 namespace gms\page;
+use wcf\page\SortablePage;
 use wcf\system\menu\page\PageMenu;
 use wcf\system\request\LinkHandler;
 use wcf\util\HeaderUtil;
@@ -18,7 +19,7 @@ class GuildListPage extends SortablePage {
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('user.guild.canViewList');
+	public $neededPermissions = array('user.gms.guild.canViewList');
 	
 	/**
 	 * @see	\wcf\page\SortablePage::$defaultSortField

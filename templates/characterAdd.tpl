@@ -4,12 +4,12 @@
 	<title>{lang}gms.character.{@$action}{/lang} - {lang}wcf.user.menu.settings{/lang} - {PAGE_TITLE|language}</title>
 	{include file='headInclude'}
 	
-	<script data-relocate="true" src="{@$__wcf->getPath()}js/gms.character.js"></script>
+	<script data-relocate="true" src="{@$__wcf->getPath()}js/GMS.js"></script> <!-- @todo debug min -->
 	<script data-relocate="true">
 		//<![CDATA[
 		$(function() {
 			var $availableGames = { {implode from=$availableGames key=gameID item=game}{@$gameID}: { title: '{$game->getTitle()}', icon: '{$game->getIcon('M')}' }{/implode} };
-			new gms.character.OptionHandler('characterName', '.optionList', $availableGames, {@$gameID});
+			new GMS.Character.OptionHandler('characterName', '.optionList', $availableGames, {@$gameID});
 		});
 		//]]>
 	</script>

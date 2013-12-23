@@ -1,5 +1,6 @@
 <?php
 namespace gms\page;
+use wcf\page\SortablePage;
 
 /**
  * Shows list of characters.
@@ -20,7 +21,7 @@ class CharacterListPage extends SortablePage {
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('user.character.canViewProfile');
+	public $neededPermissions = array('user.gms.character.canViewList');
 
 	/**
 	 * @see	\wcf\page\SortablePage::$defaultSortField

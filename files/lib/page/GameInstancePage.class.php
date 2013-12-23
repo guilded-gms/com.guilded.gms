@@ -1,6 +1,7 @@
 <?php
 namespace gms\page;
 use gms\data\game\instance\GameInstance;
+use wcf\page\AbstractPage;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\WCF;
 

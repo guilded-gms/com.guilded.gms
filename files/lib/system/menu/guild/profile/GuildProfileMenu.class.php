@@ -1,8 +1,7 @@
 <?php
 namespace gms\system\menu\guild\profile;
 use gms\data\guild\Guild;
-use gms\data\guild\profile\menu\item\GuildProfileMenuItem;
-use wcf\system\cache\builder\GuildProfileMenuCacheBuilder;
+use gms\system\cache\builder\GuildProfileMenuCacheBuilder;
 use wcf\system\menu\user\profile\UserProfileMenu;
 
 /**

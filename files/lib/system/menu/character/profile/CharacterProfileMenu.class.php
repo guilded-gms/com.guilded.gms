@@ -1,8 +1,7 @@
 <?php
 namespace gms\system\menu\character\profile;
 use gms\data\character\Character;
-use gms\data\character\profile\menu\item\CharacterProfileMenuItem;
-use wcf\system\cache\builder\CharacterProfileMenuCacheBuilder;
+use gms\system\cache\builder\CharacterProfileMenuCacheBuilder;
 use wcf\system\event\EventHandler;
 use wcf\system\menu\user\profile\UserProfileMenu;
 

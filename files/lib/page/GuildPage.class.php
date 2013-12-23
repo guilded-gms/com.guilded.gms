@@ -1,6 +1,7 @@
 <?php
 namespace gms\page;
 use gms\data\guild\GuildProfile;
+use wcf\page\AbstractPage;
 use wcf\system\breadcrumb\Breadcrumb;
 use wcf\system\dashboard\DashboardHandler;
 use wcf\system\exception\IllegalLinkException;
@@ -18,6 +19,11 @@ use wcf\system\WCF;
  * @category	Guilded 2.0
  */
 class GuildPage extends AbstractPage {
+	/**
+	 * @see	\wcf\page\AbstractPage::$neededPermissions
+	 */
+	public $neededPermissions = array('user.gms.guild.canViewProfile');
+
 	/**
 	 * Guild id
 	 * @var integer

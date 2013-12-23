@@ -46,7 +46,9 @@
 				<editable>3</editable>
 			</option>
 			<!-- /system -->
-		
+
+			<!-- @todo guild select -->
+
 			<!-- details -->
 			<option name="rankTitle">
 				<categoryname>profile.details</categoryname>

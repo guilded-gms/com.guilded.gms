@@ -4,7 +4,14 @@ use wcf\page\SortablePage;
 use wcf\system\menu\acp\ACPMenu;
 
 /**
- * Shows characters.
+ * Shows character list.
+ *
+ * @author	Jeffrey Reichardt
+ * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @license	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
+ * @package	com.guilded.gms
+ * @subpackage	acp.page
+ * @category	Guilded 2.0
  */
 class CharacterListPage extends SortablePage {
 	/**

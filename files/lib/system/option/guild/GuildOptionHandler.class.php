@@ -59,6 +59,7 @@ class GuildOptionHandler extends OptionHandler {
 	public function setGuild(Guild $guild, array $ignoreCategories = array()) {
 		$this->optionValues = array();
 		$this->guild = $guild;
+		$this->setGame($guild->getGame());
 		
 		if (!$this->didInit) {
 			$this->loadActiveOptions($this->categoryName, $ignoreCategories);

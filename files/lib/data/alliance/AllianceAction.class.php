@@ -1,11 +1,6 @@
 <?php
 namespace gms\data\alliance;
 use wcf\data\AbstractDatabaseObjectAction;
-use wcf\system\database\util\PreparedStatementConditionBuilder;
-use wcf\system\exception\PermissionDeniedException;
-use wcf\system\exception\ValidateActionException;
-use wcf\system\WCF;
-use wcf\util\StringUtil;
 
 /**
  * Alliance-related actions
@@ -21,22 +16,22 @@ class AllianceAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$className
 	 */
-	public $className = 'gms\data\alliance\GuildAllianceEditor';
+	public $className = 'gms\data\alliance\AllianceEditor';
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsCreate
 	 */
-	protected $permissionsCreate = array('user.alliance.canAddAlliance');
+	protected $permissionsCreate = array('admin.gms.alliance.canManage');
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
 	 */
-	protected $permissionsDelete = array('user.alliance.canDeleteAlliance');
+	protected $permissionsDelete = array('admin.gms.alliance.canManage');
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsUpdate
 	 */
-	protected $permissionsUpdate = array('user.alliance.canEditAlliance');
+	protected $permissionsUpdate = array('admin.gms.alliance.canManage');
 
 	/**
 	 * Validates assign method.

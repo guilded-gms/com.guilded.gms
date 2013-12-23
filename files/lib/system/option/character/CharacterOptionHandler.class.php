@@ -66,7 +66,8 @@ class CharacterOptionHandler extends OptionHandler {
 	public function setCharacter(Character $character, array $ignoreCategories = array()) {
 		$this->optionValues = array();
 		$this->character = $character;
-		
+		$this->setGame($character->getGame());
+
 		if (!$this->didInit) {
 			$this->loadActiveOptions($this->categoryName, $ignoreCategories);
 			

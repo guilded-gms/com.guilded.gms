@@ -1,8 +1,8 @@
 <?php
 namespace gms\data\character\profile\menu\item;
+use gms\system\cache\builder\CharacterProfileMenuCacheBuilder;
 use wcf\data\DatabaseObjectEditor;
 use wcf\data\IEditableCachedObject;
-use wcf\system\cache\builder\CharacterProfileMenuCacheBuilder;
 use wcf\system\WCF;
 
 /**

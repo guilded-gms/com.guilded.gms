@@ -55,10 +55,22 @@
 				<defaultvalue>1</defaultvalue>
 				<admindefaultvalue>1</admindefaultvalue>
 			</option>
+			<option name="user.gms.character.canViewList">
+				<categoryname>user.gms.character</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
 			<!-- /user.gms.character -->
 
 			<!-- user.gms.guild -->
 			<option name="user.gms.guild.canViewProfile">
+				<categoryname>user.gms.guild</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.gms.guild.canViewList">
 				<categoryname>user.gms.guild</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>

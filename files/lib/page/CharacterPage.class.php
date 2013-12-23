@@ -1,8 +1,9 @@
 <?php
 namespace gms\page;
 use gms\data\character\CharacterProfile;
+use gms\system\menu\character\profile\CharacterProfileMenu;
+use wcf\page\AbstractPage;
 use wcf\system\breadcrumb\Breadcrumb;
-use wcf\system\menu\character\profile\CharacterProfileMenu;
 use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
 
@@ -16,11 +17,11 @@ use wcf\system\WCF;
  * @subpackage	page
  * @category	Guilded 2.0
  */
-class CharacterPage extends AbstractPage {	
+class CharacterPage extends AbstractPage {
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('user.character.canViewProfile');
+	public $neededPermissions = array('user.gms.character.canViewProfile');
 	
 	/**
 	 * character id

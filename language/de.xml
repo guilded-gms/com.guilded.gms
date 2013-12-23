@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de">
-	<category name="wcf.acp.index.system.software.gmsVersion">
+	<category name="wcf.acp.index">
 		<item name="wcf.acp.index.system.software.gmsVersion"><![CDATA[Guilded-Version]]></item>
 	</category>
 
@@ -22,16 +22,20 @@
 		<item name="gms.acp.game.list"><![CDATA[Spiele auflisten]]></item>
 		<item name="gms.acp.game.add"><![CDATA[Spiel hinzufügen]]></item>
 		<item name="gms.acp.game.edit"><![CDATA[Spiel bearbeiten]]></item>
-		<item name="gms.acp.game.delete.sure"><![CDATA[Soll dieses Spiel wirklich gelöscht werden?]]></item>
+		<item name="gms.acp.game.delete.sure"><![CDATA[Wollen Sie das Spiel @todo NAME wirklich löschen?]]></item>
 	</category>
 
-	<category name="wcf.acp.menu">
-		<item name="wcf.acp.menu.link.community.guild"><![CDATA[Gilden]]></item>
-		<item name="wcf.acp.menu.link.community.guild.list"><![CDATA[Gilden auflisten]]></item>
-		<item name="wcf.acp.menu.link.community.guild.add"><![CDATA[Gilde hinzufügen]]></item>
-		<item name="wcf.acp.menu.link.community.character"><![CDATA[Charaktere]]></item>
-		<item name="wcf.acp.menu.link.community.character.list"><![CDATA[Charaktere auflisten]]></item>
-		<item name="wcf.acp.menu.link.community.character.add"><![CDATA[Charakter hinzufügen]]></item>
+	<category name="gms.acp.menu">
+		<item name="gms.acp.menu.link.gms"><![CDATA[Guilded]]></item>
+		<item name="gms.acp.menu.link.gms.game"><![CDATA[Spiele]]></item>
+		<item name="gms.acp.menu.link.gms.game.list"><![CDATA[Spiele auflisten]]></item>
+		<item name="gms.acp.menu.link.gms.game.add"><![CDATA[Spiel hinzufügen]]></item>
+		<item name="gms.acp.menu.link.gms.guild"><![CDATA[Gilden]]></item>
+		<item name="gms.acp.menu.link.gms.guild.list"><![CDATA[Gilden auflisten]]></item>
+		<item name="gms.acp.menu.link.gms.guild.add"><![CDATA[Gilde hinzufügen]]></item>
+		<item name="gms.acp.menu.link.gms.character"><![CDATA[Charaktere]]></item>
+		<item name="gms.acp.menu.link.gms.character.list"><![CDATA[Charaktere auflisten]]></item>
+		<item name="gms.acp.menu.link.gms.character.add"><![CDATA[Charakter hinzufügen]]></item>
 	</category>
 
 	<category name="wcf.user.menu">
@@ -65,7 +69,7 @@
 		<item name="gms.guild.edit"><![CDATA[Gilde bearbeiten]]></item>
 		<item name="gms.guild.profile"><![CDATA[Gilden-Profil]]></item>
 		<item name="gms.guild.guilds"><![CDATA[Gilden]]></item>
-		<item name="wcf.guild.noCharacters"><![CDATA[Keine Mitglieder vorhanden.]]></item>
+		<item name="gms.guild.noCharacters"><![CDATA[Keine Mitglieder vorhanden.]]></item>
 	</category>
 
 	<category name="gms.index">

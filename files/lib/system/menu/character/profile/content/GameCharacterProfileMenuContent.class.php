@@ -19,7 +19,7 @@ class GameCharacterProfileMenuContent extends SingletonFactory implements IChara
 			return false;
 		}
 
-		return (WCF::getSession()->getPermission('user.character.canViewProfile'));
+		return (WCF::getSession()->getPermission('user.gms.character.canViewProfile'));
 	}
 
 	/**

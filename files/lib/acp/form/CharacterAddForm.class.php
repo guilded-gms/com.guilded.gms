@@ -13,6 +13,9 @@ use gms\data\character\CharacterAction;
  * @category	Guilded 2.0
  */
 class CharacterAddForm extends CharacterOptionListForm {
+	/**
+	 * @see	\wcf\page\AbstractPage::$action
+	 */
 	public $action = 'add';
 
 	/**
@@ -24,12 +27,29 @@ class CharacterAddForm extends CharacterOptionListForm {
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
 	public $neededPermissions = array('admin.gms.character.canManage');
-	
+
+	/**
+	 * character name
+	 * @var    string
+	 */
 	public $name = '';
-	public $gameID = 0;	
-	
+
+	/**
+	 * id of selected game
+	 * @var    int
+	 */
+	public $gameID = 0;
+
+	/**
+	 * additional fields
+	 * @var    array
+	 */
 	public $additionalFields = array();
-	
+
+	/**
+	 * list of games
+	 * @var    array
+	 */
 	public $games = array();
 	
 	/**

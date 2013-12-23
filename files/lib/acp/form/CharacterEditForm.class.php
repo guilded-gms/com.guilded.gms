@@ -52,8 +52,8 @@ class CharacterEditForm extends CharacterAddForm {
 	 */
 	public function readParameters() {
 		if (isset($_REQUEST['id'])) $this->characterID = intval($_REQUEST['id']);
-		$character = new Character($this->characterID);
-		if (!$character->characterID) {
+		$character = new CharacterEditor(Character($this->characterID));
+		if ($character === null) {
 			throw new IllegalLinkException();
 		}
 		
@@ -109,22 +109,23 @@ class CharacterEditForm extends CharacterAddForm {
 
 		// save character
 		$savedOptions = $this->optionHandler->save();
-		
-		$data = array(
+
+		$this->objectAction = new CharacterAction(array($this->characterID), 'update', array(
 			'data' => array_merge($this->additionalFields, array(
 				'name' => $this->name,
 				'gameID' => $this->gameID
 			)),
 			'options' => $savedOptions
-		);
-		$this->objectAction = new CharacterAction(array($this->characterID), 'update', $data);
-		$this->objectAction->executeAction();
+		));
+		$returnValues = $this->objectAction->executeAction();
 		
 		$this->saved();
-		
-		// reset password
-		$this->name = '';
-		$this->gameID = 0;
+
+		// refresh character
+		$this->character = $returnValues['returnValues'][0];
+
+		// reset values
+		$this->readDefaultValues();
 		
 		// show success message
 		WCF::getTPL()->assign('success', true);
