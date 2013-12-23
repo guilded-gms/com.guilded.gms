@@ -19,7 +19,11 @@ use wcf\system\option\OptionHandler;
  * @category	Guilded 2.0
  */
 class GuildOptionHandler extends OptionHandler {
-	
+	/**
+	 * @see	\wcf\system\option\OptionHandler::$cacheClass
+	 */
+	protected $cacheClass = 'gms\system\cache\builder\GuildOptionCacheBuilder';
+
 	/**
 	 * true, if empty options should be removed
 	 * @var	boolean

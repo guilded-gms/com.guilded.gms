@@ -3,7 +3,7 @@
 	<import>
 		<!-- profile -->
 		<usermenuitem name="wcf.user.menu.profile.character">
-			<controller><![CDATA[gms\form\CharacterManagement]]></controller>
+			<controller><![CDATA[gms\page\CharacterManagement]]></controller>
 			<parent>wcf.user.menu.profile</parent>
 		</usermenuitem>
 		<!-- /profile -->

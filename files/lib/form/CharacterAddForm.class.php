@@ -1,12 +1,12 @@
 <?php
 namespace gms\form;
-use wcf\acp\form\AbstractOptionListForm;
 use gms\data\character\CharacterAction;
+use gms\system\game\GameHandler;
+use wcf\acp\form\AbstractOptionListForm;
 use wcf\system\breadcrumb\Breadcrumb;
 use wcf\system\breadcrumb\Breadcrumbs;
 use wcf\system\exception\SystemException;
 use wcf\system\exception\UserInputException;
-use wcf\system\game\GameHandler;
 use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
 use wcf\util\ClassUtil;
@@ -31,7 +31,7 @@ class CharacterAddForm extends AbstractOptionListForm {
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('user.character.canManageCharacter');
+	public $neededPermissions = array('user.gms.character.canManage');
 	
 	/**
 	 * @see	\wcf\page\AbstractPage::$templateName
@@ -41,7 +41,7 @@ class CharacterAddForm extends AbstractOptionListForm {
 	/**
 	 * @see	\wcf\acp\form\AbstractOptionListForm::$cacheName
 	 */
-	public $cacheName = 'character-option';
+	public $cacheName = 'character-option'; // @todo delete this
 	
 	/**
 	 * active tab menu item name
@@ -64,7 +64,7 @@ class CharacterAddForm extends AbstractOptionListForm {
 	/**
 	 * @see	\wcf\acp\form\AbstractOptionListForm::$optionHandlerClassName
 	 */
-	public $optionHandlerClassName = 'wcf\system\option\character\CharacterOptionHandler';
+	public $optionHandlerClassName = 'gms\system\option\character\CharacterOptionHandler';
 	
 	/**
 	 * @see	\wcf\acp\form\AbstractOptionListForm::$supportI18n

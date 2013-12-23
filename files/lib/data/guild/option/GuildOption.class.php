@@ -1,7 +1,7 @@
 <?php
 namespace gms\data\guild\option;
-use gms\data\GMSDatabaseObject;
 use gms\data\guild\Guild;
+use wcf\data\option\Option;
 
 /**
  * Represents a guild option.
@@ -13,7 +13,7 @@ use gms\data\guild\Guild;
  * @subpackage	data.guild.option
  * @category 	Community Framework
  */
-class GuildOption extends GMSDatabaseObject {
+class GuildOption extends Option {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -23,25 +23,20 @@ class GuildOption extends GMSDatabaseObject {
 	 * @see	\wcf\data\DatabaseObject::$databaseTableIndexName
 	 */
 	protected static $databaseTableIndexName = 'optionID';
-	
-	/**
-	 * option value
-	 * @var	string
-	 */
-	public $optionValue = '';
-	
-	/**
-	 * output data
-	 * @var	array
-	 */
-	public $outputData = array();
-	
+
 	/**
 	 * guild object
 	 * @var	\gms\data\guild\Guild
 	 */
 	public $guild = null;
-	
+
+	/**
+	 * @see	\wcf\data\IStorableObject::getDatabaseTableName()
+	 */
+	public static function getDatabaseTableName() {
+		return 'gms'.WCF_N.'_'.static::$databaseTableName;
+	}
+
 	/**
 	 * Sets target guild object.
 	 * 

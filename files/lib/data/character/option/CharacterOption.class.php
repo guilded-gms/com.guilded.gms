@@ -1,7 +1,7 @@
 <?php
 namespace gms\data\character\option;
 use gms\data\character\Character;
-use gms\data\GMSDatabaseObject;
+use wcf\data\option\Option;
 
 /**
  * Represents a character option.
@@ -13,7 +13,7 @@ use gms\data\GMSDatabaseObject;
  * @subpackage	data.character.option
  * @category	Guilded 2.0
  */
-class CharacterOption extends GMSDatabaseObject {
+class CharacterOption extends Option {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -23,19 +23,14 @@ class CharacterOption extends GMSDatabaseObject {
 	 * @see	\wcf\data\DatabaseObject::$databaseTableIndexName
 	 */
 	protected static $databaseTableIndexName = 'optionID';
-	
+
 	/**
-	 * option value
-	 * @var	string
+	 * @see	\wcf\data\IStorableObject::getDatabaseTableName()
 	 */
-	public $optionValue = '';
-	
-	/**
-	 * output data
-	 * @var	array
-	 */
-	public $outputData = array();
-	
+	public static function getDatabaseTableName() {
+		return 'gms'.WCF_N.'_'.static::$databaseTableName;
+	}
+
 	/**
 	 * character object
 	 * @var	\gms\data\character\Character

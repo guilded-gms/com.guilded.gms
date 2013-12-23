@@ -1,6 +1,7 @@
 <?php
 namespace gms\system\cache\builder;
 use gms\data\guild\profile\menu\item\GuildProfileMenuItemList;
+use wcf\system\cache\builder\AbstractCacheBuilder;
 use wcf\system\WCF;
 
 /**

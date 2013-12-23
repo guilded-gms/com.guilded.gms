@@ -24,7 +24,7 @@ class CharacterOptionHandler extends OptionHandler {
 	/**
 	 * @see	\wcf\system\option\OptionHandler::$cacheClass
 	 */
-	protected $cacheClass = 'wcf\system\cache\builder\CharacterOptionCacheBuilder';
+	protected $cacheClass = 'gms\system\cache\builder\CharacterOptionCacheBuilder';
 
 	/**
 	 * @see	\wcf\system\option\OptionHandler::$removeEmptyOptions
