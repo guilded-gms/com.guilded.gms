@@ -28,14 +28,8 @@ class GuildEditForm extends GuildAddForm {
 	/**
 	 * @see	\wcf\page\AbstractPage::$menuItemName
 	 */
-	public $menuItemName = 'gms.acp.menu.link.gms.guild';
+	public $activeMenuItem = 'gms.acp.menu.link.gms.guild';
 
-	/**
-	 * guild id
-	 * @var	integer
-	 */
-	public $guildID = 0;
-	
 	/**
 	 * guild editor object
 	 * @var	\gms\data\guild\GuildEditor
@@ -82,6 +76,7 @@ class GuildEditForm extends GuildAddForm {
 	protected function readDefaultValues() {
 		$this->name = $this->guild->name;
 		$this->gameID = $this->guild->gameID;
+		$this->isPublic = $this->guild->isPublic;
 	}
 	
 	/**
@@ -92,7 +87,7 @@ class GuildEditForm extends GuildAddForm {
 		
 		WCF::getTPL()->assign(array(
 			'guildID' => $this->guild->guildID,
-			'guild' => $this->guild
+			'object' => $this->guild
 		));
 	}
 	
@@ -108,7 +103,8 @@ class GuildEditForm extends GuildAddForm {
 		$data = array(
 			'data' => array_merge($this->additionalFields, array(
 				'name' => $this->name,
-				'gameID' => $this->gameID
+				'gameID' => $this->gameID,
+				'isPublic' => $this->isPublic
 			)),
 			'options' => $savedOptions
 		);
@@ -123,5 +119,6 @@ class GuildEditForm extends GuildAddForm {
 		// reset values
 		$this->name = '';
 		$this->gameID = 0;
+		$this->isPublic = 0;
 	}
 }

@@ -10,17 +10,22 @@ class GuildListPage extends SortablePage {
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('admin.guild.canManageGuild');
+	public $neededPermissions = array('admin.gms.guild.canManage');
 	
 	/**
 	 * @see	\wcf\page\SortablePage::$defaultSortField
 	 */
 	public $defaultSortField = 'name';
+
+	/**
+	 * @see	\wcf\page\AbstractPage::$activeMenuItem
+	 */
+	public $activeMenuItem = 'gms.acp.menu.link.gms.guild.list';
 	
 	/**
 	 * @see	\wcf\page\SortablePage::$validSortFields
 	 */
-	public $validSortFields = array('name', 'characterID', 'gameID');
+	public $validSortFields = array('guildID', 'name', 'gameID');
 	
 	/**
 	 * @see	\wcf\page\MultipleLinkPage::$objectListClassName
@@ -35,14 +40,5 @@ class GuildListPage extends SortablePage {
 		
 		$this->sqlOrderBy = "guild.".$this->sortField." ".$this->sortOrder;
 	}
-	
-	/**
-	 * @see	\wcf\page\IPage::show()
-	 */
-	public function show() {
-		// set active menu item.
-		ACPMenu::getInstance()->setActiveMenuItem('wcf.acp.menu.link.guild.list');
-		
-		parent::show();
-	}
+
 }

@@ -109,8 +109,6 @@ class GuildAddForm extends GuildOptionListForm {
 		$this->name = '';
 		$this->gameID = 0;
 		$this->isPublic = 0;
-
-		$this->optionHandler->resetOptionValues();
 	}
 	
 	/**
