@@ -1,6 +1,9 @@
 <?php
 namespace gms\system\option;
 use wcf\data\option\Option;
+use wcf\system\exception\UserInputException;
+use wcf\system\game\GameHandler;
+use wcf\system\option\SelectOptionType;
 use wcf\system\WCF;
 
 class GameSelectOptionType extends SelectOptionType {
@@ -40,15 +43,9 @@ class GameSelectOptionType extends SelectOptionType {
 	 */
 	public function getSelectOptions(){
 		$result = array();
-		
-		$sql = "SELECT  
-					gameID, title
-				FROM gms".WCF_N."_game";
-		$statement = WCF::getDB()->prepareStatement($sql);
-		$statement->execute();
-		
-		while($row = $statement->fetchArray()){
-			$result[$row['gameID']] = WCF::getLanguage()->get('gms.game.' . $row['title'] . '.title');
+
+		foreach (GameHandler::getGames() as $game) {
+			$result[$game->gameID] = $game->getTitle();
 		}
 		
 		return $result;

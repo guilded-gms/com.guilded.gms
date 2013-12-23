@@ -16,7 +16,7 @@ use wcf\system\WCF;
  * @subpackage	data.guild.profile.menu.item
  * @category	Guilded 2.0
  */
-class GuildProfileMenuItemEditor extends GMSDatabaseObjectEditor implements IEditableCachedObject {
+class GuildProfileMenuItemEditor extends DatabaseObjectEditor implements IEditableCachedObject {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

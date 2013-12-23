@@ -1,7 +1,7 @@
 <?php
 namespace gms\data\character\option;
 use gms\data\character\Character;
-use wcf\data\option\Option;
+use gms\data\GMSDatabaseObject;
 
 /**
  * Represents a character option.
@@ -13,7 +13,7 @@ use wcf\data\option\Option;
  * @subpackage	data.character.option
  * @category	Guilded 2.0
  */
-class CharacterOption extends Option {
+class CharacterOption extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

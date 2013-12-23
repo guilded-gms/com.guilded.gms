@@ -36,37 +36,37 @@ class Game extends GMSDatabaseObject implements IRouteController {
 
 	/**
 	 * list of game factions
-	 * @var    \gms\data\game\faction\GameFactionList
+	 * @var	\gms\data\game\faction\GameFactionList
 	 */
 	protected $factionList = null;
 
 	/**
 	 * list of game races
-	 * @var    \gms\data\game\race\GameRaceList
+	 * @var	\gms\data\game\race\GameRaceList
 	 */
 	protected $raceList = null;
 
 	/**
 	 * list of game classes
-	 * @var    \gms\data\game\classification\GameClassificationList
+	 * @var	\gms\data\game\classification\GameClassificationList
 	 */
 	protected $classList = null;
 
 	/**
 	 * list of game roles
-	 * @var    \gms\data\game\role\GameRoleList
+	 * @var	\gms\data\game\role\GameRoleList
 	 */
 	protected $roleList = null;
 
 	/**
 	 * list of game classes
-	 * @var    \gms\data\game\instance\GameInstanceList
+	 * @var	\gms\data\game\instance\GameInstanceList
 	 */
 	protected $instanceList = null;
 
 	/**
 	 * list of game items
-	 * @var    \gms\data\game\item\GameItemList
+	 * @var	\gms\data\game\item\GameItemList
 	 */
 	protected $itemList = null;
 
@@ -84,7 +84,7 @@ class Game extends GMSDatabaseObject implements IRouteController {
 		$statement->execute(array($abbreviation));
 		$row = $statement->fetchArray();
 
-		if ($row !== null) {
+		if (!$row) {
 			return new Game($row);
 		}
 

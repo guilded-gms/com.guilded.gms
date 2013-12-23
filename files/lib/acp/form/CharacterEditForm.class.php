@@ -28,7 +28,7 @@ class CharacterEditForm extends CharacterAddForm {
 	/**
 	 * @see	\wcf\page\AbstractPage::$menuItemName
 	 */
-	public $menuItemName = 'gms.acp.menu.link.character.management';
+	public $menuItemName = 'gms.acp.menu.link.gms.character';
 	
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermissions

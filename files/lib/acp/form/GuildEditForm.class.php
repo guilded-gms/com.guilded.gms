@@ -28,7 +28,7 @@ class GuildEditForm extends GuildAddForm {
 	/**
 	 * @see	\wcf\page\AbstractPage::$menuItemName
 	 */
-	public $menuItemName = 'gms.acp.menu.link.guild.management';
+	public $menuItemName = 'gms.acp.menu.link.gms.guild';
 
 	/**
 	 * guild id

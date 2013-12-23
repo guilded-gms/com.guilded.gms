@@ -23,7 +23,7 @@
 		{foreach from=$objects item=guild}
 			<li>
 				<div class="box48">
-					<a href="{link controller='Guild' object=$guild}{/link}" title="{$guild->name}" class="framed">IMAGE</a>
+					<a href="{link controller='Guild' object=$guild application='gms'}{/link}" title="{$guild->name}" class="framed">IMAGE</a>
 						
 					<div>
 						

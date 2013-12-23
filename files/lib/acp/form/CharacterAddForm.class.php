@@ -18,12 +18,12 @@ class CharacterAddForm extends CharacterOptionListForm {
 	/**
 	 * @see	\wcf\acp\form\ACPForm::$activeMenuItem
 	 */
-	public $activeMenuItem = 'gms.acp.menu.link.character.add';
+	public $activeMenuItem = 'gms.acp.menu.link.gms.character.add';
 	
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('admin.character.canManage');
+	public $neededPermissions = array('admin.gms.character.canManage');
 	
 	public $name = '';
 	public $gameID = 0;	

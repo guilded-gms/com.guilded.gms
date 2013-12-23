@@ -1,5 +1,6 @@
 <?php
 namespace gms\system\package\plugin;
+use wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin;
 use wcf\system\WCF;
 
 /**
@@ -17,7 +18,12 @@ class CharacterProfileMenuPackageInstallationPlugin extends AbstractXMLPackageIn
 	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::$className
 	 */
 	public $className = 'gms\data\character\profile\menu\item\CharacterProfileMenuItemEditor';
-	
+
+	/**
+	 * @see	\wcf\system\package\plugin\AbstractPackageInstallationPlugin::$application
+	 */
+	public $application = 'gms';
+
 	/**
 	 * @see	\wcf\system\package\plugin\AbstractPackageInstallationPlugin::$tableName
 	 */

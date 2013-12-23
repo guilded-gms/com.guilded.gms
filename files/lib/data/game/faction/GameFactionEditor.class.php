@@ -2,7 +2,7 @@
 namespace gms\data\game\faction;
 use wcf\data\DatabaseObjectEditor;
 
-class GameFactionEditor extends GMSDatabaseObjectEditor {
+class GameFactionEditor extends DatabaseObjectEditor {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

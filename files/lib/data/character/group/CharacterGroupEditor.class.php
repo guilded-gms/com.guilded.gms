@@ -4,7 +4,7 @@ use wcf\data\DatabaseObjectEditor;
 use wcf\system\clipboard\ClipboardHandler;
 use wcf\system\WCF;
 
-class CharacterGroupEditor extends GMSDatabaseObjectEditor {
+class CharacterGroupEditor extends DatabaseObjectEditor {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

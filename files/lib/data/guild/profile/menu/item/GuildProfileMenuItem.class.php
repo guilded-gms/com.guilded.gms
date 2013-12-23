@@ -1,6 +1,5 @@
 <?php
 namespace gms\data\guild\profile\menu\item;
-use gms\data\GMSDatabaseObject;
 use wcf\data\user\profile\menu\item\UserProfileMenuItem;
 use wcf\system\exception\SystemException;
 use wcf\util\ClassUtil;
@@ -22,6 +21,13 @@ class GuildProfileMenuItem extends UserProfileMenuItem {
 	protected static $databaseTableName = 'guild_profile_menu_item';
 
 	/**
+	 * @see	\wcf\data\IStorableObject::getDatabaseTableName()
+	 */
+	public static function getDatabaseTableName() {
+		return 'gms'.WCF_N.'_'.static::$databaseTableName;
+	}
+
+	/**
 	 * Returns the content manager for this menu item.
 	 *
 	 * @return	\wcf\system\menu\guild\profile\content\IGuildProfileMenuContent
@@ -36,8 +42,8 @@ class GuildProfileMenuItem extends UserProfileMenuItem {
 				throw new SystemException("'".$this->className."' does not extend 'wcf\system\SingletonFactory'");
 			}
 
-			if (!ClassUtil::isInstanceOf($this->className, 'wcf\system\menu\guild\profile\content\IGuildProfileMenuContent')) {
-				throw new SystemException("'".$this->className."' does not implement 'wcf\system\menu\guild\profile\content\IGuildProfileMenuContent'");
+			if (!ClassUtil::isInstanceOf($this->className, 'gms\system\menu\guild\profile\content\IGuildProfileMenuContent')) {
+				throw new SystemException("'".$this->className."' does not implement 'gms\system\menu\guild\profile\content\IGuildProfileMenuContent'");
 			}
 
 			$this->contentManager = call_user_func(array($this->className, 'getInstance'));

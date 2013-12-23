@@ -14,6 +14,13 @@ class CharacterProfileMenuItem extends UserProfileMenuItem {
 	protected static $databaseTableName = 'character_profile_menu_item';
 
 	/**
+	 * @see	\wcf\data\IStorableObject::getDatabaseTableName()
+	 */
+	public static function getDatabaseTableName() {
+		return 'gms'.WCF_N.'_'.static::$databaseTableName;
+	}
+
+	/**
 	 * Returns the content manager for this menu item.
 	 *
 	 * @return	\wcf\system\menu\character\profile\content\ICharacterProfileMenuContent
@@ -28,8 +35,8 @@ class CharacterProfileMenuItem extends UserProfileMenuItem {
 				throw new SystemException("'".$this->className."' does not extend 'wcf\system\SingletonFactory'");
 			}
 
-			if (!ClassUtil::isInstanceOf($this->className, 'wcf\system\menu\character\profile\content\ICharacterProfileMenuContent')) {
-				throw new SystemException("'".$this->className."' does not implement 'wcf\system\menu\character\profile\content\ICharacterProfileMenuContent'");
+			if (!ClassUtil::isInstanceOf($this->className, 'gms\system\menu\character\profile\content\ICharacterProfileMenuContent')) {
+				throw new SystemException("'".$this->className."' does not implement 'gms\system\menu\character\profile\content\ICharacterProfileMenuContent'");
 			}
 
 			$this->contentManager = call_user_func(array($this->className, 'getInstance'));

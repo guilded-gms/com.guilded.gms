@@ -2,7 +2,7 @@
 namespace gms\data\event\participation;
 use wcf\data\DatabaseObjectEditor;
 
-class EventParticipationEditor extends GMSDatabaseObjectEditor {
+class EventParticipationEditor extends DatabaseObjectEditor {
 	/**
 	 * @see	wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

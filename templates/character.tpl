@@ -37,7 +37,7 @@
 {include file='header' sidebarOrientation='left'}
 
 <header class="boxHeadline characterProfileHeadline characterProfile">
-	<h1><a href="{link controller='Character' object=$character}{/link}">{$character->getTitle()}</a></h1>
+	<h1><a href="{link controller='Character' object=$character application='gms'}{/link}">{$character->getTitle()}</a></h1>
 
 	<p><a href="{link controller='User' id=$character->userID title=$character->getUserProfile()->username}{/link}" class="userLink" data-user-id="{@$character->userID}">{$character->getUserProfile()->username}</a> - {@$character->getGame()->getTitle()}</p>
 
@@ -92,7 +92,7 @@
 			{content}
 			{if ENABLE_SHARE_BUTTONS}
 				<li class="box32 jsOnly shareInfoBox">
-					<a href="{link controller='Character' object=$character->getDecoratedObject() appendSession=false}{/link}" class="jsTooltip jsButtonShare" title="{lang}wcf.message.share{/lang}" data-link-title="{$character->getTitle()}"><span class="icon icon32 icon-link"></span></a>
+					<a href="{link controller='Character' object=$character->getDecoratedObject() appendSession=false application='gms'}{/link}" class="jsTooltip jsButtonShare" title="{lang}wcf.message.share{/lang}" data-link-title="{$character->getTitle()}"><span class="icon icon32 icon-link"></span></a>
 
 					<div>
 						<div class="containerHeadline">

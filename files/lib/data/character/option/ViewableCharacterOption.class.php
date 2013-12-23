@@ -17,7 +17,7 @@ use wcf\util\StringUtil;
  * @subpackage	data.character.option
  * @category	Guilded 2.0
  */
-class ViewableCharacterOption extends GMSDatabaseObjectDecorator {
+class ViewableCharacterOption extends DatabaseObjectDecorator {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

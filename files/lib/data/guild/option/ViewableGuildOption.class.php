@@ -17,7 +17,7 @@ use wcf\util\StringUtil;
  * @subpackage	data.guild.option
  * @category 	Community Framework
  */
-class ViewableGuildOption extends GMSDatabaseObjectDecorator {
+class ViewableGuildOption extends DatabaseObjectDecorator {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

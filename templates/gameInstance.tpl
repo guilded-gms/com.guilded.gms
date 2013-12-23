@@ -5,7 +5,7 @@
 	
 	{include file='headInclude'}
 
-    <link rel="canonical" href="{link controller='GameInstance' object=$object}{/link}" />	
+    <link rel="canonical" href="{link controller='GameInstance' object=$object application='gms'}{/link}" />
 </head>
 
 <body id="tpl{$templateName|ucfirst}">
@@ -19,7 +19,7 @@
 {include file='header' sidebarOrientation='right'}
 
 <header class="boxHeadline">
-	<h1><a href="{link controller='GameInstance' object=$object}{/link}">{$object->getTitle()}</a></h1>
+	<h1><a href="{link controller='GameInstance' object=$object application='gms'}{/link}">{$object->getTitle()}</a></h1>
 </header>
 
 {include file='userNotice'}

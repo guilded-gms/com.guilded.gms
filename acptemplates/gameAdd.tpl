@@ -13,14 +13,14 @@
 <div class="contentNavigation">
 	<nav>
 		<ul>
-			<li><a href="{link controller='GameList'}{/link}" class="button"><span class="icon icon16 icon-list"></span> <span>{lang}game{/lang}</span></a></li>
+			<li><a href="{link controller='GameList' application='gms'}{/link}" class="button"><span class="icon icon16 icon-list"></span> <span>{lang}game{/lang}</span></a></li>
 			
 			{event name='contentNavigationButtons'}
 		</ul>
 	</nav>
 </div>
 
-<form method="post" action="{if $action == 'add'}{link controller='GameAdd'}{/link}{else}{link controller='GameEdit' id=$object->getObjectID()}{/link}{/if}">
+<form method="post" action="{if $action == 'add'}{link controller='GameAdd' application='gms'}{/link}{else}{link controller='GameEdit' id=$object->getObjectID() application='gms'}{/link}{/if}">
 	<div class="container containerPadding marginTop">
 		<fieldset>
 			<legend>{lang}wcf.global.form.data{/lang}</legend>

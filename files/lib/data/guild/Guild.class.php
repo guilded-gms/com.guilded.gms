@@ -101,7 +101,7 @@ class Guild extends GMSDatabaseObject implements IRouteController {
 	 */
 	public function getServer() {
 		if ($this->server === null) {
-			$this->server = new GameServer(null, null, $this->gameID, $this->server);
+			$this->server = GameServer::getServerByName($this->gameID, $this->server);
 		}
 
 		return $this->server;

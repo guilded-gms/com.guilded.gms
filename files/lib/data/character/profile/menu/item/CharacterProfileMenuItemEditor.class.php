@@ -1,16 +1,14 @@
 <?php
 namespace gms\data\character\profile\menu\item;
-use wcf\data\character\profile\menu\item\CharacterProfileMenuItem;
 use wcf\data\DatabaseObjectEditor;
 use wcf\data\IEditableCachedObject;
 use wcf\system\cache\builder\CharacterProfileMenuCacheBuilder;
-use wcf\system\cache\CacheHandler;
 use wcf\system\WCF;
 
 /**
  * Provides functions to edit character profile menu items.
  */
-class CharacterProfileMenuItemEditor extends GMSDatabaseObjectEditor implements IEditableCachedObject {
+class CharacterProfileMenuItemEditor extends DatabaseObjectEditor implements IEditableCachedObject {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

@@ -26,7 +26,7 @@ class GameClassification extends GMSDatabaseObject {
 
 	/**
 	 * game object
-	 * @var    \gms\data\game\Game
+	 * @var	\gms\data\game\Game
 	 */
 	protected $game = null;
 

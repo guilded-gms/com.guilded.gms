@@ -19,10 +19,10 @@ class GuildOptionCategory extends GMSDatabaseObject {
 	 */
 	public function __construct($categoryID, $row = null, GuildOptionCategory $category = null) {
 		if ($categoryID !== null) {
-			$sql = "SELECT	option_category.*,
-					(SELECT COUNT(DISTINCT optionName) FROM gms".WCF_N."_guild_option WHERE categoryName = option_category.categoryName) AS options
-				FROM	gms".WCF_N."_guild_option_category option_category
-				WHERE	option_category.categoryID = ?";
+			$sql = "SELECT	guild_option_category.*,
+							(SELECT COUNT(DISTINCT guild_option.optionName) FROM gms".WCF_N."_guild_option guild_option WHERE guild_option.categoryName = guild_option_category.categoryName) AS options
+					FROM	gms".WCF_N."_guild_option_category guild_option_category
+					WHERE	guild_option_category.categoryID = ?";
 			$statement = WCF::getDB()->prepareStatement($sql);
 			$statement->execute(array($categoryID));
 			$row = $statement->fetchArray();

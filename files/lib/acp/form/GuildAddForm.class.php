@@ -21,28 +21,28 @@ class GuildAddForm extends GuildOptionListForm {
 	/**
 	 * @see	\wcf\page\AbstractPage::$activeMenuItem
 	 */
-	public $activeMenuItem = 'gms.acp.menu.link.guild.add';
+	public $activeMenuItem = 'gms.acp.menu.link.gms.guild.add';
 	
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('admin.guild.canManage');
+	public $neededPermissions = array('admin.gms.guild.canManage');
 
 	/**
 	 * id of game
-	 * @var    int
+	 * @var	int
 	 */
 	public $gameID = 0;
 
 	/**
 	 * guild name
-	 * @var    string
+	 * @var	string
 	 */
 	public $name = '';
 
 	/**
 	 * additional data for insert and edit
-	 * @var    array
+	 * @var	array
 	 */
 	public $additionalFields = array();
 

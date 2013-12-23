@@ -25,11 +25,11 @@ class Event extends GMSDatabaseObject implements IRouteController {
 	 */
 	protected static $databaseTableIndexName = 'eventID';
 
-    /**
-     * list of participants
-     * @var array
-     */
-    protected $participants = array();
+	/**
+	 * list of participants
+	 * @var array
+	 */
+	protected $participants = array();
 
 	/**
 	 * @see IRoutController::getTitle()
@@ -49,16 +49,16 @@ class Event extends GMSDatabaseObject implements IRouteController {
 
 	/**
 	 * Returns a list of all participants
-     *
-     * @return  array
+	 *
+	 * @return  array
 	 */
 	public function getParticipants() {
 		if (empty($this->participants)) {
 			$participationList = new EventParticipationList();
-            $participationList->getConditionBuilder()->add('event_particaption.eventID = ?', array($this->eventID));
-            $participationList->readObjects();
+			$participationList->getConditionBuilder()->add('event_particaption.eventID = ?', array($this->eventID));
+			$participationList->readObjects();
 
-            $this->participants = $participationList->getObjects();
+			$this->participants = $participationList->getObjects();
 		}
 	
 		return $this->participants;
@@ -73,12 +73,12 @@ class Event extends GMSDatabaseObject implements IRouteController {
 		return false;
 	}
 
-    /**
-     * Checks whether the announcement for this event is closed
-     *
-     * @return	bool
-     */
-    public function isClosed() {
-        return false;
-    }
+	/**
+	 * Checks whether the announcement for this event is closed
+	 *
+	 * @return	bool
+	 */
+	public function isClosed() {
+		return false;
+	}
 }

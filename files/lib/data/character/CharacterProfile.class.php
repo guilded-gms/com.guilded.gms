@@ -17,7 +17,7 @@ use wcf\system\request\LinkHandler;
  * @subpackage	data.character
  * @category	Guilded 2.0
  */
-class CharacterProfile extends GMSDatabaseObjectDecorator implements IBreadcrumbProvider {
+class CharacterProfile extends DatabaseObjectDecorator implements IBreadcrumbProvider {
 	/**
 	 * Gender of character
 	 */

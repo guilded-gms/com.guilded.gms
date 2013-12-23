@@ -1,8 +1,7 @@
 <?php
 namespace gms\data\guild\option;
+use gms\data\GMSDatabaseObject;
 use gms\data\guild\Guild;
-use wcf\data\option\Option;
-use wcf\system\WCF;
 
 /**
  * Represents a guild option.
@@ -14,7 +13,7 @@ use wcf\system\WCF;
  * @subpackage	data.guild.option
  * @category 	Community Framework
  */
-class GuildOption extends Option {
+class GuildOption extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -57,7 +56,7 @@ class GuildOption extends Option {
 	 */
 	public function isVisible() {
 		// check if option is hidden
-		if (!$this->visible) {
+		/*if (!$this->visible) {
 			return false;
 		}
 		
@@ -94,7 +93,7 @@ class GuildOption extends Option {
 		}
 		
 		if (!$visible || $this->disabled) return false;
-		
+		*/
 		return true;
 	}
 }

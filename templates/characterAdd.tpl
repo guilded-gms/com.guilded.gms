@@ -31,7 +31,7 @@
 	<p class="success">{lang}wcf.global.success.{$action}{/lang}</p>
 {/if}
 
-<form method="post" action="{if $action == 'add'}{link controller='CharacterAdd'}{/link}{else}{link controller='CharacterEdit'}{/link}{/if}">
+<form method="post" action="{if $action == 'add'}{link controller='CharacterAdd' application='gms'}{/link}{else}{link controller='CharacterEdit' application='gms'}{/link}{/if}">
     <input type="hidden" name="gameID" value="{@$gameID}" />
 
 	<div class="container containerPadding marginTop shadow">

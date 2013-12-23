@@ -147,12 +147,12 @@
 		</type>
 		<!-- /acl -->
 
-		<!-- creditableObject -->
+		<!-- com.guilded.gms.credit -->
 		<type>
 			<name>com.guilded.gms.event.credit</name>
-			<definitionname>com.guilded.gmsableObject</definitionname>
+			<definitionname>com.guilded.gms.credit</definitionname>
 			<classname>gms\system\event\credit\EventCredit</classname>
 		</type>
-		<!-- /creditableObject -->
+		<!-- /com.guilded.gms.credit -->
 	</import>
 </data>

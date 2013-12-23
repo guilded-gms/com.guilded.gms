@@ -6,7 +6,7 @@ namespace gms\page;
  *
  * @author		Jeffrey 'Kiv' Reichardt
  * @copyright	2012 Guilded.eu
- * @package     	com.guilded.gms
+ * @package	 	com.guilded.gms
  * @subpackage	page
  */
 class CreditListPage extends SortablePage {
@@ -29,5 +29,5 @@ class CreditListPage extends SortablePage {
 	 * @see	wcf\page\MultipleLinkPage::$objectListClassName
 	 */	
 	public $objectListClassName = 'gms\data\credit\CreditList';
-    
+
 }

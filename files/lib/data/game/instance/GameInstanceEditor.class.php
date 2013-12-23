@@ -2,7 +2,7 @@
 namespace gms\data\game\instance;
 use wcf\data\DatabaseObjectEditor;
 
-class GameInstanceEditor extends GMSDatabaseObjectEditor {
+class GameInstanceEditor extends DatabaseObjectEditor {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

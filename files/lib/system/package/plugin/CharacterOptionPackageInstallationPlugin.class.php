@@ -5,6 +5,8 @@ use gms\data\character\option\category\CharacterOptionCategoryEditor;
 use gms\data\character\option\CharacterOption;
 use gms\data\character\option\CharacterOptionEditor;
 use wcf\system\exception\SystemException;
+use wcf\system\package\plugin\AbstractOptionPackageInstallationPlugin;
+use wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
 
@@ -23,13 +25,137 @@ class CharacterOptionPackageInstallationPlugin extends AbstractOptionPackageInst
 	 * @see	\wcf\system\package\plugin\AbstractPackageInstallationPlugin::$tableName
 	 */
 	public $tableName = 'character_option';
+
+	/**
+	 * @see	\wcf\system\package\plugin\AbstractPackageInstallationPlugin::$application
+	 */
+	public $application = 'gms';
 	
 	/**
 	 * list of names of tags which are not considered as additional data
 	 * @var	array<string>
 	 */
 	public static $reservedTags = array('name', 'optiontype', 'defaultvalue', 'validationpattern', 'required', 'showorder', 'outputclass', 'selectoptions', 'enableoptions', 'disabled', 'categoryname', 'permissions', 'options', 'attrs', 'cdata');
-	
+
+	/**
+	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::deleteItems()
+	 */
+	protected function deleteItems(\DOMXPath $xpath) {
+		// delete options
+		$elements = $xpath->query('/ns:data/ns:delete/ns:option');
+		$options = array();
+		foreach ($elements as $element) {
+			$options[] = $element->getAttribute('name');
+		}
+
+		if (!empty($options)) {
+			$sql = "DELETE FROM	gms".WCF_N."_".$this->tableName."
+				WHERE		optionName = ?
+				AND packageID = ?";
+			$statement = WCF::getDB()->prepareStatement($sql);
+
+			foreach ($options as $option) {
+				$statement->execute(array(
+					$option,
+					$this->installation->getPackageID()
+				));
+			}
+		}
+
+		// delete categories
+		$elements = $xpath->query('/ns:data/ns:delete/ns:optioncategory');
+		$categories = array();
+		foreach ($elements as $element) {
+			$categories[] = $element->getAttribute('name');
+		}
+
+		if (!empty($categories)) {
+			// delete options for given categories
+			$sql = "DELETE FROM	gms".WCF_N."_".$this->tableName."
+				WHERE		categoryName = ?";
+			$statement = WCF::getDB()->prepareStatement($sql);
+			foreach ($categories as $category) {
+				$statement->execute(array($category));
+			}
+
+			// delete categories
+			$sql = "DELETE FROM	wcf".WCF_N."_".$this->tableName."_category
+				WHERE		categoryName = ?
+				AND		packageID = ?";
+			$statement = WCF::getDB()->prepareStatement($sql);
+
+			foreach ($categories as $category) {
+				$statement->execute(array(
+					$category,
+					$this->installation->getPackageID()
+				));
+			}
+		}
+	}
+
+	/**
+	 * Imports option categories.
+	 *
+	 * @param	\DOMXPath	$xpath
+	 */
+	protected function importCategories(\DOMXPath $xpath) {
+		$elements = $xpath->query('/ns:data/ns:import/ns:categories/ns:category');
+		foreach ($elements as $element) {
+			$data = array();
+
+			// get child elements
+			$children = $xpath->query('child::*', $element);
+			foreach ($children as $child) {
+				$data[$child->tagName] = $child->nodeValue;
+			}
+
+			// build data block with defaults
+			$data = array(
+				'categoryName' => $element->getAttribute('name'),
+				'options' => (isset($data['options'])) ? $data['options'] : '',
+				'parentCategoryName' => (isset($data['parent'])) ? $data['parent'] : '',
+				'permissions' => (isset($data['permissions'])) ? $data['permissions'] : '',
+				'showOrder' => (isset($data['showorder'])) ? intval($data['showorder']) : null
+			);
+
+			// adjust show order
+			if ($data['showOrder'] !== null || $this->installation->getAction() != 'update') {
+				$data['showOrder'] = $this->getShowOrder($data['showOrder'], $data['parentCategoryName'], 'parentCategoryName', '_category');
+			}
+
+			// validate parent
+			if (!empty($data['parentCategoryName'])) {
+				$sql = "SELECT	COUNT(categoryID) AS count
+					FROM	gms".WCF_N."_".$this->tableName."_category
+					WHERE	categoryName = ?";
+				$statement = WCF::getDB()->prepareStatement($sql);
+				$statement->execute(array($data['parentCategoryName']));
+				$row = $statement->fetchArray();
+
+				if (!$row['count']) {
+					throw new SystemException("Unable to find parent 'option category' with name '".$data['parentCategoryName']."' for category with name '".$data['categoryName']."'.");
+				}
+			}
+
+			// save category
+			$this->saveCategory($data);
+		}
+	}
+
+	/**
+	 * @see	\wcf\system\package\plugin\IPackageInstallationPlugin::hasUninstall()
+	 */
+	public function hasUninstall() {
+		$hasUninstallOptions = parent::hasUninstall();
+		$sql = "SELECT	COUNT(categoryID) AS count
+			FROM	gms".WCF_N."_".$this->tableName."_category
+			WHERE	packageID = ?";
+		$statement = WCF::getDB()->prepareStatement($sql);
+		$statement->execute(array($this->installation->getPackageID()));
+		$categoryCount = $statement->fetchArray();
+		return ($hasUninstallOptions || $categoryCount['count'] > 0);
+	}
+
 	/**
 	 * @see	\wcf\system\package\plugin\AbstractOptionPackageInstallationPlugin::saveCategory()
 	 */
@@ -84,9 +210,12 @@ class CharacterOptionPackageInstallationPlugin extends AbstractOptionPackageInst
 		// check if optionType exists
 		$className = 'wcf\system\option\\'.StringUtil::firstCharToUpperCase($optionType).'OptionType';
 		if (!class_exists($className)) {
-			throw new SystemException("unable to find class '".$className."'");
+			$className = 'gms\system\option\\'.StringUtil::firstCharToUpperCase($optionType).'OptionType';
+			if (!class_exists($className)) {
+				throw new SystemException("unable to find class '".$className."'");
+			}
 		}
-		
+
 		// collect additional tags and their values
 		$additionalData = array();
 		foreach ($option as $tag => $value) {
@@ -136,22 +265,18 @@ class CharacterOptionPackageInstallationPlugin extends AbstractOptionPackageInst
 			CharacterOptionEditor::create($data);
 		}
 	}
-	
+
 	/**
 	 * @see	\wcf\system\package\plugin\IPackageInstallationPlugin::uninstall()
 	 */
 	public function uninstall() {
-		// get optionsIDs from package
-		$sql = "SELECT	optionID
-			FROM	gms".WCF_N."_character_option
-			WHERE	packageID = ?";
+		// delete options
+		AbstractXMLPackageInstallationPlugin::uninstall();
+
+		// delete categories
+		$sql = "DELETE FROM	gms".WCF_N."_".$this->tableName."_category
+			WHERE		packageID = ?";
 		$statement = WCF::getDB()->prepareStatement($sql);
 		$statement->execute(array($this->installation->getPackageID()));
-		while ($row = $statement->fetchArray()) {
-			WCF::getDB()->getEditor()->dropColumn('wcf'.WCF_N.'_character_option_value', 'characterOption'.$row['optionID']);
-		}
-		
-		// uninstall options and categories
-		parent::uninstall();
 	}
 }

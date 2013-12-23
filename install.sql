@@ -403,7 +403,7 @@ CREATE TABLE gms1_event_to_user(
 
 DROP TABLE IF EXISTS gms1_object_credit;
 CREATE TABLE gms1_object_credit (
-	creditID			INT(10) NOT NULL AUTO_INCREMENT,
+	creditID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	objectTypeID		INT(10) NOT NULL,
 	objectID			INT(10) NOT NULL,
 	userID				INT(10) NOT NULL,
@@ -411,7 +411,6 @@ CREATE TABLE gms1_object_credit (
 	time				INT(10) NOT NULL DEFAULT 0,
 	creditValue			NUMERIC(14,2),
 	reason				VARCHAR(255),
-	PRIMARY KEY(creditID),
 	UNIQUE KEY (objectTypeID, objectID, userID, characterID),
 	KEY (userID, time)
 );
@@ -440,19 +439,19 @@ ALTER TABLE gms1_game_server ADD FOREIGN KEY (gameID) REFERENCES gms1_game (game
 
 ALTER TABLE gms1_guild ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON DELETE CASCADE;
 
-ALTER TABLE gms1_character ADD FOREIGN KEY (userID) REFERENCES gms1_user (userID) ON DELETE CASCADE;
+ALTER TABLE gms1_character ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE CASCADE;
 ALTER TABLE gms1_character ADD FOREIGN KEY (guildID) REFERENCES gms1_guild (guildID) ON DELETE CASCADE;
 ALTER TABLE gms1_character ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON DELETE CASCADE;
 
 ALTER TABLE gms1_guild_recruitment_application ADD FOREIGN KEY (tenderID) REFERENCES gms1_guild_recruitment_tender (tenderID) ON DELETE SET NULL;
-ALTER TABLE gms1_guild_recruitment_application ADD FOREIGN KEY (userID) REFERENCES gms1_user (userID) ON DELETE CASCADE;
+ALTER TABLE gms1_guild_recruitment_application ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE CASCADE;
 ALTER TABLE gms1_guild_recruitment_application ADD FOREIGN KEY (characterID) REFERENCES gms1_character (characterID) ON DELETE CASCADE;
 ALTER TABLE gms1_guild_recruitment_application ADD FOREIGN KEY (guildID) REFERENCES gms1_guild (guildID) ON DELETE CASCADE;
 
 ALTER TABLE gms1_event_to_user ADD FOREIGN KEY (eventID) REFERENCES gms1_event (eventID) ON DELETE CASCADE;
-ALTER TABLE gms1_event_to_user ADD FOREIGN KEY (userID) REFERENCES gms1_user (userID) ON DELETE CASCADE;
+ALTER TABLE gms1_event_to_user ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE CASCADE;
 ALTER TABLE gms1_event_to_user ADD FOREIGN KEY (characterID) REFERENCES gms1_character (characterID) ON DELETE CASCADE;
 
-ALTER TABLE gms1_object_credit ADD FOREIGN KEY (objectTypeID) REFERENCES gms1_object_type (objectTypeID) ON DELETE CASCADE;
-ALTER TABLE gms1_object_credit ADD FOREIGN KEY (userID) REFERENCES gms1_user (userID) ON DELETE CASCADE;
+ALTER TABLE gms1_object_credit ADD FOREIGN KEY (objectTypeID) REFERENCES wcf1_object_type (objectTypeID) ON DELETE CASCADE;
+ALTER TABLE gms1_object_credit ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE CASCADE;
 ALTER TABLE gms1_object_credit ADD FOREIGN KEY (characterID) REFERENCES gms1_character (characterID) ON DELETE CASCADE;

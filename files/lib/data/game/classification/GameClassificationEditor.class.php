@@ -12,7 +12,7 @@ use wcf\data\DatabaseObjectEditor;
  * @subpackage	data.game.class
  * @category	Guilded 2.0
  */
-class GameClassificationEditor extends GMSDatabaseObjectEditor {
+class GameClassificationEditor extends DatabaseObjectEditor {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

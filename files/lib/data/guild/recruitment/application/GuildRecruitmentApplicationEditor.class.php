@@ -13,7 +13,7 @@ use wcf\system\WCF;
  * @subpackage	data.guild.recruitment.application
  * @category	Guilded 2.0
  */
-class GuildRecruitmentApplicationEditor extends GMSDatabaseObjectEditor {
+class GuildRecruitmentApplicationEditor extends DatabaseObjectEditor {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

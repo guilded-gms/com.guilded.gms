@@ -1,6 +1,7 @@
 <?php
 namespace gms\system\package\plugin;
 use wcf\data\package\Package;
+use wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin;
 use wcf\system\WCF;
 
 /**
@@ -22,14 +23,9 @@ class GamePackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin
 	public $className = 'gms\data\game\GameEditor';
 	
 	/**
-	 * @see	\wcf\system\package\plugin\AbstractPackageInstallationPlugin::$tableName
+	 * @see	\wcf\system\package\plugin\AbstractPackageInstallationPlugin::$application
 	 */
-	public $tableName = 'game';
-	
-	/**
-	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::$tagName
-	 */	
-	public $tagName = 'game';
+	public $application = 'gms';
 	
 	/**
 	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::handleDelete()

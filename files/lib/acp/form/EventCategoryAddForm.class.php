@@ -6,10 +6,10 @@ class EventCategoryAddForm extends AbstractCategoryAddForm {
 	/**
 	 * @see	AbstractCategoryAddForm::$activeMenuItem
 	 */	
-    public $activeMenuItem = 'gms.acp.menu.link.community.event.category.add';
+	public $activeMenuItem = 'gms.acp.menu.link.community.event.category.add';
 	
 	/**
 	 * @see	AbstractCategoryAddForm::$objectTypeName
 	 */	
-    public $objectTypeName = 'com.guilded.event.category';
+	public $objectTypeName = 'com.guilded.event.category';
 }

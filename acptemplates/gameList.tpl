@@ -17,7 +17,7 @@
 	
 	<nav>
 		<ul>
-			<li><a href="{link controller='GameAdd'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}gms.acp.game.add{/lang}</span></a></li>
+			<li><a href="{link controller='GameAdd' application='gms'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}gms.acp.game.add{/lang}</span></a></li>
 			
 			{event name='contentNavigationButtonsTop'}
 		</ul>
@@ -33,8 +33,8 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th class="columnID columnGameID{if $sortField == 'gameID'} active {@$sortOrder}{/if}" colspan="2"><a href="{link controller='GameList'}pageNo={@$pageNo}&sortField=gameID&sortOrder={if $sortField == 'gameID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.objectID{/lang}</a></th>
-					<th class="columnTitle columnGameTitle{if $sortField == 'title'} active {@$sortOrder}{/if}"><a href="{link controller='GameList'}pageNo={@$pageNo}&sortField=title&sortOrder={if $sortField == 'title' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.title{/lang}</a></th>
+					<th class="columnID columnGameID{if $sortField == 'gameID'} active {@$sortOrder}{/if}" colspan="2"><a href="{link controller='GameList' application='gms'}pageNo={@$pageNo}&sortField=gameID&sortOrder={if $sortField == 'gameID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.objectID{/lang}</a></th>
+					<th class="columnTitle columnGameTitle{if $sortField == 'title'} active {@$sortOrder}{/if}"><a href="{link controller='GameList' application='gms'}pageNo={@$pageNo}&sortField=title&sortOrder={if $sortField == 'title' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.title{/lang}</a></th>
 					
 					{event name='columnHeads'}
 				</tr>
@@ -45,13 +45,13 @@
 					{foreach from=$objects item=$object}
 						<tr class="jsGameRow">
 							<td class="columnIcon">
-								<a href="{link controller='GameEdit' id=$object->gameID}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip"><span class="icon icon16 icon-pencil"></span></a>
+								<a href="{link controller='GameEdit' id=$object->gameID application='gms'}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip"><span class="icon icon16 icon-pencil"></span></a>
 								<span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="{lang}wcf.global.button.delete{/lang}" data-object-id="{@$object->gameID}" data-confirm-message="{lang}gms.acp.game.delete.sure{/lang}"></span>
 								
 								{event name='rowButtons'}
 							</td>
 							<td class="columnID columnGameID">{@$object->gameID}</td>
-							<td class="columnTitle columnGameTitle"><a href="{link controller='GameEdit' id=$object->gameID}{/link}" title="{lang}gms.acp.game.edit{/lang}">{$object->getTitle()|language}</a></td>
+							<td class="columnTitle columnGameTitle"><a href="{link controller='GameEdit' id=$object->gameID application='gms'}{/link}" title="{lang}gms.acp.game.edit{/lang}">{$object->getTitle()|language}</a></td>
 							
 							{event name='columns'}
 						</tr>
@@ -67,7 +67,7 @@
 		
 		<nav>
 			<ul>
-				<li><a href="{link controller='GameAdd'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}gms.acp.game.add{/lang}</span></a></li>
+				<li><a href="{link controller='GameAdd' application='gms'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}gms.acp.game.add{/lang}</span></a></li>
 				
 				{event name='contentNavigationButtonsBottom'}
 			</ul>

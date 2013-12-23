@@ -2,6 +2,7 @@
 namespace gms\page;
 use gms\data\character\CharacterList;
 use gms\data\game\GameList;
+use wcf\page\AbstractPage;
 use wcf\system\exception\PermissionDeniedException;
 use wcf\system\menu\user\UserMenu;
 use wcf\system\WCF;

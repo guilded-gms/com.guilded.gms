@@ -34,7 +34,28 @@ class GameServer extends GMSDatabaseObject implements ITitledObject {
 	 */
 	protected $game = null;
 
-	// @todo implement constructor (.., $gameID, $name)
+	/**
+	 * Returns server by name.
+	 *
+	 * @param	integer	$gameID
+	 * @param	string	$name
+	 * @return	\gms\data\game\server\GameServer|null
+	 */
+	public static function getServerByName($gameID, $name) {
+		$sql = "SELECT *
+				FROM	".static::getDatabaseTableName()."
+				WHERE	(gameID = ?) AND
+						(name = ?)";
+		$statement = WCF::getDB()->prepareStatement($sql);
+		$statement->execute(array($gameID, $name));
+		$row = $statement->fetchArray();
+
+		if (!$row) {
+			return new GameServer($row);
+		}
+
+		return null;
+	}
 
 	/**
 	 * Returns the title of the object.

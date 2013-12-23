@@ -4,7 +4,7 @@ use gms\data\character\option\CharacterOption;
 use gms\data\GMSDatabaseObject;
 use wcf\system\WCF;
 
-/*
+/**
  * Represents a CharacterOptionCategory.
  * 
  * @author	Jeffrey Reichardt
@@ -30,10 +30,10 @@ class CharacterOptionCategory extends GMSDatabaseObject {
 	 */
 	public function __construct($categoryID, $row = null, CharacterOptionCategory $category = null) {
 		if ($categoryID !== null) {
-			$sql = "SELECT	option_category.*,
-					(SELECT COUNT(DISTINCT optionName) FROM ".CharacterOption::getDatabaseTableName()." WHERE categoryName = option_category.categoryName) AS options
-				FROM	".CharacterOptionCategory::getDatabaseTableName()." option_category
-				WHERE	option_category.categoryID = ?";
+			$sql = "SELECT	character_option_category.*,
+					(SELECT COUNT(DISTINCT optionName) FROM ".CharacterOption::getDatabaseTableName()." WHERE categoryName = character_option_category.categoryName) AS options
+				FROM	".static::getDatabaseTableName()." character_option_category
+				WHERE	character_option_category.categoryID = ?";
 			$statement = WCF::getDB()->prepareStatement($sql);
 			$statement->execute(array($categoryID));
 			$row = $statement->fetchArray();
@@ -60,7 +60,7 @@ class CharacterOptionCategory extends GMSDatabaseObject {
 	 */
 	public static function getCategoryByName($categoryName, $packageID) {
 		$sql = "SELECT	*
-			FROM	".CharacterOptionCategory::getDatabaseTableName()."
+			FROM	".static::getDatabaseTableName()."
 			WHERE	categoryName = ?
 				AND packageID = ?";
 		$statement = WCF::getDB()->prepareStatement($sql);

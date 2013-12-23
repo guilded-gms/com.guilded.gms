@@ -13,7 +13,7 @@ use wcf\system\WCF;
  * @subpackage	data.credit
  * @category	Guilded 2.0
  */
-class CreditEditor extends GMSDatabaseObjectEditor {
+class CreditEditor extends DatabaseObjectEditor {
 	/**
 	 * @see	wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

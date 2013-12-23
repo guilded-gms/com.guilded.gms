@@ -5,7 +5,7 @@ use wcf\data\DatabaseObjectEditor;
 /**
  * Provides functions to add, edit and delete guild option categories.
  */
-class GuildOptionCategoryEditor extends GMSDatabaseObjectEditor {
+class GuildOptionCategoryEditor extends DatabaseObjectEditor {
 	/**
 	 * @see	\gms\data\guild\option\category\GuildOptionCategory::$baseClass
 	 */

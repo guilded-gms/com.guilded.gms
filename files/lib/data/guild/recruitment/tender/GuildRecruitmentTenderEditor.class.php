@@ -3,7 +3,7 @@ namespace gms\data\guild\recruitment\tender;
 use wcf\data\DatabaseObjectEditor;
 use wcf\system\WCF;
 
-class GuildRecruitmentTenderEditor extends GMSDatabaseObjectEditor {
+class GuildRecruitmentTenderEditor extends DatabaseObjectEditor {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

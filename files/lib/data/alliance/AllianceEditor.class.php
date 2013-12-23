@@ -13,7 +13,7 @@ use wcf\system\WCF;
  * @subpackage	data.alliance
  * @category	Guilded 2.0
  */
-class AllianceEditor extends GMSDatabaseObjectEditor {
+class AllianceEditor extends DatabaseObjectEditor {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

@@ -1,11 +1,12 @@
 <?php
 namespace gms\system\option;
+use gms\data\game\classification\GameClassificationList;
 use gms\data\game\Game;
-use gms\data\game\race\GameRaceList;
+use gms\data\game\role\GameRoleList;
 use wcf\system\option\SelectOptionType;
 
 /**
- * Select Option for game-races.
+ * Select Option for game-roles.
  *
  * @author	Jeffrey Reichardt
  * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
@@ -14,10 +15,10 @@ use wcf\system\option\SelectOptionType;
  * @subpackage	system.option
  * @category	Guilded 2.0
 */
-class GameRaceSelectOptionType extends SelectOptionType implements IGameOptionType {
+class GameRoleSelectOptionType extends SelectOptionType implements IGameOptionType {
 	/**
 	 * game object
-	 * @var \gms\data\game\Game
+	 * @var	\gms\data\game\Game
 	 */
 	protected $game = null;
 
@@ -29,12 +30,12 @@ class GameRaceSelectOptionType extends SelectOptionType implements IGameOptionTy
 	public function parseSelectOptions(){
 		$result = array();
 
-		$raceList = new GameRaceList();
-		$raceList->getConditionBuilder()->add('gameID = ?', array($this->game->gameID));
-		$raceList->readObjects();
-		
-		foreach ($raceList->getObjects() as $race) {
-			$result[$race->raceID] = $race->getTitle();
+		$roleList = new GameRoleList();
+		$roleList->getConditionBuilder()->add('gameID = ?', array($this->game->gameID));
+		$roleList->readObjects();
+
+		foreach ($roleList->getObjects() as $role) {
+			$result[$role->raceID] = $role->getTitle();
 		}
 		
 		return $result;

@@ -17,7 +17,7 @@ use wcf\system\request\LinkHandler;
  * @subpackage	data.guild
  * @category 	Guilded 2.0
  */
-class GuildProfile extends GMSDatabaseObjectDecorator implements IBreadcrumbProvider {
+class GuildProfile extends DatabaseObjectDecorator implements IBreadcrumbProvider {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */
@@ -45,7 +45,7 @@ class GuildProfile extends GMSDatabaseObjectDecorator implements IBreadcrumbProv
 	/**
 	 * Returns guild object by given guildID.
 	 *
-	 * @param	int		$guildID
+	 * @param	integer		$guildID
 	 * @return	\gms\data\guild\GuildProfile|null
 	 */
 	public static function getGuildProfile($guildID) {

@@ -20,7 +20,7 @@
     {if $__wcf->session->getPermission('user.character.canManageCharacter')}
         <nav>
             <ul>
-                <li><a href="{link controller='CharacterAdd'}{/link}" title="{lang}gms.character.add{/lang}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}gms.character.add{/lang}</span></a></li>
+                <li><a href="{link controller='CharacterAdd' application='gms'}{/link}" title="{lang}gms.character.add{/lang}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}gms.character.add{/lang}</span></a></li>
             </ul>
         </nav>
     {/if}

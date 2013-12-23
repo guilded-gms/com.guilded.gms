@@ -14,7 +14,7 @@ use wcf\system\WCF;
  * @subpackage	data.event.credit
  * @category	Guilded 2.0
  */
-class EventCredit extends GMSDatabaseObjectDecorator implements ICreditableObject {
+class EventCredit extends DatabaseObjectDecorator implements ICreditableObject {
 	/**
 	 * @see wcf\data\DatabaseObjectDecorator::$baseClass
 	 */

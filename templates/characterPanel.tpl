@@ -7,11 +7,11 @@
 				<li class="pointer" data-character-id="{$character->characterID}">
                     <div class="box48">
                         <div>
-                            <a href="{link controller='Character' object=$character}{/link}">{@$character->getGame()->getImageTag(40)}</a>
+                            <a href="{link controller='Character' object=$character application='gms'}{/link}">{@$character->getGame()->getImageTag(40)}</a>
                         </div>
 
                         <div class="containerHeadline">
-                            <h3><a href="{link controller='Character' object=$character}{/link}"><span class="class class-priest">{$character->name}</span></a>{if $character->isPrimary} <span class="icon icon16 icon-ok jsPrimaryIcon"></span>{/if}</h3>
+                            <h3><a href="{link controller='Character' object=$character application='gms'}{/link}"><span class="class class-priest">{$character->name}</span></a>{if $character->isPrimary} <span class="icon icon16 icon-ok jsPrimaryIcon"></span>{/if}</h3>
 
                             {include file='characterInformation' object=$character}
                         </div>
@@ -19,7 +19,7 @@
 				</li>
 			{/foreach}
 			<li class="dropdownDivider"></li>
-			<li><a href="{link controller='CharacterAdd'}{/link}">{lang}gms.character.add{/lang}</a></li>
+			<li><a href="{link controller='CharacterAdd' application='gms'}{/link}">{lang}gms.character.add{/lang}</a></li>
 		</ul>
 	</li>
     <script data-relocate="true">
