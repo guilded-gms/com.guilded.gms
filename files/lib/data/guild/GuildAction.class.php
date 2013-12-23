@@ -1,12 +1,9 @@
 <?php
 namespace gms\data\guild;
 use wcf\data\AbstractDatabaseObjectAction;
-use wcf\data\guild\Guild;
 use wcf\system\database\util\PreparedStatementConditionBuilder;
-use wcf\system\exception\PermissionDeniedException;
 use wcf\system\exception\ValidateActionException;
 use wcf\system\WCF;
-use wcf\util\StringUtil;
 
 /**
  * Guild-related actions.
@@ -27,17 +24,17 @@ class GuildAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsCreate
 	 */
-	protected $permissionsCreate = array('admin.guild.canManageGuild');
+	protected $permissionsCreate = array('admin.gms.guild.canManage');
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
 	 */
-	protected $permissionsDelete = array('admin.guild.canManageGuild');
+	protected $permissionsDelete = array('admin.gms.guild.canManage');
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsUpdate
 	 */
-	protected $permissionsUpdate = array('admin.guild.canManageGuild');
+	protected $permissionsUpdate = array('admin.gms.guild.canManage');
 	
 	/**
 	 * Validates parameters to search for guilds and -groups.

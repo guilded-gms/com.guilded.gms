@@ -90,7 +90,7 @@ class GuildEditForm extends GuildAddForm {
 			'object' => $this->guild
 		));
 	}
-	
+
 	/**
 	 * @see	\wcf\form\IForm::save()
 	 */
@@ -115,10 +115,5 @@ class GuildEditForm extends GuildAddForm {
 
 		// show success message
 		WCF::getTPL()->assign('success', true);
-
-		// reset values
-		$this->name = '';
-		$this->gameID = 0;
-		$this->isPublic = 0;
 	}
 }

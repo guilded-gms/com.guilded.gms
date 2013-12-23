@@ -76,6 +76,8 @@ class GuildAddForm extends GuildOptionListForm {
 		if (empty($this->name)) {
 			throw new UserInputException('name', 'empty');
 		}
+
+		// @todo check guild name / gameID / serverID
 		
 		// validate dynamic options
 		parent::validate();
