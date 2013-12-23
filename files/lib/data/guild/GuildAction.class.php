@@ -1,12 +1,9 @@
 <?php
 namespace gms\data\guild;
 use wcf\data\AbstractDatabaseObjectAction;
-use wcf\data\guild\Guild;
 use wcf\system\database\util\PreparedStatementConditionBuilder;
-use wcf\system\exception\PermissionDeniedException;
 use wcf\system\exception\ValidateActionException;
 use wcf\system\WCF;
-use wcf\util\StringUtil;
 
 /**
  * Guild-related actions.
