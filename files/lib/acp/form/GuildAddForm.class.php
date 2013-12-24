@@ -1,7 +1,9 @@
 <?php
 namespace gms\acp\form;
+use gms\data\guild\Guild;
 use gms\data\guild\GuildAction;
 use gms\system\game\GameHandler;
+use wcf\system\exception\UserInputException;
 use wcf\system\menu\acp\ACPMenu;
 use wcf\system\WCF;
 use wcf\system\WCFACP;
@@ -72,13 +74,23 @@ class GuildAddForm extends GuildOptionListForm {
 	 */
 	public function validate() {
 		// validate static options
-		
 		if (empty($this->name)) {
 			throw new UserInputException('name', 'empty');
 		}
 
-		// @todo check guild name / gameID / serverID
-		
+		// check existing guild name
+		$sql = "SELECT guildID
+				FROM	".Guild::getDatabaseTableName()."
+				WHERE	(name = ?) AND
+						(gameID = ?)";
+		$statement = WCF::getDB()->prepareStatement($sql);
+		$statement->execute(array($this->name, $this->gameID));
+		$row = $statement->fetchArray();
+
+		if ($row) {
+			throw new UserInputException('name', 'notUnique');
+		}
+
 		// validate dynamic options
 		parent::validate();
 	}
@@ -120,15 +132,8 @@ class GuildAddForm extends GuildOptionListForm {
 		parent::readData();
 		
 		$this->games = GameHandler::getInstance()->getGames();
-		$this->readOptionTree();
-	}
-	
-	/**
-	 * Reads option tree on page init.
-	 */
-	protected function readOptionTree() {
 		$this->optionTree = $this->optionHandler->getOptionTree();
-	}	
+	}
 	
 	/**
 	 * @see	\wcf\page\Page::assignVariables()
@@ -149,9 +154,6 @@ class GuildAddForm extends GuildOptionListForm {
 	 * @see	\wcf\page\Page::show()
 	 */
 	public function show() {
-		// set active menu item
-		ACPMenu::getInstance()->setActiveMenuItem($this->activeMenuItem); //$this->menuItemName);
-		
 		// check master password
 		WCFACP::checkMasterPassword();
 		

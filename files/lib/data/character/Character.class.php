@@ -48,6 +48,8 @@ class Character extends GMSDatabaseObject implements IRouteController {
 	 */
 	protected $guild = null;
 
+	protected $rank = null;
+
 	/**
 	 * @see	\wcf\data\IStorableObject::getDatabaseTableAlias()
 	 */
@@ -117,6 +119,19 @@ class Character extends GMSDatabaseObject implements IRouteController {
 		}
 
 		return $this->guild;
+	}
+
+	/**
+	 * Returns Character Rank object.
+	 *
+	 * @return	\gms\character\rank\CharacterRank
+	 */
+	public function getRank() {
+		if ($this->rank === null) {
+			$this->rank = new CharacterRank($this->rankID);
+		}
+
+		return $this->rank;
 	}
 
 	/**

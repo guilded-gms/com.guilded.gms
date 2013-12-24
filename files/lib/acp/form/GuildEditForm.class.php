@@ -5,9 +5,7 @@ use gms\data\guild\GuildAction;
 use gms\data\guild\GuildEditor;
 use wcf\form\AbstractForm;
 use wcf\system\exception\IllegalLinkException;
-use wcf\system\exception\PermissionDeniedException;
 use wcf\system\WCF;
-use wcf\util\StringUtil;
 
 /**
  * Shows the guild edit form.
@@ -35,7 +33,14 @@ class GuildEditForm extends GuildAddForm {
 	 * @var	\gms\data\guild\GuildEditor
 	 */
 	public $guild = null;
-	
+
+	/**
+	 * @see	\wcf\form\AbstractForm::validate()
+	 */
+	public function validate() {
+		AbstractForm::validate();
+	}
+
 	/**
 	 * @see	\wcf\page\IPage::readParameters()
 	 */

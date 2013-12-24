@@ -277,7 +277,11 @@ class Game extends GMSDatabaseObject implements IRouteController {
 	 * @return	string
 	 */
 	public function getImageTag($size = 48) {
-		//return '<img src="' . WCF::getPath().'icon/'.$this->icon . '" style="width: '.$size.'px; height: '.$size.'px" alt="' . $this->getTitle() . '" />'; // @todo
-		return '<img src="/wowB.png" style="width: '.$size.'px; height: '.$size.'px" alt="' . $this->getTitle() . '" />';
+		$filename = 'icon/' . $this->name . '/' . $this->name . '.png';
+		if (file_exists(WCF_DIR.$filename)) {
+			return '<img src="' . WCF::getPath().$filename . '" style="width: '.$size.'px; height: '.$size.'px" alt="' . $this->getTitle() . '" />';
+		}
+
+		return '';
 	}
 }

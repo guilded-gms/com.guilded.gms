@@ -23,8 +23,8 @@ class CharacterHandler extends SingletonFactory {
 	/**
 	 * Returns list of user characters.
 	 *
-	 * @param int $gameID
-	 * @return array
+	 * @param	integer	$gameID
+	 * @return	array
 	 */
 	public function getCharacters($gameID = 0) {
 		if ($this->characterList === null) {

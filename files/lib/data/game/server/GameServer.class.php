@@ -67,10 +67,10 @@ class GameServer extends GMSDatabaseObject implements ITitledObject {
 	}
 
 	/**
-	 * Returns status icon.
+	 * Returns html tag for status icon.
 	 *
-	 * @param int $size
-	 * @return string
+	 * @param	integer	$size
+	 * @return	string
 	 */
 	public function getStatusIcon($size = 24) {
 		return '<span class="icon' . $size . ' icon-chevron-sign-' . ($this->isOnline ? 'up' : 'down') . '"></span>';

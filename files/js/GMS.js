@@ -345,6 +345,7 @@ GMS.Character.ProfilePreview = WCF.Popover.extend({
 	}
 });
 
+// @todo Character.TabMenu
 
 /**
  * Namespace for GMS.Game
@@ -479,3 +480,5 @@ GMS.Guild.ProfilePreview = WCF.Popover.extend({
 		}
 	}
 });
+
+// @todo Guild.TabMenu
