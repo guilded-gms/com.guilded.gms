@@ -237,6 +237,15 @@ CREATE TABLE gms1_character (
 	isPrimary			TINYINT(1) DEFAULT 0
 );
 
+-- character-rank
+DROP TABLE IF EXISTS gms1_character_rank;
+CREATE TABLE gms1_character_rank (
+	rankID				INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	guildID				INT(10) DEFAULT NULL,
+	name		  		VARCHAR(255) NOT NULL,
+	isDefault			TINYINT(1) DEFAULT 0
+);
+
 DROP TABLE IF EXISTS gms1_character_option;
 CREATE TABLE gms1_character_option  (
 	optionID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -442,6 +451,8 @@ ALTER TABLE gms1_guild ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON
 ALTER TABLE gms1_character ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE CASCADE;
 ALTER TABLE gms1_character ADD FOREIGN KEY (guildID) REFERENCES gms1_guild (guildID) ON DELETE CASCADE;
 ALTER TABLE gms1_character ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON DELETE CASCADE;
+
+ALTER TABLE gms1_character_rank ADD FOREIGN KEY (guildID) REFERENCES gms1_guild (guildID) ON DELETE CASCADE;
 
 ALTER TABLE gms1_guild_recruitment_application ADD FOREIGN KEY (tenderID) REFERENCES gms1_guild_recruitment_tender (tenderID) ON DELETE SET NULL;
 ALTER TABLE gms1_guild_recruitment_application ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE CASCADE;
