@@ -23,6 +23,11 @@ class GMSCore extends AbstractApplication {
 	protected $abbreviation = 'gms';
 
 	/**
+	 * @see \wcf\system\application\AbstractApplication::$primaryController
+	 */
+	protected $primaryController = 'gms\\page\\Index';
+
+	/**
 	 * @see \wcf\system\application\IApplication::__run()
 	 */
 	public function __run() {

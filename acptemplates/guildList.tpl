@@ -33,8 +33,8 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th class="columnID columnGuildID{if $sortField == 'guildID'} active {@$sortOrder}{/if}" colspan="2"><a href="{link controller='GuildList' application='gms'}pageNo={@$pageNo}&sortField=guildID&sortOrder={if $sortField == 'guildID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.objectID{/lang}</a></th>
-					<th class="columnTitle columnGuildTitle{if $sortField == 'name'} active {@$sortOrder}{/if}"><a href="{link controller='GuildList' application='gms'}pageNo={@$pageNo}&sortField=name&sortOrder={if $sortField == 'name' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.title{/lang}</a></th>
+					<th class="columnID{if $sortField == 'guildID'} active {@$sortOrder}{/if}" colspan="2"><a href="{link controller='GuildList' application='gms'}pageNo={@$pageNo}&sortField=guildID&sortOrder={if $sortField == 'guildID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.objectID{/lang}</a></th>
+					<th class="columnTitle{if $sortField == 'name'} active {@$sortOrder}{/if}"><a href="{link controller='GuildList' application='gms'}pageNo={@$pageNo}&sortField=name&sortOrder={if $sortField == 'name' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.title{/lang}</a></th>
 					<th class="columnText columnGame{if $sortField == 'gameID'} active {@$sortOrder}{/if}"><a href="{link controller='GuildList' application='gms'}pageNo={@$pageNo}&sortField=gameID&sortOrder={if $sortField == 'gameID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}gms.acp.guild.gameID{/lang}</a></th>
 
 					{event name='columnHeads'}
@@ -51,9 +51,9 @@
 								
 								{event name='rowButtons'}
 							</td>
-							<td class="columnID columnGuildID">{@$object->guildID}</td>
-							<td class="columnTitle columnGuildTitle"><a href="{link controller='GuildEdit' id=$object->guildID application='gms'}{/link}" title="{lang}gms.acp.guild.edit{/lang}">{$object->getTitle()}</a></td>
-							<td class="columnText columnGame"><a href="{link controller='GameEdit' id=$object->gameID application='gms'}{/link}" title="{lang}gms.acp.game.edit{/lang}">{$object->getGame()->getTitle()}</a></td>
+							<td class="columnID">{@$object->guildID}</td>
+							<td class="columnTitle"><a href="{link controller='GuildEdit' id=$object->guildID application='gms'}{/link}">{$object->getTitle()}</a></td>
+							<td class="columnText columnGame">{$object->getGame()->getTitle()}</td>
 
 							{event name='columns'}
 						</tr>
