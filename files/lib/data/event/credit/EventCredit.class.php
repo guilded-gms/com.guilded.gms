@@ -1,14 +1,13 @@
 <?php
 namespace gms\data\event\credit;
-use wcf\data\event\Event;
+use gms\data\event\Event;
 use wcf\data\DatabaseObjectDecorator;
-use wcf\system\WCF;
 
 /**
  * Decorates the credit object and provides data about event.
  * 
  * @author	Jeffrey Reichardt
- * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
  * @license	CC BY-NC-SA 3.0 <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.gms
  * @subpackage	data.event.credit
@@ -22,14 +21,14 @@ class EventCredit extends DatabaseObjectDecorator implements ICreditableObject {
 	
 	/**
 	 * holds event object by objectID
-	 * @type	wcf\data\event\Event
+	 * @type	\gms\data\event\Event
 	 */
 	protected $event = null;
 	
 	/**
 	 * Gets object by objectID.
 	 * 
-	 * @return	wcf\data\DatabaseObject
+	 * @return	\gms\data\DatabaseObject
 	 */
 	public function getObject() {
 		if ($this->event === null) {

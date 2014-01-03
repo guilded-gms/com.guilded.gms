@@ -9,15 +9,13 @@ use gms\data\game\role\GameRoleList;
 use gms\data\GMSDatabaseObject;
 use wcf\system\game\provider\GameProviderHandler;
 use wcf\system\request\IRouteController;
-use wcf\system\style\StyleHandler;
 use wcf\system\WCF;
-use wcf\util\StringUtil;
 
 /**
  * Represents a game.
  *
  * @author	Jeffrey Reichardt
- * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
  * @license	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.gms
  * @subpackage	data.game

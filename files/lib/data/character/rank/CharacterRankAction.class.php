@@ -1,10 +1,9 @@
 <?php
 namespace gms\data\character\rank;
 use wcf\data\AbstractDatabaseObjectAction;
-use wcf\system\WCF;
 
 /**
- * 
+ * CharacterRank-related actions.
  * 
  * @author	Jeffrey Reichardt
  * @copyright	{{COPYRIGHT}}

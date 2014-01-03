@@ -2,14 +2,13 @@
 namespace gms\system\bbcode;
 use gms\data\guild\Guild;
 use wcf\system\WCF;
-use wcf\util\StringUtil;
 
 /**
  * BBCode for linking guilds.
  * Example: [guild]paradoxum[/guild] or [guild]42[/guild]
  *
  * @author	Jeffrey Reichardt
- * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
  * @license	Creative Commons <BY-NC-SA> (http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode)
  * @package	com.guilded.gms
  * @subpackage	system.bbcode

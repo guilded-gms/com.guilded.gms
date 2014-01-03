@@ -1,7 +1,6 @@
 <?php
 namespace gms\acp\page;
 use gms\data\game\Game;
-use wcf\system\menu\acp\ACPMenu;
 use wcf\page\AbstractPage;
 use wcf\system\WCF;
 
@@ -9,7 +8,7 @@ use wcf\system\WCF;
  * Shows a  detailed game information.
  *
  * @author	Jeffrey Reichardt
- * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
  * @license	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.gms
  * @subpackage	acp.page

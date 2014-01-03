@@ -1,7 +1,6 @@
 <?php
 namespace gms\data\character\activity;
 use gms\data\GMSDatabaseObject;
-use wcf\system\WCF;
 
 class CharacterActivity extends GMSDatabaseObject {
 	/**

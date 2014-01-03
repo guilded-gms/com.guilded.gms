@@ -1,10 +1,9 @@
 <?php
 namespace gms\data\character\rank;
 use wcf\data\DatabaseObjectEditor;
-use wcf\system\WCF;
 
 /**
- * 
+ * Editor for CharacterRank
  * 
  * @author	Jeffrey Reichardt
  * @copyright	{{COPYRIGHT}}

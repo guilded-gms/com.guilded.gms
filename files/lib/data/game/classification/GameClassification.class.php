@@ -7,7 +7,7 @@ use gms\data\GMSDatabaseObject;
  * Represents a game class.
  *
  * @author	Jeffrey Reichardt
- * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
  * @license	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.gms
  * @subpackage	data.game.class
@@ -17,12 +17,12 @@ class GameClassification extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */
-	protected static $databaseTableName = 'game_class';
+	protected static $databaseTableName = 'game_classification';
 	
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableIndexName
 	 */
-	protected static $databaseTableIndexName = 'classID';
+	protected static $databaseTableIndexName = 'classificationID';
 
 	/**
 	 * game object

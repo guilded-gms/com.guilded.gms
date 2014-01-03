@@ -4,7 +4,6 @@ use gms\data\character\option\GuildOption;
 use gms\data\character\Guild;
 use wcf\system\WCF;
 use wcf\util\OptionUtil;
-use wcf\util\StringUtil;
 
 /**
  * GuildOptionOutputSelectOptions is an implementation of IGuildOptionOutput for the output of a date input.

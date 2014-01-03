@@ -8,7 +8,7 @@ use wcf\system\option\SelectOptionType;
  * Select Option for game-classes.
  *
  * @author	Jeffrey Reichardt
- * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
  * @license	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.gms
  * @subpackage	system.option
@@ -34,7 +34,7 @@ class GameClassSelectOptionType extends SelectOptionType implements IGameOptionT
 		$classList->readObjects();
 
 		foreach ($classList->getObjects() as $class) {
-			$result[$class->classID] = $class->getTitle();
+			$result[$class->classificationID] = $class->getTitle();
 		}
 		
 		return $result;

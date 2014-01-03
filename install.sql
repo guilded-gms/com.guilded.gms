@@ -47,15 +47,15 @@ CREATE TABLE gms1_game_race (
 	UNIQUE KEY(gameID, title)
 ) ENGINE=INNODB CHARSET=utf8;
 
-DROP TABLE IF EXISTS gms1_game_class;
-CREATE TABLE gms1_game_class (
-  classID 		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  gameID 			INT(10) NOT NULL,
-  identifier		VARCHAR(255),
-  title		   VARCHAR(255),
-  icon	   		VARCHAR(255),
-  isEnabled		TINYINT(1) DEFAULT 1,
-  parent			INT(10),
+DROP TABLE IF EXISTS gms1_game_classification;
+CREATE TABLE gms1_game_classification (
+  classificationID 		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  gameID 				INT(10) NOT NULL,
+  identifier			VARCHAR(255),
+  title		   			VARCHAR(255),
+  icon	   				VARCHAR(255),
+  isEnabled				TINYINT(1) DEFAULT 1,
+  parent				INT(10),
   UNIQUE KEY(gameID, title)
 ) ENGINE=INNODB CHARSET=utf8;
 
@@ -87,7 +87,7 @@ DROP TABLE IF EXISTS gms1_game_talent;
 CREATE TABLE gms1_game_talent (
   talentID 		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   gameID 			INT(10) NOT NULL,
-  classID			INT(10) NOT NULL,
+  classificationID			INT(10) NOT NULL,
   identifier		VARCHAR(255),
   title		   VARCHAR(255),
   icon	   		VARCHAR(255),
@@ -318,13 +318,13 @@ CREATE TABLE gms1_guild_recruitment_tender(
 	tenderID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	gameID				INT(10) NOT NULL,
 	guildID				INT(10) NOT NULL,
-	classID	 			INT(10) NOT NULL,
+	classificationID	 			INT(10) NOT NULL,
 	roleID				INT(10) DEFAULT 0,
 	talentID			INT(10) DEFAULT 0,
 	quantity			INT(10),
 	sortOrder			INT(10) DEFAULT 0,
 	priority			ENUM('low', 'medium', 'high'),
-	UNIQUE KEY(guildID, classID, roleID, talentID)
+	UNIQUE KEY(guildID, classificationID, roleID, talentID)
 );
 
 DROP TABLE IF EXISTS gms1_guild_recruitment_application;
@@ -432,7 +432,7 @@ ALTER TABLE gms1_game_faction ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gam
 ALTER TABLE gms1_game_race ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON DELETE CASCADE;
 ALTER TABLE gms1_game_race ADD FOREIGN KEY (factionID) REFERENCES gms1_game_faction (factionID) ON DELETE CASCADE;
 
-ALTER TABLE gms1_game_class ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON DELETE CASCADE;
+ALTER TABLE gms1_game_classification ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON DELETE CASCADE;
 
 ALTER TABLE gms1_game_instance ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON DELETE CASCADE;
 
@@ -440,7 +440,7 @@ ALTER TABLE gms1_game_combatant ADD FOREIGN KEY (gameID) REFERENCES gms1_game (g
 ALTER TABLE gms1_game_combatant ADD FOREIGN KEY (instanceID) REFERENCES gms1_game_instance (instanceID) ON DELETE CASCADE;
 
 ALTER TABLE gms1_game_talent ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON DELETE CASCADE;
-ALTER TABLE gms1_game_talent ADD FOREIGN KEY (classID) REFERENCES gms1_game_class (classID) ON DELETE CASCADE;
+ALTER TABLE gms1_game_talent ADD FOREIGN KEY (classificationID) REFERENCES gms1_game_classification (classificationID) ON DELETE CASCADE;
 
 ALTER TABLE gms1_game_item ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON DELETE CASCADE;
 

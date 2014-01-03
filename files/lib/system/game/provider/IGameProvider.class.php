@@ -1,12 +1,11 @@
 <?php
 namespace gms\system\game\provider;
-use gms\data\game\Game;
 
 /**
  * Every provider must implement this interface.
  *
  * @author	Jeffrey Reichardt
- * @copyright	2012-2013 DevLabor UG (haftungsbeschr�nkt)
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
  * @license	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.gms
  * @subpackage	system.game.provider
@@ -16,6 +15,7 @@ interface IGameProvider {
 	/**
 	 * Returns server data with given parameters from an external resource.
 	 *
+	 * @param	string	$name
 	 * @return	array
 	 */
 	public function getServer($name);
@@ -23,6 +23,8 @@ interface IGameProvider {
 	/**
 	 * Returns character object with given parameters from an external resource.
 	 *
+	 * @param	string	$server
+	 * @param	string	$name
 	 * @return	array
 	 */
 	public function getCharacter($server, $name);
@@ -30,6 +32,8 @@ interface IGameProvider {
 	/**
 	 * Returns guild data with given parameters from an external resource.
 	 *
+	 * @param	string	$server
+	 * @param	string	$name
 	 * @return	array
 	 */	
 	public function getGuild($server, $name);
@@ -37,6 +41,7 @@ interface IGameProvider {
 	/**
 	 * Returns item data with given parameters from an external resource.
 	 *
+	 * @param	string	$itemID
 	 * @return	array
 	 */	
 	public function getItem($itemID);

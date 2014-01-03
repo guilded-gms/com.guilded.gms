@@ -1,8 +1,7 @@
 <?php
 namespace gms\data\character\group;
 use wcf\data\AbstractDatabaseObjectAction;
-use wcf\system\WCF;
-use wcf\util\StringUtil;
+
 
 class CharacterGroupAction extends AbstractDatabaseObjectAction {
 	/**

@@ -4,7 +4,6 @@ use gms\data\guild\Guild;
 use gms\data\guild\GuildAction;
 use gms\system\game\GameHandler;
 use wcf\system\exception\UserInputException;
-use wcf\system\menu\acp\ACPMenu;
 use wcf\system\WCF;
 use wcf\system\WCFACP;
 
@@ -12,7 +11,7 @@ use wcf\system\WCFACP;
  * Shows guild add form.
  *
  * @author	Jeffrey Reichardt
- * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
  * @license	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.gms
  * @subpackage	acp.form

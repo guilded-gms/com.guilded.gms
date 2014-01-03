@@ -9,7 +9,7 @@ use wcf\system\WCF;
  * Shows game instance page.
  * 
  * @author	Jeffrey Reichardt
- * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
  * @package	com.guilded.gms
  * @subpackage	page
  */

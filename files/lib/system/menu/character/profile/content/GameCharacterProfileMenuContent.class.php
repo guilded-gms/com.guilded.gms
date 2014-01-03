@@ -39,7 +39,7 @@ class GameCharacterProfileMenuContent extends SingletonFactory implements IChara
 		$className = get_class($this);
 
 		$sql = "SELECT game.gameID
-				FROM gms".WCF_N."_object_type object_type
+				FROM wcf".WCF_N."_object_type object_type
 				INNER JOIN gms".WCF_N."_game game ON (game.packageID = object_type.packageID)
 				WHERE (object_type.className = ?)";
 		$statement = WCF::getDB()->prepareStatement($sql);

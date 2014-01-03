@@ -8,7 +8,7 @@ use wcf\system\WCF;
  * Package-installation-plugin implementation for game.
  *
  * @author	Jeffrey Reichardt
- * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
  * @license	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.gms
  * @subpackage	system.package.plugin
@@ -47,7 +47,7 @@ class GamePackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin
 	protected function prepareImport(array $data) {	
 		return array(
 			'title' => (!isset($data['attributes']['name']) ? Package::getAbbreviation($this->installation->getPackage()->package) : $data['attributes']['name']),
-			'icon' => (!isset($data['attributes']['icon']) ? Package::getAbbreviation($this->installation->getPackage()->package) : $data['attributes']['icon']),
+			'icon' => (!isset($data['elements']['icon']) ? Package::getAbbreviation($this->installation->getPackage()->package) : $data['elements']['icon']),
 			'level' => $data['elements']['level'],
 			'race' => (!isset($data['elements']['races']) ? 1 : $data['elements']['races']),
 			'class' => (!isset($data['elements']['classes']) ? 1 : $data['elements']['classes'])

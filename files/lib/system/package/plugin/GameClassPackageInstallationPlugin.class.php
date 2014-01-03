@@ -1,10 +1,11 @@
 <?php
 namespace gms\system\package\plugin;
+use wcf\data\package\Package;
 use wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin;
 use wcf\system\WCF;
 
 /**
- * Installs, updates and deletes character profile menu items.
+ * Package-installation-plugin implementation for game classification.
  *
  * @author	Jeffrey Reichardt
  * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
@@ -13,11 +14,16 @@ use wcf\system\WCF;
  * @subpackage	system.package.plugin
  * @category	Guilded 2.0
  */
-class CharacterProfileMenuPackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin {
+class GameClassificationPackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin {
 	/**
 	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::$className
 	 */
-	public $className = 'gms\data\character\profile\menu\item\CharacterProfileMenuItemEditor';
+	public $className = 'gms\data\game\GameEditor';
+	
+	/**
+	 * @see	\wcf\system\package\plugin\AbstractPackageInstallationPlugin::$tableName
+	 */
+	public $tableName = 'game_classification';
 
 	/**
 	 * @see	\wcf\system\package\plugin\AbstractPackageInstallationPlugin::$application
@@ -25,27 +31,20 @@ class CharacterProfileMenuPackageInstallationPlugin extends AbstractXMLPackageIn
 	public $application = 'gms';
 
 	/**
-	 * @see	\wcf\system\package\plugin\AbstractPackageInstallationPlugin::$tableName
+	 * @see	\wcf\system\package\plugin\AbstractPackageInstallationPlugin::$tagName
 	 */
-	public $tableName = 'character_profile_menu_item';
-	
-	/**
-	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::$tagName
-	 */
-	public $tagName = 'characterprofilemenuitem';
+	public $tagName = 'classification';
 	
 	/**
 	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::handleDelete()
 	 */
 	protected function handleDelete(array $items) {
-		$sql = "DELETE FROM	gms".WCF_N."_".$this->tableName."
-			WHERE		menuItem = ?
-					AND packageID = ?";
+		$sql = "DELETE FROM	gms".WCF_N."_".$this->tableName." WHERE title = ?";
 		$statement = WCF::getDB()->prepareStatement($sql);
+
 		foreach ($items as $item) {
 			$statement->execute(array(
-				$item['attributes']['name'],
-				$this->installation->getPackageID()
+				$item['attributes']['name']
 			));
 		}
 	}
@@ -54,17 +53,10 @@ class CharacterProfileMenuPackageInstallationPlugin extends AbstractXMLPackageIn
 	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::prepareImport()
 	 */
 	protected function prepareImport(array $data) {
-		// adjust show order
-		$showOrder = (isset($data['elements']['showorder'])) ? $data['elements']['showorder'] : null;
-		$showOrder = $this->getShowOrder($showOrder);
-		
-		// merge values and default values
+		// @todo handle races dependencies
+
 		return array(
-			'menuItem' => $data['attributes']['name'],
-			'options' => (isset($data['elements']['options'])) ? $data['elements']['options'] : '',
-			'permissions' => (isset($data['elements']['permissions'])) ? $data['elements']['permissions'] : '',
-			'showOrder' => $showOrder,
-			'className' => $data['elements']['classname']
+			'title' => $data['attributes']['name']
 		);
 	}
 	
@@ -73,12 +65,10 @@ class CharacterProfileMenuPackageInstallationPlugin extends AbstractXMLPackageIn
 	 */
 	protected function findExistingItem(array $data) {
 		$sql = "SELECT	*
-			FROM	gms".WCF_N."_".$this->tableName."
-			WHERE	menuItem = ?
-				AND packageID = ?";
+				FROM gms".WCF_N."_".$this->tableName."
+				WHERE title = ?";
 		$parameters = array(
-			$data['menuItem'],
-			$this->installation->getPackageID()
+			Package::getAbbreviation($this->installation->getPackage()->getName())
 		);
 		
 		return array(

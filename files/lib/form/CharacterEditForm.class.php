@@ -5,14 +5,13 @@ use gms\data\character\CharacterAction;
 use gms\data\character\CharacterEditor;
 use wcf\form\AbstractForm;
 use wcf\system\exception\IllegalLinkException;
-use wcf\system\exception\PermissionDeniedException;
 use wcf\system\WCF;
 
 /**
  * Shows the character edit form.
  *
  * @author	Jeffrey Reichardt
- * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
  * @license	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.gms
  * @subpackage	form

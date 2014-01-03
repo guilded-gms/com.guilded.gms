@@ -1,6 +1,5 @@
 <?php
 namespace gms\system\option;
-use gms\data\game\classification\GameClassificationList;
 use gms\data\game\Game;
 use gms\data\game\role\GameRoleList;
 use wcf\system\option\SelectOptionType;
@@ -9,7 +8,7 @@ use wcf\system\option\SelectOptionType;
  * Select Option for game-roles.
  *
  * @author	Jeffrey Reichardt
- * @copyright	2012-2013 DevLabor UG (haftungsbeschränkt)
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
  * @license	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.gms
  * @subpackage	system.option

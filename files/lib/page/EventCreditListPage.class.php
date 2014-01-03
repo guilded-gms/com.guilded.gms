@@ -1,8 +1,6 @@
 <?php
 namespace gms\page;
-use wcf\page\CreditListPage;
 use wcf\system\dashboard\DashboardHandler;
-use wcf\system\WCF;
 
 /**
  * Shows the credit list page.

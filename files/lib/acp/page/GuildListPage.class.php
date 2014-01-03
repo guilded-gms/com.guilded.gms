@@ -1,7 +1,6 @@
 <?php
 namespace gms\acp\page;
 use wcf\page\SortablePage;
-use wcf\system\menu\acp\ACPMenu;
 
 /**
  * Shows guilds.
