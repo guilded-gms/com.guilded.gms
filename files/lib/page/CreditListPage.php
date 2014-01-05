@@ -1,5 +1,6 @@
 <?php
 namespace gms\page;
+use wcf\page\SortablePage;
 
 /**
  * Shows the list of current credits.

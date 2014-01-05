@@ -1,7 +1,7 @@
 <?php
 namespace gms\system\event\type;
-use wcf\system\event\type\EventType;
-use wcf\system\event\type\IEventType;
+use gms\system\event\type\EventType;
+use wcf\system\WCF;
 
 /**
  * Represents a type for raids.

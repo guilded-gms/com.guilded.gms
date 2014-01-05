@@ -1,7 +1,6 @@
 <?php
 namespace gms\data\credit;
 use gms\data\GMSDatabaseObject;
-use wcf\system\WCF;
 
 /**
  * Represents a credit

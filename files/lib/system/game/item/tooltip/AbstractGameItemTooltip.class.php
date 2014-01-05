@@ -1,6 +1,7 @@
 <?php
 namespace gms\system\game\item\tooltip;
 use gms\data\game\item\GameItem;
+use wcf\system\WCF;
 
 abstract class AbstractGameItemTooltip implements IGameItemTooltip {
 	/**
@@ -64,7 +65,7 @@ abstract class AbstractGameItemTooltip implements IGameItemTooltip {
 	/**
 	 * Returns item of tooltip.
 	 * 
-	 * @return null|gms\data\game\item\GameItem
+	 * @return	\gms\data\game\item\GameItem
 	 */
 	public function getItem() {
 		return $this->item;

@@ -1,8 +1,8 @@
 <?php
 namespace gms\system\menu\guild\profile\content;
 use gms\data\guild\Guild;
+use gms\system\option\guild\GuildOptionHandler;
 use wcf\system\event\EventHandler;
-use wcf\system\option\guild\GuildOptionHandler;
 use wcf\system\SingletonFactory;
 use wcf\system\WCF;
 
@@ -21,7 +21,7 @@ class AboutGuildProfileMenuContent extends SingletonFactory implements IGuildPro
 	
 	/**
 	 * guild option handler object
-	 * @var	\wcf\system\option\guild\GuildOptionHandler
+	 * @var	\gms\system\option\guild\GuildOptionHandler
 	 */
 	public $optionHandler = null;
 	

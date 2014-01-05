@@ -1,5 +1,6 @@
 <?php
 namespace gms\acp\form;
+use gms\data\character\Character;
 use gms\data\character\CharacterAction;
 use gms\data\character\CharacterEditor;
 use wcf\form\AbstractForm;
@@ -49,7 +50,8 @@ class CharacterEditForm extends CharacterAddForm {
 	 */
 	public function readParameters() {
 		if (isset($_REQUEST['id'])) $this->characterID = intval($_REQUEST['id']);
-		$character = new CharacterEditor(Character($this->characterID));
+
+		$character = new Character($this->characterID);
 		if ($character === null) {
 			throw new IllegalLinkException();
 		}

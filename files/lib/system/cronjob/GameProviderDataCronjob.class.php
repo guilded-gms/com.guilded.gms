@@ -1,11 +1,10 @@
 <?php
 namespace gms\system\cronjob;
 use gms\data\game\server\GameServerEditor;
-use gms\data\guild\GuildAction;
 use gms\data\guild\GuildList;
+use gms\system\game\GameHandler;
 use wcf\data\cronjob\Cronjob;
 use wcf\system\cronjob\AbstractCronjob;
-use wcf\system\game\GameHandler;
 
 /**
  * Synchronizes game data from external provider.

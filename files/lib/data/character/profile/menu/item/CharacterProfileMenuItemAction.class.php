@@ -1,9 +1,8 @@
 <?php
 namespace gms\data\character\profile\menu\item;
 use gms\data\character\Character;
+use gms\system\menu\character\profile\CharacterProfileMenu;
 use wcf\data\AbstractDatabaseObjectAction;
-use wcf\system\exception\CharacterInputException;
-use wcf\system\menu\character\profile\CharacterProfileMenu;
 
 /**
  * Executes character profile menu item-related actions.

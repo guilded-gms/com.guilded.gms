@@ -1,7 +1,5 @@
 <?php
 namespace gms\system\event\type;
-use wcf\system\event\type\EventType;
-use wcf\system\event\type\IEventType;
 
 /**
  * Represents a type for birthday events.

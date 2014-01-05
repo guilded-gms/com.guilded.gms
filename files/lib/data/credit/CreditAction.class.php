@@ -1,7 +1,6 @@
 <?php
 namespace gms\data\credit;
 use wcf\data\AbstractDatabaseObjectAction;
-use wcf\system\WCF;
 
 /**
  * Handles credit-related actions

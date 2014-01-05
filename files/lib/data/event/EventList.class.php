@@ -6,5 +6,5 @@ class EventList extends DatabaseObjectList {
 	/**
 	 * @see	wcf\data\DatabaseObjectList::$className
 	 */
-	public $className = 'wcf\data\event\Event';
+	public $className = 'gms\data\event\Event';
 }

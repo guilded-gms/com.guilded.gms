@@ -8,8 +8,8 @@
 	<script data-relocate="true">
 		//<![CDATA[
 		$(function() {
-			var $availableGames = { {implode from=$availableGames key=gameID item=game}{@$gameID}: { title: '{$game->getTitle()}', icon: '{$game->getIcon('M')}' }{/implode} };
-			new GMS.Character.OptionHandler('characterName', '.optionList', $availableGames, {@$gameID});
+			var availableGames = { {implode from=$availableGames key=gameID item=game}{@$gameID}: { title: '{$game->getTitle()}', icon: '{$game->getIcon('M')}' }{/implode} };
+			new GMS.Character.OptionHandler('characterName', '.optionList', availableGames, {@$gameID});
 		});
 		//]]>
 	</script>

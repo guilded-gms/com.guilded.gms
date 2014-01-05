@@ -1,7 +1,7 @@
 <?php
 namespace gms\data\event;
+use gms\data\event\participation\EventParticipationList;
 use gms\data\GMSDatabaseObject;
-use wcf\data\event\participation\EventParticipationList;
 use wcf\system\request\IRouteController;
 
 /**
@@ -41,7 +41,7 @@ class Event extends GMSDatabaseObject implements IRouteController {
 	/**
 	 * Returns type of event.
 	 *
-	 * @return	wcf\system\event\type\IEventType
+	 * @return	\gms\system\event\type\IEventType
 	 */	
 	public function getType() {
 		return EventTypeHandler::getInstance()->getObjectTypeByID($this->objectTypeID);

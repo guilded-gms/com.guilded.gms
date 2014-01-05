@@ -20,6 +20,7 @@
 
 	<optionalpackages>
 		<optionalpackage file="optional/com.guilded.gms.game.wow.tar.gz">com.guilded.gms.game.wow</optionalpackage>
+		<optionalpackage file="optional/com.guilded.gms.game.dneu.tar.gz">com.guilded.gms.game.dneu</optionalpackage>
 		<optionalpackage file="optional/com.cls-design.style.altitude.tar">com.cls-design.style.altitude</optionalpackage>
 	</optionalpackages>
 	

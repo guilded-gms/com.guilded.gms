@@ -1,6 +1,7 @@
 <?php
 namespace gms\acp\form;
 use gms\data\character\CharacterAction;
+use wcf\system\WCF;
 
 /**
  * Shows character add form.

@@ -1,10 +1,9 @@
 <?php
 namespace gms\system\event\type;
-use wcf\data\event\EventList;
-use wcf\system\event\type\IEventType;
+use gms\data\event\EventList;
 
 /**
- * Every EventType should extended by this abstract implementation.
+ * Every EventType should inherit by this abstract implementation.
  *
  * @author	Jeffrey Reichardt
  * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
@@ -15,18 +14,14 @@ use wcf\system\event\type\IEventType;
  */
 abstract class AbstractEventType extends AbstractObjectTypeProcessor implements IEventType {
 	/**
-	 * wcf\data\event\EventList
+	 * list of events
+	 * @var	\gms\data\event\EventList
 	 */
 	protected $eventList = null;
 
 	/**
-	 * Holds the participation action.
-	 */
-	protected $participationAction = '';
-
-	/**
 	 * participation action object.
-	 * @var wcf\data\event\participation\EventParticipationAction
+	 * @var \gms\data\event\participation\EventParticipationAction
 	 */
 	protected $objectAction = '';
 	
@@ -79,7 +74,7 @@ abstract class AbstractEventType extends AbstractObjectTypeProcessor implements 
 	/**
 	 * Returns participation action name
 	 *
-	 * @return wcf\data\event\participation\EventParticipationAction
+	 * @return \gms\data\event\participation\EventParticipationAction
 	 */
 	public function getAction() {
 		if (!empty($this->participationAction)) {
@@ -92,7 +87,7 @@ abstract class AbstractEventType extends AbstractObjectTypeProcessor implements 
 	/**
 	 * Returns EventList object
 	 *
-	 * @return wcf\data\event\EventList
+	 * @return \gms\data\event\EventList
 	 */
 	public function getEventList() {
 		return $this->eventList;

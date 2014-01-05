@@ -2,97 +2,98 @@
 
 DROP TABLE IF EXISTS gms1_game;
 CREATE TABLE gms1_game (
-  gameID 			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  packageID 		INT(10) NOT NULL,
-  title 			VARCHAR(255) NOT NULL,
-  level 			INT(10) DEFAULT 1,
-  race 			INT(10) DEFAULT 1,
-  class 			INT(10) DEFAULT 1,
-  icon			VARCHAR(255) DEFAULT '',
-  isEnabled		TINYINT(1) DEFAULT 1,
-  UNIQUE KEY(title)
+	gameID 			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	packageID 		INT(10) NOT NULL,
+	title 			VARCHAR(255) NOT NULL,
+	level 			INT(10) DEFAULT 1,
+	race 			INT(10) DEFAULT 1,
+	class 			INT(10) DEFAULT 1,
+	icon			VARCHAR(255) DEFAULT '',
+	isEnabled		TINYINT(1) DEFAULT 1,
+	UNIQUE KEY(title)
 ) ENGINE=INNODB CHARSET=utf8;
 
 DROP TABLE IF EXISTS gms1_game_role;
 CREATE TABLE gms1_game_role (
-  roleID 			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  gameID 			INT(10) NOT NULL,
-  title		   VARCHAR(255),
-  icon	   		VARCHAR(255),
-  isEnabled		TINYINT(1) DEFAULT 1,
-  UNIQUE KEY(gameID, title)
+	roleID 			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	gameID 			INT(10) NOT NULL,
+	identifier		VARCHAR(255),
+	title		   VARCHAR(255),
+	icon	   		VARCHAR(255),
+	isEnabled		TINYINT(1) DEFAULT 1,
+	UNIQUE KEY(gameID, title)
 ) ENGINE=INNODB CHARSET=utf8;
 
 DROP TABLE IF EXISTS gms1_game_faction;
 CREATE TABLE gms1_game_faction (
-  factionID 		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  gameID 			INT(10) NOT NULL,
-  identifier		VARCHAR(255),
-  title		   VARCHAR(255),
-  icon	   		VARCHAR(255),
-  isEnabled		TINYINT(1) DEFAULT 1,
-  UNIQUE KEY(gameID, title)
+	factionID 		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	gameID 			INT(10) NOT NULL,
+	identifier		VARCHAR(255),
+	title		   VARCHAR(255),
+	icon	   		VARCHAR(255),
+	isEnabled		TINYINT(1) DEFAULT 1,
+	UNIQUE KEY(gameID, title)
 ) ENGINE=INNODB CHARSET=utf8;
 
 DROP TABLE IF EXISTS gms1_game_race;
 CREATE TABLE gms1_game_race (
-  raceID 			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  gameID 			INT(10) NOT NULL,
-  factionID 		INT(10) DEFAULT NULL,
-  identifier		VARCHAR(255),
-  title		   VARCHAR(255),
-  icon	   		VARCHAR(255),
-  isEnabled		TINYINT(1) DEFAULT 1,
-  parent			INT(10),
+	raceID 			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	gameID 			INT(10) NOT NULL,
+	factionID 		INT(10) DEFAULT NULL,
+	identifier		VARCHAR(255),
+	title		   VARCHAR(255),
+	icon	   		VARCHAR(255),
+	isEnabled		TINYINT(1) DEFAULT 1,
+	parent			INT(10),
 	UNIQUE KEY(gameID, title)
 ) ENGINE=INNODB CHARSET=utf8;
 
 DROP TABLE IF EXISTS gms1_game_classification;
 CREATE TABLE gms1_game_classification (
-  classificationID 		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  gameID 				INT(10) NOT NULL,
-  identifier			VARCHAR(255),
-  title		   			VARCHAR(255),
-  icon	   				VARCHAR(255),
-  isEnabled				TINYINT(1) DEFAULT 1,
-  parent				INT(10),
-  UNIQUE KEY(gameID, title)
+	classificationID 		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	gameID 				INT(10) NOT NULL,
+	identifier			VARCHAR(255),
+	title		   			VARCHAR(255),
+	icon	   				VARCHAR(255),
+	isEnabled				TINYINT(1) DEFAULT 1,
+	parent				INT(10),
+	UNIQUE KEY(gameID, title)
 ) ENGINE=INNODB CHARSET=utf8;
 
 DROP TABLE IF EXISTS gms1_game_instance;
 CREATE TABLE gms1_game_instance (
-  instanceID 		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  gameID 			INT(10) NOT NULL,
-  identifier		VARCHAR(255),
-  title		   VARCHAR(255),
-  icon	   		VARCHAR(255),
-  difficulty		VARCHAR(255),
-  isEnabled		TINYINT(1) DEFAULT 1,
+	instanceID 		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	gameID 			INT(10) NOT NULL,
+	identifier		VARCHAR(255),
+	title		   VARCHAR(255),
+	icon	   		VARCHAR(255),
+	difficulty		VARCHAR(255),
+	isEnabled		TINYINT(1) DEFAULT 1,
 	UNIQUE KEY(gameID, title)
 ) ENGINE=INNODB CHARSET=utf8;
 
 DROP TABLE IF EXISTS gms1_game_combatant;
 CREATE TABLE gms1_game_combatant (
-  combatantID 	INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  gameID 			INT(10) NOT NULL,
-  instanceID		INT(10) NOT NULL,
-  identifier		VARCHAR(255),
-  title		   VARCHAR(255),
-  icon	   		VARCHAR(255),
-  isEnabled		TINYINT(1) DEFAULT 1,
-  UNIQUE KEY(gameID, title)
+	combatantID 	INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	gameID 			INT(10) NOT NULL,
+	instanceID		INT(10) NOT NULL,
+	identifier		VARCHAR(255),
+	title		   VARCHAR(255),
+	icon	   		VARCHAR(255),
+	isEnabled		TINYINT(1) DEFAULT 1,
+	UNIQUE KEY(gameID, title)
 ) ENGINE=INNODB CHARSET=utf8;
 
 DROP TABLE IF EXISTS gms1_game_talent;
 CREATE TABLE gms1_game_talent (
-  talentID 		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  gameID 			INT(10) NOT NULL,
-  classificationID			INT(10) NOT NULL,
-  identifier		VARCHAR(255),
-  title		   VARCHAR(255),
-  icon	   		VARCHAR(255),
-  isEnabled		TINYINT(1) DEFAULT 1,
-  UNIQUE KEY(gameID, title)
+	talentID 		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	gameID 			INT(10) NOT NULL,
+	classificationID			INT(10) NOT NULL,
+	identifier		VARCHAR(255),
+	title		   VARCHAR(255),
+	icon	   		VARCHAR(255),
+	isEnabled		TINYINT(1) DEFAULT 1,
+	UNIQUE KEY(gameID, title)
 ) ENGINE=INNODB CHARSET=utf8;
 
 DROP TABLE IF EXISTS gms1_game_item;
@@ -107,15 +108,15 @@ CREATE TABLE gms1_game_item (
 
 DROP TABLE IF EXISTS gms1_game_server;
 CREATE TABLE gms1_game_server (
-  serverID 			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  gameID 			INT(10) NOT NULL,
-  name				VARCHAR(255),
-  status			VARCHAR(55),
-  type				VARCHAR(55),
-  population		INT(10) DEFAULT NULL,
-  queue				TINYINT(1) DEFAULT 0,
-  isOnline			TINYINT(1) DEFAULT 1,
-  UNIQUE KEY(gameID, name)
+	serverID 			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	gameID 			INT(10) NOT NULL,
+	name				VARCHAR(255),
+	status			VARCHAR(55),
+	type				VARCHAR(55),
+	population		INT(10) DEFAULT NULL,
+	queue				TINYINT(1) DEFAULT 0,
+	isOnline			TINYINT(1) DEFAULT 1,
+	UNIQUE KEY(gameID, name)
 ) ENGINE=INNODB CHARSET=utf8;
 
 -- character profile menu

@@ -1,9 +1,9 @@
 <?php
 namespace gms\data\guild\option;
 use gms\data\guild\Guild;
+use gms\system\option\guild\IGuildOptionOutputContactInformation;
 use wcf\data\DatabaseObjectDecorator;
 use wcf\system\exception\SystemException;
-use wcf\system\option\guild\IGuildOptionOutputContactInformation;
 use wcf\util\ClassUtil;
 use wcf\util\StringUtil;
 
@@ -25,7 +25,7 @@ class ViewableGuildOption extends DatabaseObjectDecorator {
 	
 	/**
 	 * list of output objects
-	 * @var	array<\wcf\system\option\guild\IGuildOptionOutput>
+	 * @var	array<\gms\system\option\guild\IGuildOptionOutput>
 	 */
 	public static $outputObjects = array();
 	
@@ -71,7 +71,7 @@ class ViewableGuildOption extends DatabaseObjectDecorator {
 	/**
 	 * Returns the output object for current guild option.
 	 * 
-	 * @return	\wcf\system\option\guild\IGuildOptionOutput
+	 * @return	\gms\system\option\guild\IGuildOptionOutput
 	 */
 	public function getOutputObject() {
 		if (!isset(self::$outputObjects[$this->outputClass])) {
@@ -81,8 +81,8 @@ class ViewableGuildOption extends DatabaseObjectDecorator {
 			}
 			
 			// validate interface
-			if (!ClassUtil::isInstanceOf($this->outputClass, 'wcf\system\option\guild\IGuildOptionOutput')) {
-				throw new SystemException("'".$this->outputClass."' should implement wcf\system\option\guild\IGuildOptionOutput");
+			if (!ClassUtil::isInstanceOf($this->outputClass, 'gms\system\option\guild\IGuildOptionOutput')) {
+				throw new SystemException("'".$this->outputClass."' should implement gms\system\option\guild\IGuildOptionOutput");
 			}
 			
 			self::$outputObjects[$this->outputClass] = new $this->outputClass();

@@ -1,8 +1,8 @@
 <?php
 namespace gms\system\option;
+use gms\system\game\GameHandler;
 use wcf\data\option\Option;
 use wcf\system\exception\UserInputException;
-use wcf\system\game\GameHandler;
 use wcf\system\option\SelectOptionType;
 use wcf\system\WCF;
 

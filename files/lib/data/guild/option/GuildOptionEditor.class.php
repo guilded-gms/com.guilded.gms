@@ -1,7 +1,6 @@
 <?php
 namespace gms\data\guild\option;
 use wcf\data\DatabaseObjectEditor;
-use wcf\data\guild\option\GuildOption;
 use wcf\system\WCF;
 
 /**

@@ -6,5 +6,5 @@ class EventAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see wcf\data\AbstractDatabaseObjectAction::$className
 	 */
-	protected $className = 'wcf\data\event\EventEditor';
+	protected $className = 'gms\data\event\EventEditor';
 }

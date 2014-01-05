@@ -33,24 +33,4 @@ class GuildRecruitmentTenderAction extends AbstractDatabaseObjectAction {
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsUpdate
 	 */
 	protected $permissionsUpdate = array('admin.guild.canManageGuild');
-
-	/**
-	 * Validates decreasing of job positions.
-	 */
-	public function validateDecrease() {
-		return parent::validateUpdate();
-	}
-
-	/**
-	 * Decrease open job positions.
-	 */
-	public function decrease() {
-		if (empty($this->objects)) {
-			$this->readObjects();
-		}
-
-		foreach ($this->objects as $tenderEditor) {
-			$tenderEditor->update(array('quantity' => $tenderEditor->quantity - 1));
-		}
-	}
 }

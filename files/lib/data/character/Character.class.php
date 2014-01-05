@@ -1,6 +1,7 @@
 <?php
 namespace gms\data\character;
-use gms\data\game\classification\GameClass;
+use gms\data\character\rank\CharacterRank;
+use gms\data\game\classification\GameClassification;
 use gms\data\game\Game;
 use gms\data\guild\Guild;
 use wcf\data\user\User;
@@ -66,6 +67,15 @@ class Character extends GMSDatabaseObject implements IRouteController {
 	 */
 	public function getTitle() {
 		return $this->name;
+	}
+
+	/**
+	 * Returns character name with rank title. e.g. Marshall Kivah (Marshall %s)
+	 *
+	 * @return	string
+	 */
+	public function getTitledName() {
+		return sprintf($this->rankTitle, $this->name);
 	}
 	
 	/**

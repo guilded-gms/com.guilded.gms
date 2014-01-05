@@ -2,6 +2,7 @@
 namespace gms\data\game\classification;
 use gms\data\game\Game;
 use gms\data\GMSDatabaseObject;
+use wcf\system\WCF;
 
 /**
  * Represents a game class.
@@ -50,5 +51,15 @@ class GameClassification extends GMSDatabaseObject {
 	 */
 	public function getTitle() {
 		return WCF::getLanguage()->get('gms.game.' . $this->getGame()->title . '.class.' . $this->title);
+	}
+
+	/**
+	 * Returns image tag with given size.
+	 *
+	 * @param	integer	$size
+	 * @return	string
+	 */
+	public function getImageTag($size = 32) {
+		return '<img src="' . WCF::getPath('gms') . 'icon/' . $this->getGame()->title . '/' . $this->icon . $size . '.png' . '" alt="" title="' . $this->getTitle() . '" />';
 	}
 }
