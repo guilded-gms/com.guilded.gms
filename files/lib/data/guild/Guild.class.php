@@ -134,7 +134,7 @@ class Guild extends GMSDatabaseObject implements IRouteController {
 	}
 
 	/**
-	 * Returns a list of all guild application.
+	 * Returns a list of all guild recruitment applications.
 	 *
 	 * @return	\gms\data\guild\recruitment\application\GuildRecruitmentApplicationList
 	 */
