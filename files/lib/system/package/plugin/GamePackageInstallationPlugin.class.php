@@ -44,10 +44,13 @@ class GamePackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin
 	/**
 	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::prepareImport()
 	 */
-	protected function prepareImport(array $data) {	
+	protected function prepareImport(array $data) {
+		$abbreviation = Package::getAbbreviation($this->installation->getPackage()->package);
+
 		return array(
-			'title' => (!isset($data['attributes']['name']) ? Package::getAbbreviation($this->installation->getPackage()->package) : $data['attributes']['name']),
-			'icon' => (!isset($data['elements']['icon']) ? Package::getAbbreviation($this->installation->getPackage()->package) : $data['elements']['icon']),
+			'packageID' => $this->installation->getPackageID(),
+			'title' => $abbreviation,
+			'icon' => (!isset($data['elements']['icon']) ? $abbreviation : $data['elements']['icon']),
 			'level' => $data['elements']['level'],
 			'race' => (!isset($data['elements']['races']) ? 1 : $data['elements']['races']),
 			'class' => (!isset($data['elements']['classes']) ? 1 : $data['elements']['classes'])

@@ -76,17 +76,17 @@ class Game extends GMSDatabaseObject implements IRouteController {
 	 */
 	public static function getGameByAbbreviation($abbreviation) {
 		$sql = "SELECT game.*
-				FROM	".static::getDatabaseTableName()."
+				FROM	".static::getDatabaseTableName()." game
 				WHERE	(game.title = ?)";
 		$statement = WCF::getDB()->prepareStatement($sql);
 		$statement->execute(array($abbreviation));
 		$row = $statement->fetchArray();
 
 		if (!$row) {
-			return new Game($row);
+			return null;
 		}
 
-		return null;
+		return new Game(null, $row);
 	}
 
 	/**

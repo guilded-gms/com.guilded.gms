@@ -16,6 +16,7 @@ CREATE TABLE gms1_game (
 DROP TABLE IF EXISTS gms1_game_role;
 CREATE TABLE gms1_game_role (
 	roleID 			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	packageID 		INT(10) NOT NULL,
 	gameID 			INT(10) NOT NULL,
 	identifier		VARCHAR(255),
 	title		   VARCHAR(255),
@@ -24,9 +25,11 @@ CREATE TABLE gms1_game_role (
 	UNIQUE KEY(gameID, title)
 ) ENGINE=INNODB CHARSET=utf8;
 
+-- @todo pip
 DROP TABLE IF EXISTS gms1_game_faction;
 CREATE TABLE gms1_game_faction (
 	factionID 		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	packageID 		INT(10) NOT NULL,
 	gameID 			INT(10) NOT NULL,
 	identifier		VARCHAR(255),
 	title		   VARCHAR(255),
@@ -38,6 +41,7 @@ CREATE TABLE gms1_game_faction (
 DROP TABLE IF EXISTS gms1_game_race;
 CREATE TABLE gms1_game_race (
 	raceID 			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	packageID 		INT(10) NOT NULL,
 	gameID 			INT(10) NOT NULL,
 	factionID 		INT(10) DEFAULT NULL,
 	identifier		VARCHAR(255),
@@ -51,30 +55,35 @@ CREATE TABLE gms1_game_race (
 DROP TABLE IF EXISTS gms1_game_classification;
 CREATE TABLE gms1_game_classification (
 	classificationID 		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	gameID 				INT(10) NOT NULL,
-	identifier			VARCHAR(255),
+	packageID 				INT(10) NOT NULL,
+	gameID 					INT(10) NOT NULL,
+	identifier				VARCHAR(255),
 	title		   			VARCHAR(255),
 	icon	   				VARCHAR(255),
 	isEnabled				TINYINT(1) DEFAULT 1,
-	parent				INT(10),
+	parent					INT(10),
 	UNIQUE KEY(gameID, title)
 ) ENGINE=INNODB CHARSET=utf8;
 
+-- @todo pip
 DROP TABLE IF EXISTS gms1_game_instance;
 CREATE TABLE gms1_game_instance (
 	instanceID 		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	packageID 		INT(10) NOT NULL,
 	gameID 			INT(10) NOT NULL,
 	identifier		VARCHAR(255),
-	title		   VARCHAR(255),
+	title		   	VARCHAR(255),
 	icon	   		VARCHAR(255),
 	difficulty		VARCHAR(255),
 	isEnabled		TINYINT(1) DEFAULT 1,
 	UNIQUE KEY(gameID, title)
 ) ENGINE=INNODB CHARSET=utf8;
 
+-- @todo pip
 DROP TABLE IF EXISTS gms1_game_combatant;
 CREATE TABLE gms1_game_combatant (
 	combatantID 	INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	packageID 		INT(10) NOT NULL,
 	gameID 			INT(10) NOT NULL,
 	instanceID		INT(10) NOT NULL,
 	identifier		VARCHAR(255),
@@ -84,9 +93,11 @@ CREATE TABLE gms1_game_combatant (
 	UNIQUE KEY(gameID, title)
 ) ENGINE=INNODB CHARSET=utf8;
 
+-- @todo pip
 DROP TABLE IF EXISTS gms1_game_talent;
 CREATE TABLE gms1_game_talent (
 	talentID 		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	packageID 		INT(10) NOT NULL,
 	gameID 			INT(10) NOT NULL,
 	classificationID			INT(10) NOT NULL,
 	identifier		VARCHAR(255),
@@ -109,11 +120,11 @@ CREATE TABLE gms1_game_item (
 DROP TABLE IF EXISTS gms1_game_server;
 CREATE TABLE gms1_game_server (
 	serverID 			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	gameID 			INT(10) NOT NULL,
+	gameID 				INT(10) NOT NULL,
 	name				VARCHAR(255),
-	status			VARCHAR(55),
+	status				VARCHAR(55),
 	type				VARCHAR(55),
-	population		INT(10) DEFAULT NULL,
+	population			INT(10) DEFAULT NULL,
 	queue				TINYINT(1) DEFAULT 0,
 	isOnline			TINYINT(1) DEFAULT 1,
 	UNIQUE KEY(gameID, name)
@@ -450,7 +461,6 @@ ALTER TABLE gms1_game_server ADD FOREIGN KEY (gameID) REFERENCES gms1_game (game
 ALTER TABLE gms1_guild ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON DELETE CASCADE;
 
 ALTER TABLE gms1_character ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE CASCADE;
-ALTER TABLE gms1_character ADD FOREIGN KEY (guildID) REFERENCES gms1_guild (guildID) ON DELETE CASCADE;
 ALTER TABLE gms1_character ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON DELETE CASCADE;
 
 ALTER TABLE gms1_character_rank ADD FOREIGN KEY (guildID) REFERENCES gms1_guild (guildID) ON DELETE CASCADE;

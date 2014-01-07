@@ -1,5 +1,6 @@
 <?php
 namespace gms\system\package\plugin;
+use gms\data\game\Game;
 use wcf\data\package\Package;
 use wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin;
 use wcf\system\WCF;
@@ -34,18 +35,34 @@ class GameRolePackageInstallationPlugin extends AbstractXMLPackageInstallationPl
 	 * @see	\wcf\system\package\plugin\AbstractPackageInstallationPlugin::$tagName
 	 */
 	public $tagName = 'role';
+
+	/**
+	 * game object
+	 * @var    null
+	 */
+	public $game = null;
 	
 	/**
 	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::handleDelete()
 	 */
 	protected function handleDelete(array $items) {
+		// get game id
+		$abbreviation = Package::getAbbreviation($this->installation->getPackage()->package);
+		$this->game = Game::getGameByAbbreviation($abbreviation);
+
+		if ($this->game === null || !$this->game->gameID) {
+			return;
+		}
+
 		$sql = "DELETE FROM	gms".WCF_N."_".$this->tableName."
-				WHERE title = ?";
+				WHERE 	title = ? AND
+						gameID = ?";
 		$statement = WCF::getDB()->prepareStatement($sql);
 
 		foreach ($items as $item) {
 			$statement->execute(array(
-				$item['attributes']['name']
+				$item['attributes']['name'],
+				$this->game->gameID
 			));
 		}
 	}
@@ -54,9 +71,18 @@ class GameRolePackageInstallationPlugin extends AbstractXMLPackageInstallationPl
 	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::prepareImport()
 	 */
 	protected function prepareImport(array $data) {
+		$abbreviation = Package::getAbbreviation($this->installation->getPackage()->package);
+		$this->game = Game::getGameByAbbreviation($abbreviation);
+
+		if ($this->game === null || !$this->game->gameID) {
+			return array();
+		}
+
 		return array(
+			'packageID' => $this->installation->getPackageID(),
 			'title' => $data['attributes']['name'],
-			'identifier' => $data['elements']['identifier'],
+			'identifier' => (isset($data['elements']['identifier']) ? $data['elements']['identifier'] : ''),
+			'gameID' => $this->game->gameID,
 			'icon' => (isset($data['elements']['icon']) ? $data['elements']['icon'] : $data['attributes']['name'])
 		);
 	}
@@ -65,13 +91,17 @@ class GameRolePackageInstallationPlugin extends AbstractXMLPackageInstallationPl
 	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::findExistingItem()
 	 */
 	protected function findExistingItem(array $data) {
+		if (!isset($data['title'])) {
+			return null;
+		}
+
 		$sql = "SELECT	*
 				FROM	gms".WCF_N."_".$this->tableName."
 				WHERE	title = ? AND
 						gameID = ?";
 		$parameters = array(
 			$data['title'],
-			$data['gameID']
+			$this->game->gameID
 		);
 
 		return array(
