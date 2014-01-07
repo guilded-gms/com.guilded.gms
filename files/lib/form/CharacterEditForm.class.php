@@ -26,7 +26,7 @@ class CharacterEditForm extends CharacterAddForm {
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('user.character.canManageCharacter');
+	public $neededPermissions = array('user.gms.character.canManage');
 	
 	/**
 	 * character id

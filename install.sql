@@ -232,9 +232,9 @@ DROP TABLE IF EXISTS gms1_character;
 CREATE TABLE gms1_character (
 	characterID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	gameID				INT(10) NOT NULL,
-	guildID				INT(10) DEFAULT NULL,
 	userID	 			INT(10) NOT NULL, --owner
 	name		  		VARCHAR(255) NOT NULL,
+	time 				INT(10) DEFAULT 0, -- creation
 	isPrimary			TINYINT(1) DEFAULT 0
 );
 

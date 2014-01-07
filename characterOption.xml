@@ -45,9 +45,13 @@
 				<visible>15</visible>
 				<editable>3</editable>
 			</option>
+			<option name="guildID">
+				<categoryname>profile.general</categoryname>
+				<optiontype>guildSelect</optiontype>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
 			<!-- /system -->
-
-			<!-- @todo guild select -->
 
 			<!-- details -->
 			<option name="rankTitle">

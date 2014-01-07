@@ -143,7 +143,8 @@ class CharacterAddForm extends AbstractOptionListForm {
 			'data' => array_merge($this->additionalFields, array(
 				'name' => $this->characterName,
 				'gameID' => $this->gameID,
-				'userID' => WCF::getUser()->userID
+				'userID' => WCF::getUser()->userID,
+				'time' => TIME_NOW
 			)),
 			'options' => $optionValues
 		));
