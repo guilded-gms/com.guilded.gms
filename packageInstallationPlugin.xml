@@ -6,6 +6,7 @@
 		<pip name="guildOption">gms\system\package\plugin\GuildOptionPackageInstallationPlugin</pip>
 		<pip name="guildProfileMenu">gms\system\package\plugin\GuildProfileMenuPackageInstallationPlugin</pip>
 		<pip name="game">gms\system\package\plugin\GamePackageInstallationPlugin</pip>
+		<pip name="gameFaction">gms\system\package\plugin\GameFactionPackageInstallationPlugin</pip>
 		<pip name="gameRace">gms\system\package\plugin\GameRacePackageInstallationPlugin</pip>
 		<pip name="gameRole">gms\system\package\plugin\GameRolePackageInstallationPlugin</pip>
 		<pip name="gameClassification">gms\system\package\plugin\GameClassificationPackageInstallationPlugin</pip>
