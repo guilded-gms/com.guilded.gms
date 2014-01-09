@@ -2,7 +2,6 @@
 namespace gms\system\option;
 use gms\data\game\Game;
 use gms\data\guild\GuildList;
-use wcf\system\option\SelectOptionType;
 
 /**
  * Select Option for guilds.
@@ -14,7 +13,7 @@ use wcf\system\option\SelectOptionType;
  * @subpackage	system.option
  * @category	Guilded 2.0
  */
-class GuildSelectOptionType extends SelectOptionType implements IGameOptionType {
+class GuildSelectOptionType extends GameSelectOptionType {
 	/**
 	 * game object
 	 * @var	\gms\data\game\Game
@@ -40,12 +39,5 @@ class GuildSelectOptionType extends SelectOptionType implements IGameOptionType 
 		}
 
 		return $result;
-	}
-
-	/**
-	 * @see \gms\system\option\IGameOptionType::setGame()
-	 */
-	public function setGame(Game $game) {
-		$this->game = $game;
 	}
 }

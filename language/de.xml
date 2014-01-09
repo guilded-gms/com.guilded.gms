@@ -28,8 +28,11 @@
 	<category name="gms.acp.guild">
 		<item name="gms.acp.guild.list"><![CDATA[Gilden auflisten]]></item>
 		<item name="gms.acp.guild.add"><![CDATA[Gilde hinzufügen]]></item>
-		<item name="gms.acp.guild.gameID"><![CDATA[@todo]]></item>
+		<item name="gms.acp.guild.edit"><![CDATA[Gilde bearbeiten]]></item>
+		<item name="gms.acp.guild.name"><![CDATA[Bezeichnung]]></item>
+		<item name="gms.acp.guild.gameID"><![CDATA[Spiel]]></item>
 		<item name="gms.acp.guild.delete.sure"><![CDATA[Wollen Sie die Gilde "" wirklich löschen?]]></item> <!-- @todo -->
+		<item name="gms.acp.guild.isPublic"><![CDATA[Gilde aktivieren]]></item> <!-- @todo better description -->
 	</category>
 
 	<category name="gms.acp.menu">
@@ -62,8 +65,12 @@
 		<item name="gms.character.option.category.profile.general"><![CDATA[Allgemein]]></item>
 		<item name="gms.character.option.category.profile.details"><![CDATA[Details]]></item>
 		<item name="gms.character.option.level"><![CDATA[Stufe]]></item>
-		<item name="gms.character.option.classes"><![CDATA[Klasse]]></item>
-		<item name="gms.character.option.races"><![CDATA[Rasse]]></item>
+		<item name="gms.character.option.classes"><![CDATA[Klasse(n)]]></item>
+		<item name="gms.character.option.races"><![CDATA[Rasse(n)]]></item>
+		<item name="gms.character.option.roles"><![CDATA[Rolle(n)]]></item>
+		<item name="gms.character.option.guildID"><![CDATA[Gilde]]></item>
+		<item name="gms.character.option.rankTitle"><![CDATA[Titel]]></item>
+		<item name="gms.character.option.rankTitle.description"><![CDATA[Sie können <strong>%s</strong> als Platzhalter für den Namen verwenden. Aus <strong>Großmarschall %s</strong> wird <strong>Großmarschall Kivah</strong>.]]></item>
 		<item name="gms.character.option.gender"><![CDATA[Geschlecht]]></item>
 		<item name="gms.character.gender.male"><![CDATA[männlich]]></item>
 		<item name="gms.character.gender.female"><![CDATA[weiblich]]></item>

@@ -5,6 +5,7 @@
 		<usermenuitem name="wcf.user.menu.profile.character">
 			<controller><![CDATA[gms\page\CharacterManagement]]></controller>
 			<parent>wcf.user.menu.profile</parent>
+			<permission>user.gms.character.canManage</permission>
 		</usermenuitem>
 		<!-- /profile -->
 	</import>

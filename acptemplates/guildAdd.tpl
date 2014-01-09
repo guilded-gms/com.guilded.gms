@@ -67,7 +67,7 @@
 			<dl>
 				<dd>
 					<label for="isPublic">
-						<input type="checkbox" id="isPublic" name="isPublic" value="1"{if $isPublic} checked="checked"{/if} /> {lang}gms.acp.guild.isEnabled{/lang}
+						<input type="checkbox" id="isPublic" name="isPublic" value="1"{if $isPublic} checked="checked"{/if} /> {lang}gms.acp.guild.isPublic{/lang}
 					</label>
 				</dd>
 			</dl>

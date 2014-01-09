@@ -1,15 +1,27 @@
 {include file='header' pageTitle='gms.acp.game.list'}
 
+<script data-relocate="true">
+	//<![CDATA[
+	$(function() {
+		new WCF.Action.Delete('gms\\data\\game\\GameAction', '.jsGameRow');
+		new WCF.Action.Toggle('gms\\data\\game\\GameAction', '.jsGameRow');
+	});
+
+	var options = { };
+	{if $pages > 1}
+		options.refreshPage = true;
+		{if $pages == $pageNo}
+			options.updatePageNumber = -1;
+		{/if}
+	{else}
+		options.emptyMessage = '{lang}wcf.global.noItems{/lang}';
+	{/if}
+	new WCF.Table.EmptyTableHandler($('#gameTableContainer'), 'jsGameRow', options);
+	//]]>
+</script>
+
 <header class="boxHeadline">
 	<h1>{lang}gms.acp.game.list{/lang}</h1>
-	
-	<script type="text/javascript">
-		//<![CDATA[
-		$(function() {
-			new WCF.Action.Delete('wcf\\data\\game\\GameAction', '.jsGameRow');
-		});
-		//]]>
-	</script>
 </header>
 
 <div class="contentNavigation">
@@ -25,7 +37,7 @@
 </div>
 
 {hascontent}
-	<div class="tabularBox tabularBoxTitle marginTop">
+	<div id="gameTableContainer" class="tabularBox tabularBoxTitle marginTop">
 		<header>
 			<h2>{lang}gms.acp.game.list{/lang} <span class="badge badgeInverse">{#$items}</span></h2>
 		</header>
@@ -45,6 +57,7 @@
 					{foreach from=$objects item=$object}
 						<tr class="jsGameRow">
 							<td class="columnIcon">
+								<span class="icon icon16 icon-{if !$object->isEnabled}check-empty{else}check{/if} jsToggleButton jsTooltip pointer" title="{lang}wcf.global.button.{if !$object->isEnabled}enable{else}disable{/if}{/lang}" data-object-id="{@$object->gameID}" data-disable-message="{lang}wcf.global.button.disable{/lang}" data-enable-message="{lang}wcf.global.button.enable{/lang}"></span>
 								<a href="{link controller='GameEdit' id=$object->gameID application='gms'}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip"><span class="icon icon16 icon-pencil"></span></a>
 								<span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="{lang}wcf.global.button.delete{/lang}" data-object-id="{@$object->gameID}" data-confirm-message="{lang}gms.acp.game.delete.sure{/lang}"></span>
 								

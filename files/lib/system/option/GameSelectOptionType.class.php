@@ -1,12 +1,19 @@
 <?php
 namespace gms\system\option;
+use gms\data\game\Game;
 use gms\system\game\GameHandler;
 use wcf\data\option\Option;
 use wcf\system\exception\UserInputException;
 use wcf\system\option\SelectOptionType;
 use wcf\system\WCF;
 
-class GameSelectOptionType extends SelectOptionType {
+class GameSelectOptionType extends SelectOptionType implements IGameOptionType {
+	/**
+	 * game object
+	 * @var	\gms\data\game\Game
+	 */
+	protected $game = null;
+
 	/**
 	 * @see	\wcf\system\option\IOptionType::getFormElement()
 	 */
@@ -18,7 +25,7 @@ class GameSelectOptionType extends SelectOptionType {
 			'disableOptions' => $options['disableOptions'],
 			'enableOptions' => $options['enableOptions'],
 			'option' => $option,
-			'selectOptions' => $this->getSelectOptions(),
+			'selectOptions' => $this->parseSelectOptions(),
 			'value' => $value
 		));
 		return WCF::getTPL()->fetch('selectOptionType');
@@ -29,7 +36,7 @@ class GameSelectOptionType extends SelectOptionType {
 	 */
 	public function validate(Option $option, $newValue) {
 		if (!empty($newValue)) {
-			$options = $this->getSelectOptions();
+			$options = $this->parseSelectOptions();
 			if (!isset($options[$newValue])) {
 				throw new UserInputException($option->optionName, 'validationFailed');
 			}
@@ -41,7 +48,7 @@ class GameSelectOptionType extends SelectOptionType {
 	 *
 	 * @return	array
 	 */
-	public function getSelectOptions(){
+	public function parseSelectOptions(){
 		$result = array();
 
 		foreach (GameHandler::getGames() as $game) {
@@ -49,5 +56,12 @@ class GameSelectOptionType extends SelectOptionType {
 		}
 		
 		return $result;
+	}
+
+	/**
+	 * @see \gms\system\option\IGameOptionType::setGame()
+	 */
+	public function setGame(Game $game) {
+		$this->game = $game;
 	}
 }

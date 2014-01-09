@@ -35,7 +35,10 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsUpdate
 	 */
 	protected $permissionsUpdate = array('user.gms.character.canManage');
-	
+
+	// @todo check canEdit
+	// @todo check canDelete
+
 	/**
 	 * Validates parameters to search for characters and -groups.
 	 */

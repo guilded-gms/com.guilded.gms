@@ -1,6 +1,7 @@
 <?php
 namespace gms\data\character;
-use gms\data\character\rank\CharacterRank;
+use gms\data\game\classification\GameClassificationList;
+use gms\data\guild\rank\GuildRank;
 use gms\data\game\classification\GameClassification;
 use gms\data\game\Game;
 use gms\data\guild\Guild;
@@ -44,6 +45,12 @@ class Character extends GMSDatabaseObject implements IRouteController {
 	protected $user = null;
 
 	/**
+	 * list of classes
+	 * @var \gms\data\game\classification\GameClassificationList
+	 */
+	protected $classList = null;
+
+	/**
 	 * Guild object
 	 * @var	\gms\data\guild\Guild
 	 */
@@ -51,9 +58,27 @@ class Character extends GMSDatabaseObject implements IRouteController {
 
 	/**
 	 * character rank in guild
-	 * @var \gms\data\character\rank\CharacterRank
+	 * @var \gms\data\guild\rank\GuildRank
 	 */
 	protected $rank = null;
+
+	/**
+	 * @see	\wcf\data\DatabaseObject::handleData()
+	 */
+	protected function handleData($data) {
+		parent::handleData($data);
+
+		// get option values
+		$sql = "SELECT character_option.optionName, character_option_value.optionValue
+				FROM gms".WCF_N."_character_option character_option
+				LEFT JOIN gms".WCF_N."_character_option_value character_option_value ON (character_option_value.optionID = character_option.optionID) AND (character_option_value.characterID = ?)";
+		$statement = WCF::getDB()->prepareStatement($sql);
+		$statement->execute(array($this->characterID));
+
+		while ($row = $statement->fetchArray()) {
+			$this->data[$row['optionName']] = $row['optionValue'];
+		}
+	}
 
 	/**
 	 * @see	\wcf\data\IStorableObject::getDatabaseTableAlias()
@@ -75,6 +100,10 @@ class Character extends GMSDatabaseObject implements IRouteController {
 	 * @return	string
 	 */
 	public function getTitledName() {
+		if (empty($this->rankTitle)) {
+			return $this->getTitle();
+		}
+
 		return sprintf($this->rankTitle, $this->name);
 	}
 	
@@ -138,24 +167,38 @@ class Character extends GMSDatabaseObject implements IRouteController {
 	/**
 	 * Returns Character Rank object.
 	 *
-	 * @return	\gms\data\character\rank\CharacterRank
+	 * @return	\gms\data\guild\rank\GuildRank
 	 */
 	public function getRank() {
-		if ($this->rank === null) {
-			$this->rank = new CharacterRank($this->rankID);
+		if ($this->rank === null && $this->rankID) {
+			$this->rank = new GuildRank($this->rankID);
 		}
 
 		return $this->rank;
 	}
 
 	/**
+	 * Returns GameClassificationList object
+	 *
+	 * @return \gms\data\game\classification\GameClassificationList
+	 */
+	public function getClassList() {
+		if ($this->classList === null) {
+			$this->classList = new GameClassificationList();
+			$this->classList->getConditionBuilder()->add('classificationID IN (?)', array(1)); // @todo fix
+			$this->classList->readObjects();
+		}
+
+		return $this->classList;
+	}
+
+	/**
 	 * Returns primary class of character.
 	 *
-	 * @todo implement primary class
-	 * @return	null
+	 * @return	\gms\data\game\classification\GameClassification
 	 */
 	public function getPrimaryClass() {
-		return null;
+		return $this->getClassList()->current();
 	}
 
 	/**
@@ -165,5 +208,14 @@ class Character extends GMSDatabaseObject implements IRouteController {
 	 */
 	public function canEdit() {
 		return (WCF::getUser()->userID == $this->userID);
+	}
+
+	/**
+	 * Returns true if character can be deleted by current user.
+	 *
+	 * @return	bool
+	 */
+	public function canDelete() {
+		return $this->canEdit();
 	}
 }

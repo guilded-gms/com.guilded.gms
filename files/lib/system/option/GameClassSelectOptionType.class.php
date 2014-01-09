@@ -13,14 +13,10 @@ use wcf\system\option\SelectOptionType;
  * @package	com.guilded.gms
  * @subpackage	system.option
  * @category	Guilded 2.0
+ *
+ * @todo handle output by $game->maxClasses
 */
-class GameClassSelectOptionType extends SelectOptionType implements IGameOptionType {
-	/**
-	 * game object
-	 * @var	\gms\data\game\Game
-	 */
-	protected $game = null;
-
+class GameClassSelectOptionType extends GameSelectOptionType {
 	/**
 	 * Get possible select-options.
 	 *
@@ -38,12 +34,5 @@ class GameClassSelectOptionType extends SelectOptionType implements IGameOptionT
 		}
 		
 		return $result;
-	}
-
-	/**
-	 * @see \gms\system\option\IGameOptionType::setGame()
-	 */
-	public function setGame(Game $game) {
-		$this->game = $game;
 	}
 }

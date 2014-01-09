@@ -2,7 +2,10 @@
 namespace gms\acp\form;
 use gms\data\guild\Guild;
 use gms\data\guild\GuildAction;
+use gms\data\guild\GuildList;
 use gms\system\game\GameHandler;
+use wcf\data\option\Option;
+use wcf\data\option\OptionEditor;
 use wcf\system\exception\UserInputException;
 use wcf\system\WCF;
 use wcf\system\WCFACP;
@@ -49,7 +52,7 @@ class GuildAddForm extends GuildOptionListForm {
 	 * guild shown in public area
 	 * @var    integer
 	 */
-	public $isPublic = 0;
+	public $isPublic = 1;
 
 	/**
 	 * additional data for insert and edit
@@ -111,8 +114,18 @@ class GuildAddForm extends GuildOptionListForm {
 			)), 
 			'options' => $savedOptions
 		));
-		$this->objectAction->executeAction();
-		
+		$returnValues = $this->objectAction->executeAction();
+
+		// set option DEFAULT_GUILD_ID if first guild created
+		$guildList = new GuildList();
+		if ($guildList->countObjects() == 1) {
+			$sql = "UPDATE	wcf".WCF_N."_option
+					SET		optionValue = ?
+					WHERE	optionName = ?";
+			$statement = WCF::getDB()->prepareStatement($sql);
+			$statement->execute(array($returnValues['returnValues']->guildID, 'default_guild_id'));
+		}
+
 		$this->saved();
 		
 		// show success message

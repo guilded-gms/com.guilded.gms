@@ -1,18 +1,18 @@
 <?php
-namespace gms\data\character\rank;
+namespace gms\data\guild\rank;
 use wcf\data\DatabaseObjectEditor;
 
 /**
- * Editor for CharacterRank
+ * Editor for GuildRank
  * 
  * @author	Jeffrey Reichardt
  * @copyright	{{COPYRIGHT}}
  * @package	com.guilded.gms
  * @category	{{PROJECT-CATEGORY}}
  */
-class CharacterRankEditor extends DatabaseObjectEditor {
+class GuildRankEditor extends DatabaseObjectEditor {
 	/**
 	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
 	 */
-	protected static $baseClass = 'gms\data\character\rank\CharacterRank';
+	protected static $baseClass = 'gms\data\guild\rank\GuildRank';
 }

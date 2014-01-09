@@ -1,5 +1,6 @@
 <?php
 namespace gms\system\option\guild;
+use gms\data\game\Game;
 use gms\data\guild\option\ViewableGuildOption;
 use gms\data\guild\guild;
 use wcf\data\option\category\OptionCategory;
@@ -35,6 +36,12 @@ class GuildOptionHandler extends OptionHandler {
 	 * @var	\gms\data\guild\Guild
 	 */
 	public $guild = null;
+
+	/**
+	 * filter by game
+	 * @var	\gms\data\game\Game
+	 */
+	public $game = null;
 	
 	/**
 	 * Hides empty options.
@@ -72,7 +79,17 @@ class GuildOptionHandler extends OptionHandler {
 			$this->optionValues[$option->optionName] = $this->guild->{$guildOption};
 		}
 	}
-	
+
+	/**
+	 * Sets game to OptionHandler and filters by.
+	 *
+	 * @param	\gms\data\game\Game	$game
+	 */
+	public function setGame(Game $game) {
+		$this->game = $game;
+	}
+
+
 	/**
 	 * @see	\wcf\system\option\OptionHandler::getOption()
 	 */
@@ -122,5 +139,19 @@ class GuildOptionHandler extends OptionHandler {
 		}
 		
 		return $option->isVisible();
+	}
+
+	/**
+	 * @see	\wcf\system\option\OptionHandler::getTypeObject()
+	 */
+	public function getTypeObject($type) {
+		parent::getTypeObject($type);
+
+		// set game id
+		if ($this->typeObjects[$type] instanceof IGameOptionType) {
+			$this->typeObjects[$type]->setGame($this->game);
+		}
+
+		return $this->typeObjects[$type];
 	}
 }

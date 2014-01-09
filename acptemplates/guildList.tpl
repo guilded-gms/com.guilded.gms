@@ -1,15 +1,28 @@
 {include file='header' pageTitle='gms.acp.guild.list'}
 
+{* @todo check if at least one guild isPublic, otherwise show warning *}
+<script data-relocate="true">
+	//<![CDATA[
+	$(function() {
+		new WCF.Action.Delete('gms\\data\\guild\\GuildAction', '.jsGuildRow');
+		new WCF.Action.Toggle('gms\\data\\guild\\GuildAction', '.jsGuildRow');
+	});
+
+	var options = { };
+	{if $pages > 1}
+		options.refreshPage = true;
+		{if $pages == $pageNo}
+			options.updatePageNumber = -1;
+		{/if}
+	{else}
+		options.emptyMessage = '{lang}wcf.global.noItems{/lang}';
+	{/if}
+	new WCF.Table.EmptyTableHandler($('#guildTableContainer'), 'jsGuildRow', options);
+	//]]>
+</script>
+
 <header class="boxHeadline">
 	<h1>{lang}gms.acp.guild.list{/lang}</h1>
-	
-	<script type="text/javascript">
-		//<![CDATA[
-		$(function() {
-			new WCF.Action.Delete('wcf\\data\\guild\\GuildAction', '.jsGuildRow');
-		});
-		//]]>
-	</script>
 </header>
 
 <div class="contentNavigation">
@@ -25,7 +38,7 @@
 </div>
 
 {hascontent}
-	<div class="tabularBox tabularBoxTitle marginTop">
+	<div id="guildTableContainer" class="tabularBox tabularBoxTitle marginTop">
 		<header>
 			<h2>{lang}gms.acp.guild.list{/lang} <span class="badge badgeInverse">{#$items}</span></h2>
 		</header>
@@ -46,9 +59,10 @@
 					{foreach from=$objects item=$object}
 						<tr class="jsGuildRow">
 							<td class="columnIcon">
+								<span class="icon icon16 icon-{if !$object->isPublic}check-empty{else}check{/if} jsToggleButton jsTooltip pointer" title="{lang}wcf.global.button.{if !$object->isPublic}enable{else}disable{/if}{/lang}" data-object-id="{@$object->guildID}" data-disable-message="{lang}wcf.global.button.disable{/lang}" data-enable-message="{lang}wcf.global.button.enable{/lang}"></span>
 								<a href="{link controller='GuildEdit' id=$object->guildID application='gms'}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip"><span class="icon icon16 icon-pencil"></span></a>
 								<span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="{lang}wcf.global.button.delete{/lang}" data-object-id="{@$object->guildID}" data-confirm-message="{lang}gms.acp.guild.delete.sure{/lang}"></span>
-								
+
 								{event name='rowButtons'}
 							</td>
 							<td class="columnID">{@$object->guildID}</td>

@@ -1,6 +1,7 @@
 <?php
 namespace gms\data\guild;
 use wcf\data\AbstractDatabaseObjectAction;
+use wcf\data\IToggleAction;
 use wcf\system\database\util\PreparedStatementConditionBuilder;
 use wcf\system\exception\ValidateActionException;
 use wcf\system\WCF;
@@ -15,7 +16,7 @@ use wcf\system\WCF;
  * @subpackage	data.guild
  * @category	Guilded 2.0
  */
-class GuildAction extends AbstractDatabaseObjectAction {
+class GuildAction extends AbstractDatabaseObjectAction implements IToggleAction {
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$className
 	 */
@@ -35,7 +36,29 @@ class GuildAction extends AbstractDatabaseObjectAction {
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsUpdate
 	 */
 	protected $permissionsUpdate = array('admin.gms.guild.canManage');
-	
+
+	/**
+	 * Validates permissions and parameters
+	 */
+	public function validateToggle() {
+		parent::validateUpdate();
+	}
+
+	/**
+	 * Toggles status.
+	 */
+	public function toggle() {
+		if (empty($this->objects)) {
+			$this->readObjects();
+		}
+
+		foreach ($this->objects as $object) {
+			$object->update(array(
+				'isPublic' => ($object->isPublic - 1)
+			));
+		}
+	}
+
 	/**
 	 * Validates parameters to search for guilds and -groups.
 	 */

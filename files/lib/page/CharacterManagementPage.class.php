@@ -19,16 +19,21 @@ use wcf\system\WCF;
  */
 class CharacterManagementPage extends AbstractPage {
 	/**
-	 * list of characters
-	 * @var array<\gms\data\character\Character>
+	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
-	protected $characters = array();
+	public $neededPermissions = array('user.gms.character.canManage');
+
+	/**
+	 * list of characters
+	 * @var \gms\data\character\CharacterList
+	 */
+	protected $characterList = array();
 
 	/**
 	 * list of games
-	 * @var array<\gms\data\game\Game>
+	 * @var \gms\data\game\GameList
 	 */
-	protected $games = array();
+	protected $gameList = array();
 
 	/**
 	 * @see	\wcf\page\IPage::readData()
@@ -37,15 +42,13 @@ class CharacterManagementPage extends AbstractPage {
 		parent::readData();
 
 		//get characters
-		$characterList = new CharacterList();
-		$characterList->getConditionBuilder()->add('userID = ?', array(WCF::getUser()->userID));
-		$characterList->readObjects();
-		$this->characters = $characterList->getObjects();
+		$this->characterList = new CharacterList();
+		$this->characterList->getConditionBuilder()->add('userID = ?', array(WCF::getUser()->userID));
+		$this->characterList->readObjects();
 
 		//get games
-		$gameList = new GameList();
-		$gameList->readObjects();
-		$this->games = $gameList->getObjects();
+		$this->gameList = new GameList();
+		$this->gameList->readObjects();
 	}
 
 	/**
@@ -55,8 +58,8 @@ class CharacterManagementPage extends AbstractPage {
 		parent::assignVariables();
 
 		WCF::getTPL()->assign(array(
-			'characters' => $this->characters,
-			'games' => $this->games
+			'characters' => $this->characterList,
+			'games' => $this->gameList
 		));
 	}
 

@@ -250,8 +250,8 @@ CREATE TABLE gms1_character (
 );
 
 -- character-rank
-DROP TABLE IF EXISTS gms1_character_rank;
-CREATE TABLE gms1_character_rank (
+DROP TABLE IF EXISTS gms1_guild_rank;
+CREATE TABLE gms1_guild_rank (
 	rankID				INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	guildID				INT(10) DEFAULT NULL,
 	name		  		VARCHAR(255) NOT NULL,

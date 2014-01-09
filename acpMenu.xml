@@ -21,7 +21,7 @@
 		<!-- guilds -->
 		<acpmenuitem name="gms.acp.menu.link.gms.guild">
 			<parent>gms.acp.menu.link.gms</parent>
-			<permissions>admin.gms.game.canManage</permissions>
+			<permissions>admin.gms.guild.canManage</permissions>
 		</acpmenuitem>
 		<acpmenuitem name="gms.acp.menu.link.gms.guild.list">
 			<controller><![CDATA[gms\acp\page\GuildListPage]]></controller>
@@ -33,6 +33,23 @@
 			<controller><![CDATA[gms\acp\form\GuildAddForm]]></controller>
 			<parent>gms.acp.menu.link.gms.guild</parent>
 			<permissions>admin.gms.guild.canManage</permissions>
+			<showorder>2</showorder>
+		</acpmenuitem>
+		<acpmenuitem name="gms.acp.menu.link.gms.guild.rank">
+			<parent>gms.acp.menu.link.gms.guild</parent>
+			<permissions>admin.gms.guild.canManageRank</permissions>
+			<showorder>3</showorder>
+		</acpmenuitem>
+		<acpmenuitem name="gms.acp.menu.link.gms.guild.rank.list">
+			<controller><![CDATA[gms\acp\page\GuildRankListPage]]></controller>
+			<parent>gms.acp.menu.link.gms.guild.rank</parent>
+			<permissions>admin.gms.guild.canManageRank</permissions>
+			<showorder>1</showorder>
+		</acpmenuitem>
+		<acpmenuitem name="gms.acp.menu.link.gms.guild.rank.add">
+			<controller><![CDATA[gms\acp\form\GuildRankAddForm]]></controller>
+			<parent>gms.acp.menu.link.gms.guild.rank</parent>
+			<permissions>admin.gms.guild.canManageRank</permissions>
 			<showorder>2</showorder>
 		</acpmenuitem>
 		<!-- /guilds -->

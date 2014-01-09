@@ -1,7 +1,6 @@
 <?php
 namespace gms\acp\page;
 use wcf\page\SortablePage;
-use wcf\system\WCF;
 
 /**
  * Shows a list of all installed game packages.
@@ -22,12 +21,12 @@ class GameListPage extends SortablePage {
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('admin.system.game.canManage');
+	public $neededPermissions = array('admin.gms.game.canManage');
 
 	/**
 	 * @see	\wcf\page\AbstractPage::$activeMenuItem
 	 */
-	public $activeMenuItem = 'gms.acp.menu.link.game.list';
+	public $activeMenuItem = 'gms.acp.menu.link.gms.game.list';
 		
 	/**
 	 * @see	\wcf\page\MultipleLinkPage::$objectListClassName

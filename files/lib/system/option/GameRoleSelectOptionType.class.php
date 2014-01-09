@@ -1,8 +1,6 @@
 <?php
 namespace gms\system\option;
-use gms\data\game\Game;
 use gms\data\game\role\GameRoleList;
-use wcf\system\option\SelectOptionType;
 
 /**
  * Select Option for game-roles.
@@ -13,14 +11,10 @@ use wcf\system\option\SelectOptionType;
  * @package	com.guilded.gms
  * @subpackage	system.option
  * @category	Guilded 2.0
+ *
+ * @todo show multi-checkbox
 */
-class GameRoleSelectOptionType extends SelectOptionType implements IGameOptionType {
-	/**
-	 * game object
-	 * @var	\gms\data\game\Game
-	 */
-	protected $game = null;
-
+class GameRoleSelectOptionType extends GameSelectOptionType {
 	/**
 	 * Get possible select-options.
 	 *
@@ -34,16 +28,9 @@ class GameRoleSelectOptionType extends SelectOptionType implements IGameOptionTy
 		$roleList->readObjects();
 
 		foreach ($roleList->getObjects() as $role) {
-			$result[$role->raceID] = $role->getTitle();
+			$result[$role->roleID] = $role->getTitle();
 		}
 		
 		return $result;
-	}
-
-	/**
-	 * @see \gms\system\option\IGameOptionType::setGame()
-	 */
-	public function setGame(Game $game) {
-		$this->game = $game;
 	}
 }

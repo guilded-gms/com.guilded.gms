@@ -1,18 +1,18 @@
 <?php
-namespace gms\data\character\rank;
+namespace gms\data\guild\rank;
 use wcf\data\DatabaseObjectList;
 
 /**
- * 
- * 
+ * Represents a list of guild ranks.
+ *
  * @author	Jeffrey Reichardt
  * @copyright	{{COPYRIGHT}}
  * @package	com.guilded.gms
  * @category	{{PROJECT-CATEGORY}}
  */
-class CharacterRankList extends DatabaseObjectList {
+class GuildRankList extends DatabaseObjectList {
 	/**
 	 * @see	\wcf\data\DatabaseObjectList::$className
 	 */
-	public $className = 'gms\data\character\rank\CharacterRank';
+	public $className = 'gms\data\guild\rank\GuildRank';
 }

@@ -1,33 +1,33 @@
 <?php
-namespace gms\data\character\rank;
+namespace gms\data\guild\rank;
 use wcf\data\AbstractDatabaseObjectAction;
 
 /**
- * CharacterRank-related actions.
+ * GuildRank-related actions.
  * 
  * @author	Jeffrey Reichardt
  * @copyright	{{COPYRIGHT}}
  * @package	com.guilded.gms
  * @category	{{PROJECT-CATEGORY}}
  */
-class CharacterRankAction extends AbstractDatabaseObjectAction {
+class GuildRankAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$className
 	 */
-	public $className = 'gms\data\character\rank\CharacterRankEditor';
+	public $className = 'gms\data\guild\rank\GuildRankEditor';
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsCreate
 	 */
-	protected $permissionsCreate = array('admin.gms.character.canManageRank');
+	protected $permissionsCreate = array('admin.gms.guild.canManageRank');
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
 	 */
-	protected $permissionsDelete = array('admin.gms.character.canManageRank');
+	protected $permissionsDelete = array('admin.gms.guild.canManageRank');
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsUpdate
 	 */
-	protected $permissionsUpdate = array('admin.gms.character.canManageRank');
+	protected $permissionsUpdate = array('admin.gms.guild.canManageRank');
 }

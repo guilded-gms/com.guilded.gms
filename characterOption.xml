@@ -54,17 +54,17 @@
 			<!-- /system -->
 
 			<!-- details -->
-			<option name="rankTitle">
-				<categoryname>profile.details</categoryname>
-				<optiontype>text</optiontype>
-				<outputclass>gms\system\option\character\CharacterOptionOutputRankTitle</outputclass>
-				<visible>15</visible>
-				<editable>3</editable>
-			</option>
 			<option name="about">
 				<categoryname>profile.details</categoryname>
 				<optiontype>message</optiontype>
 				<outputclass>gms\system\option\character\CharacterOptionOutputMessage</outputclass>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="rankTitle">
+				<categoryname>profile.details</categoryname>
+				<optiontype>text</optiontype>
+				<outputclass>gms\system\option\character\CharacterOptionOutputRankTitle</outputclass>
 				<visible>15</visible>
 				<editable>3</editable>
 			</option>

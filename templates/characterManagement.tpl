@@ -17,7 +17,7 @@
 </header>
 
 <div class="contentNavigation">
-    {if $__wcf->session->getPermission('user.character.canManageCharacter')}
+    {if $__wcf->session->getPermission('user.gms.character.canManage')}
         <nav>
             <ul>
                 <li><a href="{link controller='CharacterAdd' application='gms'}{/link}" title="{lang}gms.character.add{/lang}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}gms.character.add{/lang}</span></a></li>
@@ -35,13 +35,13 @@
 
 			<div class="container marginTop shadow">
 				<ol class="containerList characterList doubleColumned">
+				{content}
 				{foreach from=$characters item=character}
 					{if $character->gameID == $game->gameID}
-						{content}
-							{include file='characterListItem' application='gms'}
-						{/content}
+						{include file='characterListItem' character=$character application='gms'}
 					{/if}
 				{/foreach}
+				{/content}
 				</ol>
 			</div>
 		{/hascontent}
