@@ -3,7 +3,6 @@ namespace gms\data\character\option;
 use gms\data\character\Character;
 use wcf\data\DatabaseObjectDecorator;
 use wcf\system\exception\SystemException;
-use wcf\system\option\character\ICharacterOptionOutputContactInformation;
 use wcf\util\ClassUtil;
 use wcf\util\StringUtil;
 
@@ -54,11 +53,7 @@ class ViewableCharacterOption extends DatabaseObjectDecorator {
 		// use output class
 		if ($this->outputClass) {
 			$outputObj = $this->getOutputObject();
-			
-			if ($outputObj instanceof ICharacterOptionOutputContactInformation) {
-				$this->outputData = $outputObj->getOutputData($character, $this->getDecoratedObject(), $optionValue);
-			}
-			
+
 			if ($outputType == 'normal') $this->optionValue = $outputObj->getOutput($character, $this->getDecoratedObject(), $optionValue);
 			else if ($outputType == 'short') $this->optionValue = $outputObj->getShortOutput($character, $this->getDecoratedObject(), $optionValue);
 			else $outputType = $outputObj->getMediumOutput($character, $this->getDecoratedObject(), $optionValue);
@@ -71,7 +66,7 @@ class ViewableCharacterOption extends DatabaseObjectDecorator {
 	/**
 	 * Returns the output object for current character option.
 	 * 
-	 * @return	\wcf\system\option\character\ICharacterOptionOutput
+	 * @return	\gms\system\option\character\ICharacterOptionOutput
 	 */
 	public function getOutputObject() {
 		if (!isset(self::$outputObjects[$this->outputClass])) {
@@ -81,8 +76,8 @@ class ViewableCharacterOption extends DatabaseObjectDecorator {
 			}
 			
 			// validate interface
-			if (!ClassUtil::isInstanceOf($this->outputClass, 'wcf\system\option\character\ICharacterOptionOutput')) {
-				throw new SystemException("'".$this->outputClass."' should implement wcf\system\option\character\ICharacterOptionOutput");
+			if (!ClassUtil::isInstanceOf($this->outputClass, 'gms\system\option\character\ICharacterOptionOutput')) {
+				throw new SystemException("'".$this->outputClass."' should implement \gms\system\option\character\ICharacterOptionOutput");
 			}
 			
 			self::$outputObjects[$this->outputClass] = new $this->outputClass();
