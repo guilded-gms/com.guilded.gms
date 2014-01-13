@@ -243,7 +243,7 @@ GMS.Character.OptionHandler = Class.extend({
 				autoSend: true,
 				data: {
 					actionName: 'getOptions',
-					className: 'wcf\\data\\character\\option\\CharacterOptionAction',
+					className: 'gms\\data\\character\\option\\CharacterOptionAction',
 					parameters: {
 						gameID: this._gameID
 					}
@@ -327,7 +327,7 @@ GMS.Character.ProfilePreview = WCF.Popover.extend({
 		else {
 			this._proxy.setOption('data', {
 				actionName: 'getCharacterProfile',
-				className: 'wcf\\data\\character\\CharacterProfileAction',
+				className: 'gms\\data\\character\\CharacterProfileAction',
 				objectIDs: [ $characterID ]
 			});
 			

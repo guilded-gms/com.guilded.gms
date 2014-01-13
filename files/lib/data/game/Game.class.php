@@ -101,7 +101,7 @@ class Game extends GMSDatabaseObject implements IRouteController {
 	/**
 	 * Returns object of provider.
 	 *
-	 * @return	\wcf\system\game\provider\GameProvider
+	 * @return	\gms\system\game\provider\GameProvider
 	 */
 	public function getProvider() {
 		return GameProviderHandler::getInstance()->getObjectType('com.guilded.gms.provider.' . mb_strtolower($this->title));
@@ -110,18 +110,16 @@ class Game extends GMSDatabaseObject implements IRouteController {
 	/**
 	 * Returns full path to icon.
 	 *
-	 * @param	string	$size
+	 * @param	integer	$size
 	 * @return	string
 	 */
-	public function getIcon($size = 'medium') {
-		$size = mb_strtoupper(mb_substr($size, 0, 1));
-
+	public function getIcon($size = 32) {
 		$filePath = 'icon/' . $this->title . '/' . $this->icon . $size . '.png';
-		if (!file_exists(WCF_DIR . $filePath)) {
+		if (!file_exists(GMS_DIR . $filePath)) {
 			return '';
 		}
 
-		return WCF::getPath() . $filePath;
+		return WCF::getPath('gms') . $filePath;
 	}
 
 	/**

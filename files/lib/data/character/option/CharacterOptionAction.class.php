@@ -25,17 +25,17 @@ class CharacterOptionAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsCreate
 	 */
-	protected $permissionsCreate = array('user.character.canManageCharacter');
+	protected $permissionsCreate = array('user.gms.character.canManage');
 
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
 	 */
-	protected $permissionsDelete = array('user.character.canManageCharacter');
+	protected $permissionsDelete = array('user.gms.character.canManage');
 
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsUpdate
 	 */
-	protected $permissionsUpdate = array('user.character.canManageCharacter');
+	protected $permissionsUpdate = array('user.gms.character.canManage');
 
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$allowGuestAccess
