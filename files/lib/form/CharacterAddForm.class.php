@@ -75,7 +75,7 @@ class CharacterAddForm extends AbstractOptionListForm {
 
 	/**
 	 * id of selected game
-	 * @var int
+	 * @var integer
 	 */
 	public $gameID = 0;
 	

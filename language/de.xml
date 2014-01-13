@@ -6,6 +6,7 @@
 
 	<category name="gms.header.menu">
 		<item name="gms.header.menu.index"><![CDATA[Startseite]]></item>
+		<item name="gms.header.menu.guild"><![CDATA[Gilde]]></item>
 	</category>
 
 	<category name="gms.game">
@@ -130,5 +131,6 @@
 		<item name="wcf.acp.group.option.admin.gms.character.canManage"><![CDATA[Kann Charaktere verwalten]]></item>
 		<item name="wcf.acp.group.option.admin.gms.alliance.canManage"><![CDATA[Kann Allianzen verwalten]]></item>
 		<item name="wcf.acp.group.option.admin.gms.guild.canManage"><![CDATA[Kann Gilden verwalten]]></item>
+		<item name="wcf.acp.group.option.admin.gms.guild.canManageRank"><![CDATA[Kann Ränge verwalten]]></item>
 	</category>
 </language>

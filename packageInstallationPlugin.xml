@@ -10,5 +10,6 @@
 		<pip name="gameRace">gms\system\package\plugin\GameRacePackageInstallationPlugin</pip>
 		<pip name="gameRole">gms\system\package\plugin\GameRolePackageInstallationPlugin</pip>
 		<pip name="gameClassification">gms\system\package\plugin\GameClassificationPackageInstallationPlugin</pip>
+		<pip name="calendarMenu">gms\system\package\plugin\CalendarMenuPackageInstallationPlugin</pip>
 	</import>
 </data>

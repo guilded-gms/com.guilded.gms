@@ -14,6 +14,9 @@
 			<category name="user.gms.guild">
 				<parent>user.gms</parent>
 			</category>
+			<category name="user.gms.event">
+				<parent>user.gms</parent>
+			</category>
 
 			<category name="admin.gms">
 				<parent>admin</parent>
@@ -28,6 +31,9 @@
 				<parent>admin.gms</parent>
 			</category>
 			<category name="admin.gms.guild">
+				<parent>admin.gms</parent>
+			</category>
+			<category name="admin.gms.event">
 				<parent>admin.gms</parent>
 			</category>
 		</categories>
@@ -86,6 +92,15 @@
 				<admindefaultvalue>1</admindefaultvalue>
 			</option>
 			<!-- /user.gms.alliance -->
+
+			<!-- user.gms.event -->
+			<option name="user.gms.event.canViewCalendar">
+				<categoryname>user.gms.event</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /user.gms.event -->
 
 			<!-- admin.gms.character -->
 			<option name="admin.gms.character.canManage">

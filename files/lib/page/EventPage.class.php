@@ -1,6 +1,6 @@
 <?php
 namespace gms\page;
-use wcf\data\event\Event;
+use gms\data\event\Event;
 use wcf\system\comment\CommentHandler;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\WCF;
@@ -13,8 +13,8 @@ class EventPage extends AbstractPage {
 	public $eventID = 0;
 	
 	/**
-	 * user object
-	 * @var wcf\data\event\Event
+	 * event object
+	 * @var \gms\data\event\Event
 	 */
 	public $event = null;
 
@@ -55,6 +55,8 @@ class EventPage extends AbstractPage {
 	 */	
 	public function readData() {
 		parent::readData();
+
+		// @todo set breadcrump
 
 		// get comments
 		// @todo check commenting with ACL

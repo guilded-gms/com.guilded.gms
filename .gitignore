@@ -1,11 +1,9 @@
 $ cat .gitignore
-     *.tar*
-     /.idea
-     *.gz
-     *.tar
-     *.txt
-     *.tgz
-     *.log
-/.idea/inspectionProfiles
-/.idea/scopes
-/*.config
+*.tar*
+/.idea
+*.gz
+*.tar
+*.txt
+*.tgz
+*.log
+*.config

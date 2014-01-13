@@ -1,13 +1,12 @@
 <?php
 namespace gms\data\character;
 use gms\data\game\classification\GameClassificationList;
-use gms\data\guild\rank\GuildRank;
-use gms\data\game\classification\GameClassification;
 use gms\data\game\Game;
+use gms\data\guild\rank\GuildRank;
 use gms\data\guild\Guild;
+use gms\data\GMSDatabaseObject;
 use wcf\data\user\User;
 use wcf\data\user\UserProfile;
-use gms\data\GMSDatabaseObject;
 use wcf\system\request\IRouteController;
 use wcf\system\WCF;
 
@@ -15,7 +14,7 @@ use wcf\system\WCF;
  * Represents a character.
  *
  * @author	Jeffrey Reichardt
- * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschrÃ¤nkt)
  * @license	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.gms
  * @subpackage	data.character

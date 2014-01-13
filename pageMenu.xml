@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/pageMenu.xsd">
 	<import>
-		<pagemenuitem name="wcf.header.menu.guild">
-			<controller><![CDATA[wcf\page\Guild]]></controller>
+		<pagemenuitem name="gms.header.menu.guild">
+			<controller><![CDATA[gms\page\Guild]]></controller>
 			<position>header</position>
+			<permissions>user.gms.guild.canViewProfile</permissions>
+		</pagemenuitem>
+		<pagemenuitem name="gms.header.menu.calendar">
+			<controller><![CDATA[gms\page\Calendar]]></controller>
+			<position>header</position>
+			<permissions>user.gms.event.canViewCalendar</permissions>
+			<!-- @todo permission -->
+			<!-- @todo provider for new events -->
 		</pagemenuitem>
 	</import>
 </data>

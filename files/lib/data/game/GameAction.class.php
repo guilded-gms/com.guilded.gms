@@ -7,7 +7,7 @@ use wcf\data\IToggleAction;
  * Game-related actions.
  *
  * @author	Jeffrey Reichardt
- * @copyright	2012-2014 DevLabor UG (haftungsbeschr‰nkt)
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschr√§nkt)
  * @license	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.gms
  * @subpackage	data.game
@@ -40,7 +40,14 @@ class GameAction extends AbstractDatabaseObjectAction implements IToggleAction {
 	public function validateToggle() {
 		parent::validateUpdate();
 
-		// @todo validate if gameID == DEFAULT_GAME_ID
+		if (count($this->objectIDs) != 1) {
+			throw new UserInputException('objectIDs');
+		}
+
+		$gameID = reset($this->objectIDs);
+		if ($gameID == DEFAULT_GAME_ID) {
+			throw new UserInputException('objectIDs');
+		}
 	}
 	
 	/**
@@ -51,9 +58,9 @@ class GameAction extends AbstractDatabaseObjectAction implements IToggleAction {
 			$this->readObjects();
 		}
 
-		foreach ($this->objects as $object) {
-			$object->update(array(
-				'isEnabled' => ($object->isEnabled - 1)
+		foreach ($this->objects as $gameEditor) {
+			$gameEditor->update(array(
+				'isEnabled' => ($gameEditor->isEnabled - 1)
 			));
 		}
 	}
