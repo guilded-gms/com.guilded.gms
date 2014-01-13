@@ -1,1 +1,0 @@
-<script data-relocate="true" src="{@$__wcf->getPath('gms')}js/GMS{if !ENABLE_DEBUG_MODE}.min{/if}.js?v={@$__wcfVersion}"></script>

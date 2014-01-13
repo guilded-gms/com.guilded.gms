@@ -1,0 +1,1 @@
+<ul class="dataList information">	<li>{@$character->level}</li>	{*<li>{@$object->getPrimaryRace()}</li>*}	<li>{@$character->getPrimaryClass()->getTitle()}</li></ul>{if $character->guildID}	<ul class="dataList guild">		<li>{@$character->getGuild()->name}</li>		<li>{@$character->getGuild()->getServer()}</li>	</ul>{/if}

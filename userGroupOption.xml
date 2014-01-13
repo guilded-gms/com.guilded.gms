@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/userGroupOption.xsd">
+	<import>
+		<categories>
+			<category name="user.gms">
+				<parent>user</parent>
+			</category>
+			<category name="user.gms.alliance">
+				<parent>user.gms</parent>
+			</category>
+			<category name="user.gms.character">
+				<parent>user.gms</parent>
+			</category>
+			<category name="user.gms.guild">
+				<parent>user.gms</parent>
+			</category>
+
+			<category name="admin.gms">
+				<parent>admin</parent>
+			</category>
+			<category name="admin.gms.game">
+				<parent>admin.gms</parent>
+			</category>
+			<category name="admin.gms.alliance">
+				<parent>admin.gms</parent>
+			</category>
+			<category name="admin.gms.character">
+				<parent>admin.gms</parent>
+			</category>
+			<category name="admin.gms.guild">
+				<parent>admin.gms</parent>
+			</category>
+		</categories>
+		
+		<options>
+			<!-- admin.gms.game -->
+			<option name="admin.gms.game.canManage">
+				<categoryname>admin.gms.game</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /admin.gms.game -->
+
+			<!-- user.gms.character -->
+			<option name="user.gms.character.canManage">
+				<categoryname>user.gms.character</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.gms.character.canViewProfile">
+				<categoryname>user.gms.character</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.gms.character.canViewList">
+				<categoryname>user.gms.character</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /user.gms.character -->
+
+			<!-- user.gms.guild -->
+			<option name="user.gms.guild.canViewProfile">
+				<categoryname>user.gms.guild</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.gms.guild.canViewList">
+				<categoryname>user.gms.guild</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /user.gms.guild -->
+
+			<!-- user.gms.alliance -->
+			<option name="user.gms.alliance.canViewProfile">
+				<categoryname>user.gms.alliance</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /user.gms.alliance -->
+
+			<!-- admin.gms.character -->
+			<option name="admin.gms.character.canManage">
+				<categoryname>admin.gms.character</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /admin.gms.character -->
+
+			<!-- admin.gms.alliance -->
+			<option name="admin.gms.alliance.canManage">
+				<categoryname>admin.gms.alliance</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /admin.gms.alliance -->
+
+			<!-- admin.gms.guild -->
+			<option name="admin.gms.guild.canManage">
+				<categoryname>admin.gms.guild</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="admin.gms.guild.canManageRank">
+				<categoryname>admin.gms.guild</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /admin.gms.guild -->
+		</options>
+	</import>
+</data>

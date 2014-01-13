@@ -1,8 +1,0 @@
-$ cat .gitignore
-     *.tar*
-     /.idea
-     *.gz
-     *.tar
-     *.txt
-     *.tgz
-     *.log
