@@ -26,7 +26,7 @@ class GuildSelectOptionType extends GameSelectOptionType {
 	 * @return array
 	 */
 	public function parseSelectOptions(){
-		// @todo handle guild select mode (require application, free for all, etc.)
+		// @todo handle guild select mode (require application, free for all, etc.) acl?
 
 		$result = array();
 

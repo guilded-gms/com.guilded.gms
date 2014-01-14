@@ -3,6 +3,7 @@ namespace gms\data\guild\recruitment\application;
 use gms\data\character\CharacterAction;
 use gms\data\character\CharacterEditor;
 use wcf\data\AbstractDatabaseObjectAction;
+use wcf\data\user\UserEditor;
 use wcf\system\mail\Mail;
 use wcf\system\WCF;
 
@@ -25,7 +26,7 @@ class GuildRecruitmentApplicationAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsCreate
 	 */
-	protected $permissionsCreate = array('user.guild.canApply');
+	protected $permissionsCreate = array('user.guild.canApply'); // @todo permission
 
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
@@ -67,7 +68,7 @@ class GuildRecruitmentApplicationAction extends AbstractDatabaseObjectAction {
 			)));
 			$objectAction->executeAction();
 
-			// send activation mail
+			// send mail
 			$messageData = array(
 				'username' => $recruitmentEditor->getUser()->username,
 				'guildName' => $recruitmentEditor->getGuild()->getTitle(),
@@ -80,6 +81,12 @@ class GuildRecruitmentApplicationAction extends AbstractDatabaseObjectAction {
 				$messageData))
 			);
 			$mail->send();
+
+			// add to user group
+			if ($recruitmentEditor->getGuild()->groupID) {
+				$userEditor = new UserEditor($recruitmentEditor->getUser());
+				$userEditor->addToGroup($recruitmentEditor->getGuild()->groupID);
+			}
 
 			// save affected objectIDs
 			$objectIDs[] = $recruitmentEditor->characterID;
