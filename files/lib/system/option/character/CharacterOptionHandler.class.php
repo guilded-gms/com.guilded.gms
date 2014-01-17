@@ -22,6 +22,11 @@ use wcf\system\option\OptionHandler;
  */
 class CharacterOptionHandler extends OptionHandler {
 	/**
+	 * @see	\wcf\system\option\OptionHandler::$abbreviations
+	 */
+	protected $abbreviations = array('gms');
+
+	/**
 	 * @see	\wcf\system\option\OptionHandler::$cacheClass
 	 */
 	protected $cacheClass = 'gms\system\cache\builder\CharacterOptionCacheBuilder';

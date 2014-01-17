@@ -12,7 +12,7 @@ class GameSelectOptionType extends SelectOptionType implements IGameOptionType {
 	 * template name
 	 * @var    string
 	 */
-	protected $templateName = 'selectOptionType';
+	public $templateName = 'selectOptionType';
 
 	/**
 	 * game object
