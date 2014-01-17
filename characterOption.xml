@@ -1,95 +1,86 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/acpMenu.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<data xmlns="http://www.guilded.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.guilded.eu http://www.guilded.eu/XSD/characterOption.xsd">
 	<import>
-		<acpmenuitem name="gms.acp.menu.link.gms">
-			<parent></parent>
-		</acpmenuitem>
+		<categories>
+			<category name="profile">
+				<showorder>1</showorder>
+			</category>
 
-		<!-- games -->
-		<acpmenuitem name="gms.acp.menu.link.gms.game">
-			<parent>gms.acp.menu.link.gms</parent>
-			<permissions>admin.gms.game.canManage</permissions>
-		</acpmenuitem>
-				
-		<acpmenuitem name="gms.acp.menu.link.gms.game.list">
-			<controller><![CDATA[gms\acp\page\GameListPage]]></controller>
-			<parent>gms.acp.menu.link.gms.game</parent>
-			<showorder>1</showorder>
-		</acpmenuitem>
-		<!-- /games -->
+			<!-- profile -->
+			<category name="profile.general">
+				<parent>profile</parent>
+			</category>
+			<category name="profile.details">
+				<parent>profile</parent>
+			</category>
+			<!-- /profile -->
+		</categories>
 
-		<!-- guilds -->
-		<acpmenuitem name="gms.acp.menu.link.gms.guild">
-			<parent>gms.acp.menu.link.gms</parent>
-			<permissions>admin.gms.guild.canManage</permissions>
-		</acpmenuitem>
-		<acpmenuitem name="gms.acp.menu.link.gms.guild.list">
-			<controller><![CDATA[gms\acp\page\GuildListPage]]></controller>
-			<parent>gms.acp.menu.link.gms.guild</parent>
-			<permissions>admin.gms.guild.canManage</permissions>
-			<showorder>1</showorder>
-		</acpmenuitem>
-		<acpmenuitem name="gms.acp.menu.link.gms.guild.add">
-			<controller><![CDATA[gms\acp\form\GuildAddForm]]></controller>
-			<parent>gms.acp.menu.link.gms.guild</parent>
-			<permissions>admin.gms.guild.canManage</permissions>
-			<showorder>2</showorder>
-		</acpmenuitem>
-		<acpmenuitem name="gms.acp.menu.link.gms.guild.rank">
-			<parent>gms.acp.menu.link.gms.guild</parent>
-			<permissions>admin.gms.guild.canManageRank</permissions>
-			<showorder>3</showorder>
-		</acpmenuitem>
-		<acpmenuitem name="gms.acp.menu.link.gms.guild.rank.list">
-			<controller><![CDATA[gms\acp\page\GuildRankListPage]]></controller>
-			<parent>gms.acp.menu.link.gms.guild.rank</parent>
-			<permissions>admin.gms.guild.canManageRank</permissions>
-			<showorder>1</showorder>
-		</acpmenuitem>
-		<acpmenuitem name="gms.acp.menu.link.gms.guild.rank.add">
-			<controller><![CDATA[gms\acp\form\GuildRankAddForm]]></controller>
-			<parent>gms.acp.menu.link.gms.guild.rank</parent>
-			<permissions>admin.gms.guild.canManageRank</permissions>
-			<showorder>2</showorder>
-		</acpmenuitem>
-		<!-- /guilds -->
+		<options>
+			<!-- system -->
+			<option name="level">
+				<categoryname>profile.general</categoryname>
+				<optiontype>integer</optiontype>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="classes">
+				<categoryname>profile.general</categoryname>
+				<optiontype>gameClassSelect</optiontype>
+				<outputclass>gms\system\option\character\CharacterOptionOutputSelectOptions</outputclass>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="races">
+				<categoryname>profile.general</categoryname>
+				<optiontype>gameRaceSelect</optiontype>
+				<outputclass>gms\system\option\character\CharacterOptionOutputSelectOptions</outputclass>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="roles">
+				<categoryname>profile.general</categoryname>
+				<optiontype>gameRoleSelect</optiontype>
+				<outputclass>gms\system\option\character\CharacterOptionOutputSelectOptions</outputclass>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="guildID">
+				<categoryname>profile.general</categoryname>
+				<optiontype>guildSelect</optiontype>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<!-- /system -->
 
-		<!-- characters -->
-		<acpmenuitem name="gms.acp.menu.link.gms.character">
-			<parent>gms.acp.menu.link.gms</parent>
-			<permissions>admin.gms.character.canManage</permissions>
-		</acpmenuitem>
-
-		<acpmenuitem name="gms.acp.menu.link.gms.character.list">
-			<controller><![CDATA[gms\acp\page\CharacterListPage]]></controller>
-			<parent>gms.acp.menu.link.gms.character</parent>
-			<permissions>admin.gms.character.canManage</permissions>
-			<showorder>1</showorder>
-		</acpmenuitem>
-		<acpmenuitem name="gms.acp.menu.link.gms.character.add">
-			<controller><![CDATA[gms\acp\form\CharacterAddForm]]></controller>
-			<parent>gms.acp.menu.link.gms.character</parent>
-			<permissions>admin.gms.character.canManage</permissions>
-			<showorder>2</showorder>
-		</acpmenuitem>
-		<!-- /characters -->
-
-		<acpmenuitem name="gms.acp.menu.link.gms.event">
-			<parent>gms.acp.menu.link.gms</parent>
-		</acpmenuitem>
-		<acpmenuitem name="gms.acp.menu.link.gms.event.category">
-			<parent>gms.acp.menu.link.gms.event</parent>
-		</acpmenuitem>
-
-		<acpmenuitem name="gms.acp.menu.link.gms.event.category.list">
-			<controller><![CDATA[gms\acp\page\EventCategoryListPage]]></controller>
-			<parent>gms.acp.menu.link.gms.event.category</parent>
-			<showorder>1</showorder>
-		</acpmenuitem>
-		<acpmenuitem name="gms.acp.menu.link.gms.event.category.add">
-			<controller><![CDATA[gms\acp\form\EventCategoryAddForm]]></controller>
-			<parent>gms.acp.menu.link.gms.event.category</parent>
-			<showorder>2</showorder>
-		</acpmenuitem>
+			<!-- details -->
+			<option name="about">
+				<categoryname>profile.details</categoryname>
+				<optiontype>message</optiontype>
+				<outputclass>gms\system\option\character\CharacterOptionOutputMessage</outputclass>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="rankTitle">
+				<categoryname>profile.details</categoryname>
+				<optiontype>text</optiontype>
+				<outputclass>gms\system\option\character\CharacterOptionOutputRankTitle</outputclass>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="gender">
+				<categoryname>profile.details</categoryname>
+				<optiontype>radioButton</optiontype>
+				<outputclass>gms\system\option\character\SelectOptionsCharacterOptionOutput</outputclass>
+				<selectoptions><![CDATA[0:wcf.global.noDeclaration
+1:gms.character.gender.male
+2:gms.character.gender.female]]>
+				</selectoptions>
+				<defaultvalue>0</defaultvalue>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<!-- /details -->
+		</options>
 	</import>
 </data>
