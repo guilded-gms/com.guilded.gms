@@ -22,6 +22,7 @@
 		<acpmenuitem name="gms.acp.menu.link.gms.guild">
 			<parent>gms.acp.menu.link.gms</parent>
 			<permissions>admin.gms.guild.canManage</permissions>
+			<showorder>1</showorder>
 		</acpmenuitem>
 		<acpmenuitem name="gms.acp.menu.link.gms.guild.list">
 			<controller><![CDATA[gms\acp\page\GuildListPage]]></controller>
@@ -38,7 +39,7 @@
 		<acpmenuitem name="gms.acp.menu.link.gms.guild.rank">
 			<parent>gms.acp.menu.link.gms.guild</parent>
 			<permissions>admin.gms.guild.canManageRank</permissions>
-			<showorder>3</showorder>
+			<showorder>2</showorder>
 		</acpmenuitem>
 		<acpmenuitem name="gms.acp.menu.link.gms.guild.rank.list">
 			<controller><![CDATA[gms\acp\page\GuildRankListPage]]></controller>
@@ -50,6 +51,23 @@
 			<controller><![CDATA[gms\acp\form\GuildRankAddForm]]></controller>
 			<parent>gms.acp.menu.link.gms.guild.rank</parent>
 			<permissions>admin.gms.guild.canManageRank</permissions>
+			<showorder>2</showorder>
+		</acpmenuitem>
+		<acpmenuitem name="gms.acp.menu.link.gms.guild.recruitment.tender">
+			<parent>gms.acp.menu.link.gms.guild</parent>
+			<permissions>admin.gms.guild.canManageRecruitment</permissions>
+			<showorder>3</showorder>
+		</acpmenuitem>
+		<acpmenuitem name="gms.acp.menu.link.gms.guild.recruitment.tender.list">
+			<controller><![CDATA[gms\acp\page\GuildTenderListPage]]></controller>
+			<parent>gms.acp.menu.link.gms.guild.recruitment.tender</parent>
+			<permissions>admin.gms.guild.canManageRecruitment</permissions>
+			<showorder>1</showorder>
+		</acpmenuitem>
+		<acpmenuitem name="gms.acp.menu.link.gms.guild.recruitment.tender.add">
+			<controller><![CDATA[gms\acp\form\GuildTenderAddForm]]></controller>
+			<parent>gms.acp.menu.link.gms.guild.recruitment.tender</parent>
+			<permissions>admin.gms.guild.canManageRecruitment</permissions>
 			<showorder>2</showorder>
 		</acpmenuitem>
 		<!-- /guilds -->

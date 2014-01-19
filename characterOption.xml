@@ -26,7 +26,7 @@
 			</option>
 			<option name="classes">
 				<categoryname>profile.general</categoryname>
-				<optiontype>gameClassSelect</optiontype>
+				<optiontype>gameClassificationSelect</optiontype>
 				<outputclass>gms\system\option\character\CharacterOptionOutputSelectOptions</outputclass>
 				<visible>15</visible>
 				<editable>3</editable>

@@ -183,8 +183,10 @@ class Character extends GMSDatabaseObject implements IRouteController {
 	 */
 	public function getClassList() {
 		if ($this->classList === null) {
+			$classIDs = explode(',', $this->classes);
+
 			$this->classList = new GameClassificationList();
-			$this->classList->getConditionBuilder()->add('classificationID IN (?)', array(1)); // @todo fix
+			$this->classList->getConditionBuilder()->add('classificationID IN (?)', array($classIDs));
 			$this->classList->readObjects();
 		}
 

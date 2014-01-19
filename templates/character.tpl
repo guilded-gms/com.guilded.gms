@@ -39,11 +39,11 @@
 <header class="boxHeadline characterProfileHeadline characterProfile">
 	<h1><a href="{link controller='Character' object=$character application='gms'}{/link}">{$character->getTitle()}</a></h1>
 
-	<p><a href="{link controller='User' id=$character->userID title=$character->getUserProfile()->username}{/link}" class="userLink" data-user-id="{@$character->userID}">{$character->getUserProfile()->username}</a> - {@$character->getGame()->getTitle()}</p>
+	<p>{if $character->getGuild() !== null}<a href="{link controller='Guild' object=$character->getGuild()}{/link}">{$character->getGuild()->getTitle()}</a> - {/if}{@$character->getGame()->getTitle()}</p>
 
 	<nav class="jsMobileNavigation buttonGroupNavigation">
 		<ul class="buttonGroup">{*
-			*}{if $character->canEdit()}<li><a class="button" href="{link controller='CharacterEdit' id=$character->characterID}{/link}" title="{lang}gms.character.edit{/lang}"><span class="icon icon16 icon-pencil"></span> <span>{lang}wcf.global.button.edit{/lang}</span></a></li>{/if}{*
+			*}{if $character->canEdit()}<li><a class="button" href="{link controller='CharacterEdit' id=$character->characterID application='gms'}{/link}" title="{lang}gms.character.edit{/lang}"><span class="icon icon16 icon-pencil"></span> <span>{lang}wcf.global.button.edit{/lang}</span></a></li>{/if}{*
 			*}{event name='buttons'}{*
 		*}</ul>
 	</nav>

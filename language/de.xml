@@ -7,6 +7,7 @@
 	<category name="gms.header.menu">
 		<item name="gms.header.menu.index"><![CDATA[Startseite]]></item>
 		<item name="gms.header.menu.guild"><![CDATA[Gilde]]></item>
+		<item name="gms.header.menu.calendar"><![CDATA[Kalender]]></item>
 	</category>
 
 	<category name="gms.game">
@@ -91,6 +92,10 @@
 		<item name="gms.index.stats"><![CDATA[Statistik]]></item>
 		<item name="gms.index.stats.detail"><![CDATA[@todo]]></item>
 		<item name="gms.index.copyright"><![CDATA[<a href="http://www.guilded.eu/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if}><strong>Guilded{if SHOW_VERSION_NUMBER} {@PACKAGE_VERSION}{/if}</strong>, entwickelt vom <strong>Guilded Team</strong></a>]]></item>
+	</category>
+
+	<category name="gms.calendar">
+		<item name="gms.calendar.title"><![CDATA[Kalender]]></item>
 	</category>
 
 	<category name="wcf.user.option">

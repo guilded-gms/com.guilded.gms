@@ -2,6 +2,7 @@
 namespace gms\system\option;
 use gms\data\game\classification\GameClassificationList;
 use gms\data\game\Game;
+use wcf\data\option\Option;
 use wcf\system\option\SelectOptionType;
 
 /**
@@ -14,9 +15,26 @@ use wcf\system\option\SelectOptionType;
  * @subpackage	system.option
  * @category	Guilded 2.0
  *
- * @todo handle output by $game->maxClasses
-*/
-class GameClassSelectOptionType extends GameSelectOptionType {
+ * @todo show multi-checkbox (check maxClasses)
+ */
+class GameClassificationSelectOptionType extends GameSelectOptionType {
+	/**
+	 * @see	\wcf\system\option\IOptionType::validate()
+	 */
+	public function validate(Option $option, $newValue) {
+		if (!is_array($newValue)) $newValue = array();
+		$options = $option->parseSelectOptions();
+		foreach ($newValue as $value) {
+			if (!isset($options[$value])) {
+				throw new UserInputException($option->optionName, 'validationFailed');
+			}
+		}
+
+		if (count($newValue) > $this->game->maxClasses) {
+			throw new UserInputException($option->optionName, 'tooMuch');
+		}
+	}
+
 	/**
 	 * Get possible select-options.
 	 *

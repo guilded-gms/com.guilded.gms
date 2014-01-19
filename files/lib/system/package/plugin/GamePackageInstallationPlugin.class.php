@@ -13,8 +13,6 @@ use wcf\system\WCF;
  * @package	com.guilded.gms
  * @subpackage	system.package.plugin
  * @category	Guilded 2.0
- *
- * @todo implement other pip's (race, class, faction, etc.)
  */
 class GamePackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin {
 	/**

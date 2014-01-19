@@ -22,7 +22,7 @@ class CalendarMenuItemAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsCreate
 	 */
-	protected $permissionsCreate = array('admin.gms.event.canManageCalendar'); // @todo permissions
+	protected $permissionsCreate = array('admin.gms.event.canManageCalendar');
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsDelete

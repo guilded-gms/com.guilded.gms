@@ -26,17 +26,17 @@ class GuildRecruitmentApplicationAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsCreate
 	 */
-	protected $permissionsCreate = array('user.guild.canApply'); // @todo permission
+	protected $permissionsCreate = array('user.gms.guild.canApply');
 
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
 	 */
-	protected $permissionsDelete = array('mod.guild.recruitment.canManage');
+	protected $permissionsDelete = array('mod.gms.guild.canManageRecruitment');
 
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsUpdate
 	 */
-	protected $permissionsUpdate = array('mod.guild.recruitment.canManage');
+	protected $permissionsUpdate = array('mod.gms.guild.canManageRecruitment');
 
 	/**
 	 * Validates accept.
