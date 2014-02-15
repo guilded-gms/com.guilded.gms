@@ -27,11 +27,14 @@ class GuildSelectOptionType extends GameSelectOptionType {
 	 */
 	public function parseSelectOptions(){
 		// @todo handle guild select mode (require application, free for all, etc.) acl?
-
 		$result = array();
 
 		$guildList = new GuildList();
-		$guildList->getConditionBuilder()->add('gameID = ?', array($this->game->gameID));
+
+		if ($this->game !== null) {
+			$guildList->getConditionBuilder()->add('gameID = ?', array($this->game->gameID));
+		}
+
 		$guildList->readObjects();
 
 		foreach ($guildList->getObjects() as $guild) {

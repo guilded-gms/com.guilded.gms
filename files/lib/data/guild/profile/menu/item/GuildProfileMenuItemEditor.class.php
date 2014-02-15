@@ -1,8 +1,8 @@
 <?php
 namespace gms\data\guild\profile\menu\item;
+use gms\system\cache\builder\GuildProfileMenuCacheBuilder;
 use wcf\data\DatabaseObjectEditor;
 use wcf\data\IEditableCachedObject;
-use wcf\system\cache\builder\GuildProfileMenuCacheBuilder;
 use wcf\system\WCF;
 
 /**

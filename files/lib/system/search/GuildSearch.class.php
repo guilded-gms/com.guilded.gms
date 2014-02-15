@@ -1,6 +1,7 @@
 <?php
 namespace gms\system\search;
 use gms\data\guild\SearchResultGuildList;
+use wcf\system\search\AbstractSearchableObjectType;
 
 class GuildSearch extends AbstractSearchableObjectType {
 	/**

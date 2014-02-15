@@ -1,7 +1,9 @@
 <?php
 namespace gms\data\character;
+use gms\system\character\activity\CharacterActivityHandler;
 use wcf\data\AbstractDatabaseObjectAction;
 use wcf\system\database\util\PreparedStatementConditionBuilder;
+use wcf\system\exception\PermissionDeniedException;
 use wcf\system\exception\ValidateActionException;
 use wcf\system\WCF;
 
@@ -36,8 +38,61 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 	 */
 	protected $permissionsUpdate = array('user.gms.character.canManage');
 
-	// @todo check canEdit
-	// @todo check canDelete
+	/**
+	 * @see	\wcf\data\AbstractDatabaseObjectAction::create()
+	 */
+	public function create() {
+		$character = parent::create();
+		$characterEditor = new CharacterEditor($character);
+
+		// updates user options
+		if (isset($this->parameters['options'])) {
+			$characterEditor->updateOptions($this->parameters['options']);
+		}
+
+		return $character;
+	}
+
+	/**
+	 * @see	\wcf\data\AbstractDatabaseObjectAction::update()
+	 */
+	public function update() {
+		parent::update();
+
+		$options = (isset($this->parameters['options'])) ? $this->parameters['options'] : array();
+
+		foreach ($this->objects as $objectEditor) {
+			if (!empty($options)) {
+				$objectEditor->updateOptions($options);
+			}
+		}
+	}
+
+	/**
+	 * @see	\wcf\data\AbstractDatabaseObjectAction::validateUpdate()
+	 */
+	public function validateUpdate() {
+		parent::validateUpdate();
+
+		foreach ($this->objects as $objectEditor) {
+			if ($objectEditor->userID != WCF::getUser()->userID && !WCF::getSession()->getPermission('mod.gms.character.canManage')) {
+				throw new PermissionDeniedException();
+			}
+		}
+	}
+
+	/**
+	 * @see	\wcf\data\AbstractDatabaseObjectAction::validateDelete()
+	 */
+	public function validateDelete() {
+		parent::validateDelete();
+
+		foreach ($this->objects as $objectEditor) {
+			if ($objectEditor->userID != WCF::getUser()->userID || !WCF::getSession()->getPermission('mod.gms.character.canManage')) {
+				throw new PermissionDeniedException();
+			}
+		}
+	}
 
 	/**
 	 * Validates parameters to search for characters and -groups.
@@ -97,7 +152,7 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 	 * Validates execution of setting character as primary.
 	 */
 	public function validateSetPrimary() {
-		parent::validateUpdate();
+		$this->validateUpdate();
 	}
 
 	/**
@@ -117,7 +172,7 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 	 * Validates getProviderData.
 	 */
 	public function validateGetProviderData() {
-		parent::validateUpdate();
+		$this->validateUpdate();
 	}
 
 	/**
@@ -146,7 +201,7 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 	 * Validates synchronization.
 	 */
 	public function validateSynchronize() {
-		parent::validateUpdate();
+		$this->validateUpdate();
 	}
 
 	/**
@@ -190,7 +245,7 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 	 * Validates guild assign.
 	 */
 	public function validateAssignToGuild() {
-		parent::update();
+		$this->validateUpdate();
 	}
 
 	/**
@@ -211,7 +266,9 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 				'guildID' => $this->parameters['data']['guildID']
 			));
 
-			// @todo write activity (character/guild)
+			// create character activity
+			CharacterActivityHandler::getInstance()->fireEvent('gms.character.event.guild.join', $objectEditor->characterID, $objectEditor->getDecoratedObject());
+
 
 			// save affected objectIDs
 			$objectIDs[] = $objectEditor->characterID;
@@ -245,7 +302,8 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 				'guildID' => null
 			));
 
-			// @todo write activity (character/guild)
+			// write activity
+			CharacterActivityHandler::getInstance()->fireEvent('gms.character.event.guild.leave', $objectEditor->characterID, $objectEditor->getDecoratedObject());
 
 			// save affected objectIDs
 			$objectIDs[] = $objectEditor->characterID;

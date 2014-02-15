@@ -3,6 +3,8 @@ namespace gms\data\character\profile\menu\item;
 use gms\data\character\Character;
 use gms\system\menu\character\profile\CharacterProfileMenu;
 use wcf\data\AbstractDatabaseObjectAction;
+use wcf\system\exception\IllegalLinkException;
+use wcf\system\exception\PermissionDeniedException;
 
 /**
  * Executes character profile menu item-related actions.

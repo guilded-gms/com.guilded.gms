@@ -1,7 +1,7 @@
 <?php
 namespace gms\system\event\credit;
-use wcf\data\event\Event;
-use wcf\data\ICreditableObject;
+use gms\data\ICreditableObject;
+use wcf\system\WCF;
 
 /**
  * Implementation of CreditType for events.

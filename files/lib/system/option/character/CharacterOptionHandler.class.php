@@ -6,7 +6,6 @@ use gms\data\game\Game;
 use gms\system\option\IGameOptionType;
 use wcf\data\option\category\OptionCategory;
 use wcf\data\option\Option;
-use wcf\system\exception\CharacterInputException;
 use wcf\system\exception\UserInputException;
 use wcf\system\option\OptionHandler;
 

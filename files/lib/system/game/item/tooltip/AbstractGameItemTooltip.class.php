@@ -12,7 +12,7 @@ abstract class AbstractGameItemTooltip implements IGameItemTooltip {
 
 	/**
 	 * item object
-	 * @var gms\data\game\item\GameItem
+	 * @var \gms\data\game\item\GameItem
 	 */
 	protected $item = null;
 	

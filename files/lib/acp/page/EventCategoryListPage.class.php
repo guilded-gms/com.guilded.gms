@@ -1,5 +1,6 @@
 <?php
 namespace gms\acp\page;
+use wcf\acp\page\AbstractCategoryListPage;
 
 /**
  * Event Categories.

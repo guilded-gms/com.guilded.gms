@@ -2,6 +2,8 @@
 namespace gms\system\menu\user\profile\content;
 use gms\data\character\CharacterList;
 use gms\data\game\GameList;
+use wcf\data\user\User;
+use wcf\system\menu\user\profile\content\IUserProfileMenuContent;
 use wcf\system\SingletonFactory;
 use wcf\system\WCF;
 

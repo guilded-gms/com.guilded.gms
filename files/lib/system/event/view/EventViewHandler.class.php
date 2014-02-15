@@ -1,7 +1,10 @@
 <?php
 namespace gms\system\event\view;
 
-class EventViewHandler extends SingleFactory {
+use wcf\data\object\type\ObjectTypeCache;
+use wcf\system\SingletonFactory;
+
+class EventViewHandler extends SingletonFactory {
 	/**
 	 * list of available object types
 	 * @var array

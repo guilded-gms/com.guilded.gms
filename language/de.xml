@@ -24,7 +24,7 @@
 		<item name="gms.acp.game.list"><![CDATA[Spiele auflisten]]></item>
 		<item name="gms.acp.game.add"><![CDATA[Spiel hinzufügen]]></item>
 		<item name="gms.acp.game.edit"><![CDATA[Spiel bearbeiten]]></item>
-		<item name="gms.acp.game.delete.sure"><![CDATA[Wollen Sie das Spiel @todo NAME wirklich löschen?]]></item>
+		<item name="gms.acp.game.delete.sure"><![CDATA[Wollen Sie das Spiel @todo NAME wirklich löschen?]]></item> <!-- @todo -->
 	</category>
 
 	<category name="gms.acp.guild">
@@ -34,7 +34,8 @@
 		<item name="gms.acp.guild.name"><![CDATA[Bezeichnung]]></item>
 		<item name="gms.acp.guild.gameID"><![CDATA[Spiel]]></item>
 		<item name="gms.acp.guild.delete.sure"><![CDATA[Wollen Sie die Gilde "" wirklich löschen?]]></item> <!-- @todo -->
-		<item name="gms.acp.guild.isPublic"><![CDATA[Gilde aktivieren]]></item> <!-- @todo better description -->
+		<item name="gms.acp.guild.isPublic"><![CDATA[Inhalte veröffentlichen]]></item>
+		<item name="gms.acp.guild.isPublic.description"><![CDATA[Setzen Sie diese Option, wenn die Informationen (Charaktere, Rekruitierung, usw.) der Gilde auf der Seite angezeigt werden soll.]]></item>
 	</category>
 
 	<category name="gms.acp.menu">
@@ -59,7 +60,7 @@
 		<item name="gms.character.edit"><![CDATA[Charakter bearbeiten]]></item>
 		<item name="gms.character.profile"><![CDATA[Charakter-Profil]]></item>
 		<item name="gms.character.characters"><![CDATA[Charaktere]]></item>
-		<item name="gms.character.noPrimary"><![CDATA[Charakter wählen]]></item>
+		<item name="gms.character.noPrimary"><![CDATA[(Charakter wählen)]]></item>
 		<item name="gms.character.information"><![CDATA[Information]]></item>
 		<item name="gms.character.characterName"><![CDATA[Name]]></item>
 		<item name="gms.character.characterName.description"><![CDATA[Wählen Sie das Spiel aus und geben Sie den Namen des Charakters an.]]></item>

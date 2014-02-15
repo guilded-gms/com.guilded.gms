@@ -7,7 +7,8 @@ use gms\data\game\item\GameItemList;
 use gms\data\game\race\GameRaceList;
 use gms\data\game\role\GameRoleList;
 use gms\data\GMSDatabaseObject;
-use wcf\system\game\provider\GameProviderHandler;
+use gms\system\game\provider\GameProviderHandler;
+use gms\system\GMSCore;
 use wcf\system\request\IRouteController;
 use wcf\system\WCF;
 
@@ -273,9 +274,9 @@ class Game extends GMSDatabaseObject implements IRouteController {
 	 * @return	string
 	 */
 	public function getImageTag($size = 48) {
-		$filename = 'icon/' . $this->name . '/' . $this->name . '.png';
-		if (file_exists(WCF_DIR.$filename)) {
-			return '<img src="' . WCF::getPath().$filename . '" style="width: '.$size.'px; height: '.$size.'px" alt="' . $this->getTitle() . '" />';
+		$iconPath = $this->getIcon(32);
+		if (!empty($iconPath)) {
+			return '<img src="' . $iconPath . '" style="width: '.$size.'px; height: '.$size.'px" alt="' . $this->getTitle() . '" />';
 		}
 
 		return '';

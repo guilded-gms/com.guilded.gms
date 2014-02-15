@@ -1,9 +1,10 @@
 <?php
 namespace gms\data\guild\profile\menu\item;
 use gms\data\guild\Guild;
+use gms\system\menu\guild\profile\GuildProfileMenu;
 use wcf\data\AbstractDatabaseObjectAction;
-use wcf\system\exception\GuildInputException;
-use wcf\system\menu\guild\profile\GuildProfileMenu;
+use wcf\system\exception\IllegalLinkException;
+use wcf\system\exception\PermissionDeniedException;
 
 /**
  * Executes guild profile menu item-related actions.

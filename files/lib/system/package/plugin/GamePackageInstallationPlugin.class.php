@@ -1,5 +1,6 @@
 <?php
 namespace gms\system\package\plugin;
+use gms\data\guild\GuildEditor;
 use wcf\data\package\Package;
 use wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin;
 use wcf\system\WCF;

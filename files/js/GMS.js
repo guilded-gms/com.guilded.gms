@@ -73,8 +73,14 @@ GMS.Character.OptionHandler = Class.extend({
 	 */
 	_values: null,
 
+	/**
+	 * Options container.
+	 */
 	_container: null,
 
+	/**
+	 * Loaded templates.
+	 */
 	_templates: { },
 
 	/**
@@ -167,6 +173,9 @@ GMS.Character.OptionHandler = Class.extend({
 		}
 
 		WCF.Dropdown.registerCallback($wrapper.wcfIdentify(), $.proxy(this._handleAction, this));
+
+		// create hidden input
+		this._hiddenInput = $('<input type="hidden" id="gameID" name="gameID" value="' + this._gameID + '" />').appendTo($wrapper);
 	},
 
 	/**
@@ -229,9 +238,11 @@ GMS.Character.OptionHandler = Class.extend({
 			this._element.blur().focus();
 		}
 
-		this._updateContainer();
+		// update hidden input
+		this._hiddenInput.val($button.data('gameID'));
 
-		// @todo update hidden input with current gameID
+		// load game options
+		this._updateContainer();
 	},
 
 	/**
@@ -345,7 +356,114 @@ GMS.Character.ProfilePreview = WCF.Popover.extend({
 	}
 });
 
-// @todo Character.TabMenu
+/**
+ * Provides methods to load tab menu content upon request.
+ */
+GMS.Character.TabMenu = Class.extend({
+	/**
+	 * list of containers
+	 * @var	object
+	 */
+	_hasContent: { },
+
+	/**
+	 * profile content
+	 * @var	jQuery
+	 */
+	_profileContent: null,
+
+	/**
+	 * action proxy
+	 * @var	WCF.Action.Proxy
+	 */
+	_proxy: null,
+
+	/**
+	 * target user id
+	 * @var	integer
+	 */
+	_userID: 0,
+
+	/**
+	 * Initializes the tab menu loader.
+	 *
+	 * @param	integer		userID
+	 */
+	init: function(userID) {
+		this._profileContent = $('#profileContent');
+		this._userID = userID;
+
+		var $activeMenuItem = this._profileContent.data('active');
+		var $enableProxy = false;
+
+		// fetch content state
+		this._profileContent.find('div.tabMenuContent').each($.proxy(function(index, container) {
+			var $containerID = $(container).wcfIdentify();
+
+			if ($activeMenuItem === $containerID) {
+				this._hasContent[$containerID] = true;
+			}
+			else {
+				this._hasContent[$containerID] = false;
+				$enableProxy = true;
+			}
+		}, this));
+
+		// enable loader if at least one container is empty
+		if ($enableProxy) {
+			this._proxy = new WCF.Action.Proxy({
+				success: $.proxy(this._success, this)
+			});
+
+			this._profileContent.bind('wcftabsbeforeactivate', $.proxy(this._loadContent, this));
+		}
+	},
+
+	/**
+	 * Prepares to load content once tabs are being switched.
+	 *
+	 * @param	object		event
+	 * @param	object		ui
+	 */
+	_loadContent: function(event, ui) {
+		var $panel = $(ui.newPanel);
+		var $containerID = $panel.attr('id');
+
+		if (!this._hasContent[$containerID]) {
+			this._proxy.setOption('data', {
+				actionName: 'getContent',
+				className: 'wcf\\data\\character\\menu\\item\\CharacterMenuItemAction',
+				parameters: {
+					data: {
+						containerID: $containerID,
+						menuItem: $panel.data('menuItem'),
+						userID: this._userID
+					}
+				}
+			});
+			this._proxy.sendRequest();
+		}
+	},
+
+	/**
+	 * Shows previously requested content.
+	 *
+	 * @param	object		data
+	 * @param	string		textStatus
+	 * @param	jQuery		jqXHR
+	 */
+	_success: function(data, textStatus, jqXHR) {
+		var $containerID = data.returnValues.containerID;
+		this._hasContent[$containerID] = true;
+
+		// insert content
+		var $content = this._profileContent.find('#' + $containerID);
+		$('<div>' + data.returnValues.template + '</div>').hide().appendTo($content);
+
+		// slide in content
+		$content.children('div').wcfBlindIn();
+	}
+});
 
 /**
  * Namespace for GMS.Game
@@ -481,4 +599,111 @@ GMS.Guild.ProfilePreview = WCF.Popover.extend({
 	}
 });
 
-// @todo Guild.TabMenu
+/**
+ * Provides methods to load tab menu content upon request.
+ */
+GMS.Guild.TabMenu = Class.extend({
+	/**
+	 * list of containers
+	 * @var	object
+	 */
+	_hasContent: { },
+
+	/**
+	 * profile content
+	 * @var	jQuery
+	 */
+	_profileContent: null,
+
+	/**
+	 * action proxy
+	 * @var	WCF.Action.Proxy
+	 */
+	_proxy: null,
+
+	/**
+	 * target user id
+	 * @var	integer
+	 */
+	_userID: 0,
+
+	/**
+	 * Initializes the tab menu loader.
+	 *
+	 * @param	integer		userID
+	 */
+	init: function(userID) {
+		this._profileContent = $('#profileContent');
+		this._userID = userID;
+
+		var $activeMenuItem = this._profileContent.data('active');
+		var $enableProxy = false;
+
+		// fetch content state
+		this._profileContent.find('div.tabMenuContent').each($.proxy(function(index, container) {
+			var $containerID = $(container).wcfIdentify();
+
+			if ($activeMenuItem === $containerID) {
+				this._hasContent[$containerID] = true;
+			}
+			else {
+				this._hasContent[$containerID] = false;
+				$enableProxy = true;
+			}
+		}, this));
+
+		// enable loader if at least one container is empty
+		if ($enableProxy) {
+			this._proxy = new WCF.Action.Proxy({
+				success: $.proxy(this._success, this)
+			});
+
+			this._profileContent.bind('wcftabsbeforeactivate', $.proxy(this._loadContent, this));
+		}
+	},
+
+	/**
+	 * Prepares to load content once tabs are being switched.
+	 *
+	 * @param	object		event
+	 * @param	object		ui
+	 */
+	_loadContent: function(event, ui) {
+		var $panel = $(ui.newPanel);
+		var $containerID = $panel.attr('id');
+
+		if (!this._hasContent[$containerID]) {
+			this._proxy.setOption('data', {
+				actionName: 'getContent',
+				className: 'wcf\\data\\guild\\menu\\item\\GuildMenuItemAction',
+				parameters: {
+					data: {
+						containerID: $containerID,
+						menuItem: $panel.data('menuItem'),
+						userID: this._userID
+					}
+				}
+			});
+			this._proxy.sendRequest();
+		}
+	},
+
+	/**
+	 * Shows previously requested content.
+	 *
+	 * @param	object		data
+	 * @param	string		textStatus
+	 * @param	jQuery		jqXHR
+	 */
+	_success: function(data, textStatus, jqXHR) {
+		var $containerID = data.returnValues.containerID;
+		this._hasContent[$containerID] = true;
+
+		// insert content
+		var $content = this._profileContent.find('#' + $containerID);
+		$('<div>' + data.returnValues.template + '</div>').hide().appendTo($content);
+
+		// slide in content
+		$content.children('div').wcfBlindIn();
+	}
+});

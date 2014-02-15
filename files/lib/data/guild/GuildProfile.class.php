@@ -6,6 +6,7 @@ use wcf\data\DatabaseObjectDecorator;
 use wcf\system\breadcrumb\Breadcrumb;
 use wcf\system\breadcrumb\IBreadcrumbProvider;
 use wcf\system\request\LinkHandler;
+use wcf\util\StringUtil;
 
 /**
  * Decorates the guild object and provides functions to retrieve data for guild profiles.

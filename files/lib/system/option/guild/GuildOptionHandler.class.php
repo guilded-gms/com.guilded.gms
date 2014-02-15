@@ -3,9 +3,9 @@ namespace gms\system\option\guild;
 use gms\data\game\Game;
 use gms\data\guild\option\ViewableGuildOption;
 use gms\data\guild\guild;
+use gms\system\option\IGameOptionType;
 use wcf\data\option\category\OptionCategory;
 use wcf\data\option\Option;
-use wcf\system\exception\GuildInputException;
 use wcf\system\exception\UserInputException;
 use wcf\system\option\OptionHandler;
 

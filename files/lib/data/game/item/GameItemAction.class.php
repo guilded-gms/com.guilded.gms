@@ -1,7 +1,8 @@
 <?php
 namespace gms\data\game\item;
+use gms\system\game\GameHandler;
 use wcf\data\AbstractDatabaseObjectAction;
-use wcf\system\game\GameHandler;
+use wcf\system\exception\UserInputException;
 
 class GameItemAction extends AbstractDatabaseObjectAction {
 	/**

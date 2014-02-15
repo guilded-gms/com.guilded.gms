@@ -1,6 +1,8 @@
 <?php
 namespace gms\system\event\view;
 
+use wcf\system\WCF;
+
 abstract class AbstractEventView implements IEventView {
 	/**
 	 * template name for output

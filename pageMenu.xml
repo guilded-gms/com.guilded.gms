@@ -10,7 +10,7 @@
 			<controller><![CDATA[gms\page\Calendar]]></controller>
 			<position>header</position>
 			<permissions>user.gms.event.canViewCalendar</permissions>
-			<!-- @todo provider for new events -->
+			<classname>gms\system\menu\page\CalendarPageMenuItemProvider</classname>
 		</pagemenuitem>
 	</import>
 </data>

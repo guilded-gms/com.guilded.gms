@@ -1,6 +1,7 @@
 <?php
 namespace gms\system\search;
 use gms\data\character\SearchResultCharacterList;
+use wcf\system\search\AbstractSearchableObjectType;
 
 class CharacterSearch extends AbstractSearchableObjectType {
 	/**

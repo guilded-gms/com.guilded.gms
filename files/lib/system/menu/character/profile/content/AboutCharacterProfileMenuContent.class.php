@@ -21,7 +21,7 @@ class AboutCharacterProfileMenuContent extends SingletonFactory implements IChar
 	
 	/**
 	 * character option handler object
-	 * @var	\wcf\system\option\character\CharacterOptionHandler
+	 * @var	\gms\system\option\character\CharacterOptionHandler
 	 */
 	public $optionHandler = null;
 	

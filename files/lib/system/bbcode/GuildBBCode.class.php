@@ -1,6 +1,8 @@
 <?php
 namespace gms\system\bbcode;
 use gms\data\guild\Guild;
+use wcf\system\bbcode\AbstractBBCode;
+use wcf\system\bbcode\BBCodeParser;
 use wcf\system\WCF;
 
 /**

@@ -2,6 +2,7 @@
 namespace gms\data\character;
 use gms\data\game\classification\GameClassificationList;
 use gms\data\game\Game;
+use gms\data\game\race\GameRaceList;
 use gms\data\guild\rank\GuildRank;
 use gms\data\guild\Guild;
 use gms\data\GMSDatabaseObject;
@@ -48,6 +49,12 @@ class Character extends GMSDatabaseObject implements IRouteController {
 	 * @var \gms\data\game\classification\GameClassificationList
 	 */
 	protected $classList = null;
+
+	/**
+	 * list of races
+	 * @var \gms\data\game\race\GameRaceList
+	 */
+	protected $raceList = null;
 
 	/**
 	 * Guild object
@@ -177,6 +184,23 @@ class Character extends GMSDatabaseObject implements IRouteController {
 	}
 
 	/**
+	 * Returns GameRaceList object
+	 *
+	 * @return \gms\data\game\race\GameRaceList
+	 */
+	public function getRaceList() {
+		if ($this->raceList === null) {
+			$raceIDs = explode(',', $this->races);
+
+			$this->raceList = new GameRaceList();
+			$this->raceList->getConditionBuilder()->add('raceID IN (?)', array($raceIDs));
+			$this->raceList->readObjects();
+		}
+
+		return $this->raceList;
+	}
+
+	/**
 	 * Returns GameClassificationList object
 	 *
 	 * @return \gms\data\game\classification\GameClassificationList
@@ -200,6 +224,15 @@ class Character extends GMSDatabaseObject implements IRouteController {
 	 */
 	public function getPrimaryClass() {
 		return $this->getClassList()->current();
+	}
+
+	/**
+	 * Returns primary race of character.
+	 *
+	 * @return	\gms\data\game\race\GameRaceList
+	 */
+	public function getPrimaryRace() {
+		return $this->getRaceList()->current();
 	}
 
 	/**

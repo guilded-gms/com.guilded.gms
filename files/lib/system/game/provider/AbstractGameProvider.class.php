@@ -1,5 +1,6 @@
 <?php
 namespace gms\system\game\provider;
+use wcf\util\FileUtil;
 use wcf\util\HTTPRequest;
 use wcf\util\JSON;
 

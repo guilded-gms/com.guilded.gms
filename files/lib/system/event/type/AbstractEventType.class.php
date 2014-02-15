@@ -1,6 +1,7 @@
 <?php
 namespace gms\system\event\type;
 use gms\data\event\EventList;
+use wcf\data\object\type\AbstractObjectTypeProcessor;
 
 /**
  * Every EventType should inherit by this abstract implementation.

@@ -58,7 +58,7 @@ class CreditHandler extends SingletonFactory {
 	 * 
 	 * @param	integer	$objectTypeID
 	 * @param	integer	$objectID
-	 * @return	gms\data\credit\Credit
+	 * @return	\gms\data\credit\Credit
 	 */
 	public function getCreditsByID($objectTypeID, $objectID) {
 		if (isset($this->creditIDs[$objectTypeID][$objectID])) {
@@ -72,7 +72,7 @@ class CreditHandler extends SingletonFactory {
 	 * Gets the object type with the given id.
 	 * 
 	 * @param	integer	$objectTypeID
-	 * @return	wcf\data\object\type\ObjectType
+	 * @return	\wcf\data\object\type\ObjectType
 	 */
 	public function getObjectType($objectTypeID) {
 		if (isset($this->objectTypeIDs[$objectTypeID])) {
@@ -86,7 +86,7 @@ class CreditHandler extends SingletonFactory {
 	 * Gets the object type with the given name.
 	 * 
 	 * @param	string	$objectTypeName
-	 * @return	wcf\data\object\type\ObjectType
+	 * @return	\wcf\data\object\type\ObjectType
 	 */
 	public function getObjectTypeByName($objectTypeName) {
 		if (isset($this->objectTypes[$objectTypeName])) {
@@ -97,7 +97,7 @@ class CreditHandler extends SingletonFactory {
 	}
 
 	/**
-	 * @see	wcf\system\SingletonFactory::init()
+	 * @see	\wcf\system\SingletonFactory::init()
 	 */
 	protected function init() {
 		$this->objectTypes = ObjectTypeCache::getInstance()->getObjectTypes('com.guilded.gmsableObject');
@@ -122,7 +122,7 @@ class CreditHandler extends SingletonFactory {
 	/**
 	 * Returns a list of object types
 	 * 
-	 * @return	array<wcf\data\object\type\ObjectType>
+	 * @return	array<\wcf\data\object\type\ObjectType>
 	 */
 	public function getObjectTypes() {
 		return $this->objectTypes;

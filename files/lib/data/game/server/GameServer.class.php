@@ -3,6 +3,7 @@ namespace gms\data\game\server;
 use gms\data\GMSDatabaseObject;
 use gms\data\game\Game;
 use wcf\data\ITitledObject;
+use wcf\system\WCF;
 
 /**
  * Represents a game server.

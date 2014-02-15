@@ -12,4 +12,5 @@ class ListEventView extends AbstractEventView {
 
 		//$this->getEventType()->getEventList()->getConditionBuilder()->add('eventTypeID = ?', '12345');
 	}
+
 }

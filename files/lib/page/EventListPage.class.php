@@ -1,7 +1,7 @@
 <?php
 namespace gms\page;
+use gms\system\event\view\EventViewHandler;
 use wcf\page\SortablePage;
-use wcf\system\event\view\EventViewHandler;
 use wcf\system\WCF;
 
 /**

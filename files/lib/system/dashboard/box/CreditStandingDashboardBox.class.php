@@ -3,7 +3,7 @@ namespace gms\system\dashboard\box;
 use gms\data\credit\CreditList;
 use wcf\data\dashboard\box\DashboardBox;
 use wcf\page\IPage;
-use wcf\system\dashboard\box\AbstractDashboardBoxSidebar;
+use wcf\system\dashboard\box\AbstractSidebarDashboardBox;
 use wcf\system\WCF;
 
 /**
@@ -16,10 +16,10 @@ use wcf\system\WCF;
  * @subpackage	system.dashboard.box
  * @category	Guilded 2.0
  */
-class CreditStandingDashboardBox extends AbstractDashboardBoxSidebar {
+class CreditStandingDashboardBox extends AbstractSidebarDashboardBox {
 	/**
 	 * credit object type list
-	 * @var	gms\data\credit\Credit
+	 * @var	gms\data\credit\type\Credit
 	 */
 	public $creditTypeList = null;
 	

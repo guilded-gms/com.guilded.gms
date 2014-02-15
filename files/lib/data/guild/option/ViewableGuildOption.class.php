@@ -1,7 +1,6 @@
 <?php
 namespace gms\data\guild\option;
 use gms\data\guild\Guild;
-use gms\system\option\guild\IGuildOptionOutputContactInformation;
 use wcf\data\DatabaseObjectDecorator;
 use wcf\system\exception\SystemException;
 use wcf\util\ClassUtil;
@@ -54,11 +53,7 @@ class ViewableGuildOption extends DatabaseObjectDecorator {
 		// use output class
 		if ($this->outputClass) {
 			$outputObj = $this->getOutputObject();
-			
-			if ($outputObj instanceof IGuildOptionOutputContactInformation) {
-				$this->outputData = $outputObj->getOutputData($guild, $this->getDecoratedObject(), $optionValue);
-			}
-			
+
 			if ($outputType == 'normal') $this->optionValue = $outputObj->getOutput($guild, $this->getDecoratedObject(), $optionValue);
 			else if ($outputType == 'short') $this->optionValue = $outputObj->getShortOutput($guild, $this->getDecoratedObject(), $optionValue);
 			else $outputType = $outputObj->getMediumOutput($guild, $this->getDecoratedObject(), $optionValue);

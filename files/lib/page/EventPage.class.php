@@ -1,6 +1,7 @@
 <?php
 namespace gms\page;
 use gms\data\event\Event;
+use wcf\page\AbstractPage;
 use wcf\system\comment\CommentHandler;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\WCF;

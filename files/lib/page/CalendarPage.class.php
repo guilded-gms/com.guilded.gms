@@ -1,5 +1,7 @@
 <?php
 namespace gms\page;
+use gms\system\menu\calendar\CalendarMenu;
+use wcf\page\AbstractPage;
 use wcf\system\WCF;
 
 /**

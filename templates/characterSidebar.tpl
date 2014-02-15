@@ -11,7 +11,7 @@
 
 	<div>
 		<dl class="plain inlineDataList">
-			{* @todo show character *}
+			{* @todo show user info *}
 			{event name='stats'}
 		</dl>
 	</div>

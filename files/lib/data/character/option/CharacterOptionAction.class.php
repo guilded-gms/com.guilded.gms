@@ -1,9 +1,9 @@
 <?php
 namespace gms\data\character\option;
 use gms\data\game\Game;
+use gms\system\option\character\CharacterOptionHandler;
 use wcf\data\AbstractDatabaseObjectAction;
 use wcf\system\exception\IllegalLinkException;
-use wcf\system\option\character\CharacterOptionHandler;
 use wcf\system\WCF;
 
 /**

@@ -1,5 +1,6 @@
 <?php
 namespace gms\system\event\type;
+use wcf\system\WCF;
 
 /**
  * Represents a type for birthday events.

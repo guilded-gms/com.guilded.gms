@@ -5,7 +5,7 @@ use gms\data\game\Game;
 use wcf\system\SingletonFactory;
 use wcf\system\WCF;
 
-class GameCharacterProfileMenuContent extends SingletonFactory implements ICharacterProfileMenuContent {
+abstract class AbstractGameCharacterProfileMenuContent extends SingletonFactory implements ICharacterProfileMenuContent {
 	/**
 	 * @see	\wcf\system\menu\character\profile\content\ICharacterProfileMenuContent::getNumberOfItems()
 	 */

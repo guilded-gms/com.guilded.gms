@@ -1,7 +1,7 @@
 {if $__wcf->user->userID}
 	<!-- character menu -->
 	<li id="characterMenu" class="dropdown">
-		<a class="dropdownToggle framed" data-toggle="characterMenu">{if $__wcf->getCharacterHandler()->getPrimaryCharacter()}{@$__wcf->getCharacterHandler()->getPrimaryCharacter()->getGame()->getImageTag(24)} <span>{$__wcf->getCharacterHandler()->getPrimaryCharacter()->name}</span>{else}<img alt="" style="width: 24px; height: 24px" src="{$__wcf->getPath()}/images/avatars/avatar-default.svg">{* @todo change image *} <span>{lang}gms.character.noPrimary{/lang}</span>{/if}</a>
+		<a class="dropdownToggle" data-toggle="characterMenu">{if $__wcf->getCharacterHandler()->getPrimaryCharacter()}{@$__wcf->getCharacterHandler()->getPrimaryCharacter()->getGame()->getImageTag(24)} <span>{$__wcf->getCharacterHandler()->getPrimaryCharacter()->getTitledName()}</span>{else}<img alt="" style="width: 24px; height: 24px" src="{$__wcf->getPath()}/images/avatars/avatar-default.svg">{* @todo change image *} <span>{lang}gms.character.noPrimary{/lang}</span>{/if}</a>
 		<ul class="dropdownMenu characterMenu">
 			{if $__wcf->getCharacterHandler()->getCharacters()|count}
 				{foreach from=$__wcf->getCharacterHandler()->getCharacters() item=$character}
@@ -12,7 +12,7 @@
 							</div>
 
 							<div class="containerHeadline">
-								<h3><a href="{link controller='Character' object=$character application='gms'}{/link}">{$character->name}</a>{if $character->isPrimary} <span class="icon icon16 icon-ok jsPrimaryIcon"></span>{/if}</h3>
+								<h3><a href="{link controller='Character' object=$character application='gms'}{/link}">{$character->name}</a>{if $character->isPrimary} <span class="icon icon16 icon-ok jsPrimaryIcon jsTooltip" title="{lang}gms.character.isPrimary{/lang}"></span>{/if}</h3>
 
 								{include file='characterInformation' application='gms' object=$character}
 							</div>
@@ -35,8 +35,8 @@
                 new WCF.Action.Proxy({
                     autoSend: true,
                     data: {
+						className: 'gms\\data\\character\\CharacterAction',
                         actionName: 'setPrimary',
-                        className: 'wcf\\data\\character\\CharacterAction',
                         objectIDs: [ $(this).data('characterID') ]
                     },
                     suppressErrors: true,
@@ -45,18 +45,18 @@
                         // update menu title
                         $('#characterMenu > a > span').html($element.html());
 
-                        $(this).addClass('active');
-
-                        // @todo update icon
-						// @todo show hint
-
                         // remove old icon-ok
 						var $icon = $('.dropdownMenu.characterMenu > li .jsPrimaryIcon');
                         $icon.parents('li').removeClass('active');
 						$icon.remove();
 
-                        // update icon-ok
-                        $element.after('<span class="icon icon16 icon-ok jsPrimaryIcon"></span>');
+						// update icon
+						$(this).find('h3').append(' <span class="icon icon16 icon-ok jsPrimaryIcon jsTooltip" title="{lang}gms.character.isPrimary{/lang}"></span>');
+						$(this).addClass('active');
+
+						// show hint
+						var notification = new WCF.System.Notification(WCF.Language.get('wcf.global.success'), 'success');
+						notification.show();
                     }, this)
                 });
             });

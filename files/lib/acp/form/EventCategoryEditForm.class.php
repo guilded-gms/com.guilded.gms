@@ -1,5 +1,6 @@
 <?php
 namespace gms\acp\form;
+use wcf\acp\form\AbstractCategoryEditForm;
 
 /**
  * Shows edit form for event categories.

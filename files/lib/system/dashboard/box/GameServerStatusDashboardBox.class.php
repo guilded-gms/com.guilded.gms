@@ -4,6 +4,7 @@ use gms\data\game\server\GameServerList;
 use gms\page\GuildPage;
 use wcf\data\dashboard\box\DashboardBox;
 use wcf\page\IPage;
+use wcf\system\dashboard\box\AbstractSidebarDashboardBox;
 use wcf\system\WCF;
 
 /**

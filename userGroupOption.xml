@@ -66,19 +66,16 @@
 				<categoryname>user.gms.character</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
-				<admindefaultvalue>1</admindefaultvalue>
 			</option>
 			<option name="user.gms.character.canViewProfile">
 				<categoryname>user.gms.character</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
-				<admindefaultvalue>1</admindefaultvalue>
 			</option>
 			<option name="user.gms.character.canViewList">
 				<categoryname>user.gms.character</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
-				<admindefaultvalue>1</admindefaultvalue>
 			</option>
 			<!-- /user.gms.character -->
 
@@ -87,19 +84,16 @@
 				<categoryname>user.gms.guild</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
-				<admindefaultvalue>1</admindefaultvalue>
 			</option>
 			<option name="user.gms.guild.canViewList">
 				<categoryname>user.gms.guild</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
-				<admindefaultvalue>1</admindefaultvalue>
 			</option>
 			<option name="user.gms.guild.canApply">
 				<categoryname>user.gms.guild</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
-				<admindefaultvalue>1</admindefaultvalue>
 			</option>
 			<!-- /user.gms.guild -->
 
@@ -108,7 +102,6 @@
 				<categoryname>user.gms.alliance</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
-				<admindefaultvalue>1</admindefaultvalue>
 			</option>
 			<!-- /user.gms.alliance -->
 
@@ -117,7 +110,6 @@
 				<categoryname>user.gms.event</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
-				<admindefaultvalue>1</admindefaultvalue>
 			</option>
 			<!-- /user.gms.event -->
 
