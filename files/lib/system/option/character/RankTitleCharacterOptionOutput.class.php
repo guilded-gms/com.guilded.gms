@@ -14,11 +14,11 @@ use wcf\system\WCF;
  * @subpackage	system.option.character
  * @category	Guilded 2.0
  */
-class CharacterOptionOutputRankTitle extends CharacterOptionOutputSelectOptions {
+class RankTitleCharacterOptionOutput implements ICharacterOptionOutput {
 	/**
 	 * @see	\wcf\system\option\character\ICharacterOptionOutput::getShortOutput()
 	 */
-	public function getShortOutput(Character $character, CharacterOption $option, $value) {
+	public function getOutput(Character $character, CharacterOption $option, $value) {
 		return $character->getTitledName();
 	}
 }

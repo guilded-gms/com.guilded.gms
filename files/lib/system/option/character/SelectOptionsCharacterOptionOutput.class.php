@@ -15,21 +15,7 @@ use wcf\util\OptionUtil;
  * @subpackage	system.option.character
  * @category	Guilded 2.0
  */
-class CharacterOptionOutputSelectOptions implements ICharacterOptionOutput {
-	/**
-	 * @see	\wcf\system\option\character\ICharacterOptionOutput::getShortOutput()
-	 */
-	public function getShortOutput(Character $character, CharacterOption $option, $value) {
-		return $this->getOutput($character, $option, $value);
-	}
-	
-	/**
-	 * @see	\wcf\system\option\character\ICharacterOptionOutput::getMediumOutput()
-	 */
-	public function getMediumOutput(Character $character, CharacterOption $option, $value) {
-		return $this->getOutput($character, $option, $value);
-	}
-
+class SelectOptionsCharacterOptionOutput implements ICharacterOptionOutput {
 	/**
 	 * @see	\wcf\system\option\character\ICharacterOptionOutput::getOutput()
 	 */

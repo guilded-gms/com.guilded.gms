@@ -21,14 +21,14 @@ class ActivityCharacterProfileMenuContent extends SingletonFactory implements IC
 	public function getNumberOfItems(Character $character) {
 		$this->activityList->getConditionBuilder()->add('characterID = ?', array($character->characterID));
 
-		return $this->activityList->countObject();
+		return $this->activityList->countObjects();
 	}
 
 	/**
 	 * @see	\wcf\system\menu\character\profile\content\ICharacterProfileMenuContent::isAccessible()
 	 */
 	public function isAccessible(Character $character) {
-		return (WCF::getSession()->getPermission('user.character.canViewProfile'));
+		return (WCF::getSession()->getPermission('user.gms.character.canViewProfile'));
 	}
 
 	/**

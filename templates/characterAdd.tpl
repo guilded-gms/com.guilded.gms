@@ -75,3 +75,6 @@
 </form>
 
 {include file='footer'}
+
+</body>
+</html>

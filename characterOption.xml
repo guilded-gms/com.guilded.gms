@@ -27,21 +27,21 @@
 			<option name="classes">
 				<categoryname>profile.general</categoryname>
 				<optiontype>gameClassificationSelect</optiontype>
-				<outputclass>gms\system\option\character\CharacterOptionOutputSelectOptions</outputclass>
+				<outputclass>gms\system\option\character\SelectOptionsCharacterOptionOutput</outputclass>
 				<visible>15</visible>
 				<editable>3</editable>
 			</option>
 			<option name="races">
 				<categoryname>profile.general</categoryname>
 				<optiontype>gameRaceSelect</optiontype>
-				<outputclass>gms\system\option\character\CharacterOptionOutputSelectOptions</outputclass>
+				<outputclass>gms\system\option\character\SelectOptionsCharacterOptionOutput</outputclass>
 				<visible>15</visible>
 				<editable>3</editable>
 			</option>
 			<option name="roles">
 				<categoryname>profile.general</categoryname>
 				<optiontype>gameRoleSelect</optiontype>
-				<outputclass>gms\system\option\character\CharacterOptionOutputSelectOptions</outputclass>
+				<outputclass>gms\system\option\character\SelectOptionsCharacterOptionOutput</outputclass>
 				<visible>15</visible>
 				<editable>3</editable>
 			</option>
@@ -57,14 +57,14 @@
 			<option name="about">
 				<categoryname>profile.details</categoryname>
 				<optiontype>message</optiontype>
-				<outputclass>gms\system\option\character\CharacterOptionOutputMessage</outputclass>
+				<outputclass>gms\system\option\character\MessageCharacterOptionOutput</outputclass>
 				<visible>15</visible>
 				<editable>3</editable>
 			</option>
 			<option name="rankTitle">
 				<categoryname>profile.details</categoryname>
 				<optiontype>text</optiontype>
-				<outputclass>gms\system\option\character\CharacterOptionOutputRankTitle</outputclass>
+				<outputclass>gms\system\option\character\RankTitleCharacterOptionOutput</outputclass>
 				<visible>15</visible>
 				<editable>3</editable>
 			</option>

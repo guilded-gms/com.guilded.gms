@@ -79,6 +79,9 @@
 		<item name="gms.character.gender.female"><![CDATA[weiblich]]></item>
 
 		<item name="gms.character.content.about.empty"><![CDATA[Keine Daten vorhanden]]></item>
+
+		<item name="gms.character.profile.menu.activity"><![CDATA[Aktivitäten]]></item>
+		<item name="gms.character.profile.menu.about"><![CDATA[Über]]></item>
 	</category>
 
 	<category name="gms.guild">

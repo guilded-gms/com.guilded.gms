@@ -18,7 +18,7 @@
 				'wcf.message.share.twitter': '{lang}wcf.message.share.twitter{/lang}'
 			});
 
-			new GMS.Character.Profile.TabMenu({@$character->characterID}); {* @todo implement this *}
+			new GMS.Character.TabMenu({@$character->characterID});
 
 			WCF.TabMenu.init();
 
@@ -36,10 +36,9 @@
 
 {include file='header' sidebarOrientation='left'}
 
-<header class="boxHeadline characterProfileHeadline characterProfile">
-	<h1><a href="{link controller='Character' object=$character application='gms'}{/link}">{$character->getTitle()}</a></h1>
-
-	<p>{if $character->getGuild() !== null}<a href="{link controller='Guild' object=$character->getGuild()}{/link}">{$character->getGuild()->getTitle()}</a> - {/if}{@$character->getGame()->getTitle()}</p>
+<header class="boxHeadline userHeadline">
+	<h1><a href="{link controller='Character' object=$character application='gms'}{/link}">{$character->getTitledName()}</a></h1>
+	<p>{if $character->getGuild() !== null}<a href="{link controller='Guild' object=$character->getGuild() application='gms'}{/link}">{$character->getGuild()->getTitle()}</a> - {/if}{@$character->getGame()->getTitle()}</p>
 
 	<nav class="jsMobileNavigation buttonGroupNavigation">
 		<ul class="buttonGroup">{*
@@ -71,7 +70,7 @@
 		<nav class="tabMenu">
 			<ul>
 				{foreach from=$menuItems item=menuItem}
-					<li><a href="{$__wcf->getAnchor($menuItem->getIdentifier())}">{lang}gms.character.profile.menu.{@$menuItem->menuItem}{/lang}{if $menuItem->getContentManager()->getNumberOfItems($entry->getDecoratedObject())} <span class="badge badgeUpdate">{#$menuItem->getContentManager()->getNumberOfItems($character->getDecoratedObject())}</span>{/if}</a></li>
+					<li><a href="{$__wcf->getAnchor($menuItem->getIdentifier())}">{lang}gms.character.profile.menu.{@$menuItem->menuItem}{/lang}{if $menuItem->getContentManager()->getNumberOfItems($character->getDecoratedObject())} <span class="badge badgeUpdate">{#$menuItem->getContentManager()->getNumberOfItems($character->getDecoratedObject())}</span>{/if}</a></li>
 				{/foreach}
 			</ul>
 		</nav>

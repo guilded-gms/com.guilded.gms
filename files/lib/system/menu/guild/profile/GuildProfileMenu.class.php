@@ -2,6 +2,7 @@
 namespace gms\system\menu\guild\profile;
 use gms\data\guild\Guild;
 use gms\system\cache\builder\GuildProfileMenuCacheBuilder;
+use wcf\system\event\EventHandler;
 use wcf\system\menu\user\profile\UserProfileMenu;
 
 /**

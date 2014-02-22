@@ -15,11 +15,11 @@ use wcf\system\WCF;
  * @subpackage	system.option.character
  * @category	Guilded 2.0
  */
-class CharacterOptionOutputGender extends CharacterOptionOutputSelectOptions {
+class GenderCharacterOptionOutput extends SelectOptionsCharacterOptionOutput {
 	/**
 	 * @see	\wcf\system\option\character\ICharacterOptionOutput::getShortOutput()
 	 */
-	public function getShortOutput(Character $character, CharacterOption $option, $value) {
+	public function getOutput(Character $character, CharacterOption $option, $value) {
 		if ($value == CharacterProfile::GENDER_MALE) {
 			$title = WCF::getLanguage()->getDynamicVariable('gms.character.profile.gender.male', array('name' => $character->name));
 			return '<span class="icon icon-16 icon-male" title="' . $title . '"></span> ' . $title;
@@ -28,8 +28,7 @@ class CharacterOptionOutputGender extends CharacterOptionOutputSelectOptions {
 			$title = WCF::getLanguage()->getDynamicVariable('gms.character.profile.gender.female', array('name' => $character->name));
 			return '<span class="icon icon-16 icon-female" title="' . $title . '"></span> ' . $title;
 		}
-		else {
-			return '';
-		}
+
+		return '';
 	}
 }

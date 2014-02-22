@@ -77,6 +77,7 @@ class CharacterProfile extends DatabaseObjectDecorator implements IBreadcrumbPro
 			$characterList->readObjects();
 			
 			foreach ($characterList as $character) {
+				self::$characterProfiles[$character->characterID] = $character;
 				$characters[$character->characterID] = $character;
 			}
 		}

@@ -3,6 +3,7 @@ namespace gms\data\character;
 use gms\data\game\classification\GameClassificationList;
 use gms\data\game\Game;
 use gms\data\game\race\GameRaceList;
+use gms\data\game\role\GameRoleList;
 use gms\data\guild\rank\GuildRank;
 use gms\data\guild\Guild;
 use gms\data\GMSDatabaseObject;
@@ -55,6 +56,12 @@ class Character extends GMSDatabaseObject implements IRouteController {
 	 * @var \gms\data\game\race\GameRaceList
 	 */
 	protected $raceList = null;
+
+	/**
+	 * list of roles
+	 * @var \gms\data\game\role\GameRoleList
+	 */
+	protected $roleList = null;
 
 	/**
 	 * Guild object
@@ -215,6 +222,23 @@ class Character extends GMSDatabaseObject implements IRouteController {
 		}
 
 		return $this->classList;
+	}
+
+	/**
+	 * Returns GameRoleList object
+	 *
+	 * @return \gms\data\game\role\GameRoleList
+	 */
+	public function getRoleList() {
+		if ($this->roleList === null) {
+			$roleIDs = explode(',', $this->roles);
+
+			$this->roleList = new GameRoleList();
+			$this->roleList->getConditionBuilder()->add('roleID IN (?)', array($roleIDs));
+			$this->roleList->readObjects();
+		}
+
+		return $this->roleList;
 	}
 
 	/**

@@ -52,11 +52,7 @@ class ViewableCharacterOption extends DatabaseObjectDecorator {
 		
 		// use output class
 		if ($this->outputClass) {
-			$outputObj = $this->getOutputObject();
-
-			if ($outputType == 'normal') $this->optionValue = $outputObj->getOutput($character, $this->getDecoratedObject(), $optionValue);
-			else if ($outputType == 'short') $this->optionValue = $outputObj->getShortOutput($character, $this->getDecoratedObject(), $optionValue);
-			else $outputType = $outputObj->getMediumOutput($character, $this->getDecoratedObject(), $optionValue);
+			$this->optionValue = $this->getOutputObject()->getOutput($character, $this->getDecoratedObject(), $optionValue);
 		}
 		else {
 			$this->optionValue = StringUtil::encodeHTML($optionValue);

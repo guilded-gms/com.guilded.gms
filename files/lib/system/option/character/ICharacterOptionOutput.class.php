@@ -15,26 +15,6 @@ use gms\data\character\Character;
  */
 interface ICharacterOptionOutput {
 	/**
-	 * Returns a short version of the html code for the output of the given user option.
-	 * 
-	 * @param	\gms\data\character\Character		$character
-	 * @param	\gms\data\character\option\CharacterOption	$option
-	 * @param	string				$value
-	 * @return	string
-	 */
-	public function getShortOutput(Character $character, CharacterOption $option, $value);
-	
-	/**
-	 * Returns a medium version of the html code for the output of the given character option.
-	 * 
-	 * @param	\gms\data\character\Character		$character
-	 * @param	\gms\data\character\option\CharacterOption	$option
-	 * @param	string				$value
-	 * @return	string
-	 */
-	public function getMediumOutput(Character $character, CharacterOption $option, $value);
-	
-	/**
 	 * Returns the html code for the output of the given character option.
 	 * 
 	 * @param	\gms\data\character\Character		$character
