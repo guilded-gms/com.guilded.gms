@@ -60,6 +60,7 @@
 		<item name="gms.character.edit"><![CDATA[Charakter bearbeiten]]></item>
 		<item name="gms.character.profile"><![CDATA[Charakter-Profil]]></item>
 		<item name="gms.character.characters"><![CDATA[Charaktere]]></item>
+		<item name="gms.character.isPrimary"><![CDATA[Als Hauptcharakter markiert]]></item>
 		<item name="gms.character.noPrimary"><![CDATA[(Charakter wählen)]]></item>
 		<item name="gms.character.information"><![CDATA[Information]]></item>
 		<item name="gms.character.characterName"><![CDATA[Name]]></item>

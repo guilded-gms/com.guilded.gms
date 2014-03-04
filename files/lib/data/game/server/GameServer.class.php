@@ -49,10 +49,10 @@ class GameServer extends GMSDatabaseObject implements ITitledObject {
 						(name = ?)";
 		$statement = WCF::getDB()->prepareStatement($sql);
 		$statement->execute(array($gameID, $name));
-		$row = $statement->fetchArray();
+		$object = $statement->fetchObject('gms\data\game\server\GameServer');
 
-		if (!$row) {
-			return new GameServer($row);
+		if ($object) {
+			return $object;
 		}
 
 		return null;

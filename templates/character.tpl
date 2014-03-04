@@ -70,7 +70,7 @@
 		<nav class="tabMenu">
 			<ul>
 				{foreach from=$menuItems item=menuItem}
-					<li><a href="{$__wcf->getAnchor($menuItem->getIdentifier())}">{lang}gms.character.profile.menu.{@$menuItem->menuItem}{/lang}{if $menuItem->getContentManager()->getNumberOfItems($character->getDecoratedObject())} <span class="badge badgeUpdate">{#$menuItem->getContentManager()->getNumberOfItems($character->getDecoratedObject())}</span>{/if}</a></li>
+					<li{if $menuItem === $characterProfileMenu->getActiveMenuItem()} class="active"{/if}><a href="{$__wcf->getAnchor($menuItem->getIdentifier())}">{lang}gms.character.profile.menu.{@$menuItem->menuItem}{/lang}{if $menuItem->getContentManager()->getNumberOfItems($character->getDecoratedObject())} <span class="badge badgeUpdate">{#$menuItem->getContentManager()->getNumberOfItems($character->getDecoratedObject())}</span>{/if}</a></li>
 				{/foreach}
 			</ul>
 		</nav>

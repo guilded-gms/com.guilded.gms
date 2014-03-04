@@ -12,7 +12,8 @@
 							</div>
 
 							<div class="containerHeadline">
-								<h3><a href="{link controller='Character' object=$character application='gms'}{/link}">{$character->name}</a>{if $character->isPrimary} <span class="icon icon16 icon-ok jsPrimaryIcon jsTooltip" title="{lang}gms.character.isPrimary{/lang}"></span>{/if}</h3>
+								{* @todo style with mouse-over (disabled) *}
+								<h3><a href="{link controller='Character' object=$character application='gms'}{/link}">{$character->name}</a> <span class="icon icon16 icon-ok jsPrimaryIcon jsTooltip{if !$character->isPrimary} disabled{/if}"{if $character->isPrimary} title="{lang}gms.character.isPrimary{/lang}"{/if}></span></h3>
 
 								{include file='characterInformation' application='gms' object=$character}
 							</div>
@@ -27,8 +28,9 @@
     <script data-relocate="true">
         //<![CDATA[
         $(function(){
-            $('.dropdownMenu.characterMenu > li').on('click', function(event){
-                if ($(this).hasClass('active')) {
+            $('.jsPrimaryIcon').on('click', function(event){
+				var $listItem = $(this).closest('li');
+                if ($listItem.hasClass('active')) {
                     return;
                 }
 
@@ -37,7 +39,7 @@
                     data: {
 						className: 'gms\\data\\character\\CharacterAction',
                         actionName: 'setPrimary',
-                        objectIDs: [ $(this).data('characterID') ]
+                        objectIDs: [ $listItem.data('characterID') ]
                     },
                     suppressErrors: true,
                     success: $.proxy(function(data, textStatus, jqXHR) {
@@ -48,11 +50,11 @@
                         // remove old icon-ok
 						var $icon = $('.dropdownMenu.characterMenu > li .jsPrimaryIcon');
                         $icon.parents('li').removeClass('active');
-						$icon.remove();
+						$icon.removeAttr('title').addClass('disabled');
 
 						// update icon
-						$(this).find('h3').append(' <span class="icon icon16 icon-ok jsPrimaryIcon jsTooltip" title="{lang}gms.character.isPrimary{/lang}"></span>');
-						$(this).addClass('active');
+						$(this).attr('title', '{lang}gms.character.isPrimary{/lang}').removeClass('disabled');
+						$listItem.addClass('active');
 
 						// show hint
 						var notification = new WCF.System.Notification(WCF.Language.get('wcf.global.success'), 'success');
