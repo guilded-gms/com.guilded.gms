@@ -2,6 +2,7 @@
 
 <head>
 	<title>{lang}gms.guild.guilds{/lang} {if $pageNo > 1}- {lang}wcf.page.pageNo{/lang} {/if}- {PAGE_TITLE|language}</title>
+
 	{include file='headInclude'}
 </head>
 

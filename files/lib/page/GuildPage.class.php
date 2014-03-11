@@ -1,6 +1,7 @@
 <?php
 namespace gms\page;
 use gms\data\guild\GuildProfile;
+use gms\system\menu\guild\profile\GuildProfileMenu;
 use wcf\page\AbstractPage;
 use wcf\system\breadcrumb\Breadcrumb;
 use wcf\system\dashboard\DashboardHandler;
@@ -37,6 +38,12 @@ class GuildPage extends AbstractPage {
 	public $guild = null;
 
 	/**
+	 * profile content for active menu item
+	 * @var	string
+	 */
+	public $profileContent = '';
+
+	/**
 	 * @see	\wcf\page\IPage::readParameters()
 	 */
 	public function readParameters() {
@@ -66,6 +73,11 @@ class GuildPage extends AbstractPage {
 
 		// add breadcrumbs
 		WCF::getBreadcrumbs()->add(new Breadcrumb(WCF::getLanguage()->get('gms.guild.guilds'), LinkHandler::getInstance()->getLink('GuildList')));
+
+		// get profile content
+		$activeMenuItem = GuildProfileMenu::getInstance()->getActiveMenuItem();
+		$contentManager = $activeMenuItem->getContentManager();
+		$this->profileContent = $contentManager->getContent($this->guild->getDecoratedObject());
 	}
 
 	/**
@@ -78,7 +90,9 @@ class GuildPage extends AbstractPage {
 
 		WCF::getTPL()->assign(array(
 			'guildID' => $this->guildID,
-			'guild' => $this->guild
+			'guild' => $this->guild,
+			'profileContent' => $this->profileContent,
+			'guildProfileMenu' => GuildProfileMenu::getInstance()
 		));
 	}
 }

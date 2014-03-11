@@ -1,7 +1,8 @@
 {include file='documentHeader'}
 
 <head>
-	<title>{lang}gms.guild.profile{/lang} - {lang}gms.guild.guilds{/lang} - {PAGE_TITLE|language}</title>
+	<title>{lang title=$guild->getTitle()}gms.guild.profile.title{/lang} - {lang}gms.guild.guilds{/lang} - {PAGE_TITLE|language}</title>
+
 	{include file='headInclude'}
 
 	{event name='javascriptInclude'}
@@ -9,8 +10,8 @@
     <script data-relocate="true" src="{@$__wcf->getPath()}js/gms.guild.js"></script>
 	<script data-relocate="true">
 		//<![CDATA[
-		$(function() {		
-			new GMS.Guild.Profile.TabMenu({@$guild->guildID});
+		$(function() {
+			new GMS.Guild.TabMenu({@$guild->guildID});
 			
 			WCF.TabMenu.init();
 						
@@ -18,6 +19,8 @@
 		});
 		//]]>
 	</script>
+
+	<link rel="canonical" href="{link controller='Guild' object=$guild}{/link}" />
 </head>
 
 <body{if $templateName|isset} id="tpl{$templateName|ucfirst}"{/if}>

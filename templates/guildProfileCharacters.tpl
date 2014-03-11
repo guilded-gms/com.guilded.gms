@@ -7,5 +7,5 @@
 		</ol>
 	</div>
 {else}
-	<p class="info">{lang}wcf.guild.noCharacters{/lang}</p>
+	<p class="info">{lang}gms.guild.noCharacters{/lang}</p>
 {/if}

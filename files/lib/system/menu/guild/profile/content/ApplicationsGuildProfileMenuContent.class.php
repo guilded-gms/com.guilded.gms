@@ -16,18 +16,16 @@ class ApplicationsGuildProfileMenuContent extends SingletonFactory implements IG
 	 * @see	\wcf\system\menu\guild\profile\content\IGuildProfileMenuContent::isAccessible()
 	 */
 	public function isAccessible(Guild $guild) {
-		return $guild->canView();
+		return $guild->canView(); // @todo check permissions and membership
 	}
 
 	/**
 	 * @see	\wcf\system\menu\guild\profile\content\IGuildProfileMenuContent::getContent()
 	 */
 	public function getContent(Guild $guild) {
-		WCF::getTPL()->assign(array(
+		return WCF::getTPL()->fetch('guildProfileApplications', 'gms', array(
 			'applications' => $guild->getApplications(),
 			'guildID' => $guild->guildID,
 		));
-		
-		return WCF::getTPL()->fetch('guildProfileApplications');
 	}
 }

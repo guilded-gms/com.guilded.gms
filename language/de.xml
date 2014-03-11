@@ -56,6 +56,7 @@
 	</category>
 
 	<category name="gms.character">
+		<item name="gms.character.profile.title"><![CDATA[Charakter-Profil von „{@$title}“]]></item>
 		<item name="gms.character.add"><![CDATA[Charakter hinzufügen]]></item>
 		<item name="gms.character.edit"><![CDATA[Charakter bearbeiten]]></item>
 		<item name="gms.character.profile"><![CDATA[Charakter-Profil]]></item>
@@ -65,6 +66,8 @@
 		<item name="gms.character.information"><![CDATA[Information]]></item>
 		<item name="gms.character.characterName"><![CDATA[Name]]></item>
 		<item name="gms.character.characterName.description"><![CDATA[Wählen Sie das Spiel aus und geben Sie den Namen des Charakters an.]]></item>
+		<item name="gms.character.delete.sure"><![CDATA[@todo]]></item>
+		<item name="gms.character.image"><![CDATA[Bild]]></item>
 
 		<item name="gms.character.option.category.profile.general"><![CDATA[Allgemein]]></item>
 		<item name="gms.character.option.category.profile.details"><![CDATA[Details]]></item>
@@ -86,9 +89,9 @@
 	</category>
 
 	<category name="gms.guild">
+		<item name="gms.guild.profile.title"><![CDATA[Gilden-Profil von „{@$title}“]]></item>
 		<item name="gms.guild.add"><![CDATA[Gilde hinzufügen]]></item>
 		<item name="gms.guild.edit"><![CDATA[Gilde bearbeiten]]></item>
-		<item name="gms.guild.profile"><![CDATA[Gilden-Profil]]></item>
 		<item name="gms.guild.guilds"><![CDATA[Gilden]]></item>
 		<item name="gms.guild.noCharacters"><![CDATA[Keine Mitglieder vorhanden.]]></item>
 	</category>
@@ -126,21 +129,37 @@
 		<item name="wcf.acp.group.option.category.user.gms.alliance"><![CDATA[Allianzen]]></item>
 		<item name="wcf.acp.group.option.category.user.gms.character"><![CDATA[Charaktere]]></item>
 		<item name="wcf.acp.group.option.category.user.gms.guild"><![CDATA[Gilden]]></item>
+		<item name="wcf.acp.group.option.category.user.gms.event"><![CDATA[@todo]]></item>
+		<item name="wcf.acp.group.option.category.mod.gms"><![CDATA[Guilded]]></item>
+		<item name="wcf.acp.group.option.category.mod.gms.character"><![CDATA[Charaktere]]></item>
+		<item name="wcf.acp.group.option.category.mod.gms.guild"><![CDATA[Gilden]]></item>
+		<item name="wcf.acp.group.option.category.mod.gms.event"><![CDATA[Ereignisse]]></item>
 		<item name="wcf.acp.group.option.category.admin.gms"><![CDATA[Guilded]]></item>
 		<item name="wcf.acp.group.option.category.admin.gms.game"><![CDATA[Spiele]]></item>
 		<item name="wcf.acp.group.option.category.admin.gms.alliance"><![CDATA[Allianzen]]></item>
 		<item name="wcf.acp.group.option.category.admin.gms.character"><![CDATA[Charaktere]]></item>
+		<item name="wcf.acp.group.option.category.admin.gms.event"><![CDATA[Ereignisse]]></item>
 		<item name="wcf.acp.group.option.category.admin.gms.guild"><![CDATA[Gilden]]></item>
-		<item name="wcf.acp.group.option.admin.gms.game.canManage"><![CDATA[Kann Spiele verwalten]]></item>
+		<item name="wcf.acp.group.option.user.gms.alliance.canViewProfile"><![CDATA[Kann Profil ansehen]]></item>
 		<item name="wcf.acp.group.option.user.gms.character.canManage"><![CDATA[Kann Charaktere verwalten]]></item>
 		<item name="wcf.acp.group.option.user.gms.character.canViewProfile"><![CDATA[Kann Profil ansehen]]></item>
 		<item name="wcf.acp.group.option.user.gms.character.canViewList"><![CDATA[Kann Liste ansehen]]></item>
 		<item name="wcf.acp.group.option.user.gms.guild.canViewProfile"><![CDATA[Kann Profil ansehen]]></item>
 		<item name="wcf.acp.group.option.user.gms.guild.canViewList"><![CDATA[Kann Liste ansehen]]></item>
-		<item name="wcf.acp.group.option.user.gms.alliance.canViewProfile"><![CDATA[Kann Profil ansehen]]></item>
+		<item name="wcf.acp.group.option.user.gms.guild.canApply"><![CDATA[Kann sich für Gildenbeitritt bewerben]]></item>
+		<item name="wcf.acp.group.option.user.gms.event.canViewCalendar"><![CDATA[Kann Kalender ansehen]]></item>
+		<item name="wcf.acp.group.option.mod.gms.guild.canManageRecruitment"><![CDATA[Kann Bewerbungen verwalten]]></item>
+		<item name="wcf.acp.group.option.admin.gms.game.canManage"><![CDATA[Kann Spiele verwalten]]></item>
 		<item name="wcf.acp.group.option.admin.gms.character.canManage"><![CDATA[Kann Charaktere verwalten]]></item>
 		<item name="wcf.acp.group.option.admin.gms.alliance.canManage"><![CDATA[Kann Allianzen verwalten]]></item>
 		<item name="wcf.acp.group.option.admin.gms.guild.canManage"><![CDATA[Kann Gilden verwalten]]></item>
 		<item name="wcf.acp.group.option.admin.gms.guild.canManageRank"><![CDATA[Kann Ränge verwalten]]></item>
+		<item name="wcf.acp.group.option.admin.gms.guild.canManageRecruitment"><![CDATA[Kann Gesuche verwalten]]></item>
+	</category>
+
+	<category name="wcf.dashboard.box">
+		<item name="wcf.dashboard.box.com.guilded.gms.game.serverStatus"><![CDATA[Server-Status]]></item>
+		<item name="wcf.dashboard.box.com.guilded.gms.credit.standing"><![CDATA[Punktestand]]></item>
+		<item name="wcf.dashboard.box.com.guilded.gms.guild.recruitment"><![CDATA[Rekrutierung]]></item>
 	</category>
 </language>

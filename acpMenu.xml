@@ -22,6 +22,7 @@
 		<acpmenuitem name="gms.acp.menu.link.gms.guild">
 			<parent>gms.acp.menu.link.gms</parent>
 			<permissions>admin.gms.guild.canManage</permissions>
+			<showorder>2</showorder>
 		</acpmenuitem>
 		<acpmenuitem name="gms.acp.menu.link.gms.guild.list">
 			<controller><![CDATA[gms\acp\page\GuildListPage]]></controller>
@@ -36,7 +37,6 @@
 		<acpmenuitem name="gms.acp.menu.link.gms.guild.rank">
 			<parent>gms.acp.menu.link.gms.guild</parent>
 			<permissions>admin.gms.guild.canManageRank</permissions>
-			<showorder>2</showorder>
 		</acpmenuitem>
 		<acpmenuitem name="gms.acp.menu.link.gms.guild.rank.list">
 			<controller><![CDATA[gms\acp\page\GuildRankListPage]]></controller>
@@ -68,6 +68,7 @@
 		<acpmenuitem name="gms.acp.menu.link.gms.character">
 			<parent>gms.acp.menu.link.gms</parent>
 			<permissions>admin.gms.character.canManage</permissions>
+			<showorder>3</showorder>
 		</acpmenuitem>
 
 		<acpmenuitem name="gms.acp.menu.link.gms.character.list">
@@ -85,6 +86,7 @@
 		<!-- events -->
 		<acpmenuitem name="gms.acp.menu.link.gms.event">
 			<parent>gms.acp.menu.link.gms</parent>
+			<showorder>4</showorder>
 		</acpmenuitem>
 
 		<acpmenuitem name="gms.acp.menu.link.gms.event.category">

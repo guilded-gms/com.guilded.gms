@@ -13,7 +13,7 @@
 <div class="contentNavigation">
 	<nav>
 		<ul>
-			<li><a href="{link controller='GameList' application='gms'}{/link}" class="button"><span class="icon icon16 icon-list"></span> <span>{lang}game{/lang}</span></a></li>
+			<li><a href="{link controller='GameList' application='gms'}{/link}" class="button"><span class="icon icon16 icon-list"></span> <span>{lang}gms.acp.game.list{/lang}</span></a></li>
 			
 			{event name='contentNavigationButtons'}
 		</ul>

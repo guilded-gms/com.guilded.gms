@@ -66,7 +66,7 @@ class GuildProfileMenuItemAction extends AbstractDatabaseObjectAction {
 		
 		return array(
 			'containerID' => $this->parameters['data']['containerID'],
-			'template' => $contentManager->getContent($this->parameters['data']['guildID'])
+			'template' => $contentManager->getContent($this->guild)
 		);
 	}
 }

@@ -116,6 +116,7 @@ GMS.Character.OptionHandler = Class.extend({
 		var $enableOnInit = ($.getLength(this._values) > 0) ? true : false;
 		this._insertedDataAfterInit = $enableOnInit;
 		this._prepareElement($enableOnInit);
+		this._updateContainer();
 
 		this._didInit = true;
 	},
@@ -250,25 +251,31 @@ GMS.Character.OptionHandler = Class.extend({
 	 */
 	_updateContainer: function() {
 		if (!this._templates[this._gameID]) {
+			var self = this;
+
 			new WCF.Action.Proxy({
 				autoSend: true,
 				data: {
-					actionName: 'getOptions',
 					className: 'gms\\data\\character\\option\\CharacterOptionAction',
+					actionName: 'getOptions',
 					parameters: {
-						gameID: this._gameID
+						data: {
+							gameID: this._gameID
+						}
 					}
 				},
 				suppressErrors: true,
 				success: function(data, textStatus, jqXHR) {
-					if (data.returnValues.length && data.returnValues.template) {
-						this._templates[this._gameID] = data.returnValues.template;
+					if (data.returnValues.template) {
+						self._templates[self._gameID] = data.returnValues.template;
+						self._container.html(self._templates[self._gameID]);
 					}
 				}
 			});
 		}
-
-		this._container.html(this._templates[this._gameID]);
+		else {
+			this._container.html(this._templates[this._gameID]);
+		}
 	},
 
 	/**
@@ -432,7 +439,7 @@ GMS.Character.TabMenu = Class.extend({
 		if (!this._hasContent[$containerID]) {
 			this._proxy.setOption('data', {
 				actionName: 'getContent',
-				className: 'wcf\\data\\character\\menu\\item\\CharacterMenuItemAction',
+				className: 'gms\\data\\character\\profile\\menu\\item\\CharacterMenuItemAction',
 				parameters: {
 					data: {
 						containerID: $containerID,
@@ -513,7 +520,7 @@ GMS.Game.ItemTooltip = WCF.Popover.extend({
 		else {
 			this._proxy.setOption('data', {
 				actionName: 'getTooltip',
-				className: 'wcf\\data\\game\\item\\GameItemAction',
+				className: 'gms\\data\\game\\item\\GameItemAction',
 				objectIDs: [ $itemID ]
 			});
 
@@ -581,7 +588,7 @@ GMS.Guild.ProfilePreview = WCF.Popover.extend({
 		else {
 			this._proxy.setOption('data', {
 				actionName: 'getGuildProfile',
-				className: 'wcf\\data\\guild\\GuildProfileAction',
+				className: 'gms\\data\\guild\\GuildProfileAction',
 				objectIDs: [ $guildID ]
 			});
 
@@ -622,19 +629,19 @@ GMS.Guild.TabMenu = Class.extend({
 	_proxy: null,
 
 	/**
-	 * target user id
+	 * target guild id
 	 * @var	integer
 	 */
-	_userID: 0,
+	_guildID: 0,
 
 	/**
 	 * Initializes the tab menu loader.
 	 *
 	 * @param	integer		userID
 	 */
-	init: function(userID) {
+	init: function(guildID) {
 		this._profileContent = $('#profileContent');
-		this._userID = userID;
+		this._guildID = guildID;
 
 		var $activeMenuItem = this._profileContent.data('active');
 		var $enableProxy = false;
@@ -675,12 +682,12 @@ GMS.Guild.TabMenu = Class.extend({
 		if (!this._hasContent[$containerID]) {
 			this._proxy.setOption('data', {
 				actionName: 'getContent',
-				className: 'wcf\\data\\guild\\menu\\item\\GuildMenuItemAction',
+				className: 'gms\\data\\guild\\profile\\menu\\item\\GuildProfileMenuItemAction',
 				parameters: {
 					data: {
 						containerID: $containerID,
 						menuItem: $panel.data('menuItem'),
-						userID: this._userID
+						guildID: this._guildID
 					}
 				}
 			});

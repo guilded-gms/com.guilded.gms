@@ -32,8 +32,7 @@ class AboutGuildProfileMenuContent extends SingletonFactory implements IGuildPro
 		EventHandler::getInstance()->fireAction($this, 'shouldInit');
 		
 		$this->optionHandler = new GuildOptionHandler($this->cacheName, $this->cacheClass, false, '', 'profile');
-		$this->optionHandler->enableEditMode(false);
-		$this->optionHandler->showEmptyOptions(false);
+		$this->optionHandler->showEmptyOptions(true);
 		
 		EventHandler::getInstance()->fireAction($this, 'didInit');
 	}
@@ -49,7 +48,7 @@ class AboutGuildProfileMenuContent extends SingletonFactory implements IGuildPro
 	 * @see	\wcf\system\menu\guild\profile\content\IGuildProfileMenuContent::isAccessible()
 	 */
 	public function isAccessible(Guild $guild) {
-		return (WCF::getSession()->getPermission('user.guild.canViewProfile'));
+		return (WCF::getSession()->getPermission('user.gms.guild.canViewProfile'));
 	}
 
 	/**
@@ -58,11 +57,9 @@ class AboutGuildProfileMenuContent extends SingletonFactory implements IGuildPro
 	public function getContent(Guild $guild) {
 		$this->optionHandler->setGuild($guild);
 		
-		WCF::getTPL()->assign(array(
+		return WCF::getTPL()->fetch('guildProfileAbout', 'gms', array(
 			'options' => $this->optionHandler->getOptionTree(),
 			'guildID' => $guild->guildID,
 		));
-		
-		return WCF::getTPL()->fetch('guildProfileAbout');
 	}
 }

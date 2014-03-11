@@ -43,32 +43,41 @@ class CharacterOptionAction extends AbstractDatabaseObjectAction {
 	protected $allowGuestAccess = array('getOptions');
 
 	/**
+	 * guild object
+	 * @var	\gms\data\guild\Guild
+	 */
+	protected $game = null;
+
+	/**
+	 * Validates menu item.
+	 */
+	public function validateGetOptions() {
+		// read parameters
+		$this->readInteger('gameID', false, 'data');
+
+		// get game
+		$this->game = new Game($this->parameters['data']['gameID']);
+		if (!$this->game->gameID) {
+			throw new IllegalLinkException();
+		}
+	}
+
+	/**
 	 * Returns options output by given game.
 	 *
 	 * @return array
 	 * @throws \wcf\system\exception\IllegalLinkException
 	 */
 	public function getOptions() {
-		if (!isset($this->parameters['gameID'])) {
-			return array();
-		}
-
-		$game = new Game($this->parameters['gameID']);
-		if (!$game->gameID) {
-			throw new IllegalLinkException();
-		}
-
 		$optionHandler = new CharacterOptionHandler(false);
 		$optionHandler->init();
-		$optionHandler->setGame($game);
-
-		// assign vars
-		WCF::getTPL()->assign(array(
-			'optionTree' => $optionHandler->getOptionTree()
-		));
+		$optionHandler->setGame($this->game);
 
 		return array(
-			'template' => WCF::getTPL()->fetch('characterOptions')
+			'template' => WCF::getTPL()->fetch('characterOptions', 'gms', array(
+				'errorType' => array(),
+				'optionTree' => $optionHandler->getOptionTree()
+			))
 		);
 	}
 }

@@ -17,7 +17,7 @@ class CharacterListPage extends SortablePage {
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('admin.character.canManageCharacter');
+	public $neededPermissions = array('admin.gms.character.canManage');
 	
 	/**
 	 * @see	\wcf\page\SortablePage::$defaultSortField

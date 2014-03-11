@@ -50,8 +50,8 @@ class GuildOptionPackageInstallationPlugin extends AbstractOptionPackageInstalla
 
 		if (!empty($options)) {
 			$sql = "DELETE FROM	gms".WCF_N."_".$this->tableName."
-				WHERE		optionName = ?
-				AND packageID = ?";
+					WHERE	optionName = ? AND
+							packageID = ?";
 			$statement = WCF::getDB()->prepareStatement($sql);
 
 			foreach ($options as $option) {
@@ -72,7 +72,7 @@ class GuildOptionPackageInstallationPlugin extends AbstractOptionPackageInstalla
 		if (!empty($categories)) {
 			// delete options for given categories
 			$sql = "DELETE FROM	gms".WCF_N."_".$this->tableName."
-				WHERE		categoryName = ?";
+					WHERE	categoryName = ?";
 			$statement = WCF::getDB()->prepareStatement($sql);
 			foreach ($categories as $category) {
 				$statement->execute(array($category));
@@ -80,8 +80,8 @@ class GuildOptionPackageInstallationPlugin extends AbstractOptionPackageInstalla
 
 			// delete categories
 			$sql = "DELETE FROM	wcf".WCF_N."_".$this->tableName."_category
-				WHERE		categoryName = ?
-				AND		packageID = ?";
+					WHERE	categoryName = ? AND
+							packageID = ?";
 			$statement = WCF::getDB()->prepareStatement($sql);
 
 			foreach ($categories as $category) {

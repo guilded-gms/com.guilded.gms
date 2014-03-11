@@ -8,7 +8,7 @@
 					<li class="pointer" data-character-id="{$character->characterID}">
 						<div class="box32">
 							<div>
-								<a href="{link controller='Character' object=$character application='gms'}{/link}">{@$character->getPrimaryClass()->getImageTag(32)}</a>
+								<a href="{link controller='Character' object=$character application='gms'}{/link}">{@$character->getGame()->getImageTag(32)}</a>
 							</div>
 
 							<div class="containerHeadline">

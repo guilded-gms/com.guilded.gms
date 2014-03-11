@@ -23,17 +23,18 @@
 				<optiontype>integer</optiontype>
 				<visible>15</visible>
 				<editable>3</editable>
-			</option>
-			<option name="classes">
-				<categoryname>profile.general</categoryname>
-				<optiontype>gameClassificationSelect</optiontype>
-				<outputclass>gms\system\option\character\SelectOptionsCharacterOptionOutput</outputclass>
-				<visible>15</visible>
-				<editable>3</editable>
+				<defaultvalue>1</defaultvalue>
 			</option>
 			<option name="races">
 				<categoryname>profile.general</categoryname>
 				<optiontype>gameRaceSelect</optiontype>
+				<outputclass>gms\system\option\character\SelectOptionsCharacterOptionOutput</outputclass>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+			<option name="classes">
+				<categoryname>profile.general</categoryname>
+				<optiontype>gameClassificationSelect</optiontype>
 				<outputclass>gms\system\option\character\SelectOptionsCharacterOptionOutput</outputclass>
 				<visible>15</visible>
 				<editable>3</editable>

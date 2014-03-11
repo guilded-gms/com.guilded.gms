@@ -1,6 +1,6 @@
 {include file='documentHeader'}
 <head>
-	<title>{$character->getTitle()} - {lang}gms.character.characters{/lang} - {PAGE_TITLE|language}</title>
+	<title>{lang title=$character->getTitle()}gms.character.profile.title{/lang} - {lang}gms.character.characters{/lang} - {PAGE_TITLE|language}</title>
 
 	{include file='headInclude'}
 
@@ -28,6 +28,8 @@
 		});
 		//]]>
 	</script>
+
+	<link rel="canonical" href="{link controller='Character' object=$character}{/link}" />
 </head>
 
 <body id="tpl{$templateName|ucfirst}">

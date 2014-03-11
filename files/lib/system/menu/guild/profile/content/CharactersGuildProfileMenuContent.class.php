@@ -16,18 +16,16 @@ class CharactersGuildProfileMenuContent extends SingletonFactory implements IGui
 	 * @see	\wcf\system\menu\guild\profile\content\IGuildProfileMenuContent::isAccessible()
 	 */
 	public function isAccessible(Guild $guild) {
-		return (WCF::getSession()->getPermission('user.guild.canViewProfile'));
+		return (WCF::getSession()->getPermission('user.gms.guild.canViewProfile'));
 	}
 
 	/**
 	 * @see	\wcf\system\menu\guild\profile\content\IGuildProfileMenuContent::getContent()
 	 */
 	public function getContent(Guild $guild) {
-		WCF::getTPL()->assign(array(
+		return WCF::getTPL()->fetch('guildProfileCharacters', 'gms', array(
 			'characters' => $guild->getCharacters(),
 			'guildID' => $guild->guildID
 		));
-		
-		return WCF::getTPL()->fetch('guildProfileCharacters');
 	}
 }
