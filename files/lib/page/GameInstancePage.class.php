@@ -22,7 +22,7 @@ class GameInstancePage extends AbstractPage {
 
 	/**
 	 * Holds object
-	 * @var gms\data\game\instance\GameInstance
+	 * @var	\gms\data\game\instance\GameInstance
 	 */
 	public $object = null;
 
@@ -46,8 +46,8 @@ class GameInstancePage extends AbstractPage {
 		parent::assignVariables();
 
 		WCF::getTPL()->assign(array(
-			'objectID' => $this->object->getObjectID(),
-			'object' => $this->object
+			'instanceID' => $this->object->getObjectID(),
+			'instance' => $this->object
 		));
 	}
 }

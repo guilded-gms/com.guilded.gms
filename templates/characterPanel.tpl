@@ -15,7 +15,7 @@
 								{* @todo style with mouse-over (disabled) *}
 								<h3><a href="{link controller='Character' object=$character application='gms'}{/link}">{$character->name}</a> <span class="icon icon16 icon-ok jsPrimaryIcon jsTooltip{if !$character->isPrimary} disabled{/if}"{if $character->isPrimary} title="{lang}gms.character.isPrimary{/lang}"{/if}></span></h3>
 
-								{include file='characterInformation' application='gms' object=$character}
+								{include file='characterInformation' application='gms' character=$character}
 							</div>
 						</div>
 					</li>

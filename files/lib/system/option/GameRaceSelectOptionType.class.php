@@ -23,6 +23,7 @@ class GameRaceSelectOptionType extends GameSelectOptionType {
 	 */
 	public function validate(Option $option, $newValue) {
 		if (!is_array($newValue)) $newValue = array();
+
 		$options = $option->parseSelectOptions();
 		foreach ($newValue as $value) {
 			if (!isset($options[$value])) {
