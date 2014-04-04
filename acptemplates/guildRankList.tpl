@@ -34,7 +34,7 @@
 			<thead>
 				<tr>
 					<th class="columnID columnGuildRankID{if $sortField == 'rankID'} active {@$sortOrder}{/if}" colspan="2"><a href="{link controller='GuildRankList'}pageNo={@$pageNo}&sortField=rankID&sortOrder={if $sortField == 'rankID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.objectID{/lang}</a></th>
-					<th class="columnTitle columnGuildRankTitle{if $sortField == 'title'} active {@$sortOrder}{/if}"><a href="{link controller='GuildRankList'}pageNo={@$pageNo}&sortField=title&sortOrder={if $sortField == 'title' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.title{/lang}</a></th>
+					<th class="columnTitle columnGuildRankTitle{if $sortField == 'name'} active {@$sortOrder}{/if}"><a href="{link controller='GuildRankList'}pageNo={@$pageNo}&sortField=name&sortOrder={if $sortField == 'name' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.name{/lang}</a></th>
 					
 					{event name='columnHeads'}
 				</tr>
@@ -45,13 +45,13 @@
 					{foreach from=$objects item=$object}
 						<tr class="jsGuildRankRow">
 							<td class="columnIcon">
-								<a href="{link controller='GuildRankEdit' id=$object->rankID}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip"><span class="icon icon16 icon-pencil"></span></a>
-								<span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="{lang}wcf.global.button.delete{/lang}" data-object-id="{@$object->rankID}" data-confirm-message="{lang}gms.acp.guild.rank.delete.sure{/lang}"></span>
+								<a href="{link controller='GuildRankEdit' id=$object->rankID}{/link}" name="{lang}wcf.global.button.edit{/lang}" class="jsTooltip"><span class="icon icon16 icon-pencil"></span></a>
+								<span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" name="{lang}wcf.global.button.delete{/lang}" data-object-id="{@$object->rankID}" data-confirm-message="{lang}gms.acp.guild.rank.delete.sure{/lang}"></span>
 								
 								{event name='rowButtons'}
 							</td>
 							<td class="columnID columnGuildRankID">{@$object->rankID}</td>
-							<td class="columnTitle columnGuildRankTitle"><a href="{link controller='GuildRankEdit' id=$object->rankID}{/link}" title="{lang}gms.acp.guild.rank.edit{/lang}">{$object->getTitle()|language}</a></td>
+							<td class="columnTitle columnGuildRankTitle"><a href="{link controller='GuildRankEdit' id=$object->rankID}{/link}" name="{lang}gms.acp.guild.rank.edit{/lang}">{$object->getTitle()|language}</a></td>
 							
 							{event name='columns'}
 						</tr>

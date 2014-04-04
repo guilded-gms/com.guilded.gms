@@ -36,6 +36,17 @@
 		<item name="gms.acp.guild.delete.sure"><![CDATA[Wollen Sie die Gilde "" wirklich löschen?]]></item> <!-- @todo -->
 		<item name="gms.acp.guild.isPublic"><![CDATA[Inhalte veröffentlichen]]></item>
 		<item name="gms.acp.guild.isPublic.description"><![CDATA[Setzen Sie diese Option, wenn die Informationen (Charaktere, Rekruitierung, usw.) der Gilde auf der Seite angezeigt werden soll.]]></item>
+		<!-- rank -->
+		<item name="gms.acp.guild.rank.list"><![CDATA[Ränge auflisten]]></item>
+		<item name="gms.acp.guild.rank.add"><![CDATA[Rang hinzufügen]]></item>
+		<item name="gms.acp.guild.rank.edit"><![CDATA[Rang bearbeiten]]></item>
+		<item name="gms.acp.guild.rank.name"><![CDATA[Bezeichnung]]></item>
+		<item name="gms.acp.guild.rank.delete.sure"><![CDATA[@todo]]></item>
+		<!-- recruitment -->
+		<item name="gms.acp.guild.recruitment.tender.list"><![CDATA[Gesuche auflisten]]></item>
+		<item name="gms.acp.guild.recruitment.tender.add"><![CDATA[Gesuch hinzufügen]]></item>
+		<item name="gms.acp.guild.recruitment.tender.edit"><![CDATA[Gesuch bearbeiten]]></item>
+		<item name="gms.acp.guild.recruitment.tender.delete.sure"><![CDATA[@todo]]></item>
 	</category>
 
 	<category name="gms.acp.menu">
@@ -97,8 +108,13 @@
 		<item name="gms.guild.profile.title"><![CDATA[Gilden-Profil von „{@$title}“]]></item>
 		<item name="gms.guild.add"><![CDATA[Gilde hinzufügen]]></item>
 		<item name="gms.guild.edit"><![CDATA[Gilde bearbeiten]]></item>
+		<item name="gms.guild.emblem"><![CDATA[Emblem]]></item>
 		<item name="gms.guild.guilds"><![CDATA[Gilden]]></item>
+		<item name="gms.guild.information"><![CDATA[Information]]></item>
+		<item name="gms.guild.characters"><![CDATA[Charaktere]]></item>
 		<item name="gms.guild.noCharacters"><![CDATA[Keine Mitglieder vorhanden.]]></item>
+
+		<item name="gms.guild.content.about.empty"><![CDATA[Keine Daten vorhanden]]></item>
 	</category>
 
 	<category name="gms.index">
@@ -109,6 +125,7 @@
 
 	<category name="gms.calendar">
 		<item name="gms.calendar.title"><![CDATA[Kalender]]></item>
+		<item name="gms.calendar.events"><![CDATA[Ereignisse]]></item>
 	</category>
 
 	<category name="wcf.user.option">

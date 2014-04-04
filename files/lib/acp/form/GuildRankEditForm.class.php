@@ -59,7 +59,7 @@ class GuildRankEditForm extends GuildRankAddForm {
 		parent::readData();
 
 		if (!count($_POST)) {
-			$this->title = $this->object->title;
+			$this->name = $this->object->name;
 			$this->guildID = $this->object->guildID;
 		}
 	}
@@ -72,7 +72,7 @@ class GuildRankEditForm extends GuildRankAddForm {
 
 		// update label
 		$this->objectAction = new GuildRankAction(array($this->objectID), 'update', array('data' => array(
-			'title' => $this->title,
+			'name' => $this->name,
 			'guildID' => $this->guildID
 		)));
 		$this->objectAction->executeAction();

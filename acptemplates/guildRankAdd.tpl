@@ -25,16 +25,16 @@
 		<fieldset>
 			<legend>{lang}wcf.global.form.data{/lang}</legend>
 
-			<dl{if $errorField == 'title'} class="formError"{/if}>
-			    <dt><label for="title">{lang}gms.acp.guild.rank.title{/lang}</label></dt>
+			<dl{if $errorField == 'name'} class="formError"{/if}>
+			    <dt><label for="name">{lang}gms.acp.guild.rank.name{/lang}</label></dt>
 			    <dd>
-			        <input type="text" id="title" name="title" value="{$title}" required="required" class="long" />
-			        {if $errorField == 'title'}
+			        <input type="text" id="name" name="name" value="{$name}" required="required" class="long" />
+			        {if $errorField == 'name'}
 			            <small class="innerError">
 			                {if $errorType == 'empty'}
 			                    {lang}wcf.global.form.error.empty{/lang}
 			                {else}
-			                    {lang}gms.acp.guild.rank.title.error.{@$errorType}{/lang}
+			                    {lang}gms.acp.guild.rank.name.error.{@$errorType}{/lang}
 			                {/if}
 			            </small>
 			        {/if}

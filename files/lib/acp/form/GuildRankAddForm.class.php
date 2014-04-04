@@ -37,7 +37,7 @@ class GuildRankAddForm extends AbstractForm {
 	 * title
 	 * @var	string
 	 */
-	public $title = '';
+	public $name = '';
 
 	/**
 	 * id of guild
@@ -58,7 +58,7 @@ class GuildRankAddForm extends AbstractForm {
 		parent::readFormParameters();
 		
 		// title
-		if (isset($_POST['title'])) $this->title = StringUtil::trim($_POST['title']);
+		if (isset($_POST['name'])) $this->name = StringUtil::trim($_POST['name']);
 		if (isset($_POST['guildID'])) $this->guildID = intval($_POST['guildID']);
 	}
 	
@@ -69,7 +69,7 @@ class GuildRankAddForm extends AbstractForm {
 		parent::validate();
 		
 		// validate empty title
-		if (empty($this->title)) {
+		if (empty($this->name)) {
 			throw new UserInputException('title');
 		}
 	}
@@ -82,7 +82,7 @@ class GuildRankAddForm extends AbstractForm {
 		
 		// save data
 		$this->objectAction = new GuildRankAction(array(), 'create', array('data' => array(
-			'title' => $this->title,
+			'name' => $this->name,
 			'guildID' => $this->guildID
 		)));
 		$this->objectAction->executeAction();
@@ -91,7 +91,7 @@ class GuildRankAddForm extends AbstractForm {
 		$this->saved();
 		
 		// reset values
-		$this->title = '';
+		$this->name = '';
 		$this->guildID = DEFAULT_GUILD_ID;
 		
 		// show success message
@@ -119,7 +119,7 @@ class GuildRankAddForm extends AbstractForm {
 		parent::assignVariables();
 		
 		WCF::getTPL()->assign(array(
-			'title' => $this->title,
+			'name' => $this->name,
 			'guildID' => $this->guildID,
 			'guilds' => $this->guilds
 		));

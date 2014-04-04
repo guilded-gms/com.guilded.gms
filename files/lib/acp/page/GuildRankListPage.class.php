@@ -14,7 +14,7 @@ class GuildRankListPage extends SortablePage {
 	/**
 	 * @see	\wcf\page\SortablePage::$defaultSortField
 	 */
-	public $defaultSortField = 'title';
+	public $defaultSortField = 'name';
 
 	/**
 	 * @see	\wcf\page\AbstractPage::$activeMenuItem
@@ -24,7 +24,7 @@ class GuildRankListPage extends SortablePage {
 	/**
 	 * @see	\wcf\page\SortablePage::$validSortFields
 	 */
-	public $validSortFields = array('guildID', 'title', 'rankID');
+	public $validSortFields = array('guildID', 'name', 'rankID');
 	
 	/**
 	 * @see	\wcf\page\MultipleLinkPage::$objectListClassName
