@@ -92,7 +92,8 @@ class GuildPage extends AbstractPage {
 			'guildID' => $this->guildID,
 			'guild' => $this->guild,
 			'profileContent' => $this->profileContent,
-			'guildProfileMenu' => GuildProfileMenu::getInstance()
+			'guildProfileMenu' => GuildProfileMenu::getInstance(),
+			'sidebarName' => 'com.guilded.gms.GuildPage'
 		));
 	}
 }

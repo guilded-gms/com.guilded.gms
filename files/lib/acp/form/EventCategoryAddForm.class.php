@@ -21,5 +21,5 @@ class EventCategoryAddForm extends AbstractCategoryAddForm {
 	/**
 	 * @see	AbstractCategoryAddForm::$objectTypeName
 	 */	
-	public $objectTypeName = 'com.guilded.event.category';
+	public $objectTypeName = 'com.guilded.gms.event.category';
 }

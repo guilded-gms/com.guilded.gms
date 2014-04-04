@@ -47,7 +47,7 @@
 		<type>
 			<name>com.guilded.gms.GuildPage</name>
 			<definitionname>com.woltlab.wcf.user.dashboardContainer</definitionname>
-			<allowcontent>1</allowcontent>
+			<allowcontent>0</allowcontent>
 			<allowsidebar>1</allowsidebar>
 		</type>
 		<!-- /dashboard -->

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/pageMenu.xsd">
 	<import>
+		<pagemenuitem name="gms.header.menu.index">
+			<controller><![CDATA[gms\page\Index]]></controller>
+			<position>header</position>
+		</pagemenuitem>
 		<pagemenuitem name="gms.header.menu.guild">
 			<controller><![CDATA[gms\page\Guild]]></controller>
 			<position>header</position>

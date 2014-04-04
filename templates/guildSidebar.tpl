@@ -11,12 +11,17 @@
 
 	<div>
 		<dl class="plain inlineDataList">
-			<dt>{lang}gms.guild.characters{/lang}</dt>
-			<dd>{#$guild->getCharacters()|count}</dd> {* @todo link to members tab *}
+			<dt><a href="{link controller='Guild' object=$guild}#members{/link}">{lang}gms.guild.characters{/lang}</a></dt>
+			<dd>{#$guild->getCharacters()|count}</dd>
 
 			{event name='statistics'}
 		</dl>
 	</div>
 </fieldset>
+
+{* @todo validate html *}
+{if $__boxSidebar|isset && $__boxSidebar}
+	{@$__boxSidebar}
+{/if}
 
 {event name='boxes'}

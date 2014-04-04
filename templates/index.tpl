@@ -4,6 +4,8 @@
 	<title>{if $__wcf->getPageMenu()->getLandingPage()->menuItem != 'gms.header.menu.index'}{lang}gms.header.menu.index{/lang} - {/if}{PAGE_TITLE|language}</title>
 	
 	{include file='headInclude'}
+
+	<link rel="canonical" href="{link controller='Index' application="gms"}{/link}" />
 </head>
 
 <body id="tpl{$templateName|ucfirst}">
