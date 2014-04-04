@@ -146,18 +146,6 @@
 				<defaultvalue>0</defaultvalue>
 				<admindefaultvalue>1</admindefaultvalue>
 			</option>
-			<option name="admin.gms.guild.canManageRank">
-				<categoryname>admin.gms.guild</categoryname>
-				<optiontype>boolean</optiontype>
-				<defaultvalue>0</defaultvalue>
-				<admindefaultvalue>1</admindefaultvalue>
-			</option>
-			<option name="admin.gms.guild.canManageRecruitment">
-				<categoryname>admin.gms.guild</categoryname>
-				<optiontype>boolean</optiontype>
-				<defaultvalue>0</defaultvalue>
-				<admindefaultvalue>1</admindefaultvalue>
-			</option>
 			<!-- /admin.gms.guild -->
 		</options>
 	</import>

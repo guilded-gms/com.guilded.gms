@@ -36,7 +36,7 @@ class CharactersUserProfileMenuContent extends SingletonFactory implements IUser
 			'characters' => $characterList->getObjects()
 		));
 		
-		return WCF::getTPL()->fetch('userProfileCharacters');
+		return WCF::getTPL()->fetch('userProfileCharacters', 'gms');
 	}
 	
 	/**

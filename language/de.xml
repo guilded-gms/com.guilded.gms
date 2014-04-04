@@ -55,6 +55,11 @@
 		<item name="wcf.user.menu.profile.character"><![CDATA[Charaktere]]></item>
 	</category>
 
+	<category name="wcf.search">
+		<item name="wcf.search.type.com.guilded.gms.character"><![CDATA[Charaktere]]></item>
+		<item name="wcf.search.type.com.guilded.gms.guild"><![CDATA[Gilden]]></item>
+	</category>
+
 	<category name="gms.character">
 		<item name="gms.character.profile.title"><![CDATA[Charakter-Profil von „{@$title}“]]></item>
 		<item name="gms.character.add"><![CDATA[Charakter hinzufügen]]></item>

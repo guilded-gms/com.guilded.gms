@@ -14,12 +14,17 @@ use wcf\acp\form\AbstractCategoryAddForm;
  */
 class EventCategoryAddForm extends AbstractCategoryAddForm {
 	/**
-	 * @see	AbstractCategoryAddForm::$activeMenuItem
+	 * @see	\wcf\page\IPage::$activeMenuItem
 	 */	
+	public $neededPermissions = array('admin.gms.event.canManage');
+
+	/**
+	 * @see	\wcf\page\IPage::$activeMenuItem
+	 */
 	public $activeMenuItem = 'gms.acp.menu.link.gms.event.category.add';
 	
 	/**
-	 * @see	AbstractCategoryAddForm::$objectTypeName
+	 * @see	\wcf\form\AbstractCategoryAddForm::$objectTypeName
 	 */	
 	public $objectTypeName = 'com.guilded.gms.event.category';
 }

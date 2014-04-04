@@ -43,12 +43,19 @@ class GuildSearch extends AbstractSearchableObjectType {
 
 		return null;
 	}
-	
+
+	/**
+	 * @see	\wcf\system\search\ISearchableObjectType::getSubjectFieldName()
+	 */
+	public function getSubjectFieldName() {
+		return $this->getTableName().'.name';
+	}
+
 	/**
 	 * @see	\wcf\system\search\ISearchableObjectType::getTableName()
 	 */
 	public function getTableName() {
-		return 'wcf'.WCF_N.'_guild';
+		return 'gms'.WCF_N.'_guild';
 	}
 	
 	/**
