@@ -14,6 +14,6 @@ class MonthlyCalendarMenuContent extends AbstractCalendarMenuContent {
 	public function setEvents(EventList $eventList) {
 		parent::setEvents($eventList);
 
-		// @todo handle filter
+		// @todo handle filter: selected month
 	}
 }

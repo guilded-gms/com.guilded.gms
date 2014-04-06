@@ -16,7 +16,7 @@ class ApplicationsGuildProfileMenuContent extends SingletonFactory implements IG
 	 * @see	\wcf\system\menu\guild\profile\content\IGuildProfileMenuContent::isAccessible()
 	 */
 	public function isAccessible(Guild $guild) {
-		return $guild->canView(); // @todo check permissions and membership
+		return $guild->canViewInternal();
 	}
 
 	/**

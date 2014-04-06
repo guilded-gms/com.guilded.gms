@@ -14,6 +14,6 @@ class ListCalendarMenuContent extends AbstractCalendarMenuContent {
 	public function setEvents(EventList $eventList) {
 		parent::setEvents($eventList);
 
-		// @todo handle filter
+		$this->eventList->sqlLimit = 50; // @todo as OPTION
 	}
 }

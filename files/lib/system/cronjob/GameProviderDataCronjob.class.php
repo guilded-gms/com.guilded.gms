@@ -58,7 +58,7 @@ class GameProviderDataCronjob extends AbstractCronjob {
 					));
 				}
 
-				// @todo update guild data
+				// @todo update guild data, activities, etc.
 				/*
 				$guildAction = new GuildAction(array($guild->guildID), 'update', array(
 					'data' => array(

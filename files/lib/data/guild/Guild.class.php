@@ -7,6 +7,7 @@ use gms\data\guild\recruitment\application\GuildRecruitmentApplicationList;
 use gms\data\guild\recruitment\tender\GuildRecruitmentTenderList;
 use gms\data\GMSDatabaseObject;
 use wcf\system\request\IRouteController;
+use wcf\system\WCF;
 
 /**
  * Represents a guild.
@@ -133,6 +134,7 @@ class Guild extends GMSDatabaseObject implements IRouteController {
 	 */
 	public function isMember($characterID) {
 		$characterIDs = $this->getCharacters()->getObjectIDs();
+
 		return in_array($characterID, $characterIDs);
 	}
 	
@@ -173,5 +175,25 @@ class Guild extends GMSDatabaseObject implements IRouteController {
 	 */
 	public function canView() {
 		return true;
+	}
+
+	/**
+	 * Returns true if current user can view guild internal.
+	 *
+	 * @return	boolean
+	 */
+	public function canViewInternal() {
+		$characterList = new CharacterList();
+		$characterList->getConditionBuilder()->add('userID = ?', array(WCF::getUser()->userID));
+		$characterList->getConditionBuilder()->add('guildID = ?', array($this->guildID));
+		$characterList->readObjectIDs();
+
+		foreach ($characterList->getObjectIDs() as $characterID) {
+			if (Guild::isMember($characterID)) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 }
