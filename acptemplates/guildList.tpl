@@ -1,6 +1,9 @@
 {include file='header' pageTitle='gms.acp.guild.list'}
 
-{* @todo check if at least one guild isPublic, otherwise show warning *}
+{if !$isPublic}
+	<p class="warning">{lang}gms.acp.guild.guilds.noPublicFound{/lang}</p>
+{/if}
+
 <script data-relocate="true">
 	//<![CDATA[
 	$(function() {

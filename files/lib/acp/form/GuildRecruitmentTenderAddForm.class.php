@@ -1,6 +1,6 @@
 <?php
 namespace gms\acp\form;
-use gms\data\guild\GuildList;
+use gms\data\guild\Guild;
 use gms\data\guild\recruitment\tender\GuildRecruitmentTenderAction;
 use wcf\form\AbstractForm;
 use wcf\system\exception\UserInputException;
@@ -32,12 +32,6 @@ class GuildRecruitmentTenderAddForm extends AbstractForm {
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
 	public $neededPermissions = array('admin.gms.guild.canManage');
-	
-	/**
-	 * title
-	 * @var	string
-	 */
-	public $title = '';
 
 	/**
 	 * id of guild
@@ -58,7 +52,6 @@ class GuildRecruitmentTenderAddForm extends AbstractForm {
 		parent::readFormParameters();
 		
 		// title
-		if (isset($_POST['title'])) $this->title = StringUtil::trim($_POST['title']);
 		if (isset($_POST['guildID'])) $this->guildID = intval($_POST['guildID']);
 	}
 	
@@ -82,7 +75,6 @@ class GuildRecruitmentTenderAddForm extends AbstractForm {
 		
 		// save data
 		$this->objectAction = new GuildRecruitmentTenderAction(array(), 'create', array('data' => array(
-			'title' => $this->title,
 			'guildID' => $this->guildID
 		)));
 		$returnValues = $this->objectAction->executeAction();
@@ -91,26 +83,12 @@ class GuildRecruitmentTenderAddForm extends AbstractForm {
 		$this->saved();
 		
 		// reset values
-		$this->title = '';
+		$this->guildID = 0;
 		
 		// show success message
 		WCF::getTPL()->assign('success', true);
 	}
-	
-	/**
-	 * @see	\wcf\page\Page::readData()
-	 */
-	public function readData() {
-		parent::readData();
 
-		$guildList = new GuildList();
-		$guildList->readObjects();
-
-		foreach ($guildList->getObjects() as $guild) {
-			$this->guilds[$guild->getGame()->getTitle()][] = $guild;
-		}
-	}
-	
 	/**
 	 * @see	\wcf\page\Page::assignVariables()
 	 */
@@ -118,9 +96,8 @@ class GuildRecruitmentTenderAddForm extends AbstractForm {
 		parent::assignVariables();
 		
 		WCF::getTPL()->assign(array(
-			'title' => $this->title,
 			'guildID' => $this->guildID,
-			'guilds' => $this->guilds
+			'guilds' => Guild::getCategorizedGuilds()
 		));
 	}
 }

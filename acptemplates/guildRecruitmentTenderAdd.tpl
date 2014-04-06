@@ -27,28 +27,29 @@
 
 			{htmlOptions options=$guilds selected=DEFAULT_GUILD_ID name="guildID"}
 
-			{* @todo remove title *}
-			<dl{if $errorField == 'title'} class="formError"{/if}>
-			    <dt><label for="title">{lang}gms.acp.guild.recruitment.tender.title{/lang}</label></dt>
+			<div class="options">
+				{* @todo add class *}
+				{* @todo add role *}
+			</div>
+
+			{* @todo add priority *}
+
+			<dl{if $errorField == 'amount'} class="formError"{/if}>
+			    <dt><label for="amount">{lang}gms.acp.guild.recruitment.tender.amount{/lang}</label></dt>
 			    <dd>
-			        <input type="text" id="title" name="title" value="{$title}" required="required" class="long" />
-			        {if $errorField == 'title'}
+			        <input type="number" id="amount" name="amount" value="{$amount}" required="required" class="short" />
+			        {if $errorField == 'amount'}
 			            <small class="innerError">
 			                {if $errorType == 'empty'}
 			                    {lang}wcf.global.form.error.empty{/lang}
 			                {else}
-			                    {lang}gms.acp.guild.recruitment.tender.title.error.{@$errorType}{/lang}
+			                    {lang}gms.acp.guild.recruitment.tender.amount.error.{@$errorType}{/lang}
 			                {/if}
 			            </small>
 			        {/if}
 			    </dd>
 			</dl>
 
-			{* @todo add class *}
-			{* @todo add role *}
-			{* @todo add priority *}
-			{* @todo add amount *}
-			
 			{event name='dataFields'}
 		</fieldset>
 		

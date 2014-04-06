@@ -65,7 +65,25 @@ class Guild extends GMSDatabaseObject implements IRouteController {
 	public function getTitle() {
 		return $this->name;
 	}
-	
+
+	/**
+	 * Returns a list of guilds, categorized by game.
+	 *
+	 * @return	array
+	 */
+	public static function getCategorizedGuilds() {
+		$options = array();
+
+		$guildList = new GuildList();
+		$guildList->readObjects();
+
+		foreach ($guildList->getObjects() as $guild) {
+			$options[$guild->getGame()->getTitle()][] = $guild;
+		}
+
+		return $options;
+	}
+
 	/**
 	 * Returns list of all guild members
 	 *

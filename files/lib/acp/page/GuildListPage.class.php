@@ -1,6 +1,7 @@
 <?php
 namespace gms\acp\page;
 use wcf\page\SortablePage;
+use wcf\system\WCF;
 
 /**
  * Shows guilds.
@@ -40,4 +41,14 @@ class GuildListPage extends SortablePage {
 		$this->sqlOrderBy = "guild.".$this->sortField." ".$this->sortOrder;
 	}
 
+	/**
+	 * @see	\wcf\page\IPage::assignVariables()
+	 */
+	public function assignVariables() {
+		parent::assignVariables();
+
+		WCF::getTPL()->assign(array(
+			'isPublic' => true
+		));
+	}
 }

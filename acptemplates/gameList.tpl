@@ -59,7 +59,7 @@
 							<td class="columnIcon">
 								<span class="icon icon16 icon-{if !$object->isEnabled}check-empty{else}check{/if} jsToggleButton jsTooltip pointer" title="{lang}wcf.global.button.{if !$object->isEnabled}enable{else}disable{/if}{/lang}" data-object-id="{@$object->gameID}" data-disable-message="{lang}wcf.global.button.disable{/lang}" data-enable-message="{lang}wcf.global.button.enable{/lang}"></span>
 								<a href="{link controller='GameEdit' id=$object->gameID application='gms'}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip"><span class="icon icon16 icon-pencil"></span></a>
-								<span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="{lang}wcf.global.button.delete{/lang}" data-object-id="{@$object->gameID}" data-confirm-message="{lang}gms.acp.game.delete.sure{/lang}"></span>
+								<span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="{lang}wcf.global.button.delete{/lang}" data-object-id="{@$object->gameID}" data-confirm-message="{lang title=$game->title}gms.acp.game.delete.sure{/lang}"></span>
 								
 								{event name='rowButtons'}
 							</td>

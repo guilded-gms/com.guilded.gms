@@ -1,6 +1,6 @@
 <?php
 namespace gms\acp\form;
-use gms\data\guild\GuildList;
+use gms\data\guild\Guild;
 use gms\data\guild\rank\GuildRankAction;
 use wcf\form\AbstractForm;
 use wcf\system\exception\UserInputException;
@@ -34,7 +34,7 @@ class GuildRankAddForm extends AbstractForm {
 	public $neededPermissions = array('admin.gms.guild.canManage');
 	
 	/**
-	 * title
+	 * name
 	 * @var	string
 	 */
 	public $name = '';
@@ -97,21 +97,7 @@ class GuildRankAddForm extends AbstractForm {
 		// show success message
 		WCF::getTPL()->assign('success', true);
 	}
-	
-	/**
-	 * @see	\wcf\page\Page::readData()
-	 */
-	public function readData() {
-		parent::readData();
 
-		$guildList = new GuildList();
-		$guildList->readObjects();
-
-		foreach ($guildList->getObjects() as $guild) {
-			$this->guilds[$guild->getGame()->getTitle()][] = $guild;
-		}
-	}
-	
 	/**
 	 * @see	\wcf\page\Page::assignVariables()
 	 */
@@ -121,7 +107,7 @@ class GuildRankAddForm extends AbstractForm {
 		WCF::getTPL()->assign(array(
 			'name' => $this->name,
 			'guildID' => $this->guildID,
-			'guilds' => $this->guilds
+			'guilds' => Guild::getCategorizedGuilds()
 		));
 	}
 }

@@ -24,7 +24,7 @@
 		<item name="gms.acp.game.list"><![CDATA[Spiele auflisten]]></item>
 		<item name="gms.acp.game.add"><![CDATA[Spiel hinzufügen]]></item>
 		<item name="gms.acp.game.edit"><![CDATA[Spiel bearbeiten]]></item>
-		<item name="gms.acp.game.delete.sure"><![CDATA[Wollen Sie das Spiel @todo NAME wirklich löschen?]]></item> <!-- @todo -->
+		<item name="gms.acp.game.delete.sure"><![CDATA[Wollen Sie das Spiel „{@$title}“ wirklich löschen?]]></item>
 	</category>
 
 	<category name="gms.acp.guild">
