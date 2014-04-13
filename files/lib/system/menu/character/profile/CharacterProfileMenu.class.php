@@ -26,6 +26,12 @@ class CharacterProfileMenu extends UserProfileMenu {
 		$this->menuItems = CharacterProfileMenuCacheBuilder::getInstance()->getData();
 	}
 
+	/**
+	 * Returns a list of accessible menuItem by given character.
+	 *
+	 * @param	\gms\data\character\Character	$character
+	 * @return	array
+	 */
 	public function getAccessibleMenuItems(Character $character) {
 		$menuItems = $this->getMenuItems();
 

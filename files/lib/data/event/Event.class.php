@@ -55,7 +55,7 @@ class Event extends GMSDatabaseObject implements IRouteController {
 	public function getParticipants() {
 		if (empty($this->participants)) {
 			$participationList = new EventParticipationList();
-			$participationList->getConditionBuilder()->add('event_particaption.eventID = ?', array($this->eventID));
+			$participationList->getConditionBuilder()->add('event_participation.eventID = ?', array($this->eventID));
 			$participationList->readObjects();
 
 			$this->participants = $participationList->getObjects();

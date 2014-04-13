@@ -1,10 +1,13 @@
 /**
+ * General functions and utilities.
+ *
  * @author	Jeffrey Reichardt
  * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
  * @license	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.gms
  * @category	Guilded 2.0
  */
+
 /**
  * Namespace for GMS
  */
@@ -16,7 +19,7 @@ GMS = { };
 GMS.Character = { };
 
 /**
- * OptionHandler for CharacterEditor.
+ * OptionHandler for CharacterEditor. Shows specific option fields upon selected game.
  */
 GMS.Character.OptionHandler = Class.extend({
 	/**
@@ -122,7 +125,7 @@ GMS.Character.OptionHandler = Class.extend({
 	},
 
 	/**
-	 * Builds game handler.
+	 * Builds game selector.
 	 *
 	 * @param	boolean		enableOnInit
 	 */
@@ -216,7 +219,7 @@ GMS.Character.OptionHandler = Class.extend({
 	},
 
 	/**
-	 * Changes the currently active game.
+	 * Changes the currently active game and refreshes container.
 	 *
 	 * @param	object		event
 	 */
@@ -389,16 +392,16 @@ GMS.Character.TabMenu = Class.extend({
 	 * target user id
 	 * @var	integer
 	 */
-	_userID: 0,
+	_characterID: 0,
 
 	/**
 	 * Initializes the tab menu loader.
 	 *
-	 * @param	integer		userID
+	 * @param	integer		characterID
 	 */
-	init: function(userID) {
+	init: function(characterID) {
 		this._profileContent = $('#profileContent');
-		this._userID = userID;
+		this._characterID = characterID;
 
 		var $activeMenuItem = this._profileContent.data('active');
 		var $enableProxy = false;
@@ -444,7 +447,7 @@ GMS.Character.TabMenu = Class.extend({
 					data: {
 						containerID: $containerID,
 						menuItem: $panel.data('menuItem'),
-						userID: this._userID
+						characterID: this._characterID
 					}
 				}
 			});

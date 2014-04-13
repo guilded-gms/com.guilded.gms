@@ -43,7 +43,7 @@ class AbstractCalendarMenuContent extends SingletonFactory implements ICalendarM
 	 */
 	public function fetch() {
 		// fire listener
-		EventHandler::getInstance()->fireAction($this, 'fetched');
+		EventHandler::getInstance()->fireAction($this, 'fetch');
 
 		// read objects
 		$this->eventList->readObjects();

@@ -26,6 +26,12 @@ class GuildProfileMenu extends UserProfileMenu {
 		$this->menuItems = GuildProfileMenuCacheBuilder::getInstance()->getData();
 	}
 
+	/**
+	 * Returns a list of accessible menuItem by given guild.
+	 *
+	 * @param	\gms\data\guild\Guild	$guild
+	 * @return	array
+	 */
 	public function getAccessibleMenuItems(Guild $guild) {
 		$menuItems = $this->getMenuItems();
 

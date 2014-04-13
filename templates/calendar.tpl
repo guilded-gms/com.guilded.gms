@@ -5,6 +5,16 @@
 	
 	{include file='headInclude'}
 
+	<script data-relocate="true">
+		//<![CDATA[
+		$(function() {
+			WCF.TabMenu.init();
+
+			{event name='javascriptInit'}
+		});
+		//]]>
+	</script>
+
 	<link rel="canonical" href="{link controller='Calendar'}{/link}" />
 </head>
 
@@ -36,7 +46,7 @@
 	{/hascontent}
 </div>
 
-<section class="marginTop tabMenuContainer" data-active="{$calendarMenu->getActiveMenuItem()->getIdentifier()}">
+<section id="calendarContent" class="marginTop tabMenuContainer" data-active="{$calendarMenu->getActiveMenuItem()->getIdentifier()}">
 	{assign var='menuItems' value=$calendarMenu->getMenuItems()}
 	{if $menuItems|count > 1}
 		<nav class="tabMenu">

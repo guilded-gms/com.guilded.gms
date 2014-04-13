@@ -1,5 +1,6 @@
 <?php
 namespace gms\system\menu\calendar;
+use gms\data\event\EventList;
 use wcf\system\event\EventHandler;
 use wcf\system\menu\user\profile\UserProfileMenu;
 
@@ -22,5 +23,9 @@ class CalendarMenu extends UserProfileMenu {
 		EventHandler::getInstance()->fireAction($this, 'loadCache');
 
 		$this->menuItems = CalendarMenuCacheBuilder::getInstance()->getData();
+
+		foreach ($this->menuItems as &$menuItem) {
+			$menuItem->getContentManager()->setEvents(new EventList());
+		}
 	}
 }

@@ -28,7 +28,7 @@ class EventCredit extends DatabaseObjectDecorator implements ICreditableObject {
 	/**
 	 * Gets object by objectID.
 	 * 
-	 * @return	\gms\data\DatabaseObject
+	 * @return	\wcf\data\DatabaseObject
 	 */
 	public function getObject() {
 		if ($this->event === null) {
