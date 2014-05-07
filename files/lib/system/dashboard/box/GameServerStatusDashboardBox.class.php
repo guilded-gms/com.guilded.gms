@@ -11,7 +11,8 @@ use wcf\system\WCF;
  * DashboardBox for showing server status.
  *
  * @author	Jeffrey Reichardt
- * @copyright	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)*
+ * @license	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.gms
  * @subpackage	system.dashboard.box
  * @category	Guilded 2.0

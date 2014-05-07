@@ -479,6 +479,7 @@ ALTER TABLE gms1_guild ADD FOREIGN KEY (groupID) REFERENCES wcf1_user_group (gro
 
 ALTER TABLE gms1_character ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE CASCADE;
 ALTER TABLE gms1_character ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON DELETE CASCADE;
+ALTER TABLE gms1_character ADD FOREIGN KEY (guildID) REFERENCES gms1_guild (guildID) ON DELETE SET NULL;
 
 ALTER TABLE gms1_guild_rank ADD FOREIGN KEY (guildID) REFERENCES gms1_guild (guildID) ON DELETE CASCADE;
 

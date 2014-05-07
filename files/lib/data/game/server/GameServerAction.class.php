@@ -4,10 +4,11 @@ use wcf\data\AbstractDatabaseObjectAction;
 use wcf\system\WCF;
 
 /**
- * 
+ * GameServer-related actions.
  * 
  * @author	Jeffrey Reichardt
- * @copyright	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)*
+ * @license	Creative Commons 3.0 <BY-NC-SA> <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
  * @package	com.guilded.gms
  * @subpackage	data.game.server
  * @category	Guilded 2.0
@@ -21,15 +22,20 @@ class GameServerAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsCreate
 	 */
-	protected $permissionsCreate = array('user.gameserver.canAddGameServer');
+	protected $permissionsCreate = array('admin.gms.guild.canManage');
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
 	 */
-	protected $permissionsDelete = array('user.gameserver.canDeleteGameServer');
+	protected $permissionsDelete = array('admin.gms.guild.canManage');
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsUpdate
 	 */
-	protected $permissionsUpdate = array('user.gameserver.canEditGameServer');
+	protected $permissionsUpdate = array('admin.gms.guild.canManage');
+
+	/**
+	 * @see	\wcf\data\AbstractDatabaseObjectAction::$requireACP
+	 */
+	protected $requireACP = array('create', 'update', 'delete');
 }

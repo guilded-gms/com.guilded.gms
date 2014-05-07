@@ -17,4 +17,19 @@ class GuildOptionAction extends AbstractDatabaseObjectAction {
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$className
 	 */
 	protected $className = 'gms\data\guild\option\GuildOptionEditor';
+
+	/**
+	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsCreate
+	 */
+	protected $permissionsCreate = array('admin.gms.guild.canManage');
+
+	/**
+	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
+	 */
+	protected $permissionsDelete = array('admin.gms.guild.canManage');
+
+	/**
+	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsUpdate
+	 */
+	protected $permissionsUpdate = array('admin.gms.guild.canManage');
 }

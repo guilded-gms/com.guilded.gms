@@ -74,6 +74,7 @@ class GuildRecruitmentApplicationAction extends AbstractDatabaseObjectAction {
 				'guildName' => $recruitmentEditor->getGuild()->getTitle(),
 				'characterName' => $recruitmentEditor->getCharacter()->getTitle()
 			);
+
 			$mail = new Mail(
 				array($recruitmentEditor->getUser()->username => $recruitmentEditor->getUser(),
 				WCF::getLanguage()->getDynamicVariable('gms.guild.recruitment.application.accept.mail.subject'),
@@ -121,7 +122,7 @@ class GuildRecruitmentApplicationAction extends AbstractDatabaseObjectAction {
 				'statusTime' => TIME_NOW
 			));
 
-			// send activation mail
+			// send declination mail
 			$messageData = array(
 				'username' => $recruitmentEditor->getUser()->username,
 				'guildName' => $recruitmentEditor->getGuild()->getTitle(),
