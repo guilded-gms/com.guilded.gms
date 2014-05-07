@@ -73,8 +73,8 @@ class GameServer extends GMSDatabaseObject implements ITitledObject {
 	 * @param	integer	$size
 	 * @return	string
 	 */
-	public function getStatusIcon($size = 24) {
-		return '<span class="icon' . $size . ' icon-chevron-sign-' . ($this->isOnline ? 'up' : 'down') . '"></span>';
+	public function getStatusIcon($size = 32) {
+		return '<i class="icon icon' . $size . ' icon-circle-arrow-' . ($this->isOnline ? 'up green' : 'down red') . ' jsTooltip" title="' . $this->getTitle() . '"></i>';
 	}
 
 	/**

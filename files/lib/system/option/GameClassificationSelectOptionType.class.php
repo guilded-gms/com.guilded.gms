@@ -4,6 +4,7 @@ use gms\data\game\classification\GameClassificationList;
 use gms\data\game\Game;
 use wcf\data\option\Option;
 use wcf\system\option\SelectOptionType;
+use wcf\system\WCF;
 
 /**
  * Select Option for game-classes.
@@ -14,16 +15,26 @@ use wcf\system\option\SelectOptionType;
  * @package	com.guilded.gms
  * @subpackage	system.option
  * @category	Guilded 2.0
- *
- * @todo show multi-checkbox (check maxClasses)
  */
 class GameClassificationSelectOptionType extends GameSelectOptionType {
+	/**
+	 * @see	\wcf\system\option\IOptionType::getFormElement()
+	 */
+	public function getFormElement(Option $option, $value) {
+		if ($this->game->maxClasses > 1) {
+			$this->templateName = 'multiSelectOptionType';
+		}
+
+		return parent::getFormElement($option, $value);
+	}
+
 	/**
 	 * @see	\wcf\system\option\IOptionType::validate()
 	 */
 	public function validate(Option $option, $newValue) {
 		if (!is_array($newValue)) $newValue = array();
 		$options = $option->parseSelectOptions();
+
 		foreach ($newValue as $value) {
 			if (!isset($options[$value])) {
 				throw new UserInputException($option->optionName, 'validationFailed');
@@ -36,9 +47,7 @@ class GameClassificationSelectOptionType extends GameSelectOptionType {
 	}
 
 	/**
-	 * Get possible select-options.
-	 *
-	 * @return array
+	 * @see	\gms\system\option\GameSelectOptionType::parseSelectOptions()
 	 */
 	public function parseSelectOptions(){
 		$result = array();

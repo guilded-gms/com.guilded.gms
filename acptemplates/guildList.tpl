@@ -60,18 +60,18 @@
 
 			<tbody>
 			{content}
-			{foreach from=$objects item=$object}
+			{foreach from=$objects item=$guild}
 				<tr class="jsGuildRow">
 					<td class="columnIcon">
-						<span class="icon icon16 icon-{if !$object->isPublic}check-empty{else}check{/if} jsToggleButton jsTooltip pointer" title="{lang}wcf.global.button.{if !$object->isPublic}enable{else}disable{/if}{/lang}" data-object-id="{@$object->guildID}" data-disable-message="{lang}wcf.global.button.disable{/lang}" data-enable-message="{lang}wcf.global.button.enable{/lang}"></span>
-						<a href="{link controller='GuildEdit' id=$object->guildID application='gms'}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip"><span class="icon icon16 icon-pencil"></span></a>
-						<span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="{lang}wcf.global.button.delete{/lang}" data-object-id="{@$object->guildID}" data-confirm-message="{lang}gms.acp.guild.delete.sure{/lang}"></span>
+						<span class="icon icon16 icon-{if !$guild->isPublic}check-empty{else}check{/if} jsToggleButton jsTooltip pointer" title="{lang}wcf.global.button.{if !$guild->isPublic}enable{else}disable{/if}{/lang}" data-object-id="{@$guild->guildID}" data-disable-message="{lang}wcf.global.button.disable{/lang}" data-enable-message="{lang}wcf.global.button.enable{/lang}"></span>
+						<a href="{link controller='GuildEdit' id=$guild->guildID application='gms'}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip"><span class="icon icon16 icon-pencil"></span></a>
+						<span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="{lang}wcf.global.button.delete{/lang}" data-object-id="{@$guild->guildID}" data-confirm-message="{lang}gms.acp.guild.delete.sure{/lang}"></span>
 
 						{event name='rowButtons'}
 					</td>
-					<td class="columnID">{@$object->guildID}</td>
-					<td class="columnTitle"><a href="{link controller='GuildEdit' id=$object->guildID application='gms'}{/link}">{$object->getTitle()}</a></td>
-					<td class="columnText columnGame">{$object->getGame()->getTitle()}</td>
+					<td class="columnID">{@$guild->guildID}</td>
+					<td class="columnTitle"><a href="{link controller='GuildEdit' id=$guild->guildID application='gms'}{/link}">{$guild->getTitle()}</a></td>
+					<td class="columnText columnGame">{$guild->getGame()->getTitle()}</td>
 
 					{event name='columns'}
 				</tr>

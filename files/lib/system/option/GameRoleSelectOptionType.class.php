@@ -11,14 +11,15 @@ use gms\data\game\role\GameRoleList;
  * @package	com.guilded.gms
  * @subpackage	system.option
  * @category	Guilded 2.0
- *
- * @todo show multi-checkbox
 */
 class GameRoleSelectOptionType extends GameSelectOptionType {
 	/**
-	 * Get possible select-options.
-	 *
-	 * @return array
+	 * @see	\gms\system\option\GameSelectOptionType::$templateName
+	 */
+	public $templateName = 'multiSelectOptionType';
+
+	/**
+	 * @see	\gms\system\option\GameSelectOptionType::parseSelectOptions()
 	 */
 	public function parseSelectOptions(){
 		$result = array();

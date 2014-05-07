@@ -34,6 +34,7 @@ class GameSelectOptionType extends SelectOptionType implements IGameOptionType {
 			'selectOptions' => $this->parseSelectOptions(),
 			'value' => $value
 		));
+
 		return WCF::getTPL()->fetch($this->templateName);
 	}
 

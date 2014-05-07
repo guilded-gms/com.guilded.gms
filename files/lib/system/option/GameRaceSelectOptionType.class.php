@@ -14,10 +14,19 @@ use wcf\system\option\SelectOptionType;
  * @package	com.guilded.gms
  * @subpackage	system.option
  * @category	Guilded 2.0
- *
- * @todo show multi-checkbox (check maxRaces)
 */
 class GameRaceSelectOptionType extends GameSelectOptionType {
+	/**
+	 * @see	\wcf\system\option\IOptionType::getFormElement()
+	 */
+	public function getFormElement(Option $option, $value) {
+		if ($this->game->maxRaces > 1) {
+			$this->templateName = 'multiSelectOptionType';
+		}
+
+		return parent::getFormElement($option, $value);
+	}
+
 	/**
 	 * @see	\wcf\system\option\IOptionType::validate()
 	 */
@@ -37,9 +46,7 @@ class GameRaceSelectOptionType extends GameSelectOptionType {
 	}
 
 	/**
-	 * Get possible select-options.
-	 *
-	 * @return array
+	 * @see	\gms\system\option\GameSelectOptionType::parseSelectOptions()
 	 */
 	public function parseSelectOptions(){
 		$result = array();

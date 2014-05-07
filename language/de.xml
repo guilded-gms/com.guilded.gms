@@ -33,7 +33,7 @@
 		<item name="gms.acp.guild.edit"><![CDATA[Gilde bearbeiten]]></item>
 		<item name="gms.acp.guild.name"><![CDATA[Bezeichnung]]></item>
 		<item name="gms.acp.guild.gameID"><![CDATA[Spiel]]></item>
-		<item name="gms.acp.guild.delete.sure"><![CDATA[Wollen Sie die Gilde "" wirklich löschen?]]></item> <!-- @todo -->
+		<item name="gms.acp.guild.delete.sure"><![CDATA[Wollen Sie die Gilde „{$guild->getTitle()}“ wirklich löschen?]]></item>
 		<item name="gms.acp.guild.isPublic"><![CDATA[Inhalte veröffentlichen]]></item>
 		<item name="gms.acp.guild.isPublic.description"><![CDATA[Setzen Sie diese Option, wenn die Informationen (Charaktere, Rekruitierung, usw.) der Gilde auf der Seite angezeigt werden soll.]]></item>
 		<!-- rank -->
