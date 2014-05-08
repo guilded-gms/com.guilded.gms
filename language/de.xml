@@ -102,6 +102,8 @@
 
 		<item name="gms.character.profile.menu.activity"><![CDATA[Aktivitäten]]></item>
 		<item name="gms.character.profile.menu.about"><![CDATA[Über]]></item>
+
+		<item name="gms.character.activity.reached.maximumLevel"><![CDATA[{@$character->characterName} hat Stufe {#$object->maxLevel} erreicht.]]></item>
 	</category>
 
 	<category name="gms.guild">

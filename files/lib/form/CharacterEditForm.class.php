@@ -3,6 +3,7 @@ namespace gms\form;
 use gms\data\character\Character;
 use gms\data\character\CharacterAction;
 use gms\data\character\CharacterEditor;
+use gms\system\character\activity\CharacterActivityHandler;
 use wcf\form\AbstractForm;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\WCF;
@@ -96,14 +97,22 @@ class CharacterEditForm extends CharacterAddForm {
 		// save character
 		$optionValues = $this->optionHandler->save();
 
-		$data = array(
-			'data' => array_merge(array(
+		$this->objectAction = new CharacterAction(array($this->characterID), 'update', array(
+			'data' => array_merge($this->additionalFields, array(
 				'characterName' => $this->characterName
-			), $this->additionalFields),
+			)),
 			'options' => $optionValues
-		);
-		$this->objectAction = new CharacterAction(array($this->characterID), 'update', $data);
-		$this->objectAction->executeAction();
+		));
+		$returnValues = $this->objectAction->executeAction();
+
+		// refresh character
+		$this->character = new CharacterEditor(new Character($returnValues['objectIDs'][0]));
+
+		// fire activity maxLevel
+		if ($this->character->getDecoratedObject()->getGame()->maxLevel == $this->character->level) {
+			CharacterActivityHandler::getInstance()->fireEvent('reached.maximumLevel', $this->character, $this->character->getDecoratedObject()->getGame());
+		}
+
 		$this->saved();
 		
 		// show success message

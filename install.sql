@@ -308,7 +308,7 @@ CREATE TABLE gms1_character_activity (
 	activityID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	characterID 		INT(10) NOT NULL,
 	time				INT(10) NOT NULL,
-	activityName		VARCHAR(255) NOT NULL,
+	languageItemName	VARCHAR(255) NOT NULL,
 	additionalData		MEDIUMTEXT
 );
 

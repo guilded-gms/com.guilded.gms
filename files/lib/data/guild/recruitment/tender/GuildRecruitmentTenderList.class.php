@@ -17,4 +17,19 @@ class GuildRecruitmentTenderList extends DatabaseObjectList {
 	 * @see	\wcf\data\DatabaseObjectList::$className
 	 */
 	public $className = 'gms\data\guild\recruitment\tender\GuildRecruitmentTender';
+
+	/**
+	 * Returns a list of all game classes.
+	 *
+	 * @return    array
+	 */
+	public function getClasses() {
+		$classes = array();
+
+		foreach ($this->objects as $tender) {
+			$classes[$tender->getClass()->classificationID] = $tender->getClass();
+		}
+
+		return $classes;
+	}
 }

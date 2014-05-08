@@ -33,7 +33,7 @@ class CharacterActivityHandler extends SingletonFactory {
 			'time' => TIME_NOW,
 			'languageItemName' => $languageItemName,
 			'characterID' => $characterID,
-			'activityObject' => serialize($object)
+			'additionalData' => serialize(array('object' => $object))
 		));
 	}
 

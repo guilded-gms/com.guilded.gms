@@ -35,14 +35,16 @@ class CharacterActivity extends GMSDatabaseObject {
 	}
 
 	/**
-	 * Returns output.
+	 * Returns message title.
 	 *
 	 * @return    string
 	 */
-	public function getOutput() {
-		return WCF::getLanguage()->getDynamicVariable($this->languageItemName, array(
-			'character' => $this->getCharacter(),
-			'object' => unserialize($this->activityObject)
-		));
+	public function getTitle() {
+		return WCF::getLanguage()->getDynamicVariable('gms.character.activity.' . $this->languageItemName, array_merge(
+			array(
+				'character' => $this->getCharacter()),
+				unserialize($this->additionalData)
+			)
+		);
 	}
 }

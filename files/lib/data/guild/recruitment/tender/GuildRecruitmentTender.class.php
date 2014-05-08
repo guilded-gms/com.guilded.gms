@@ -14,6 +14,10 @@ use wcf\system\WCF;
  * @category	Guilded 2.0
  */
 class GuildRecruitmentTender extends GMSDatabaseObject {
+	const PRIORITY_LOW = 1;
+	const PRIORITY_MEDIUM = 2;
+	const PRIORITY_HIGH = 3;
+
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -23,4 +27,17 @@ class GuildRecruitmentTender extends GMSDatabaseObject {
 	 * @see	\wcf\data\DatabaseObject::$databaseTableIndexName
 	 */
 	protected static $databaseTableIndexName = 'tenderID';
+
+	/**
+	 * Returns badge of priority.
+	 *
+	 * @return	string
+	 */
+	public function getBadge() {
+		$colorClass = 'green';
+		if ($this->priority === self::PRIORITY_MEDIUM) $colorClass = 'orange';
+		else if ($this->priority === self::PRIORITY_HIGH) $colorClass = 'red';
+
+		return '<span class="badge ' . $colorClass . '">' . WCF::getLanguage()->get('gms.guild.recruitment.tender.priority.' . $this->priority) . '</span></label>';
+	}
 }

@@ -51,9 +51,9 @@
 			<dl>
 				<dt><label for="priority">{lang}gms.acp.guild.recruitment.tender.priority{/lang}</label></dt>
 				<dd>
-					<label><input type="radio" value="low" name="priority"> <span class="badge label green">{lang}gms.acp.guild.recruitment.tender.priority.low{/lang}</span></label>
-					<label><input type="radio" value="medium" name="priority"> <span class="badge label orange">{lang}gms.acp.guild.recruitment.tender.priority.medium{/lang}</span></label>
-					<label><input type="radio" value="high" name="priority"> <span class="badge label red">{lang}gms.acp.guild.recruitment.tender.priority.high{/lang}</span></label>
+					<label><input type="radio" value="1" name="priority"> <span class="badge green">{lang}gms.guild.recruitment.tender.priority.1{/lang}</span></label>
+					<label><input type="radio" value="2" name="priority"> <span class="badge orange">{lang}gms.guild.recruitment.tender.priority.2{/lang}</span></label>
+					<label><input type="radio" value="3" name="priority"> <span class="badge red">{lang}gms.guild.recruitment.tender.priority.3{/lang}</span></label>
 					{if $errorField == 'priority'}
 						<small class="innerError">
 							{if $errorType == 'empty'}
