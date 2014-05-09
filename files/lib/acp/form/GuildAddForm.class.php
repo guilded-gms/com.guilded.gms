@@ -38,7 +38,7 @@ class GuildAddForm extends GuildOptionListForm {
 
 	/**
 	 * id of game
-	 * @var	int
+	 * @var	integer
 	 */
 	public $gameID = 0;
 
@@ -50,7 +50,7 @@ class GuildAddForm extends GuildOptionListForm {
 
 	/**
 	 * guild shown in public area
-	 * @var    integer
+	 * @var	integer
 	 */
 	public $isPublic = 1;
 

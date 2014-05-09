@@ -1,5 +1,6 @@
 <?php
 namespace gms\data\game\faction;
+use gms\data\game\Game;
 use gms\data\GMSDatabaseObject;
 
 /**
@@ -22,4 +23,25 @@ class GameFaction extends GMSDatabaseObject {
 	 * @see	\wcf\data\DatabaseObject::$databaseTableIndexName
 	 */
 	protected static $databaseTableIndexName = 'factionID';
+
+	/**
+	 * Returns faction by given name and game.
+	 *
+	 * @param	string	$factionName
+	 * @param	integer	$gameID
+	 * @return	\gms\data\game\faction\GameFaction
+	 */
+	public static function getFactionByTitle($factionName, $gameID = DEFAULT_GAME_ID) {
+		$sql = "SELECT	*
+				FROM	".self::getDatabaseTableName()."
+				WHERE	title = ? AND
+						gameID = ?";
+		$statement = WCF::getDB()->prepareStatement($sql);
+		$statement->execute(array($factionName, $gameID));
+		$row = $statement->fetchArray();
+
+		if (!$row) $row = array();
+
+		return new GameFaction(null, $row);
+	}
 }

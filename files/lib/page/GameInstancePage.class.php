@@ -15,6 +15,11 @@ use wcf\system\WCF;
  */
 class GameInstancePage extends AbstractPage {
 	/**
+	 * @see	\wcf\page\AbstractPage::$neededModules
+	 */
+	public $neededModules = array(GMS_MODULE_INSTANCE_PROGRESS);
+
+	/**
 	 * Holds id
 	 * @var integer
 	 */

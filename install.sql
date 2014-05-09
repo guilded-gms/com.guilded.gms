@@ -25,7 +25,6 @@ CREATE TABLE gms1_game_role (
 	UNIQUE KEY(gameID, title)
 ) ENGINE=INNODB CHARSET=utf8;
 
--- @todo pip
 DROP TABLE IF EXISTS gms1_game_faction;
 CREATE TABLE gms1_game_faction (
 	factionID 		INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -43,13 +42,19 @@ CREATE TABLE gms1_game_race (
 	raceID 			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	packageID 		INT(10) NOT NULL,
 	gameID 			INT(10) NOT NULL,
-	factionID 		INT(10) DEFAULT NULL,
 	identifier		VARCHAR(255),
 	title		   VARCHAR(255),
 	icon	   		VARCHAR(255),
 	isEnabled		TINYINT(1) DEFAULT 1,
 	parent			INT(10),
 	UNIQUE KEY(gameID, title)
+) ENGINE=INNODB CHARSET=utf8;
+
+DROP TABLE IF EXISTS gms1_game_race_to_faction;
+CREATE TABLE gms1_game_race_to_faction (
+	raceID 			INT(10) NOT NULL
+	factionID		INT(10) NOT NULL
+	UNIQUE KEY(raceID, factionID)
 ) ENGINE=INNODB CHARSET=utf8;
 
 DROP TABLE IF EXISTS gms1_game_classification;
@@ -458,7 +463,9 @@ ALTER TABLE gms1_game_role ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID
 ALTER TABLE gms1_game_faction ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON DELETE CASCADE;
 
 ALTER TABLE gms1_game_race ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON DELETE CASCADE;
-ALTER TABLE gms1_game_race ADD FOREIGN KEY (factionID) REFERENCES gms1_game_faction (factionID) ON DELETE CASCADE;
+
+ALTER TABLE gms1_game_race_to_faction ADD FOREIGN KEY (raceID) REFERENCES gms1_game_race (raceID) ON DELETE CASCADE;
+ALTER TABLE gms1_game_race_to_faction ADD FOREIGN KEY (factionID) REFERENCES gms1_game_faction (factionID) ON DELETE CASCADE;
 
 ALTER TABLE gms1_game_classification ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON DELETE CASCADE;
 

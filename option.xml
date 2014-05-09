@@ -20,6 +20,25 @@
 		</categories>
 		
 		<options>
+			<!-- modules -->
+			<option name="gms_module_recruitment">
+				<categoryname>module.community</categoryname>
+				<optiontype>boolean</optiontype>
+			</option>
+			<option name="gms_module_calendar">
+				<categoryname>module.community</categoryname>
+				<optiontype>boolean</optiontype>
+			</option>
+			<option name="gms_module_credit_system">
+				<categoryname>module.community</categoryname>
+				<optiontype>boolean</optiontype>
+			</option>
+			<option name="gms_module_instance_progress">
+				<categoryname>module.community</categoryname>
+				<optiontype>boolean</optiontype>
+			</option>
+			<!-- /modules -->
+
 			<!-- general -->
 			<option name="gms_install_date">
 				<categoryname>general</categoryname>

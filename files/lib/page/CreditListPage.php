@@ -12,6 +12,11 @@ use wcf\page\SortablePage;
  */
 class CreditListPage extends SortablePage {
 	/**
+	 * @see	\wcf\page\AbstractPage::$neededModules
+	 */
+	public $neededModules = array(GMS_MODULE_CREDIT_SYSTEM);
+
+	/**
 	 * @see wcf\page\AbstractPage::$neededPermissions
 	 */
 	public $neededPermissions = array();

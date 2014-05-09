@@ -26,6 +26,11 @@ class CalendarPage extends AbstractPage {
 	public $enableTracking = true;
 
 	/**
+	 * @see	\wcf\page\AbstractPage::$neededModules
+	 */
+	public $neededModules = array(GMS_MODULE_CALENDAR);
+
+	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
 	public $neededPermissions = array('user.gms.event.canViewCalendar');
@@ -40,5 +45,7 @@ class CalendarPage extends AbstractPage {
 			'calendarMenu' => CalendarMenu::getInstance()
 		));
 	}
+
+	// @todo add breadcrumb
 }
 

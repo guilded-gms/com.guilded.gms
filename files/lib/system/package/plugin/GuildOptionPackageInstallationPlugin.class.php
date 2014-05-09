@@ -94,9 +94,7 @@ class GuildOptionPackageInstallationPlugin extends AbstractOptionPackageInstalla
 	}
 
 	/**
-	 * Imports option categories.
-	 *
-	 * @param	\DOMXPath	$xpath
+	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::importCategories()
 	 */
 	protected function importCategories(\DOMXPath $xpath) {
 		$elements = $xpath->query('/ns:data/ns:import/ns:categories/ns:category');

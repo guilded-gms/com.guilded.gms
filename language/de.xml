@@ -47,6 +47,8 @@
 		<item name="gms.acp.guild.recruitment.tender.add"><![CDATA[Gesuch hinzufügen]]></item>
 		<item name="gms.acp.guild.recruitment.tender.edit"><![CDATA[Gesuch bearbeiten]]></item>
 		<item name="gms.acp.guild.recruitment.tender.delete.sure"><![CDATA[@todo]]></item>
+		<item name="gms.acp.guild.recruitment.tender.amount"><![CDATA[Anzahl]]></item>
+		<item name="gms.acp.guild.recruitment.tender.priority"><![CDATA[Priorität]]></item>
 	</category>
 
 	<category name="gms.acp.menu">
@@ -117,6 +119,10 @@
 		<item name="gms.guild.noCharacters"><![CDATA[Keine Mitglieder vorhanden.]]></item>
 
 		<item name="gms.guild.content.about.empty"><![CDATA[Keine Daten vorhanden]]></item>
+
+		<item name="gms.guild.recruitment.tender.priority.1"><![CDATA[niedrig]]></item>
+		<item name="gms.guild.recruitment.tender.priority.2"><![CDATA[mittel]]></item>
+		<item name="gms.guild.recruitment.tender.priority.3"><![CDATA[hoch]]></item>
 	</category>
 
 	<category name="gms.index">
@@ -146,6 +152,10 @@
 		<item name="wcf.acp.option.gms_index_enable_stats"><![CDATA[Allgemeine Statistik anzeigen]]></item>
 		<item name="wcf.acp.option.gms_index_enable_online_list"><![CDATA[Benutzer-Online-Liste anzeigen]]></item>
 		<item name="wcf.acp.option.guild_recruitment_decline_character"><![CDATA[@todo]]></item>
+		<item name="wcf.acp.option.gms_module_recruitment"><![CDATA[Rekrutierung]]></item>
+		<item name="wcf.acp.option.gms_module_calendar"><![CDATA[Kalender]]></item>
+		<item name="wcf.acp.option.gms_module_credit_system"><![CDATA[Punktesystem]]></item>
+		<item name="wcf.acp.option.gms_module_instance_progress"><![CDATA[Gegner- und Instanzfortschritt]]></item>
 	</category>
 
 	<category name="wcf.acp.group">
