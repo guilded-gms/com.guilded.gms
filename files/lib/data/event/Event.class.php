@@ -2,6 +2,7 @@
 namespace gms\data\event;
 use gms\data\event\participation\EventParticipationList;
 use gms\data\GMSDatabaseObject;
+use gms\system\event\type\EventTypeHandler;
 use wcf\system\request\IRouteController;
 
 /**
@@ -70,7 +71,7 @@ class Event extends GMSDatabaseObject implements IRouteController {
 	 * @return	bool
 	 */
 	public function isExpired() {
-		return false;
+		return false; // @todo check
 	}
 
 	/**
@@ -79,6 +80,6 @@ class Event extends GMSDatabaseObject implements IRouteController {
 	 * @return	bool
 	 */
 	public function isClosed() {
-		return false;
+		return false; // @todo check
 	}
 }

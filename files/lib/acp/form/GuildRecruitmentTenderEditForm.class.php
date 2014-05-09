@@ -55,7 +55,7 @@ class GuildRecruitmentTenderEditForm extends GuildRecruitmentTenderAddForm {
 	/**
 	 * @see Page::readData()
 	 */
-	public function readData(){
+	public function readData() {
 		parent::readData();
 
 		if (!count($_POST)) {
@@ -86,7 +86,7 @@ class GuildRecruitmentTenderEditForm extends GuildRecruitmentTenderAddForm {
 	/**
 	 * @see Form::saved()
 	 */
-	protected function saved(){
+	protected function saved() {
 		AbstractForm::saved();
 		
 		WCF::getTpl()->assign('success', true);		
@@ -95,7 +95,7 @@ class GuildRecruitmentTenderEditForm extends GuildRecruitmentTenderAddForm {
 	/**
 	 * @see Page::assignVariables()
 	 */
-	public function assignVariables(){
+	public function assignVariables() {
 		parent::assignVariables();
 
 		WCF::getTpl()->assign(array(

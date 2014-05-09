@@ -55,7 +55,7 @@ class GuildRankEditForm extends GuildRankAddForm {
 	/**
 	 * @see Page::readData()
 	 */
-	public function readData(){
+	public function readData() {
 		parent::readData();
 
 		if (!count($_POST)) {
@@ -88,7 +88,7 @@ class GuildRankEditForm extends GuildRankAddForm {
 	/**
 	 * @see Form::saved()
 	 */
-	protected function saved(){
+	protected function saved() {
 		AbstractForm::saved();
 		
 		WCF::getTpl()->assign('success', true);		
@@ -97,7 +97,7 @@ class GuildRankEditForm extends GuildRankAddForm {
 	/**
 	 * @see Page::assignVariables()
 	 */
-	public function assignVariables(){
+	public function assignVariables() {
 		parent::assignVariables();
 
 		WCF::getTpl()->assign(array(

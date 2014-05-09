@@ -1,9 +1,9 @@
 <?php
 namespace gms\data\character;
 use gms\data\game\classification\GameClassificationList;
-use gms\data\game\Game;
 use gms\data\game\race\GameRaceList;
 use gms\data\game\role\GameRoleList;
+use gms\data\game\Game;
 use gms\data\guild\rank\GuildRank;
 use gms\data\guild\Guild;
 use gms\data\GMSDatabaseObject;
@@ -123,7 +123,7 @@ class Character extends GMSDatabaseObject implements IRouteController {
 	/**
 	 * Returns Character-object by characterName.
 	 *
-	 * @param	string		$characterName
+	 * @param	string	$characterName
 	 * @return	\gms\data\character\Character
 	 */
 	public static function getCharacterByName($characterName) {

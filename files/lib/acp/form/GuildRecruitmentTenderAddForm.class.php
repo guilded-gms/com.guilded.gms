@@ -1,10 +1,9 @@
 <?php
 namespace gms\acp\form;
-use gms\data\guild\Guild;
 use gms\data\guild\recruitment\tender\GuildRecruitmentTenderAction;
+use gms\data\guild\Guild;
 use wcf\form\AbstractForm;
 use wcf\system\exception\UserInputException;
-use wcf\util\StringUtil;
 use wcf\system\WCF;
 
 /**
@@ -35,13 +34,13 @@ class GuildRecruitmentTenderAddForm extends AbstractForm {
 
 	/**
 	 * id of guild
-	 * @var    int
+	 * @var	integer
 	 */
 	public $guildID = 0;
 
 	/**
 	 * list of guilds, sorted by game
-	 * @var    array
+	 * @var	array
 	 */
 	public $guilds = array();
 		

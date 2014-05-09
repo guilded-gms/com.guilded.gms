@@ -1,7 +1,7 @@
 <?php
 namespace gms\acp\form;
-use gms\data\guild\Guild;
 use gms\data\guild\rank\GuildRankAction;
+use gms\data\guild\Guild;
 use wcf\form\AbstractForm;
 use wcf\system\exception\UserInputException;
 use wcf\util\StringUtil;
@@ -41,13 +41,13 @@ class GuildRankAddForm extends AbstractForm {
 
 	/**
 	 * id of guild
-	 * @var    int
+	 * @var	integer
 	 */
 	public $guildID = 0;
 
 	/**
 	 * list of guilds, sorted by game
-	 * @var    array
+	 * @var	array
 	 */
 	public $guilds = array();
 		
