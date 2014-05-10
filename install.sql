@@ -52,8 +52,8 @@ CREATE TABLE gms1_game_race (
 
 DROP TABLE IF EXISTS gms1_game_race_to_faction;
 CREATE TABLE gms1_game_race_to_faction (
-	raceID 			INT(10) NOT NULL
-	factionID		INT(10) NOT NULL
+	raceID 			INT(10) NOT NULL,
+	factionID		INT(10) NOT NULL,
 	UNIQUE KEY(raceID, factionID)
 ) ENGINE=INNODB CHARSET=utf8;
 
@@ -250,10 +250,10 @@ CREATE TABLE gms1_character (
 	characterID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	gameID				INT(10) NOT NULL,
 	guildID 			INT(10) NOT NULL,
-	userID	 			INT(10) NOT NULL, --owner
+	userID	 			INT(10) NOT NULL,
 	username			VARCHAR(255),
 	name		  		VARCHAR(255) NOT NULL,
-	time 				INT(10) DEFAULT 0, -- creation
+	time 				INT(10) DEFAULT 0,
 	isPrimary			TINYINT(1) DEFAULT 0
 );
 
@@ -403,7 +403,7 @@ DROP TABLE IF EXISTS gms1_event;
 CREATE TABLE gms1_event(
 	eventID			INT(10) AUTO_INCREMENT PRIMARY KEY,
 	objectTypeID	INT(10),
-	userID			INT(10), --creator
+	userID			INT(10),
 	title			VARCHAR(255),
 	description		VARCHAR(255),
 	start			INT(10),
