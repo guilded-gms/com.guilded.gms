@@ -24,18 +24,22 @@
 			<option name="gms_module_recruitment">
 				<categoryname>module.community</categoryname>
 				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
 			</option>
 			<option name="gms_module_calendar">
 				<categoryname>module.community</categoryname>
 				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
 			</option>
 			<option name="gms_module_credit_system">
 				<categoryname>module.community</categoryname>
 				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
 			</option>
 			<option name="gms_module_instance_progress">
 				<categoryname>module.community</categoryname>
 				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
 			</option>
 			<!-- /modules -->
 
