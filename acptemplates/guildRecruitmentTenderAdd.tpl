@@ -13,19 +13,33 @@
 <div class="contentNavigation">
 	<nav>
 		<ul>
-			<li><a href="{link controller='GuildRecruitmentTenderList'}{/link}" class="button"><span class="icon icon16 icon-list"></span> <span>{lang}gms.acp.guild.recruitment.tender.list{/lang}</span></a></li>
+			<li><a href="{link controller='GuildRecruitmentTenderList' application='gms'}{/link}" class="button"><span class="icon icon16 icon-list"></span> <span>{lang}gms.acp.guild.recruitment.tender.list{/lang}</span></a></li>
 			
 			{event name='contentNavigationButtons'}
 		</ul>
 	</nav>
 </div>
 
-<form method="post" action="{if $action == 'add'}{link controller='GuildRecruitmentTenderAdd'}{/link}{else}{link controller='GuildRecruitmentTenderEdit' id=$tender->getObjectID()}{/link}{/if}">
+<form method="post" action="{if $action == 'add'}{link controller='GuildRecruitmentTenderAdd' application='gms'}{/link}{else}{link controller='GuildRecruitmentTenderEdit' application='gms' id=$tender->getObjectID()}{/link}{/if}">
 	<div class="container containerPadding marginTop">
 		<fieldset>
 			<legend>{lang}wcf.global.form.data{/lang}</legend>
 
-			{htmlOptions options=$guilds selected=DEFAULT_GUILD_ID name="guildID" id="guildID"}
+			<dl{if $errorField == 'guildID'} class="formError"{/if}>
+				<dt><label for="guildID">{lang}gms.acp.guild.recruitment.tender.guildID{/lang}</label></dt>
+				<dd>
+					{htmlOptions options=$guilds selected=DEFAULT_GUILD_ID name="guildID" id="guildID"}
+					{if $errorField == 'guildID'}
+						<small class="innerError">
+							{if $errorType == 'empty'}
+								{lang}wcf.global.form.error.empty{/lang}
+							{else}
+								{lang}gms.acp.guild.recruitment.tender.guildID.error.{$errorType}{/lang}
+							{/if}
+						</small>
+					{/if}
+				</dd>
+			</dl>
 
 			<div class="options">
 				{* @todo add class via JavaScript *}

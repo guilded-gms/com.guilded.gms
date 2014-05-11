@@ -5,13 +5,22 @@
 			<classname>gms\system\menu\guild\profile\content\AboutGuildProfileMenuContent</classname>
 			<showorder>1</showorder>
 		</guildprofilemenuitem>
+
 		<guildprofilemenuitem name="characters">
 			<classname>gms\system\menu\guild\profile\content\CharactersGuildProfileMenuContent</classname>
 			<showorder>2</showorder>
 		</guildprofilemenuitem>
+
 		<guildprofilemenuitem name="applications">
 			<classname>gms\system\menu\guild\profile\content\ApplicationsGuildProfileMenuContent</classname>
-			<showorder>2</showorder>
+			<options>gms_module_recruitment</options>
+			<showorder>3</showorder>
+		</guildprofilemenuitem>
+
+		<guildprofilemenuitem name="instance.progress">
+			<classname>gms\system\menu\guild\profile\content\InstanceProgressGuildProfileMenuContent</classname>
+			<options>gms_module_instance_progress</options>
+			<showorder>4</showorder>
 		</guildprofilemenuitem>
 	</import>
 </data>

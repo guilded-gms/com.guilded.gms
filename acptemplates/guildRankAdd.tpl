@@ -13,17 +13,33 @@
 <div class="contentNavigation">
 	<nav>
 		<ul>
-			<li><a href="{link controller='GuildRankList'}{/link}" class="button"><span class="icon icon16 icon-list"></span> <span>{lang}gms.acp.guild.rank.list{/lang}</span></a></li>
+			<li><a href="{link controller='GuildRankList' application='gms'}{/link}" class="button"><span class="icon icon16 icon-list"></span> <span>{lang}gms.acp.guild.rank.list{/lang}</span></a></li>
 			
 			{event name='contentNavigationButtons'}
 		</ul>
 	</nav>
 </div>
 
-<form method="post" action="{if $action == 'add'}{link controller='GuildRankAdd'}{/link}{else}{link controller='GuildRankEdit' id=$rank->rankID}{/link}{/if}">
+<form method="post" action="{if $action == 'add'}{link controller='GuildRankAdd' application='gms'}{/link}{else}{link controller='GuildRankEdit' id=$rank->rankID application='gms'}{/link}{/if}">
 	<div class="container containerPadding marginTop">
 		<fieldset>
 			<legend>{lang}wcf.global.form.data{/lang}</legend>
+
+			<dl{if $errorField == 'guildID'} class="formError"{/if}>
+				<dt><label for="guildID">{lang}gms.acp.guild.rank.guildID{/lang}</label></dt>
+				<dd>
+					{htmlOptions options=$guilds selected=DEFAULT_GUILD_ID name="guildID" id="guildID"}
+					{if $errorField == 'guildID'}
+						<small class="innerError">
+							{if $errorType == 'empty'}
+								{lang}wcf.global.form.error.empty{/lang}
+							{else}
+								{lang}gms.acp.guild.rank.guildID.error.{$errorType}{/lang}
+							{/if}
+						</small>
+					{/if}
+				</dd>
+			</dl>
 
 			<dl{if $errorField == 'name'} class="formError"{/if}>
 			    <dt><label for="name">{lang}gms.acp.guild.rank.name{/lang}</label></dt>
@@ -40,8 +56,6 @@
 			        {/if}
 			    </dd>
 			</dl>
-
-			{htmlOptions options=$guilds selected=DEFAULT_GUILD_ID name="guildID"}
 			
 			{event name='dataFields'}
 		</fieldset>

@@ -1,6 +1,8 @@
 <?php
 namespace gms\data\guild\recruitment\application;
 use gms\data\GMSDatabaseObject;
+use gms\data\guild\Guild;
+use gms\data\guild\recruitment\tender\GuildRecruitmentTender;
 use wcf\system\WCF;
 
 /**
@@ -23,4 +25,42 @@ class GuildRecruitmentApplication extends GMSDatabaseObject {
 	 * @see	\wcf\data\DatabaseObject::$databaseTableIndexName
 	 */
 	protected static $databaseTableIndexName = 'applicationID';
+
+	/**
+	 * guild object
+	 * @var	\gms\data\guild\Guild
+	 */
+	protected $guild = null;
+
+	/**
+	 * tender object
+	 * @var	\gms\data\guild\recruitment\tender\GuildRecruitmentTender
+	 */
+	protected $tender = null;
+
+	/**
+	 * Returns tender object.
+	 *
+	 * @return	\gms\data\guild\recruitment\tender\GuildRecruitmentTender
+	 */
+	public function getTender() {
+		if ($this->tender === null) {
+			$this->tender = new GuildRecruitmentTender($this->tenderID);
+		}
+
+		return $this->tender;
+	}
+
+	/**
+	 * Returns guild object.
+	 *
+	 * @return	\gms\data\guild\Guild
+	 */
+	public function getGuild() {
+		if ($this->guild === null) {
+			$this->guild = new Guild($this->guildID);
+		}
+
+		return $this->guild;
+	}
 }

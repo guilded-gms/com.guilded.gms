@@ -1,9 +1,8 @@
 <?php
 namespace gms\system\option;
-use gms\data\game\Game;
 use gms\data\game\race\GameRaceList;
 use wcf\data\option\Option;
-use wcf\system\option\SelectOptionType;
+use wcf\system\exception\UserInputException;
 
 /**
  * Select Option for game-races.
@@ -22,6 +21,10 @@ class GameRaceSelectOptionType extends GameSelectOptionType {
 	public function getFormElement(Option $option, $value) {
 		if ($this->game->maxRaces > 1) {
 			$this->templateName = 'multiSelectOptionType';
+
+			if (!is_array($value)) {
+				$value = explode(',', $value);
+			}
 		}
 
 		return parent::getFormElement($option, $value);

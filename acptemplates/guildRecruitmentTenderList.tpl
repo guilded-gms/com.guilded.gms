@@ -13,11 +13,11 @@
 </header>
 
 <div class="contentNavigation">
-	{pages print=true assign=pagesLinks controller="GuildRecruitmentTenderList" link="pageNo=%d&sortField=$sortField&sortOrder=$sortOrder"}
+	{pages print=true assign=pagesLinks controller="GuildRecruitmentTenderList" application="gms" link="pageNo=%d&sortField=$sortField&sortOrder=$sortOrder"}
 	
 	<nav>
 		<ul>
-			<li><a href="{link controller='GuildRecruitmentTenderAdd'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}gms.acp.guild.recruitment.tender.add{/lang}</span></a></li>
+			<li><a href="{link controller='GuildRecruitmentTenderAdd' application='gms'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}gms.acp.guild.recruitment.tender.add{/lang}</span></a></li>
 			
 			{event name='contentNavigationButtonsTop'}
 		</ul>

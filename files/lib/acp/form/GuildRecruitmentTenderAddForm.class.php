@@ -1,5 +1,6 @@
 <?php
 namespace gms\acp\form;
+use gms\data\guild\recruitment\tender\GuildRecruitmentTender;
 use gms\data\guild\recruitment\tender\GuildRecruitmentTenderAction;
 use gms\data\guild\Guild;
 use wcf\form\AbstractForm;
@@ -43,7 +44,19 @@ class GuildRecruitmentTenderAddForm extends AbstractForm {
 	 * @var	array
 	 */
 	public $guilds = array();
-		
+
+	/**
+	 * amount
+	 * @var	integer
+	 */
+	public $amount = 1;
+
+	/**
+	 * priority
+	 * @var	integer
+	 */
+	public $priority = GuildRecruitmentTender::PRIORITY_MEDIUM;
+
 	/**
 	 * @see	\wcf\form\Form::readFormParameters()
 	 */
@@ -52,6 +65,8 @@ class GuildRecruitmentTenderAddForm extends AbstractForm {
 		
 		// title
 		if (isset($_POST['guildID'])) $this->guildID = intval($_POST['guildID']);
+		if (isset($_POST['amount'])) $this->amount = intval($_POST['amount']);
+		if (isset($_POST['priority'])) $this->priority = intval($_POST['priority']);
 	}
 	
 	/**
@@ -83,7 +98,9 @@ class GuildRecruitmentTenderAddForm extends AbstractForm {
 		
 		// reset values
 		$this->guildID = 0;
-		
+		$this->amount = 1;
+		$this->priority = GuildRecruitmentTender::PRIORITY_MEDIUM;
+
 		// show success message
 		WCF::getTPL()->assign('success', true);
 	}
@@ -96,7 +113,9 @@ class GuildRecruitmentTenderAddForm extends AbstractForm {
 		
 		WCF::getTPL()->assign(array(
 			'guildID' => $this->guildID,
-			'guilds' => Guild::getCategorizedGuilds()
+			'guilds' => Guild::getCategorizedGuilds(),
+			'amount' => $this->amount,
+			'priority' => $this->priority
 		));
 	}
 }

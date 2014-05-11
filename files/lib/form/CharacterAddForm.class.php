@@ -78,7 +78,13 @@ class CharacterAddForm extends AbstractOptionListForm {
 	 * @var integer
 	 */
 	public $gameID = 0;
-	
+
+	/**
+	 * list of enabled games
+	 * @var    array
+	 */
+	public $games = array();
+
 	/**
 	 * additional fields
 	 * @var array
@@ -177,6 +183,11 @@ class CharacterAddForm extends AbstractOptionListForm {
 		if (!count($_POST) && count($this->optionTree)) {
 			$this->activeTabMenuItem = $this->optionTree[0]['object']->categoryName;
 		}
+
+		$this->games = GameHandler::getInstance()->getGames();
+		foreach ($this->games as $key => $game) {
+			if (!$game->isEnabled) unset($this->games[$key]);
+		}
 	}
 	
 	/**
@@ -190,7 +201,7 @@ class CharacterAddForm extends AbstractOptionListForm {
 			'optionTree' => $this->optionTree,
 			'activeTabMenuItem' => $this->activeTabMenuItem,
 			'activeMenuItem' => $this->activeMenuItem,
-			'availableGames' => GameHandler::getInstance()->getGames(),
+			'availableGames' => $this->games,
 			'gameID' => DEFAULT_GAME_ID
 		));
 	}

@@ -13,11 +13,11 @@
 </header>
 
 <div class="contentNavigation">
-	{pages print=true assign=pagesLinks controller="GuildRankList" link="pageNo=%d&sortField=$sortField&sortOrder=$sortOrder"}
+	{pages print=true assign=pagesLinks controller="GuildRankList" application='gms' link="pageNo=%d&sortField=$sortField&sortOrder=$sortOrder"}
 	
 	<nav>
 		<ul>
-			<li><a href="{link controller='GuildRankAdd'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}gms.acp.guild.rank.add{/lang}</span></a></li>
+			<li><a href="{link controller='GuildRankAdd' application='gms'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}gms.acp.guild.rank.add{/lang}</span></a></li>
 			
 			{event name='contentNavigationButtonsTop'}
 		</ul>
@@ -35,7 +35,8 @@
 				<tr>
 					<th class="columnID columnGuildRankID{if $sortField == 'rankID'} active {@$sortOrder}{/if}" colspan="2"><a href="{link controller='GuildRankList'}pageNo={@$pageNo}&sortField=rankID&sortOrder={if $sortField == 'rankID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.objectID{/lang}</a></th>
 					<th class="columnTitle columnGuildRankTitle{if $sortField == 'name'} active {@$sortOrder}{/if}"><a href="{link controller='GuildRankList'}pageNo={@$pageNo}&sortField=name&sortOrder={if $sortField == 'name' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.name{/lang}</a></th>
-					
+					<th class="columnTitle columnGuildRankGuild{if $sortField == 'guildID'} active {@$sortOrder}{/if}"><a href="{link controller='GuildRankList'}pageNo={@$pageNo}&sortField=guildID&sortOrder={if $sortField == 'guildID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}gms.acp.guild.rank.guildID{/lang}</a></th>
+
 					{event name='columnHeads'}
 				</tr>
 			</thead>
@@ -52,7 +53,8 @@
 							</td>
 							<td class="columnID columnGuildRankID">{@$object->rankID}</td>
 							<td class="columnTitle columnGuildRankTitle"><a href="{link controller='GuildRankEdit' id=$object->rankID}{/link}" name="{lang}gms.acp.guild.rank.edit{/lang}">{$object->getTitle()|language}</a></td>
-							
+							<td class="columnTitle columnGuildRankGuild"><a href="{link controller='GuildEdit' id=$object->guildID}{/link}" name="{lang}gms.acp.guild.edit{/lang}">{$object->getGuild()->getTitle()}</a></td>
+
 							{event name='columns'}
 						</tr>
 					{/foreach}
@@ -67,7 +69,7 @@
 		
 		<nav>
 			<ul>
-				<li><a href="{link controller='GuildRankAdd'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}gms.acp.guild.rank.add{/lang}</span></a></li>
+				<li><a href="{link controller='GuildRankAdd' application='gms'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}gms.acp.guild.rank.add{/lang}</span></a></li>
 				
 				{event name='contentNavigationButtonsBottom'}
 			</ul>

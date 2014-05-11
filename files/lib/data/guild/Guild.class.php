@@ -61,6 +61,13 @@ class Guild extends GMSDatabaseObject implements IRouteController {
 	protected $server = null;
 
 	/**
+	 * @see PHP::__toString()
+	 */
+	public function __toString() {
+		return $this->getTitle();
+	}
+
+	/**
 	 * @see	\wcf\system\request\IRouteController::getTitle()
 	 */
 	public function getTitle() {
@@ -79,7 +86,7 @@ class Guild extends GMSDatabaseObject implements IRouteController {
 		$guildList->readObjects();
 
 		foreach ($guildList->getObjects() as $guild) {
-			$options[$guild->getGame()->getTitle()][] = $guild;
+			$options[$guild->getGame()->getTitle()][$guild->guildID] = $guild;
 		}
 
 		return $options;

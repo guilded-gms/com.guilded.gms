@@ -13,7 +13,7 @@ class EventPage extends AbstractPage {
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededModules
 	 */
-	public $neededModules = array(GMS_MODULE_CALENDAR);
+	public $neededModules = array('GMS_MODULE_CALENDAR');
 
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermissions

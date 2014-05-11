@@ -15,7 +15,7 @@
 			<position>header</position>
 			<permissions>user.gms.event.canViewCalendar</permissions>
 			<classname>gms\system\menu\page\CalendarPageMenuItemProvider</classname>
-			<options>GMS_MODULE_CALENDAR</options>
+			<options>gms_module_calendar</options>
 		</pagemenuitem>
 	</import>
 </data>

@@ -5,6 +5,7 @@ use gms\data\game\Game;
 use wcf\data\option\Option;
 use wcf\system\option\SelectOptionType;
 use wcf\system\WCF;
+use wcf\util\OptionUtil;
 
 /**
  * Select Option for game-classes.
@@ -23,6 +24,10 @@ class GameClassificationSelectOptionType extends GameSelectOptionType {
 	public function getFormElement(Option $option, $value) {
 		if ($this->game->maxClasses > 1) {
 			$this->templateName = 'multiSelectOptionType';
+
+			if (!is_array($value)) {
+				$value = explode(',', $value);
+			}
 		}
 
 		return parent::getFormElement($option, $value);

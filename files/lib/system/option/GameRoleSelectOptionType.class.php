@@ -1,6 +1,7 @@
 <?php
 namespace gms\system\option;
 use gms\data\game\role\GameRoleList;
+use wcf\data\option\Option;
 
 /**
  * Select Option for game-roles.
@@ -17,6 +18,17 @@ class GameRoleSelectOptionType extends GameSelectOptionType {
 	 * @see	\gms\system\option\GameSelectOptionType::$templateName
 	 */
 	public $templateName = 'multiSelectOptionType';
+
+	/**
+	 * @see	\wcf\system\option\IOptionType::getFormElement()
+	 */
+	public function getFormElement(Option $option, $value) {
+		if (!is_array($value)) {
+			$value = explode(',', $value);
+		}
+
+		return parent::getFormElement($option, $value);
+	}
 
 	/**
 	 * @see	\gms\system\option\GameSelectOptionType::parseSelectOptions()

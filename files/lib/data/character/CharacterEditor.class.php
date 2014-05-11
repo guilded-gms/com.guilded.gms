@@ -27,7 +27,7 @@ class CharacterEditor extends DatabaseObjectEditor {
 		$character = parent::create($parameters);
 
 		// create default values for user options
-		self::createDefaultOptions($character->characterID);
+		self::createDefaultOptions($character);
 
 		return $character;
 	}
@@ -81,7 +81,7 @@ class CharacterEditor extends DatabaseObjectEditor {
 	 */
 	public static function deleteAll(array $objectIDs = array()) {
 		// unmark users
-		ClipboardHandler::getInstance()->unmark($objectIDs, ClipboardHandler::getInstance()->getObjectTypeID('com.guilded.gms'));
+		ClipboardHandler::getInstance()->unmark($objectIDs, ClipboardHandler::getInstance()->getObjectTypeID('com.guilded.gms.character'));
 	
 		return parent::deleteAll($objectIDs);
 	}
@@ -92,12 +92,14 @@ class CharacterEditor extends DatabaseObjectEditor {
 	public function setAsPrimary() {
 		//update all characters for games to isPrimary = 0
 		$sql = "UPDATE	".static::getDatabaseTableName()."
-				SET isPrimary = 0
-				WHERE (gameID = ?)";
+				SET		isPrimary = 0
+				WHERE	gameID = ?";
 		$statement = WCF::getDB()->prepareStatement($sql);
 		$statement->execute(array($this->gameID));
 
 		//update this character
-		$this->update(array('isPrimary' => 1));
+		$this->update(array(
+			'isPrimary' => 1
+		));
 	}
 }

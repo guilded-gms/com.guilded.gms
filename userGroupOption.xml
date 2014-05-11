@@ -147,6 +147,15 @@
 				<admindefaultvalue>1</admindefaultvalue>
 			</option>
 			<!-- /admin.gms.guild -->
+
+			<!-- admin.gms.event -->
+			<option name="admin.gms.event.canManage">
+				<categoryname>admin.gms.event</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /admin.gms.event -->
 		</options>
 	</import>
 </data>

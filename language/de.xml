@@ -59,9 +59,19 @@
 		<item name="gms.acp.menu.link.gms.guild"><![CDATA[Gilden]]></item>
 		<item name="gms.acp.menu.link.gms.guild.list"><![CDATA[Gilden auflisten]]></item>
 		<item name="gms.acp.menu.link.gms.guild.add"><![CDATA[Gilde hinzufügen]]></item>
+		<item name="gms.acp.menu.link.gms.guild.rank"><![CDATA[Ränge]]></item>
+		<item name="gms.acp.menu.link.gms.guild.rank.list"><![CDATA[Ränge auflisten]]></item>
+		<item name="gms.acp.menu.link.gms.guild.rank.add"><![CDATA[Rang hinzufügen]]></item>
+		<item name="gms.acp.menu.link.gms.guild.recruitment.tender"><![CDATA[Gesuche]]></item>
+		<item name="gms.acp.menu.link.gms.guild.recruitment.tender.list"><![CDATA[Gesuche auflisten]]></item>
+		<item name="gms.acp.menu.link.gms.guild.recruitment.tender.add"><![CDATA[Gesuch hinzufügen]]></item>
 		<item name="gms.acp.menu.link.gms.character"><![CDATA[Charaktere]]></item>
 		<item name="gms.acp.menu.link.gms.character.list"><![CDATA[Charaktere auflisten]]></item>
 		<item name="gms.acp.menu.link.gms.character.add"><![CDATA[Charakter hinzufügen]]></item>
+		<item name="gms.acp.menu.link.gms.event"><![CDATA[Ereignisse]]></item>
+		<item name="gms.acp.menu.link.gms.event.category"><![CDATA[Kategorien]]></item>
+		<item name="gms.acp.menu.link.gms.event.category.list"><![CDATA[Kategorien auflisten]]></item>
+		<item name="gms.acp.menu.link.gms.event.category.add"><![CDATA[Kategorie hinzufügen]]></item>
 	</category>
 
 	<category name="wcf.user.menu">
@@ -87,8 +97,10 @@
 		<item name="gms.character.delete.sure"><![CDATA[@todo]]></item>
 		<item name="gms.character.image"><![CDATA[Bild]]></item>
 
+		<item name="gms.character.option.category.profile"><![CDATA[Profil]]></item>
 		<item name="gms.character.option.category.profile.general"><![CDATA[Allgemein]]></item>
 		<item name="gms.character.option.category.profile.details"><![CDATA[Details]]></item>
+		<item name="gms.character.option.about"><![CDATA[Über]]></item>
 		<item name="gms.character.option.level"><![CDATA[Stufe]]></item>
 		<item name="gms.character.option.classes"><![CDATA[Klasse(n)]]></item>
 		<item name="gms.character.option.races"><![CDATA[Rasse(n)]]></item>
@@ -118,7 +130,16 @@
 		<item name="gms.guild.characters"><![CDATA[Charaktere]]></item>
 		<item name="gms.guild.noCharacters"><![CDATA[Keine Mitglieder vorhanden.]]></item>
 
+		<item name="gms.guild.option.category.profile"><![CDATA[Profil]]></item>
+		<item name="gms.guild.option.category.profile.system"><![CDATA[System]]></item>
+		<item name="gms.guild.option.server"><![CDATA[Server]]></item>
+
 		<item name="gms.guild.content.about.empty"><![CDATA[Keine Daten vorhanden]]></item>
+
+		<item name="gms.guild.profile.menu.about"><![CDATA[Über]]></item>
+		<item name="gms.guild.profile.menu.characters"><![CDATA[Charaktere]]></item>
+		<item name="gms.guild.profile.menu.applications"><![CDATA[Bewerbungen]]></item>
+		<item name="gms.guild.profile.menu.instance.progress"><![CDATA[Instanzfortschritt]]></item>
 
 		<item name="gms.guild.recruitment.tender.priority.1"><![CDATA[niedrig]]></item>
 		<item name="gms.guild.recruitment.tender.priority.2"><![CDATA[mittel]]></item>
@@ -134,6 +155,10 @@
 	<category name="gms.calendar">
 		<item name="gms.calendar.title"><![CDATA[Kalender]]></item>
 		<item name="gms.calendar.events"><![CDATA[Ereignisse]]></item>
+	</category>
+
+	<category name="wcf.user">
+		<item name="wcf.user.profile.menu.characters"><![CDATA[Charaktere]]></item>
 	</category>
 
 	<category name="wcf.user.option">

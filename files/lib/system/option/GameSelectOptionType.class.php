@@ -43,9 +43,14 @@ class GameSelectOptionType extends SelectOptionType implements IGameOptionType {
 	 */
 	public function validate(Option $option, $newValue) {
 		if (!empty($newValue)) {
+			if (!is_array($newValue)) $newValue = array($newValue);
+
 			$options = $this->parseSelectOptions();
-			if (!isset($options[$newValue])) {
-				throw new UserInputException($option->optionName, 'validationFailed');
+
+			foreach ($newValue as $value) {
+				if (!isset($options[$value])) {
+					throw new UserInputException($option->optionName, 'validationFailed');
+				}
 			}
 		}
 	}

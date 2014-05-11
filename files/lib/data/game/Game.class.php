@@ -9,6 +9,7 @@ use gms\data\game\role\GameRoleList;
 use gms\data\GMSDatabaseObject;
 use gms\system\game\provider\GameProviderHandler;
 use gms\system\GMSCore;
+use wcf\data\package\Package;
 use wcf\system\request\IRouteController;
 use wcf\system\WCF;
 
@@ -70,6 +71,12 @@ class Game extends GMSDatabaseObject implements IRouteController {
 	protected $itemList = null;
 
 	/**
+	 * package object
+	 * @var	\wcf\data\package\Package
+	 */
+	protected $package = null;
+
+	/**
 	 * Returns game by given abbreviation.
 	 *
 	 * @param	string	$abbreviation
@@ -88,6 +95,19 @@ class Game extends GMSDatabaseObject implements IRouteController {
 		}
 
 		return new Game(null, $row);
+	}
+
+	/**
+	 * Returns package object.
+	 *
+	 * @return	\wcf\data\package\Package
+	 */
+	public function getPackage() {
+		if ($this->package === null) {
+			$this->package = new Package($this->packageID);
+		}
+
+		return $this->package;
 	}
 
 	/**
