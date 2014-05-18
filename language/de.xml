@@ -172,11 +172,11 @@
 		<item name="wcf.acp.option.category.guilded.index.general"><![CDATA[Allgemein]]></item>
 		<item name="wcf.acp.option.category.guilded.recruitment"><![CDATA[Rekrutierung]]></item>
 		<item name="wcf.acp.option.gms_install_date"><![CDATA[Installationsdatum]]></item>
-		<item name="wcf.acp.option.default_game_id"><![CDATA[Spiel [Standard]]]></item>
-		<item name="wcf.acp.option.default_guild_id"><![CDATA[Gilde [Standard]]]></item>
+		<item name="wcf.acp.option.gms_default_game_id"><![CDATA[Spiel [Standard]]]></item>
+		<item name="wcf.acp.option.gms_default_guild_id"><![CDATA[Gilde [Standard]]]></item>
 		<item name="wcf.acp.option.gms_index_enable_stats"><![CDATA[Allgemeine Statistik anzeigen]]></item>
 		<item name="wcf.acp.option.gms_index_enable_online_list"><![CDATA[Benutzer-Online-Liste anzeigen]]></item>
-		<item name="wcf.acp.option.guild_recruitment_decline_character"><![CDATA[@todo]]></item>
+		<item name="wcf.acp.option.gms_guild_recruitment_decline_character"><![CDATA[@todo]]></item>
 		<item name="wcf.acp.option.gms_module_recruitment"><![CDATA[Rekrutierung]]></item>
 		<item name="wcf.acp.option.gms_module_calendar"><![CDATA[Kalender]]></item>
 		<item name="wcf.acp.option.gms_module_credit_system"><![CDATA[Punktesystem]]></item>

@@ -31,7 +31,7 @@ class GameFaction extends GMSDatabaseObject {
 	 * @param	integer	$gameID
 	 * @return	\gms\data\game\faction\GameFaction
 	 */
-	public static function getFactionByTitle($factionName, $gameID = DEFAULT_GAME_ID) {
+	public static function getFactionByTitle($factionName, $gameID = GMS_DEFAULT_GAME_ID) {
 		$sql = "SELECT	*
 				FROM	".self::getDatabaseTableName()."
 				WHERE	title = ? AND

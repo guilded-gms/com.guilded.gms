@@ -1,13 +1,13 @@
 <?php
 namespace gms\system\log\modification;
-use gms\data\event\participation\EventParticipation;
+use gms\data\event\date\participation\EventParticipation;
 use wcf\system\log\modification\ModificationLogHandler;
 
 class EventAnnounceModificationLogHandler extends ModificationLogHandler {
 	/**
 	 * Adds a log entry for event participation accept.
 	 * 
-	 * @param	\gms\data\event\participation\EventParticipation	$participation
+	 * @param	\gms\data\event\date\participation\EventParticipation	$participation
 	 */
 	public function accept(EventParticipation $participation) {
 		$this->add($participation, 'accept');
@@ -16,7 +16,7 @@ class EventAnnounceModificationLogHandler extends ModificationLogHandler {
 	/**
 	 * Adds a log entry for event participation decline.
 	 * 
-	 * @param	\gms\data\event\participation\EventParticipation	$participation
+	 * @param	\gms\data\event\date\participation\EventParticipation	$participation
 	 */
 	public function decline(EventParticipation $participation) {
 		$this->add($participation, 'close');
@@ -25,7 +25,7 @@ class EventAnnounceModificationLogHandler extends ModificationLogHandler {
 	/**
 	 * Adds a event participation modification log entry.
 	 * 
-	 * @param	\gms\data\event\participation\EventParticipation	$participation
+	 * @param	\gms\data\event\date\participation\EventParticipation	$participation
 	 * @param	string	$action
 	 * @param	array	$additionalData
 	 */

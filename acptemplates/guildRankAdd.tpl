@@ -28,7 +28,7 @@
 			<dl{if $errorField == 'guildID'} class="formError"{/if}>
 				<dt><label for="guildID">{lang}gms.acp.guild.rank.guildID{/lang}</label></dt>
 				<dd>
-					{htmlOptions options=$guilds selected=DEFAULT_GUILD_ID name="guildID" id="guildID"}
+					{htmlOptions options=$guilds selected=GMS_DEFAULT_GUILD_ID name="guildID" id="guildID"}
 					{if $errorField == 'guildID'}
 						<small class="innerError">
 							{if $errorType == 'empty'}

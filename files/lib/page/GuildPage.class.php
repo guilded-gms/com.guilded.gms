@@ -53,7 +53,7 @@ class GuildPage extends AbstractPage {
 			$this->guildID = intval($_REQUEST['id']);
 		}
 		else {
-			$this->guildID = DEFAULT_GUILD_ID;
+			$this->guildID = GMS_DEFAULT_GUILD_ID;
 			if (!$this->guildID) {
 				throw new IllegalLinkException();
 			}

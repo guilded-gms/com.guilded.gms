@@ -32,7 +32,7 @@ class GameHandler extends SingletonFactory {
 	 * @see	\wcf\system\SingletonFactory::init()
 	 */
 	protected function init() {
-		$this->game = new Game(DEFAULT_GAME_ID);
+		$this->game = new Game(GMS_DEFAULT_GAME_ID);
 	}
 	
 	/**

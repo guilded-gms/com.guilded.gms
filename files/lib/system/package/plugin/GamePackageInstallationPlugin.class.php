@@ -80,7 +80,7 @@ class GamePackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin
 		parent::postImport();
 
 		// set default game
-		if (!defined('DEFAULT_GAME_ID') || !DEFAULT_GAME_ID) {
+		if (!defined('GMS_DEFAULT_GAME_ID') || !GMS_DEFAULT_GAME_ID) {
 			$sql = "SELECT gameID
 			FROM gms".WCF_N."_game";
 			$statement = WCF::getDB()->prepareStatement($sql);
@@ -91,7 +91,7 @@ class GamePackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin
 				SET		optionValue = ?
 				WHERE	optionName = ?";
 				$statement = WCF::getDB()->prepareStatement($sql);
-				$statement->execute(array($row['gameID'], 'default_game_id'));
+				$statement->execute(array($row['gameID'], 'gms_default_game_id'));
 
 				// set up default guild
 				$guild = GuildEditor::create(array(
@@ -103,7 +103,7 @@ class GamePackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin
 				SET		optionValue = ?
 				WHERE	optionName = ?";
 				$statement = WCF::getDB()->prepareStatement($sql);
-				$statement->execute(array($guild->guildID, 'default_guild_id'));
+				$statement->execute(array($guild->guildID, 'gms_default_guild_id'));
 			}
 		}
 	}

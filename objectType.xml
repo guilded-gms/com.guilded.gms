@@ -93,19 +93,19 @@
 
 		<!-- view -->
 		<type>
-			<name>com.guilded.gms.event.view.month</name>
+			<name>com.guilded.gms.event.view.user</name>
 			<definitionname>com.guilded.gms.event.view</definitionname>
-			<classname>gms\system\event\view\MonthEventView</classname>
+			<classname>gms\system\event\view\UserEventView</classname>
 		</type>
 		<type>
-			<name>com.guilded.gms.event.view.list</name>
+			<name>com.guilded.gms.event.view.classification</name>
 			<definitionname>com.guilded.gms.event.view</definitionname>
-			<classname>gms\system\event\view\ListEventView</classname>
+			<classname>gms\system\event\view\GameClassificationEventView</classname>
 		</type>
 		<type>
-			<name>com.guilded.gms.event.view.week</name>
+			<name>com.guilded.gms.event.view.role</name>
 			<definitionname>com.guilded.gms.event.view</definitionname>
-			<classname>gms\system\event\view\WeekEventView</classname>
+			<classname>gms\system\event\view\GameRoleEventView</classname>
 		</type>
 		<!-- /view -->
 
@@ -119,9 +119,9 @@
 
 		<!-- comment -->
 		<type>
-			<name>com.guilded.gms.event.comment</name>
+			<name>com.guilded.gms.event.date.comment</name>
 			<definitionname>com.woltlab.wcf.comment.commentableContent</definitionname>
-			<classname>gms\system\comment\manager\EventCommentManager</classname>
+			<classname>gms\system\comment\manager\EventDateCommentManager</classname>
 		</type>
 		<!-- /comment -->
 
@@ -149,9 +149,9 @@
 
 		<!-- com.guilded.gms.credit -->
 		<type>
-			<name>com.guilded.gms.event.credit</name>
+			<name>com.guilded.gms.event.date.credit</name>
 			<definitionname>com.guilded.gms.credit</definitionname>
-			<classname>gms\system\event\credit\EventCredit</classname>
+			<classname>gms\system\event\date\credit\EventDateCredit</classname>
 		</type>
 		<!-- /com.guilded.gms.credit -->
 	</import>

@@ -18,7 +18,7 @@ class DateEventType extends AbstractEventType implements IEventType{
 	/**
 	 * @see IEventType::$participationAction
 	 */
-	protected $participationAction = 'wcf\data\event\participation\UserEventParticipationAction';
+	protected $participationAction = 'gms\data\event\participation\UserEventParticipationAction';
 	
 	/**
 	 * @see IEventType::$permissions
@@ -29,7 +29,7 @@ class DateEventType extends AbstractEventType implements IEventType{
 	 * @see IEventType::getTitle()
 	 */	
 	public function getTitle(){
-		return WCF::getLanguage()->get('wcf.event.type.date');
+		return WCF::getLanguage()->get('gms.event.type.date');
 	}
 	
 	/**

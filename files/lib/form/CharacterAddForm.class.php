@@ -202,7 +202,7 @@ class CharacterAddForm extends AbstractOptionListForm {
 			'activeTabMenuItem' => $this->activeTabMenuItem,
 			'activeMenuItem' => $this->activeMenuItem,
 			'availableGames' => $this->games,
-			'gameID' => DEFAULT_GAME_ID
+			'gameID' => GMS_DEFAULT_GAME_ID
 		));
 	}
 	

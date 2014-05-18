@@ -1,10 +1,10 @@
 <?php
 namespace gms\system\event\type;
-use gms\data\event\EventList;
 use wcf\data\object\type\AbstractObjectTypeProcessor;
 
 /**
- * Every EventType should inherit by this abstract implementation.
+ * Every EventType should inherit of this abstract implementation.
+ * EventTypes handle participation mode and auto-generated event dates.
  *
  * @author	Jeffrey Reichardt
  * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
@@ -16,48 +16,16 @@ use wcf\data\object\type\AbstractObjectTypeProcessor;
 abstract class AbstractEventType extends AbstractObjectTypeProcessor implements IEventType {
 	/**
 	 * list of events
-	 * @var	\gms\data\event\EventList
+	 * @var	\gms\data\event\EventDateList
 	 */
 	protected $eventList = null;
 
 	/**
 	 * participation action object.
-	 * @var \gms\data\event\participation\EventParticipationAction
+	 * @var \gms\data\event\date\participation\EventDateParticipationAction
 	 */
 	protected $objectAction = '';
-	
-	/**
-	 *  Permissions to check, whether the user can add.
-	 */	
-	protected $permissionsCreate = array();
-	
-	/**
-	 *  Permissions to check, whether the user can add.
-	 */	
-	protected $permissionsUpdate = array();
-	
-	/**
-	 *  Permissions to check, whether the user can add.
-	 */	
-	protected $permissionsDelete = array();
-	
-	/**
-	 *  Permissions to check, whether the user can add.
-	 */	
-	protected $permissionsView = array();
-	
-	/**
-	 * List of events
-	 */
-	protected $events = array();
 
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		$this->eventList = new EventList();
-	}
-	
 	/**
 	 * @see IEventType::getTitle()
 	 */	
@@ -75,7 +43,7 @@ abstract class AbstractEventType extends AbstractObjectTypeProcessor implements 
 	/**
 	 * Returns participation action name
 	 *
-	 * @return \gms\data\event\participation\EventParticipationAction
+	 * @return \gms\data\event\date\participation\EventDateParticipationAction
 	 */
 	public function getAction() {
 		if (!empty($this->participationAction)) {
@@ -83,28 +51,5 @@ abstract class AbstractEventType extends AbstractObjectTypeProcessor implements 
 		}
 		
 		return null;
-	}
-
-	/**
-	 * Returns EventList object
-	 *
-	 * @return \gms\data\event\EventList
-	 */
-	public function getEventList() {
-		return $this->eventList;
-	}
-
-	/**
-	 * Returns events of EventList
-	 *
-	 * @return array
-	 */
-	public function getEvents() {
-		if (!count($this->events)) {
-			$this->eventList->readObjects();
-			$this->events = $this->eventList->getObjects();
-		}
-
-		return $this->events;
 	}
 }

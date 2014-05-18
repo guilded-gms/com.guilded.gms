@@ -1,6 +1,6 @@
 <?php
 namespace gms\system\menu\calendar\content;
-use gms\data\event\EventList;
+use gms\data\event\date\EventDateList;
 
 /**
  * Every content provider should implement this interface.
@@ -16,10 +16,10 @@ interface ICalendarMenuContent {
 	/**
 	 * Sets events.
 	 *
-	 * @param	\gms\data\event\EventList	$eventList
+	 * @param	\gms\data\event\date\EventDateList	$eventList
 	 * @return	string
 	 */
-	public function setEvents(EventList $eventList);
+	public function setEventDates(EventDateList $eventList);
 
 	/**
 	 * Returns content for this calendar menu item.

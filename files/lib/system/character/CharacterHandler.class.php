@@ -45,7 +45,7 @@ class CharacterHandler extends SingletonFactory {
 	 * @param $gameID
 	 * @return null
 	 */
-	public function getPrimaryCharacter($gameID = DEFAULT_GAME_ID) {
+	public function getPrimaryCharacter($gameID = GMS_DEFAULT_GAME_ID) {
 		foreach ($this->getCharacters() as $character) {
 			if ($character->isPrimary && $character->gameID == $gameID) {
 				return $character;

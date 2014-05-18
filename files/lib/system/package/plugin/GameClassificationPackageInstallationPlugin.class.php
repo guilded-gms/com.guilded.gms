@@ -1,9 +1,13 @@
 <?php
 namespace gms\system\package\plugin;
 use gms\data\game\Game;
+use gms\data\game\race\GameRace;
+use gms\data\game\role\GameRole;
 use wcf\data\package\Package;
+use wcf\system\exception\SystemException;
 use wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin;
 use wcf\system\WCF;
+use wcf\util\ArrayUtil;
 
 /**
  * Package-installation-plugin implementation for game classification.
@@ -79,23 +83,89 @@ class GameClassificationPackageInstallationPlugin extends AbstractXMLPackageInst
 			return array();
 		}
 
+		// get handle races
+		$races = array();
+		if (isset($data['elements']['races'])) {
+			$tmpRaces = ArrayUtil::trim(explode(',', $data['elements']['races']));
+			foreach ($tmpRaces as $raceName) {
+				$sql = "SELECT	*
+						FROM	".GameRace::getDatabaseTableName()."
+						WHERE	title = ? AND
+								gameID = ?";
+				$statement = WCF::getDB()->prepareStatement($sql);
+				$statement->execute(array($raceName, $this->game->gameID));
+				$row = $statement->fetchArray();
+
+				if (!$row) {
+					throw new SystemException('unable to find race with name: ' . $raceName . ' for classification: ' . $data['attributes']['name']);
+				}
+
+				$races[] = new GameRace(null, $row);
+			}
+		}
+
+		// get handle roles
+		$roles = array();
+		if (isset($data['elements']['roles'])) {
+			$tmpRoles = ArrayUtil::trim(explode(',', $data['elements']['roles']));
+			foreach ($tmpRoles as $roleName) {
+				$sql = "SELECT	*
+						FROM	".GameRole::getDatabaseTableName()."
+						WHERE	title = ? AND
+								gameID = ?";
+				$statement = WCF::getDB()->prepareStatement($sql);
+				$statement->execute(array($roleName, $this->game->gameID));
+				$row = $statement->fetchArray();
+
+				if (!$row) {
+					throw new SystemException('unable to find role with name: ' . $roleName . ' for classification: ' . $data['attributes']['name']);
+				}
+
+				$roles[] = new GameRole(null, $row);
+			}
+		}
+
 		return array(
 			'packageID' => $this->installation->getPackageID(),
 			'title' => $data['attributes']['name'],
 			'identifier' => (isset($data['elements']['identifier']) ? $data['elements']['identifier'] : ''),
 			'gameID' => $this->game->gameID,
-			'icon' => (isset($data['elements']['icon']) ? $data['elements']['icon'] : $data['attributes']['name'])
+			'icon' => (isset($data['elements']['icon']) ? $data['elements']['icon'] : $data['attributes']['name']),
+			'races' => $races,
+			'roles' => $roles
 		);
 	}
 
 	/**
-	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::postImport()
+	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::findExistingItem()
 	 */
-	protected function postImport() {
-		parent::postImport();
+	protected function import(array $row, array $data) {
+		$races = $data['races'];
+		$roles = $data['roles'];
 
-		// @todo handle races dependencies
-		// @todo handle roles dependencies
+		unset($data['races']);
+		unset($data['roles']);
+
+		// import race by given data
+		$classification = parent::import($row, $data);
+
+		// add race dependency
+		foreach ($races as $race) {
+			$sql = "INSERT INTO gms" . WCF_N . "_game_classification_to_race(classificationID, raceID)
+					VALUES (?, ?)";
+			$statement = WCF::getDB()->prepareStatement($sql);
+			$statement->execute(array($classification->classificationID, $race->raceID));
+		}
+
+		// add role dependency
+		foreach ($roles as $role) {
+			$sql = "INSERT INTO gms" . WCF_N . "_game_classification_to_role(classificationID, roleID)
+					VALUES (?, ?)";
+			$statement = WCF::getDB()->prepareStatement($sql);
+			$statement->execute(array($classification->classificationID, $role->roleID));
+		}
+
+		return $classification;
 	}
 
 	/**

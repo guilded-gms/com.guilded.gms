@@ -17,7 +17,7 @@ class RaidEventType extends AbstractEventType implements IEventType{
 	/**
 	 * @see IEventType::$participationAction
 	 */
-	protected $participationAction = 'wcf\data\event\participation\CharacterEventParticipationAction';
+	protected $participationAction = 'gms\data\event\participation\CharacterEventParticipationAction';
 	
 	/**
 	 * @see IEventType::$permissions
@@ -28,7 +28,7 @@ class RaidEventType extends AbstractEventType implements IEventType{
 	 * @see IEventType::getTitle()
 	 */	
 	public function getTitle(){
-		return WCF::getLanguage()->get('wcf.event.type.raid');
+		return WCF::getLanguage()->get('gms.event.type.raid');
 	}
 	
 	/**

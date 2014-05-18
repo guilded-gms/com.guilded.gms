@@ -1,6 +1,6 @@
 <?php
 namespace gms\system\menu\calendar\content;
-use gms\data\event\EventList;
+use gms\data\event\date\EventDateList;
 use wcf\system\event\EventHandler;
 use wcf\system\SingletonFactory;
 use wcf\system\WCF;
@@ -18,24 +18,21 @@ use wcf\system\WCF;
 class AbstractCalendarMenuContent extends SingletonFactory implements ICalendarMenuContent {
 	/**
 	 * template file
-	 * @var    string
+	 * @var	string
 	 */
 	protected $templateName = '';
 
 	/**
 	 * list of events
-	 * @var    \gms\data\event\EventList
+	 * @var	\gms\data\event\date\EventDateList
 	 */
-	protected $eventList = null;
+	protected $eventDateList = null;
 
 	/**
-	 * Sets events.
-	 *
-	 * @param    \gms\data\event\EventList $eventList
-	 * @return    string
+	 * @see	\gms\system\menu\calendar\content\ICalendarMenuContent::setEventDates()
 	 */
-	public function setEvents(EventList $eventList) {
-		$this->eventList = $eventList;
+	public function setEventDates(EventDateList $eventDateList) {
+		$this->eventDateList = $eventDateList;
 	}
 
 	/**
@@ -46,7 +43,7 @@ class AbstractCalendarMenuContent extends SingletonFactory implements ICalendarM
 		EventHandler::getInstance()->fireAction($this, 'fetch');
 
 		// read objects
-		$this->eventList->readObjects();
+		$this->eventDateList->readObjects();
 	}
 
 	/**
@@ -60,7 +57,7 @@ class AbstractCalendarMenuContent extends SingletonFactory implements ICalendarM
 		$this->fetch();
 
 		WCF::getTPL()->assign(array(
-			'events' => $this->eventList
+			'eventDates' => $this->eventDateList
 		));
 		
 		return WCF::getTPL()->fetch($this->templateName, 'gms');

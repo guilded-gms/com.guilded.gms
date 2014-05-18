@@ -16,6 +16,9 @@
 			<category name="guilded.recruitment">
 				<parent>guilded</parent>
 			</category>
+			<category name="guilded.calendar">
+				<parent>guilded</parent>
+			</category>
 			<!-- /guilded -->
 		</categories>
 		
@@ -52,11 +55,11 @@
 			<!-- /general -->
 
 			<!-- guilded.general -->
-			<option name="default_game_id">
+			<option name="gms_default_game_id">
 				<categoryname>guilded.general</categoryname>
 				<optiontype>GameSelect</optiontype>
 			</option>
-			<option name="default_guild_id">
+			<option name="gms_default_guild_id">
 				<categoryname>guilded.general</categoryname>
 				<optiontype>GuildSelect</optiontype>
 			</option>
@@ -77,12 +80,20 @@
 			<!-- /guilded.index.general -->
 
 			<!-- guilded.recruitment -->
-			<option name="guild_recruitment_decline_character">
-				<categoryname>guilded.general</categoryname>
+			<option name="gms_guild_recruitment_decline_character">
+				<categoryname>guilded.recruitment</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
 			</option>
 			<!-- /guilded.recruitment -->
+
+			<!-- guilded.calendar -->
+			<option name="gms_calendar_list_items">
+				<categoryname>guilded.calendar</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>50</defaultvalue>
+			</option>
+			<!-- /guilded.calendar -->
 		</options>	
 	</import>
 </data>

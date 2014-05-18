@@ -1,6 +1,5 @@
 <?php
 namespace gms\data\event;
-use gms\data\event\participation\EventParticipationList;
 use gms\data\GMSDatabaseObject;
 use gms\system\event\type\EventTypeHandler;
 use wcf\system\request\IRouteController;
@@ -27,12 +26,6 @@ class Event extends GMSDatabaseObject implements IRouteController {
 	protected static $databaseTableIndexName = 'eventID';
 
 	/**
-	 * list of participants
-	 * @var array
-	 */
-	protected $participants = array();
-
-	/**
 	 * @see IRoutController::getTitle()
 	 */
 	public function getTitle() {
@@ -46,40 +39,5 @@ class Event extends GMSDatabaseObject implements IRouteController {
 	 */	
 	public function getType() {
 		return EventTypeHandler::getInstance()->getObjectTypeByID($this->objectTypeID);
-	}
-
-	/**
-	 * Returns a list of all participants
-	 *
-	 * @return  array
-	 */
-	public function getParticipants() {
-		if (empty($this->participants)) {
-			$participationList = new EventParticipationList();
-			$participationList->getConditionBuilder()->add('event_participation.eventID = ?', array($this->eventID));
-			$participationList->readObjects();
-
-			$this->participants = $participationList->getObjects();
-		}
-	
-		return $this->participants;
-	}
-	
-	/**
-	 * Checks whether the announcement time for this event is expired
-	 * 
-	 * @return	bool
-	 */
-	public function isExpired() {
-		return false; // @todo check
-	}
-
-	/**
-	 * Checks whether the announcement for this event is closed
-	 *
-	 * @return	bool
-	 */
-	public function isClosed() {
-		return false; // @todo check
 	}
 }

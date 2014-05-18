@@ -22,20 +22,20 @@ class BirthdayEventType extends AbstractEventType implements IEventType{
 	 * @see IEventType::getTitle()
 	 */	
 	public function getTitle(){
-		return WCF::getLanguage()->get('wcf.event.type.birthday');
+		return WCF::getLanguage()->get('gms.event.type.birthday');
 	}
 	
 	/**
 	 * @see IEventType::getIcon()
 	 */
 	public function getIcon(){
-		return 'birthday';
+		return 'gift';
 	}
 	
 	/**
 	 * @see IEventType::getEvents()
 	 */
-	public function getEvents() {
+	public function getEventDates() {
 		// \todo read all birthdays of users
 	}
 }

@@ -2,6 +2,7 @@
 namespace gms\data\game;
 use wcf\data\AbstractDatabaseObjectAction;
 use wcf\data\IToggleAction;
+use wcf\system\exception\UserInputException;
 
 /**
  * Game-related actions.
@@ -45,7 +46,7 @@ class GameAction extends AbstractDatabaseObjectAction implements IToggleAction {
 		}
 
 		$gameID = reset($this->objectIDs);
-		if ($gameID == DEFAULT_GAME_ID) {
+		if ($gameID == GMS_DEFAULT_GAME_ID) {
 			throw new UserInputException('objectIDs');
 		}
 	}

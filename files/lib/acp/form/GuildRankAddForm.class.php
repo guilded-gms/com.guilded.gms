@@ -92,7 +92,7 @@ class GuildRankAddForm extends AbstractForm {
 		
 		// reset values
 		$this->name = '';
-		$this->guildID = DEFAULT_GUILD_ID;
+		$this->guildID = GMS_DEFAULT_GUILD_ID;
 		
 		// show success message
 		WCF::getTPL()->assign('success', true);

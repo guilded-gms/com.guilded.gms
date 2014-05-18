@@ -116,14 +116,14 @@ class GuildAddForm extends GuildOptionListForm {
 		));
 		$returnValues = $this->objectAction->executeAction();
 
-		// set option DEFAULT_GUILD_ID if first guild created
+		// set option GMS_DEFAULT_GUILD_ID if first guild created
 		$guildList = new GuildList();
 		if ($guildList->countObjects() == 1) {
 			$sql = "UPDATE	wcf".WCF_N."_option
 					SET		optionValue = ?
 					WHERE	optionName = ?";
 			$statement = WCF::getDB()->prepareStatement($sql);
-			$statement->execute(array($returnValues['returnValues']->guildID, 'default_guild_id'));
+			$statement->execute(array($returnValues['returnValues']->guildID, 'gms_default_guild_id'));
 		}
 
 		$this->saved();
