@@ -28,15 +28,15 @@ class Alliance extends GMSDatabaseObject implements IRouteController {
 
 	/**
 	 * list of guilds
-	 * @var	array<\gms\data\guild\Guild>
+	 * @var	\gms\data\guild\GuildList
 	 */
-	protected $guilds = array();
+	protected $guildList = null;
 
 	/**
 	 * list of characters
-	 * @var	array<\gms\data\character\Character>
+	 * @var	\gms\data\character\CharacterList
 	 */
-	protected $characters = array();
+	protected $characterList = null;
 	
 	/**
 	 * @see	\wcf\system\request\IRouteController::getTitle()
@@ -47,35 +47,35 @@ class Alliance extends GMSDatabaseObject implements IRouteController {
 
 	/**
 	 * Returns a list of all guild members
+	 *
+	 * @return	\gms\data\guild\GuildList
 	 */
 	public function getGuilds() {
-		if (empty($this->guilds)) {
-			$guildList = new GuildList;
-			$guildList->sqlJoins .= "INNER JOIN gms".WCF_N."_alliance_to_guild alliance_to_guild ON (alliance_to_guild.guildID = guild.guildID)";
-			$guildList->getConditionBuilder()->add('alliance_to_guild.allianceID = ?', array($this->allianceID));
-			$guildList->readObjects();
-			
-			$this->guilds = $guildList->getObjects();
+		if ($this->guildList === null) {
+			$this->guildList = new GuildList();
+			$this->guildList->sqlJoins .= "INNER JOIN gms".WCF_N."_alliance_to_guild alliance_to_guild ON (alliance_to_guild.guildID = guild.guildID)";
+			$this->guildList->getConditionBuilder()->add('alliance_to_guild.allianceID = ?', array($this->allianceID));
+			$this->guildList->readObjects();
 		}
 		
-		return $this->guilds;
+		return $this->guildList;
 	}
 	
 	/**
 	 * Returns a list of all characters
+	 *
+	 * @return	\gms\data\character\CharacterList
 	 */
 	public function getCharacters() {
-		if (empty($this->characters)) {
-			$guildIDs = array_keys($this->getGuilds());
+		if ($this->characterList === null) {
+			$guildIDs = $this->getGuilds()->getObjectIDs();
 
-			$characterList = new CharacterList;
-			$characterList->sqlJoins .= "LEFT JOIN gms".WCF_N."_alliance_to_character alliance_to_character ON (alliance_to_character.characterID = character_table.characterID)".(!empty($guildIDs) ? " OR (character_table.guildID IN (".implode(',', $guildIDs)."))" : "");
-			$characterList->getConditionBuilder()->add('alliance_to_character.allianceID = ?', array($this->allianceID));
-			$characterList->readObjects();
-			
-			$this->characters = $characterList->getObjects();			
+			$this->characterList = new CharacterList();
+			$this->characterList->sqlJoins .= "LEFT JOIN gms".WCF_N."_alliance_to_character alliance_to_character ON (alliance_to_character.characterID = character_table.characterID)" . (!empty($guildIDs) ? " OR (character_table.guildID IN (".implode(',', $guildIDs)."))" : "");
+			$this->characterList->getConditionBuilder()->add('alliance_to_character.allianceID = ?', array($this->allianceID));
+			$this->characterList->readObjects();
 		}
 	
-		return $this->characters;
+		return $this->characterList;
 	}
 }

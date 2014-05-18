@@ -4,6 +4,7 @@ use gms\data\character\CharacterProfile;
 use gms\system\menu\character\profile\CharacterProfileMenu;
 use wcf\page\AbstractPage;
 use wcf\system\breadcrumb\Breadcrumb;
+use wcf\system\exception\IllegalLinkException;
 use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
 
@@ -48,8 +49,9 @@ class CharacterPage extends AbstractPage {
 		parent::readParameters();
 
 		if (isset($_REQUEST['id'])) $this->characterID = intval($_REQUEST['id']);
+
 		$this->character = CharacterProfile::getCharacterProfile($this->characterID);
-		if ($this->character === null) {
+		if (!$this->character->characterID) {
 			throw new IllegalLinkException();
 		}
 	}

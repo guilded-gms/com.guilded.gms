@@ -138,6 +138,8 @@ class GuildAction extends AbstractDatabaseObjectAction implements IToggleAction 
 
 	/**
 	 * Gets data from provider.
+	 *
+	 * @return	array
 	 */
 	public function getProviderData() {
 		if (empty($this->objects)) {

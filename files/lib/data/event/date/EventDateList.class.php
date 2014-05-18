@@ -3,7 +3,7 @@ namespace gms\data\event\date;
 use wcf\data\DatabaseObjectList;
 
 /**
- * 
+ * Represents a list of EventDates.
  *
  * @author	Jeffrey Reichardt
  * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)

@@ -1,6 +1,6 @@
 <?php
 namespace gms\page;
-use gms\data\event\Event;
+use gms\data\event\date\EventDate;
 use wcf\page\AbstractPage;
 use wcf\system\comment\CommentHandler;
 use wcf\system\exception\IllegalLinkException;
@@ -21,16 +21,16 @@ class EventPage extends AbstractPage {
 	public $neededPermissions = array('user.gms.event.canViewEvent');
 
 	/**
-	 * event id
+	 * date id
 	 * @var integer
 	 */
-	public $eventID = 0;
+	public $eventDateID = 0;
 	
 	/**
 	 * event object
-	 * @var \gms\data\event\Event
+	 * @var \gms\data\event\date\EventDate
 	 */
-	public $event = null;
+	public $eventDate = null;
 
 	/**
 	 * comment object type id
@@ -56,10 +56,10 @@ class EventPage extends AbstractPage {
 	public function readParameters() {
 		parent::readParameters();
 		
-		if (isset($_REQUEST['id'])) $this->eventID = intval($_REQUEST['id']);
+		if (isset($_REQUEST['id'])) $this->eventDateID = intval($_REQUEST['id']);
 		
-		$this->event = new Event($this->eventID);
-		if (!$this->event->eventID) {
+		$this->eventDate = new EventDate($this->eventDateID);
+		if (!$this->eventDate->eventDateID) {
 			throw new IllegalLinkException();
 		}
 	}
@@ -72,9 +72,9 @@ class EventPage extends AbstractPage {
 
 		// get comments
 		// @todo check commenting with ACL
-		$this->commentObjectTypeID = CommentHandler::getInstance()->getObjectTypeID('com.guilded.gms.event.comment');
+		$this->commentObjectTypeID = CommentHandler::getInstance()->getObjectTypeID('com.guilded.gms.event.date.comment');
 		$this->commentManager = CommentHandler::getInstance()->getObjectType($this->commentObjectTypeID)->getProcessor();
-		$this->commentList = CommentHandler::getInstance()->getCommentList($this->commentManager, $this->commentObjectTypeID, $this->eventID);
+		$this->commentList = CommentHandler::getInstance()->getCommentList($this->commentManager, $this->commentObjectTypeID, $this->eventDateID);
 
 		// @todo set breadcrump
 
@@ -93,8 +93,9 @@ class EventPage extends AbstractPage {
 		parent::assignVariables();
 		
 		WCF::getTPL()->assign(array(
-			'eventID' => $this->eventID,
-			'event' => $this->event,
+			'eventDateID' => $this->eventDateID,
+			'eventDate' => $this->eventDate,
+			'event' => $this->eventDate->getEvent(),
 			'commentList' => $this->commentList,
 			'commentObjectTypeID' => $this->commentObjectTypeID,
 			'lastCommentTime' => ($this->commentList ? $this->commentList->getMinCommentTime() : 0),

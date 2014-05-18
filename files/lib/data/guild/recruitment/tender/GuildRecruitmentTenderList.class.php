@@ -21,15 +21,30 @@ class GuildRecruitmentTenderList extends DatabaseObjectList {
 	/**
 	 * Returns a list of all game classes.
 	 *
-	 * @return    array
+	 * @return	array
 	 */
 	public function getClasses() {
 		$classes = array();
 
 		foreach ($this->objects as $tender) {
-			$classes[$tender->getClass()->classificationID] = $tender->getClass();
+			$classes[$tender->getClassification()->classificationID] = $tender->getClassification();
 		}
 
 		return $classes;
+	}
+
+	/**
+	 * Returns a list of all games.
+	 *
+	 * @return	array
+	 */
+	public function getGames() {
+		$games = array();
+
+		foreach ($this->objects as $tender) {
+			$games[$tender->getGame()->gameID] = $tender->getGame();
+		}
+
+		return $games;
 	}
 }

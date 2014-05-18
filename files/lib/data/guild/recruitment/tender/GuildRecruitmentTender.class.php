@@ -1,5 +1,7 @@
 <?php
 namespace gms\data\guild\recruitment\tender;
+use gms\data\game\classification\GameClassification;
+use gms\data\game\Game;
 use gms\data\GMSDatabaseObject;
 use wcf\system\WCF;
 
@@ -27,6 +29,44 @@ class GuildRecruitmentTender extends GMSDatabaseObject {
 	 * @see	\wcf\data\DatabaseObject::$databaseTableIndexName
 	 */
 	protected static $databaseTableIndexName = 'tenderID';
+
+	/**
+	 * game object
+	 * @var	\gms\data\game\Game
+	 */
+	protected $game = null;
+	
+	/**
+	 * classification object
+	 * @var	\gms\data\game\classification\GameClassification
+	 */
+	protected $classification = null;
+	
+	/**
+	 * Returns classification object.
+	 *
+	 * @return	\gms\data\game\classification\GameClassification
+	 */
+	public function getClassification() {
+		if ($this->classification === null) {
+			$this->classification = new GameClassification($this->classificationID);
+		}
+		
+		return $this->classification;
+	}
+	
+	/**
+	 * Returns game object.
+	 *
+	 * @return	\gms\data\game\Game
+	 */
+	public function getGame() {
+		if ($this->game === null) {
+			$this->game = new Game($this->gameID);
+		}
+		
+		return $this->game;
+	}
 
 	/**
 	 * Returns badge of priority.

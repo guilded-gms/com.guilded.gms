@@ -4,7 +4,7 @@ use wcf\data\DatabaseObjectEditor;
 use wcf\system\WCF;
 
 /**
- * 
+ * Editor for EventDate.
  *
  * @author	Jeffrey Reichardt
  * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)

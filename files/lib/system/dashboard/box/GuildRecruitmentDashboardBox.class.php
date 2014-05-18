@@ -33,7 +33,6 @@ class GuildRecruitmentDashboardBox extends AbstractSidebarDashboardBox {
 		$this->tenderList = new GuildRecruitmentTenderList();
 
 		// show specific tenders for guild
-		// @todo how to handle different games?
 		if ($page instanceof GuildPage && $page->guild !== null) {
 			$this->tenderList->getConditionBuilder()->add('guild_recruitment_tender.guildID = ?', array($page->guild->guildID));
 		}

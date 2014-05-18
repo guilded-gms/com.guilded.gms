@@ -53,6 +53,8 @@ class CharacterProfileMenuItemAction extends AbstractDatabaseObjectAction {
 	
 	/**
 	 * Returns content for given menu item.
+	 *
+	 * @return	array
 	 */
 	public function getContent() {
 		$contentManager = $this->menuItem->getContentManager();

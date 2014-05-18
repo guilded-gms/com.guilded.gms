@@ -1,5 +1,7 @@
 <?php
 namespace gms\data\event\date\invitation;
+use gms\data\event\date\participation\EventDateParticipation;
+use gms\data\event\date\participation\EventDateParticipationEditor;
 use wcf\data\AbstractDatabaseObjectAction;
 use wcf\system\WCF;
 
@@ -38,7 +40,15 @@ class EventDateInvitationAction extends AbstractDatabaseObjectAction {
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::create()
 	 */
 	public function create() {
-		// @todo create a participation slot with MAYBE
+		$participation = EventDateParticipationEditor::create(array(
+			'time' => TIME_NOW,
+			'userID' => $this->parameters['data']['userID'],
+			'characterID' => $this->parameters['data']['characterID'],
+			'statusTime' => TIME_NOW,
+			'status' => EventDateParticipation::STATUS_MAYBE
+		));
+
+		$this->parameters['data']['participationID'] = $participation->participationID;
 
 		return parent::create();
 	}
@@ -47,8 +57,67 @@ class EventDateInvitationAction extends AbstractDatabaseObjectAction {
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::delete()
 	 */
 	public function delete() {
-		// @todo delete assigned participation
+		if (empty($this->objects)) {
+			$this->readObjects();
+		}
+
+		foreach ($this->objects as $objectEditor) {
+			$participationEditor = new EventDateParticipationEditor($objectEditor->getParticipation());
+			$participationEditor->delete();
+		}
 
 		return parent::delete();
+	}
+
+	/**
+	 * Validates confirmation.
+	 */
+	public function validateConfirm() {
+		parent::validateDelete();
+	}
+
+	/**
+	 * Confirm invitation.
+	 */
+	public function confirm() {
+		if (empty($this->objects)) {
+			$this->readObjects();
+		}
+
+		foreach ($this->objects as $objectEditor) {
+			$participationEditor = new EventDateParticipationEditor($objectEditor->getParticipation());
+			$participationEditor->update(array(
+				'statusTime' => TIME_NOW,
+				'status' => EventDateParticipation::STATUS_YES
+			));
+
+			$objectEditor->delete();
+		}
+	}
+
+	/**
+	 * Validates invitation.
+	 */
+	public function validateDecline() {
+		parent::validateDelete();
+	}
+
+	/**
+	 * Declines invitation.
+	 */
+	public function decline() {
+		if (empty($this->objects)) {
+			$this->readObjects();
+		}
+
+		foreach ($this->objects as $objectEditor) {
+			$participationEditor = new EventDateParticipationEditor($objectEditor->getParticipation());
+			$participationEditor->update(array(
+				'statusTime' => TIME_NOW,
+				'status' => EventDateParticipation::STATUS_NO
+			));
+
+			$objectEditor->delete();
+		}
 	}
 }

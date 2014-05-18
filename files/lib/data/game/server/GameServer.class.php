@@ -1,7 +1,7 @@
 <?php
 namespace gms\data\game\server;
-use gms\data\GMSDatabaseObject;
 use gms\data\game\Game;
+use gms\data\GMSDatabaseObject;
 use wcf\data\ITitledObject;
 use wcf\system\WCF;
 

@@ -49,6 +49,7 @@ class CharacterEditForm extends CharacterAddForm {
 		
 		// get character
 		if (isset($_REQUEST['id'])) $this->characterID = intval($_REQUEST['id']);
+
 		$character = new Character($this->characterID);
 		if (!$character->characterID) {
 			throw new IllegalLinkException();

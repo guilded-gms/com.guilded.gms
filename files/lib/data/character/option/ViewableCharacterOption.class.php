@@ -44,7 +44,7 @@ class ViewableCharacterOption extends DatabaseObjectDecorator {
 	 * Sets option values for a specific character.
 	 * 
 	 * @param	\gms\data\character\Character	$character
-	 * @param	string	$outputType
+	 * @param	string							$outputType
 	 */
 	public function setOptionValue(Character $character, $outputType = 'normal') {
 		$characterOption = 'characterOption' . $this->optionID;
@@ -61,7 +61,8 @@ class ViewableCharacterOption extends DatabaseObjectDecorator {
 	
 	/**
 	 * Returns the output object for current character option.
-	 * 
+	 *
+	 * @throws	\wcf\system\exception\SystemException
 	 * @return	\gms\system\option\character\ICharacterOptionOutput
 	 */
 	public function getOutputObject() {

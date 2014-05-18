@@ -438,8 +438,9 @@ CREATE TABLE gms1_event_date_participation(
 	userID				INT(10),
 	characterID			INT(10),
 	time				INT(10),
+	statusTime			INT(10),	-- last status update
 	status				INT(10) DEFAULT 0,
-	description			VARCHAR(255),
+	message 			VARCHAR(255),
 	isConfirmed			TINYINT(1) DEFAULT 0,
 	isQueued			TINYINT(1) DEFAULT 0,
 	UNIQUE KEY(eventDateID, userID, characterID)

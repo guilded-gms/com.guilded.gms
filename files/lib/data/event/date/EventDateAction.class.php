@@ -4,7 +4,7 @@ use wcf\data\AbstractDatabaseObjectAction;
 use wcf\system\WCF;
 
 /**
- * 
+ * EventDate-related actions.
  *
  * @author	Jeffrey Reichardt
  * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
@@ -17,20 +17,20 @@ class EventDateAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$className
 	 */
-	public $className = 'wcf\data\event\date\EventDateEditor';
+	public $className = 'gms\data\event\date\EventDateEditor';
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsCreate
 	 */
-	protected $permissionsCreate = array('user.eventdate.canAddEventDate');
+	protected $permissionsCreate = array('admin.gms.event.canManageDates');
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
 	 */
-	protected $permissionsDelete = array('user.eventdate.canDeleteEventDate');
+	protected $permissionsDelete = array('admin.gms.event.canManageDates');
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsUpdate
 	 */
-	protected $permissionsUpdate = array('user.eventdate.canEditEventDate');
+	protected $permissionsUpdate = array('admin.gms.event.canManageDates');
 }

@@ -40,8 +40,9 @@
 		<item name="gms.acp.guild.rank.list"><![CDATA[Ränge auflisten]]></item>
 		<item name="gms.acp.guild.rank.add"><![CDATA[Rang hinzufügen]]></item>
 		<item name="gms.acp.guild.rank.edit"><![CDATA[Rang bearbeiten]]></item>
-		<item name="gms.acp.guild.rank.name"><![CDATA[Bezeichnung]]></item>
 		<item name="gms.acp.guild.rank.delete.sure"><![CDATA[@todo]]></item>
+		<item name="gms.acp.guild.rank.name"><![CDATA[Bezeichnung]]></item>
+		<item name="gms.acp.guild.rank.guildID"><![CDATA[Gilde]]></item>
 		<!-- recruitment -->
 		<item name="gms.acp.guild.recruitment.tender.list"><![CDATA[Gesuche auflisten]]></item>
 		<item name="gms.acp.guild.recruitment.tender.add"><![CDATA[Gesuch hinzufügen]]></item>
@@ -49,6 +50,7 @@
 		<item name="gms.acp.guild.recruitment.tender.delete.sure"><![CDATA[@todo]]></item>
 		<item name="gms.acp.guild.recruitment.tender.amount"><![CDATA[Anzahl]]></item>
 		<item name="gms.acp.guild.recruitment.tender.priority"><![CDATA[Priorität]]></item>
+		<item name="gms.acp.guild.recruitment.tender.guildID"><![CDATA[Gilde]]></item>
 	</category>
 
 	<category name="gms.acp.menu">
@@ -171,6 +173,7 @@
 		<item name="wcf.acp.option.category.guilded.index"><![CDATA[Startseite]]></item>
 		<item name="wcf.acp.option.category.guilded.index.general"><![CDATA[Allgemein]]></item>
 		<item name="wcf.acp.option.category.guilded.recruitment"><![CDATA[Rekrutierung]]></item>
+		<item name="wcf.acp.option.category.guilded.calendar"><![CDATA[Kalender]]></item>
 		<item name="wcf.acp.option.gms_install_date"><![CDATA[Installationsdatum]]></item>
 		<item name="wcf.acp.option.gms_default_game_id"><![CDATA[Spiel [Standard]]]></item>
 		<item name="wcf.acp.option.gms_default_guild_id"><![CDATA[Gilde [Standard]]]></item>
@@ -181,6 +184,7 @@
 		<item name="wcf.acp.option.gms_module_calendar"><![CDATA[Kalender]]></item>
 		<item name="wcf.acp.option.gms_module_credit_system"><![CDATA[Punktesystem]]></item>
 		<item name="wcf.acp.option.gms_module_instance_progress"><![CDATA[Gegner- und Instanzfortschritt]]></item>
+		<item name="wcf.acp.option.gms_calendar_list_items"><![CDATA[Einträge in Listenansicht]]></item>
 	</category>
 
 	<category name="wcf.acp.group">
@@ -214,6 +218,7 @@
 		<item name="wcf.acp.group.option.admin.gms.guild.canManage"><![CDATA[Kann Gilden verwalten]]></item>
 		<item name="wcf.acp.group.option.admin.gms.guild.canManageRank"><![CDATA[Kann Ränge verwalten]]></item>
 		<item name="wcf.acp.group.option.admin.gms.guild.canManageRecruitment"><![CDATA[Kann Gesuche verwalten]]></item>
+		<item name="wcf.acp.group.option.admin.gms.event.canManage"><![CDATA[Kann Ereignisse verwalten]]></item>
 	</category>
 
 	<category name="wcf.dashboard.box">

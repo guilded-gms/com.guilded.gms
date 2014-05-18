@@ -38,8 +38,9 @@ class GameInstancePage extends AbstractPage {
 		parent::readParameters();
 
 		if (isset($_REQUEST['id'])) $this->objectID = intval($_REQUEST['id']);
+
 		$this->object = new GameInstance($this->objectID);
-		if ($this->object === null) {
+		if (!$this->object->instanceID) {
 			throw new IllegalLinkException();
 		}
 	}

@@ -1,8 +1,9 @@
 <?php
 namespace gms\data\event\date;
 use gms\data\event\date\participation\EventDateParticipationList;
+use gms\data\event\Event;
 use wcf\data\DatabaseObject;
-use wcf\system\WCF;
+use wcf\system\request\IRouteController;
 
 /**
  * Represents an event date.
@@ -14,7 +15,7 @@ use wcf\system\WCF;
  * @subpackage	data.event.date
  * @category	Guilded 2.0
  */
-class EventDate extends DatabaseObject {
+class EventDate extends DatabaseObject implements IRouteController {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -26,10 +27,36 @@ class EventDate extends DatabaseObject {
 	protected static $databaseTableIndexName = 'eventDateID';
 
 	/**
+	 * event object
+	 * @var	\gms\data\event\Event
+	 */
+	protected $event = null;
+
+	/**
 	 * list of participants
 	 * @var	\gms\data\event\date\participation\EventDateParticipationList
 	 */
 	protected $participantList = array();
+
+	/**
+	 * @see	\wcf\system\request\IRoutController::getTitle()
+	 */
+	public function getTitle() {
+		return $this->getEvent()->getTitle();
+	}
+
+	/**
+	 * Returns event object.
+	 *
+	 * @return	\gms\data\event\Event
+	 */
+	public function getEvent() {
+		if ($this->event === null) {
+			$this->event = new Event($this->eventID);
+		}
+
+		return $this->event;
+	}
 
 	/**
 	 * Returns a list of all participants

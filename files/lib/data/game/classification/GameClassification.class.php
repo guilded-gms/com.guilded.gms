@@ -54,7 +54,7 @@ class GameClassification extends GMSDatabaseObject {
 	}
 
 	/**
-	 * Returns image tag with given size.
+	 * Returns image tag with given size. Possible sizes are 16, 32 and 48.
 	 *
 	 * @param	integer	$size
 	 * @return	string

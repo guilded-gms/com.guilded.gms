@@ -45,7 +45,5 @@ class CalendarPage extends AbstractPage {
 			'calendarMenu' => CalendarMenu::getInstance()
 		));
 	}
-
-	// @todo add breadcrumb
 }
 

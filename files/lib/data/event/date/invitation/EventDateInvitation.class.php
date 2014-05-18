@@ -1,5 +1,6 @@
 <?php
 namespace gms\data\event\date\invitation;
+use gms\data\event\date\participation\EventDateParticipation;
 use wcf\data\DatabaseObject;
 use wcf\system\WCF;
 
@@ -23,4 +24,23 @@ class EventDateInvitation extends DatabaseObject {
 	 * @see	\wcf\data\DatabaseObject::$databaseTableIndexName
 	 */
 	protected static $databaseTableIndexName = 'invitationID';
+
+	/**
+	 * participation object
+	 * @var	\gms\data\event\date\participation\EventDateParticipation
+	 */
+	protected $participation = null;
+
+	/**
+	 * Returns participation object.
+	 *
+	 * @return	\gms\data\event\date\participation\EventDateParticipation
+	 */
+	public function getParticipation() {
+		if ($this->participation === null) {
+			$this->participation = new EventDateParticipation($this->participationID);
+		}
+
+		return $this->participation;
+	}
 }

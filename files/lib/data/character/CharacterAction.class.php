@@ -177,6 +177,8 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 
 	/**
 	 * Gets data from provider.
+	 *
+	 * @return	array
 	 */
 	public function getProviderData() {
 		if (empty($this->objects)) {
@@ -268,7 +270,6 @@ class CharacterAction extends AbstractDatabaseObjectAction {
 
 			// create character activity
 			CharacterActivityHandler::getInstance()->fireEvent('gms.character.event.guild.join', $objectEditor->characterID, $objectEditor->getDecoratedObject());
-
 
 			// save affected objectIDs
 			$objectIDs[] = $objectEditor->characterID;

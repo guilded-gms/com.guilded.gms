@@ -2,6 +2,7 @@
 namespace gms\data\event;
 use gms\data\GMSDatabaseObject;
 use gms\system\event\type\EventTypeHandler;
+use wcf\data\category\Category;
 use wcf\system\request\IRouteController;
 
 /**
@@ -26,7 +27,26 @@ class Event extends GMSDatabaseObject implements IRouteController {
 	protected static $databaseTableIndexName = 'eventID';
 
 	/**
-	 * @see IRoutController::getTitle()
+	 * category object
+	 * @var	\wcf\data\category\Category
+	 */
+	protected $category = null;
+
+	/**
+	 * Returns category object.
+	 *
+	 * @return	\wcf\data\category\Category
+	 */
+	public function getCategory() {
+		if ($this->category === null) {
+			$this->category = new Category($this->categoryID);
+		}
+
+		return $this->category;
+	}
+
+	/**
+	 * @see	\wcf\system\request\IRoutController::getTitle()
 	 */
 	public function getTitle() {
 		return $this->title;
@@ -39,5 +59,14 @@ class Event extends GMSDatabaseObject implements IRouteController {
 	 */	
 	public function getType() {
 		return EventTypeHandler::getInstance()->getObjectTypeByID($this->objectTypeID);
+	}
+
+	/**
+	 * Returns if event can viewed by current user.
+	 *
+	 * @return	boolean
+	 */
+	public function canView() {
+		return true; // @todo
 	}
 }

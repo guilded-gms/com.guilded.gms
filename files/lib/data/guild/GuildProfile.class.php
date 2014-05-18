@@ -38,6 +38,9 @@ class GuildProfile extends DatabaseObjectDecorator implements IBreadcrumbProvide
 	
 	/**
 	 * Returns image tag in given size.
+	 *
+	 * @param	integer		$size
+	 * @return	string
 	 */
 	public function getImageTag($size = 0) {
 		return '<img src="'.StringUtil::encodeHTML($this->image).'" alt="'.($size > 0 ? ' style="max-width:'.$size.'px;max-height:'.$size.'px;"':'').' title="'.$this->getTitle().'" />';

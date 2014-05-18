@@ -1,8 +1,8 @@
 <?php
 namespace gms\data\guild;
 use gms\data\character\CharacterList;
-use gms\data\game\Game;
 use gms\data\game\server\GameServer;
+use gms\data\game\Game;
 use gms\data\guild\recruitment\application\GuildRecruitmentApplicationList;
 use gms\data\guild\recruitment\tender\GuildRecruitmentTenderList;
 use gms\data\GMSDatabaseObject;
@@ -136,8 +136,8 @@ class Guild extends GMSDatabaseObject implements IRouteController {
 	/**
 	 * Checks whether given character is a member of this guild.
 	 *
-	 * @param integer $characterID
-	 * @return boolean
+	 * @param	integer		$characterID
+	 * @return	boolean
 	 */
 	public function isMember($characterID) {
 		$characterIDs = $this->getCharacters()->getObjectIDs();
@@ -196,7 +196,7 @@ class Guild extends GMSDatabaseObject implements IRouteController {
 		$characterList->readObjectIDs();
 
 		foreach ($characterList->getObjectIDs() as $characterID) {
-			if (Guild::isMember($characterID)) {
+			if (self::isMember($characterID)) {
 				return true;
 			}
 		}

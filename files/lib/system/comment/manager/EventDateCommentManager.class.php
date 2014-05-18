@@ -16,11 +16,6 @@ class EventDateCommentManager extends AbstractCommentManager {
 	protected $permissionAdd = 'user.gms.event.comment.canAddComment';
 
 	/**
-	 * @see	\wcf\system\comment\manager\AbstractCommentManager::$permissionCanModerate
-	 */
-	protected $permissionCanModerate = 'mod.gms.event.comment.canModerateComment';
-
-	/**
 	 * @see	\wcf\system\comment\manager\AbstractCommentManager::$permissionDelete
 	 */
 	protected $permissionDelete = 'user.gms.event.comment.canDeleteComment';
@@ -31,14 +26,19 @@ class EventDateCommentManager extends AbstractCommentManager {
 	protected $permissionEdit = 'user.gms.event.comment.canEditComment';
 
 	/**
+	 * @see	\wcf\system\comment\manager\AbstractCommentManager::$permissionCanModerate
+	 */
+	protected $permissionCanModerate = 'mod.gms.event.comment.canManage';
+
+	/**
 	 * @see	\wcf\system\comment\manager\AbstractCommentManager::$permissionModDelete
 	 */
-	protected $permissionModDelete = 'mod.gms.event.comment.canDeleteComment';
+	protected $permissionModDelete = 'mod.gms.event.comment.canManage';
 
 	/**
 	 * @see	\wcf\system\comment\manager\AbstractCommentManager::$permissionModEdit
 	 */
-	protected $permissionModEdit = 'mod.gms.event.comment.canEditComment';
+	protected $permissionModEdit = 'mod.gms.event.comment.canManage';
 
 	/**
 	 * Returns a link to given object type id and object id.
@@ -69,15 +69,19 @@ class EventDateCommentManager extends AbstractCommentManager {
 	 * @see	\wcf\system\comment\manager\ICommentManager::isAccessible()
 	 */
 	public function isAccessible($objectID, $validateWritePermission = false) {
-		// TODO: Implement isAccessible() method.
+		$eventDate = new EventDate($objectID);
+		if (!$eventDate->eventDateID || !$eventDate->getEvent()->canView()) {
+			return false;
+		}
+
+		return true;
 	}
 
 	/**
 	 * @see	\wcf\system\comment\manager\ICommentManager::updateCounter()
 	 */
 	public function updateCounter($objectID, $value) {
-		$eventDate = new EventDate($objectID);
-		$editor = new EventDateEditor($eventDate);
+		$editor = new EventDateEditor(new EventDate($objectID));
 		$editor->updateCounters(array(
 			'comments' => $value
 		));

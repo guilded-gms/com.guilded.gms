@@ -60,7 +60,7 @@ class GuildPage extends AbstractPage {
 		}
 
 		$this->guild = GuildProfile::getGuildProfile($this->guildID);
-		if ($this->guild === null) {
+		if (!$this->guild->guildID) {
 			throw new IllegalLinkException();
 		}
 	}
