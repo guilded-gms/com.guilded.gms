@@ -2,10 +2,13 @@
 namespace gms\page;
 use gms\data\event\date\EventDate;
 use wcf\page\AbstractPage;
+use wcf\system\breadcrumb\Breadcrumb;
 use wcf\system\comment\CommentHandler;
+use wcf\system\dashboard\DashboardHandler;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\MetaTagHandler;
 use wcf\system\request\LinkHandler;
+use wcf\system\user\collapsible\content\UserCollapsibleContentHandler;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
 
@@ -18,7 +21,7 @@ class EventPage extends AbstractPage {
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('user.gms.event.canViewEvent');
+	public $neededPermissions = array('user.gms.event.canView');
 
 	/**
 	 * date id
@@ -76,7 +79,9 @@ class EventPage extends AbstractPage {
 		$this->commentManager = CommentHandler::getInstance()->getObjectType($this->commentObjectTypeID)->getProcessor();
 		$this->commentList = CommentHandler::getInstance()->getCommentList($this->commentManager, $this->commentObjectTypeID, $this->eventDateID);
 
-		// @todo set breadcrump
+		// set breadcrumb
+		WCF::getBreadcrumbs()->add(new Breadcrumb(WCF::getLanguage()->get('gms.calendar.title'), LinkHandler::getInstance()->getLink('Calendar', array('application' => 'gms'))));
+		WCF::getBreadcrumbs()->add(new Breadcrumb($this->eventDate->getEvent()->getCategory()->getTitle(), LinkHandler::getInstance()->getLink('Calendar', array('application' => 'gms', 'categoryID' => $this->eventDate->getEvent()->getCategory()->categoryID))));
 
 		// add meta tags
 		MetaTagHandler::getInstance()->addTag('og:title', 'og:title', $this->eventDate->getTitle() . ' (' . $this->eventDate->startTime . ') - ' . WCF::getLanguage()->get(PAGE_TITLE), true);
@@ -91,8 +96,12 @@ class EventPage extends AbstractPage {
 	 */
 	public function assignVariables() {
 		parent::assignVariables();
-		
+
+		DashboardHandler::getInstance()->loadBoxes('com.guilded.gms.EventPage', $this);
+
 		WCF::getTPL()->assign(array(
+			'sidebarCollapsed' => UserCollapsibleContentHandler::getInstance()->isCollapsed('com.woltlab.wcf.collapsibleSidebar', 'com.guilded.gms.EventPage'),
+			'sidebarName' => 'com.guilded.gms.EventPage',
 			'eventDateID' => $this->eventDateID,
 			'eventDate' => $this->eventDate,
 			'event' => $this->eventDate->getEvent(),

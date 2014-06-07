@@ -18,7 +18,7 @@ class DateEventType extends AbstractEventType implements IEventType{
 	/**
 	 * @see IEventType::$participationAction
 	 */
-	protected $participationAction = 'gms\data\event\participation\UserEventParticipationAction';
+	protected $participationAction = 'gms\data\event\participation\UserEventDateParticipationAction';
 	
 	/**
 	 * @see IEventType::$permissions

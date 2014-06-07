@@ -3,7 +3,10 @@ namespace gms\data\event\date;
 use gms\data\event\date\participation\EventDateParticipationList;
 use gms\data\event\Event;
 use wcf\data\DatabaseObject;
+use wcf\system\breadcrumb\Breadcrumb;
+use wcf\system\breadcrumb\IBreadcrumbProvider;
 use wcf\system\request\IRouteController;
+use wcf\system\request\LinkHandler;
 
 /**
  * Represents an event date.
@@ -15,7 +18,7 @@ use wcf\system\request\IRouteController;
  * @subpackage	data.event.date
  * @category	Guilded 2.0
  */
-class EventDate extends DatabaseObject implements IRouteController {
+class EventDate extends DatabaseObject implements IRouteController, IBreadcrumbProvider {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -76,18 +79,38 @@ class EventDate extends DatabaseObject implements IRouteController {
 	/**
 	 * Checks whether the participation time for this event is expired
 	 *
-	 * @return	bool
+	 * @return	boolean
 	 */
 	public function isExpired() {
-		return ($this->startTime >= TIME_NOW); // @todo check deadline
+		return ($this->startTime >= TIME_NOW || $this->deadlineTime >= TIME_NOW);
 	}
 
 	/**
 	 * Checks whether the announcement for this event is closed
 	 *
-	 * @return	bool
+	 * @return	boolean
 	 */
 	public function isClosed() {
-		return false; // @todo check
+		return $this->isClosed;
+	}
+
+	/**
+	 * @see	\wcf\system\breadcrumb\IBreadcrumbProvider::getBreadcrumb()
+	 */
+	public function getBreadcrumb() {
+		return new Breadcrumb($this->getEvent()->getTitle(), $this->getLink());
+	}
+
+	/**
+	 * Returns the link to the object.
+	 *
+	 * @return	string
+	 */
+	public function getLink() {
+		return LinkHandler::getInstance()->getLink('Event', array(
+			'object' => $this,
+			'application' => 'gms',
+			'forceFrontend' => true
+		));
 	}
 }

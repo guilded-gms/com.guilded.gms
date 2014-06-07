@@ -205,11 +205,12 @@
 		<item name="wcf.acp.group.option.category.admin.gms.guild"><![CDATA[Gilden]]></item>
 		<item name="wcf.acp.group.option.user.gms.alliance.canViewProfile"><![CDATA[Kann Profil ansehen]]></item>
 		<item name="wcf.acp.group.option.user.gms.character.canManage"><![CDATA[Kann Charaktere verwalten]]></item>
-		<item name="wcf.acp.group.option.user.gms.character.canViewProfile"><![CDATA[Kann Profil ansehen]]></item>
+		<item name="wcf.acp.group.option.user.gms.character.canView"><![CDATA[Kann Profil ansehen]]></item>
 		<item name="wcf.acp.group.option.user.gms.character.canViewList"><![CDATA[Kann Liste ansehen]]></item>
-		<item name="wcf.acp.group.option.user.gms.guild.canViewProfile"><![CDATA[Kann Profil ansehen]]></item>
+		<item name="wcf.acp.group.option.user.gms.guild.canView"><![CDATA[Kann Profil ansehen]]></item>
 		<item name="wcf.acp.group.option.user.gms.guild.canViewList"><![CDATA[Kann Liste ansehen]]></item>
 		<item name="wcf.acp.group.option.user.gms.guild.canApply"><![CDATA[Kann sich für Gildenbeitritt bewerben]]></item>
+		<item name="wcf.acp.group.option.user.gms.event.canView"><![CDATA[Kann Ereignis sehen]]></item>
 		<item name="wcf.acp.group.option.user.gms.event.canViewCalendar"><![CDATA[Kann Kalender ansehen]]></item>
 		<item name="wcf.acp.group.option.mod.gms.guild.canManageRecruitment"><![CDATA[Kann Bewerbungen verwalten]]></item>
 		<item name="wcf.acp.group.option.admin.gms.game.canManage"><![CDATA[Kann Spiele verwalten]]></item>
@@ -221,7 +222,10 @@
 		<item name="wcf.acp.group.option.admin.gms.event.canManage"><![CDATA[Kann Ereignisse verwalten]]></item>
 	</category>
 
-	<category name="wcf.dashboard.box">
+	<category name="wcf.dashboard">
+		<item name="wcf.dashboard.objectType.com.guilded.gms.IndexPage"><![CDATA[Startseite]]></item>
+		<item name="wcf.dashboard.objectType.com.guilded.gms.GuildPage"><![CDATA[Gilden-Seite]]></item>
+		<item name="wcf.dashboard.objectType.com.guilded.gms.CharacterPage"><![CDATA[Charakter-Seite]]></item>
 		<item name="wcf.dashboard.box.com.guilded.gms.game.serverStatus"><![CDATA[Server-Status]]></item>
 		<item name="wcf.dashboard.box.com.guilded.gms.credit.standing"><![CDATA[Punktestand]]></item>
 		<item name="wcf.dashboard.box.com.guilded.gms.guild.recruitment"><![CDATA[Rekrutierung]]></item>

@@ -17,4 +17,9 @@ class EventDateList extends DatabaseObjectList {
 	 * @see	\wcf\data\DatabaseObjectList::$className
 	 */
 	public $className = 'gms\data\event\date\EventDate';
+
+	/**
+	 * @see	\wcf\data\DatabaseObjectList::$sqlOrderBy
+	 */
+	public $sqlOrderBy = 'startTime DESC';
 }

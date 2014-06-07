@@ -1,9 +1,11 @@
 <?php
 namespace gms\data\event;
+use gms\data\event\date\EventDateList;
 use gms\data\GMSDatabaseObject;
 use gms\system\event\type\EventTypeHandler;
 use wcf\data\category\Category;
 use wcf\system\request\IRouteController;
+use wcf\system\WCF;
 
 /**
  * Represents an event.
@@ -31,6 +33,27 @@ class Event extends GMSDatabaseObject implements IRouteController {
 	 * @var	\wcf\data\category\Category
 	 */
 	protected $category = null;
+
+	/**
+	 * dateList object
+	 * @var	\gms\data\event\date\EventDateList
+	 */
+	protected $dateList = null;
+
+	/**
+	 * Returns dateList object.
+	 *
+	 * @return	\gms\data\event\date\EventDateList
+	 */
+	public function getDates() {
+		if ($this->dateList === null) {
+			$this->dateList = new EventDateList();
+			$this->dateList->getConditionBuilder()->add('event.eventID = ?', array($this->eventID));
+			$this->dateList->readObjects();
+		}
+
+		return $this->dateList;
+	}
 
 	/**
 	 * Returns category object.
@@ -67,6 +90,8 @@ class Event extends GMSDatabaseObject implements IRouteController {
 	 * @return	boolean
 	 */
 	public function canView() {
-		return true; // @todo
+		// @todo validate acl of category
+
+		return WCF::getSession()->getPermission('user.gms.event.canView');
 	}
 }

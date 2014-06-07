@@ -8,7 +8,7 @@
 		<pagemenuitem name="gms.header.menu.guild">
 			<controller><![CDATA[gms\page\Guild]]></controller>
 			<position>header</position>
-			<permissions>user.gms.guild.canViewProfile</permissions>
+			<permissions>user.gms.guild.canView</permissions>
 		</pagemenuitem>
 		<pagemenuitem name="gms.header.menu.calendar">
 			<controller><![CDATA[gms\page\Calendar]]></controller>

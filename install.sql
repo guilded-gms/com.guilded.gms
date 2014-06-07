@@ -147,7 +147,6 @@ CREATE TABLE gms1_game_server (
 	UNIQUE KEY(gameID, name)
 ) ENGINE=INNODB CHARSET=utf8;
 
--- character profile menu
 DROP TABLE IF EXISTS gms1_character_profile_menu_item;
 CREATE TABLE gms1_character_profile_menu_item (
 	menuItemID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -160,7 +159,6 @@ CREATE TABLE gms1_character_profile_menu_item (
 	UNIQUE KEY (packageID, menuItem)
 ) ENGINE=INNODB CHARSET=utf8;
 
--- guild profile menu
 DROP TABLE IF EXISTS gms1_guild_profile_menu_item;
 CREATE TABLE gms1_guild_profile_menu_item (
 	menuItemID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -173,7 +171,6 @@ CREATE TABLE gms1_guild_profile_menu_item (
 	UNIQUE KEY (packageID, menuItem)
 ) ENGINE=INNODB CHARSET=utf8;
 
--- alliance
 DROP TABLE IF EXISTS gms1_alliance;
 CREATE TABLE gms1_alliance (
 	allianceID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -195,7 +192,6 @@ CREATE TABLE gms1_alliance_to_character(
 	UNIQUE KEY(allianceID, characterID)
 ) ENGINE=INNODB CHARSET=utf8;
 
--- guild
 DROP TABLE IF EXISTS gms1_guild;
 CREATE TABLE gms1_guild (
 	guildID				INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -246,7 +242,6 @@ CREATE TABLE gms1_guild_option_value  (
 	UNIQUE KEY guildID (guildID, optionID)
 ) ENGINE=INNODB CHARSET=utf8;
 
--- guild activity
 DROP TABLE IF EXISTS gms1_guild_activity;
 CREATE TABLE gms1_guild_activity (
 	activityID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -256,7 +251,6 @@ CREATE TABLE gms1_guild_activity (
 	additionalData		MEDIUMTEXT
 );
 
--- character
 DROP TABLE IF EXISTS gms1_character;
 CREATE TABLE gms1_character (
 	characterID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -269,7 +263,6 @@ CREATE TABLE gms1_character (
 	isPrimary			TINYINT(1) DEFAULT 0
 ) ENGINE=INNODB CHARSET=utf8;
 
--- character-rank
 DROP TABLE IF EXISTS gms1_guild_rank;
 CREATE TABLE gms1_guild_rank (
 	rankID				INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -319,7 +312,6 @@ CREATE TABLE gms1_character_option_value  (
 	UNIQUE KEY characterID (characterID, optionID)
 ) ENGINE=INNODB CHARSET=utf8;
 
--- character activity
 DROP TABLE IF EXISTS gms1_character_activity;
 CREATE TABLE gms1_character_activity (
 	activityID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -344,7 +336,6 @@ CREATE TABLE gms1_character_group_to_character(
 	UNIQUE KEY(groupID, characterID)
 ) ENGINE=INNODB CHARSET=utf8;
 
--- recruitment
 DROP TABLE IF EXISTS gms1_guild_recruitment_tender;
 CREATE TABLE gms1_guild_recruitment_tender(
 	tenderID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -355,7 +346,7 @@ CREATE TABLE gms1_guild_recruitment_tender(
 	talentID			INT(10) DEFAULT 0,
 	quantity			INT(10),
 	sortOrder			INT(10) DEFAULT 0,
-	priority			ENUM('low', 'medium', 'high'),
+	priority			TINYINT(1),
 	UNIQUE KEY(guildID, classificationID, roleID, talentID)
 ) ENGINE=INNODB CHARSET=utf8;
 
@@ -425,10 +416,22 @@ CREATE TABLE gms1_event(
 	repeatDaily		INT(10),
 	repeatWeekly	INT(10),
 	repeatMonthly	INT(10),
+	isClosed		TINYINT(1) DEFAULT 0,
 	additionalData	TEXT
 ) ENGINE=INNODB CHARSET=utf8;
 
--- @todo event_dates
+DROP TABLE IF EXISTS gms1_event_date;
+CREATE TABLE gms1_event_date(
+	dateID			INT(10) AUTO_INCREMENT PRIMARY KEY,
+	eventID			INT(10) NOT NULL,
+	title			VARCHAR(255),
+	description		VARCHAR(255),
+	startTime		INT(10),
+	endTime			INT(10),
+	deadlineTime	INT(10),
+	isClosed		TINYINT(1) DEFAULT 0,
+	additionalData	TEXT
+) ENGINE=INNODB CHARSET=utf8;
 
 -- participants
 DROP TABLE IF EXISTS gms1_event_date_participation;
@@ -527,6 +530,8 @@ ALTER TABLE gms1_guild_recruitment_application ADD FOREIGN KEY (tenderID) REFERE
 ALTER TABLE gms1_guild_recruitment_application ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE CASCADE;
 ALTER TABLE gms1_guild_recruitment_application ADD FOREIGN KEY (characterID) REFERENCES gms1_character (characterID) ON DELETE CASCADE;
 ALTER TABLE gms1_guild_recruitment_application ADD FOREIGN KEY (guildID) REFERENCES gms1_guild (guildID) ON DELETE CASCADE;
+
+ALTER TABLE gms1_event_date ADD FOREIGN KEY (eventID) REFERENCES gms1_event (eventID) ON DELETE CASCADE;
 
 ALTER TABLE gms1_event_date_participation ADD FOREIGN KEY (eventDateID) REFERENCES gms1_event_date (eventDateID) ON DELETE CASCADE;
 ALTER TABLE gms1_event_date_participation ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE CASCADE;

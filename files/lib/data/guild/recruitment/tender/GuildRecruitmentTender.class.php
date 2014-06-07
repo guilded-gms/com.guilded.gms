@@ -74,9 +74,9 @@ class GuildRecruitmentTender extends GMSDatabaseObject {
 	 * @return	string
 	 */
 	public function getBadge() {
-		$colorClass = 'green';
 		if ($this->priority === self::PRIORITY_MEDIUM) $colorClass = 'orange';
 		else if ($this->priority === self::PRIORITY_HIGH) $colorClass = 'red';
+		else $colorClass = 'green';
 
 		return '<span class="badge ' . $colorClass . '">' . WCF::getLanguage()->get('gms.guild.recruitment.tender.priority.' . $this->priority) . '</span></label>';
 	}

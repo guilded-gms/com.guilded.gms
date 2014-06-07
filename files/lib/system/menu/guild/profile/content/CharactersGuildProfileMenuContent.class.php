@@ -16,7 +16,7 @@ class CharactersGuildProfileMenuContent extends SingletonFactory implements IGui
 	 * @see	\wcf\system\menu\guild\profile\content\IGuildProfileMenuContent::isAccessible()
 	 */
 	public function isAccessible(Guild $guild) {
-		return (WCF::getSession()->getPermission('user.gms.guild.canViewProfile'));
+		return (WCF::getSession()->getPermission('user.gms.guild.canView'));
 	}
 
 	/**

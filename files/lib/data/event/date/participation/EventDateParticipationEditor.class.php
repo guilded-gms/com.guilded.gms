@@ -16,5 +16,5 @@ class EventDateParticipationEditor extends DatabaseObjectEditor {
 	/**
 	 * @see	wcf\data\DatabaseObjectDecorator::$baseClass
 	 */
-	protected static $baseClass = 'gms\data\event\date\participation\EventParticipation';
+	protected static $baseClass = 'gms\data\event\date\participation\EventDateParticipation';
 }

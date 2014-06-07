@@ -16,7 +16,7 @@ class EventDateParticipationAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see wcf\data\AbstractDatabaseObjectAction::$className
 	 */
-	protected $className = 'gms\data\event\date\participation\EventParticipationEditor';
+	protected $className = 'gms\data\event\date\participation\EventDateParticipationEditor';
 	
 	/**
 	 * @see wcf\data\AbstractDatabaseObjectAction::$permissionsCreate

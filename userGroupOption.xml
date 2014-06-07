@@ -67,7 +67,7 @@
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
 			</option>
-			<option name="user.gms.character.canViewProfile">
+			<option name="user.gms.character.canView">
 				<categoryname>user.gms.character</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
@@ -80,7 +80,7 @@
 			<!-- /user.gms.character -->
 
 			<!-- user.gms.guild -->
-			<option name="user.gms.guild.canViewProfile">
+			<option name="user.gms.guild.canView">
 				<categoryname>user.gms.guild</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
@@ -106,6 +106,11 @@
 			<!-- /user.gms.alliance -->
 
 			<!-- user.gms.event -->
+			<option name="user.gms.event.canView">
+				<categoryname>user.gms.event</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
 			<option name="user.gms.event.canViewCalendar">
 				<categoryname>user.gms.event</categoryname>
 				<optiontype>boolean</optiontype>

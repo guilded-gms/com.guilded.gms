@@ -6,7 +6,10 @@ use gms\data\game\Game;
 use gms\data\guild\recruitment\application\GuildRecruitmentApplicationList;
 use gms\data\guild\recruitment\tender\GuildRecruitmentTenderList;
 use gms\data\GMSDatabaseObject;
+use wcf\system\breadcrumb\Breadcrumb;
+use wcf\system\breadcrumb\IBreadcrumbProvider;
 use wcf\system\request\IRouteController;
+use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
 
 /**
@@ -19,7 +22,7 @@ use wcf\system\WCF;
  * @subpackage	data.guild
  * @category	Guilded 2.0
  */
-class Guild extends GMSDatabaseObject implements IRouteController {
+class Guild extends GMSDatabaseObject implements IRouteController, IBreadcrumbProvider {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -202,5 +205,25 @@ class Guild extends GMSDatabaseObject implements IRouteController {
 		}
 
 		return false;
+	}
+
+	/**
+	 * @see	\wcf\system\breadcrumb\IBreadcrumbProvider::getBreadcrumb()
+	 */
+	public function getBreadcrumb() {
+		return new Breadcrumb($this->getTitle(), $this->getLink());
+	}
+
+	/**
+	 * Returns the link to the object.
+	 *
+	 * @return	string
+	 */
+	public function getLink() {
+		return LinkHandler::getInstance()->getLink('Guild', array(
+			'object' => $this,
+			'application' => 'gms',
+			'forceFrontend' => true
+		));
 	}
 }

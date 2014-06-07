@@ -7,6 +7,21 @@
 			<definitionname>com.woltlab.wcf.clipboardItem</definitionname>
 			<listclassname>gms\data\character\CharacterList</listclassname>
 		</type>
+		<type>
+			<name>com.guilded.gms.guild</name>
+			<definitionname>com.woltlab.wcf.clipboardItem</definitionname>
+			<listclassname>gms\data\guild\GuildList</listclassname>
+		</type>
+		<type>
+			<name>com.guilded.gms.event.date</name>
+			<definitionname>com.woltlab.wcf.clipboardItem</definitionname>
+			<listclassname>gms\data\event\date\EventDateList</listclassname>
+		</type>
+		<type>
+			<name>com.guilded.gms.event.date.participation</name>
+			<definitionname>com.woltlab.wcf.clipboardItem</definitionname>
+			<listclassname>gms\data\event\date\participation\EventDateParticipationList</listclassname>
+		</type>
 		<!-- /clipboard -->
 
 		<!-- search -->
@@ -24,16 +39,34 @@
 
 		<!-- location -->
 		<type>
+			<name>com.guilded.gms.IndexPage</name>
+			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
+			<controller>gms\page\IndexPage</controller>
+			<languagevariable>wcf.user.usersOnline.location.IndexPage</languagevariable>
+		</type>
+		<type>
+			<name>com.guilded.gms.CalendarPage</name>
+			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
+			<controller>gms\page\CalendarPage</controller>
+			<languagevariable>wcf.user.usersOnline.location.CalendarPage</languagevariable>
+		</type>
+		<type>
+			<name>com.guilded.gms.EventPage</name>
+			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
+			<controller>gms\page\EventPage</controller>
+			<languagevariable>wcf.user.usersOnline.location.EventPage</languagevariable>
+		</type>
+		<type>
 			<name>com.guilded.gms.CharacterPage</name>
 			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
 			<controller>gms\page\CharacterPage</controller>
-			<languagevariable>wcf.user.usersOnline.location.characterPage</languagevariable>
+			<languagevariable>wcf.user.usersOnline.location.CharacterPage</languagevariable>
 		</type>
 		<type>
 			<name>com.guilded.gms.GuildPage</name>
 			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
 			<controller>gms\page\GuildPage</controller>
-			<languagevariable>wcf.user.usersOnline.location.guildPage</languagevariable>
+			<languagevariable>wcf.user.usersOnline.location.GuildPage</languagevariable>
 		</type>
 		<!-- /location -->
 
@@ -42,6 +75,24 @@
 			<name>com.guilded.gms.IndexPage</name>
 			<definitionname>com.woltlab.wcf.user.dashboardContainer</definitionname>
 			<allowcontent>1</allowcontent>
+			<allowsidebar>1</allowsidebar>
+		</type>
+		<type>
+			<name>com.guilded.gms.CalendarPage</name>
+			<definitionname>com.woltlab.wcf.user.dashboardContainer</definitionname>
+			<allowcontent>0</allowcontent>
+			<allowsidebar>1</allowsidebar>
+		</type>
+		<type>
+			<name>com.guilded.gms.EventPage</name>
+			<definitionname>com.woltlab.wcf.user.dashboardContainer</definitionname>
+			<allowcontent>0</allowcontent>
+			<allowsidebar>1</allowsidebar>
+		</type>
+		<type>
+			<name>com.guilded.gms.CharacterPage</name>
+			<definitionname>com.woltlab.wcf.user.dashboardContainer</definitionname>
+			<allowcontent>0</allowcontent>
 			<allowsidebar>1</allowsidebar>
 		</type>
 		<type>
@@ -54,9 +105,14 @@
 
 		<!-- recent activity -->
 		<type>
-			<name>com.guilded.wcf.user.recentActivityEvent.character</name>
+			<name>com.guilded.gms.user.recentActivityEvent.character</name> <!-- new character creation -->
 			<definitionname>com.woltlab.wcf.user.recentActivityEvent</definitionname>
 			<classname>gms\system\user\activity\event\CharacterUserActivityEvent</classname>
+		</type>
+		<type>
+			<name>com.guilded.gms.user.recentActivityEvent.event.date.participation</name>
+			<definitionname>com.woltlab.wcf.user.recentActivityEvent</definitionname>
+			<classname>gms\system\user\activity\event\EventDateParticipationUserActivityEvent</classname>
 		</type>
 		<!-- /recent activity -->
 
@@ -87,7 +143,7 @@
 		<type>
 			<name>com.guilded.gms.event.participation</name>
 			<definitionname>com.woltlab.wcf.modifiableContent</definitionname>
-			<classname>gms\system\log\modification\EventParticipationModificationLogHandler</classname>
+			<classname>gms\system\log\modification\EventDateParticipationModificationLogHandler</classname>
 		</type>
 		<!-- /modification log -->
 
@@ -127,12 +183,18 @@
 
 		<!-- moderation -->
 		<type>
-			<name>com.guilded.gms.event.participation</name>
+			<name>com.guilded.gms.event.date.participation</name>
 			<definitionname>com.woltlab.wcf.moderation.activation</definitionname>
+			<classname>gms\system\moderation\queue\activation\EventDateParticipationModerationQueueActivationHandler</classname>
 		</type>
 		<!-- /moderation -->
 
 		<!-- category -->
+		<type>
+			<name>com.guilded.gms.credit.category</name>
+			<definitionname>com.woltlab.wcf.category</definitionname>
+			<classname>gms\system\category\CreditCategoryType</classname>
+		</type>
 		<type>
 			<name>com.guilded.gms.event.category</name>
 			<definitionname>com.woltlab.wcf.category</definitionname>
@@ -154,5 +216,20 @@
 			<classname>gms\system\event\date\credit\EventDateCredit</classname>
 		</type>
 		<!-- /com.guilded.gms.credit -->
+
+		<!-- modification log -->
+		<type>
+			<name>com.guilded.gms.event.date</name>
+			<definitionname>com.woltlab.wcf.modifiableContent</definitionname>
+		</type>
+		<type>
+			<name>com.guilded.gms.event.date.participation</name>
+			<definitionname>com.woltlab.wcf.modifiableContent</definitionname>
+		</type>
+		<!-- /modification log -->
+
+		<!-- @todo object watch for guild -->
+		<!-- @todo object watch for character -->
+		<!-- @todo object watch for event -->
 	</import>
 </data>

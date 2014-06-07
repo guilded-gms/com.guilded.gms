@@ -6,6 +6,7 @@ use wcf\page\AbstractPage;
 use wcf\system\breadcrumb\Breadcrumb;
 use wcf\system\dashboard\DashboardHandler;
 use wcf\system\exception\IllegalLinkException;
+use wcf\system\user\collapsible\content\UserCollapsibleContentHandler;
 use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
 
@@ -23,7 +24,7 @@ class GuildPage extends AbstractPage {
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('user.gms.guild.canViewProfile');
+	public $neededPermissions = array('user.gms.guild.canView');
 
 	/**
 	 * Guild id
@@ -89,11 +90,12 @@ class GuildPage extends AbstractPage {
 		DashboardHandler::getInstance()->loadBoxes('com.guilded.gms.GuildPage', $this);
 
 		WCF::getTPL()->assign(array(
+			'sidebarCollapsed' => UserCollapsibleContentHandler::getInstance()->isCollapsed('com.woltlab.wcf.collapsibleSidebar', 'com.guilded.gms.GuildPage'),
+			'sidebarName' => 'com.guilded.gms.GuildPage',
 			'guildID' => $this->guildID,
 			'guild' => $this->guild,
 			'profileContent' => $this->profileContent,
-			'guildProfileMenu' => GuildProfileMenu::getInstance(),
-			'sidebarName' => 'com.guilded.gms.GuildPage'
+			'guildProfileMenu' => GuildProfileMenu::getInstance()
 		));
 	}
 }

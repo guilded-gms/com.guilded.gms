@@ -6,6 +6,7 @@ use wcf\page\AbstractPage;
 use wcf\system\breadcrumb\Breadcrumb;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\request\LinkHandler;
+use wcf\system\user\collapsible\content\UserCollapsibleContentHandler;
 use wcf\system\WCF;
 
 /**
@@ -22,7 +23,7 @@ class CharacterPage extends AbstractPage {
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
-	public $neededPermissions = array('user.gms.character.canViewProfile');
+	public $neededPermissions = array('user.gms.character.canView');
 	
 	/**
 	 * character id
@@ -64,7 +65,7 @@ class CharacterPage extends AbstractPage {
 
 		// add breadcrumbs
 		WCF::getBreadcrumbs()->add(new Breadcrumb(WCF::getLanguage()->get('gms.character.characters'), LinkHandler::getInstance()->getLink('CharacterList')));
-		
+
 		// get profile content
 		$activeMenuItem = CharacterProfileMenu::getInstance()->getActiveMenuItem();
 		$contentManager = $activeMenuItem->getContentManager();
@@ -78,6 +79,8 @@ class CharacterPage extends AbstractPage {
 		parent::assignVariables();
 
 		WCF::getTPL()->assign(array(
+			'sidebarCollapsed' => UserCollapsibleContentHandler::getInstance()->isCollapsed('com.woltlab.wcf.collapsibleSidebar', 'com.guilded.gms.CharacterPage'),
+			'sidebarName' => 'com.guilded.gms.CharacterPage',
 			'characterID' => $this->characterID,
 			'character' => $this->character,
 			'profileContent' => $this->profileContent,

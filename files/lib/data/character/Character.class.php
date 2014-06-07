@@ -9,7 +9,10 @@ use gms\data\guild\Guild;
 use gms\data\GMSDatabaseObject;
 use wcf\data\user\User;
 use wcf\data\user\UserProfile;
+use wcf\system\breadcrumb\Breadcrumb;
+use wcf\system\breadcrumb\IBreadcrumbProvider;
 use wcf\system\request\IRouteController;
+use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
 
 /**
@@ -22,7 +25,7 @@ use wcf\system\WCF;
  * @subpackage	data.character
  * @category	Guilded 2.0
  */
-class Character extends GMSDatabaseObject implements IRouteController {
+class Character extends GMSDatabaseObject implements IRouteController, IBreadcrumbProvider {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -275,5 +278,25 @@ class Character extends GMSDatabaseObject implements IRouteController {
 	 */
 	public function canDelete() {
 		return $this->canEdit();
+	}
+
+	/**
+	 * @see	\wcf\system\breadcrumb\IBreadcrumbProvider::getBreadcrumb()
+	 */
+	public function getBreadcrumb() {
+		return new Breadcrumb($this->getTitle(), $this->getLink());
+	}
+
+	/**
+	 * Returns the link to the object.
+	 *
+	 * @return	string
+	 */
+	public function getLink() {
+		return LinkHandler::getInstance()->getLink('Character', array(
+			'object' => $this,
+			'application' => 'gms',
+			'forceFrontend' => true
+		));
 	}
 }

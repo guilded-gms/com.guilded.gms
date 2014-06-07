@@ -22,15 +22,15 @@ class EventDateAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsCreate
 	 */
-	protected $permissionsCreate = array('admin.gms.event.canManageDates');
+	protected $permissionsCreate = array('admin.gms.event.canManage');
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
 	 */
-	protected $permissionsDelete = array('admin.gms.event.canManageDates');
+	protected $permissionsDelete = array('admin.gms.event.canManage');
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsUpdate
 	 */
-	protected $permissionsUpdate = array('admin.gms.event.canManageDates');
+	protected $permissionsUpdate = array('admin.gms.event.canManage');
 }

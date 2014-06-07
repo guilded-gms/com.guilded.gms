@@ -21,7 +21,7 @@ abstract class AbstractGameCharacterProfileMenuContent extends SingletonFactory 
 			return false;
 		}
 
-		return (WCF::getSession()->getPermission('user.gms.character.canViewProfile'));
+		return (WCF::getSession()->getPermission('user.gms.character.canView'));
 	}
 
 	/**

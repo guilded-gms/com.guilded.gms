@@ -17,7 +17,7 @@ class RaidEventType extends AbstractEventType implements IEventType{
 	/**
 	 * @see IEventType::$participationAction
 	 */
-	protected $participationAction = 'gms\data\event\participation\CharacterEventParticipationAction';
+	protected $participationAction = 'gms\data\event\participation\CharacterEventDateParticipationAction';
 	
 	/**
 	 * @see IEventType::$permissions

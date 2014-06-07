@@ -28,7 +28,7 @@ class ActivityCharacterProfileMenuContent extends SingletonFactory implements IC
 	 * @see	\wcf\system\menu\character\profile\content\ICharacterProfileMenuContent::isAccessible()
 	 */
 	public function isAccessible(Character $character) {
-		return (WCF::getSession()->getPermission('user.gms.character.canViewProfile'));
+		return (WCF::getSession()->getPermission('user.gms.character.canView'));
 	}
 
 	/**

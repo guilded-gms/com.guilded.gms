@@ -2,26 +2,26 @@
 namespace gms\system\category;
 use wcf\system\category\AbstractCategoryType;
 
-class EventCategoryType extends AbstractCategoryType {
+class CreditCategoryType extends AbstractCategoryType {
 	/**
 	 * @see	\wcf\system\category\AbstractCategoryType::$aclObjectTypeName
 	 */
-	protected $aclObjectTypeName = 'com.guilded.gms.event.category';
+	protected $aclObjectTypeName = 'com.guilded.gms.credit.category';
 	
 	/**
 	 * @see	\wcf\system\category\AbstractCategoryType::$i18nLangVarCategory
 	 */	
-	protected $i18nLangVarCategory = 'gms.event';
+	protected $i18nLangVarCategory = 'gms.credit';
 	
 	/**
 	 * @see	\wcf\system\category\AbstractCategoryType::$langVarPrefix
 	 */	
-	protected $langVarPrefix = 'gms.event.category';
+	protected $langVarPrefix = 'gms.credit.category';
 
 	/**
 	 * @see	\wcf\system\category\AbstractCategoryType::$permissionPrefix
 	 */	
-	protected $permissionPrefix = 'admin.gms.event';
+	protected $permissionPrefix = 'admin.gms.credit';
 
 	/**
 	 * @see	\wcf\system\category\ICategoryType::getApplication();
