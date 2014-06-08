@@ -32,6 +32,7 @@
 		<instruction type="acpTemplate">acptemplates.tar</instruction>
 
 		<instruction type="packageInstallationPlugin">packageInstallationPlugin.xml</instruction>
+		<instruction type="aclOption">aclOption.xml</instruction>
 		<instruction type="acpMenu">acpMenu.xml</instruction>
 		<instruction type="bbcode">bbcode.xml</instruction>
 		<instruction type="characterOption">characterOption.xml</instruction>

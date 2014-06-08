@@ -1,5 +1,6 @@
 <?php
 namespace gms\data\event;
+use gms\data\event\category\EventCategory;
 use gms\data\event\date\EventDateList;
 use gms\data\GMSDatabaseObject;
 use gms\system\event\type\EventTypeHandler;
@@ -62,7 +63,7 @@ class Event extends GMSDatabaseObject implements IRouteController {
 	 */
 	public function getCategory() {
 		if ($this->category === null) {
-			$this->category = new Category($this->categoryID);
+			$this->category = new EventCategory(new Category($this->categoryID));
 		}
 
 		return $this->category;
@@ -90,7 +91,9 @@ class Event extends GMSDatabaseObject implements IRouteController {
 	 * @return	boolean
 	 */
 	public function canView() {
-		// @todo validate acl of category
+		if (!$this->getCategory()->isAccessible()) {
+			return false;
+		}
 
 		return WCF::getSession()->getPermission('user.gms.event.canView');
 	}
