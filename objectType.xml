@@ -42,31 +42,31 @@
 			<name>com.guilded.gms.IndexPage</name>
 			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
 			<controller>gms\page\IndexPage</controller>
-			<languagevariable>wcf.user.usersOnline.location.IndexPage</languagevariable>
+			<languagevariable>gms.user.usersOnline.location.IndexPage</languagevariable>
 		</type>
 		<type>
 			<name>com.guilded.gms.CalendarPage</name>
 			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
 			<controller>gms\page\CalendarPage</controller>
-			<languagevariable>wcf.user.usersOnline.location.CalendarPage</languagevariable>
+			<languagevariable>gms.user.usersOnline.location.CalendarPage</languagevariable>
 		</type>
 		<type>
 			<name>com.guilded.gms.EventPage</name>
 			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
 			<controller>gms\page\EventPage</controller>
-			<languagevariable>wcf.user.usersOnline.location.EventPage</languagevariable>
+			<languagevariable>gms.user.usersOnline.location.EventPage</languagevariable>
 		</type>
 		<type>
 			<name>com.guilded.gms.CharacterPage</name>
 			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
 			<controller>gms\page\CharacterPage</controller>
-			<languagevariable>wcf.user.usersOnline.location.CharacterPage</languagevariable>
+			<languagevariable>gms.user.usersOnline.location.CharacterPage</languagevariable>
 		</type>
 		<type>
 			<name>com.guilded.gms.GuildPage</name>
 			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
 			<controller>gms\page\GuildPage</controller>
-			<languagevariable>wcf.user.usersOnline.location.GuildPage</languagevariable>
+			<languagevariable>gms.user.usersOnline.location.GuildPage</languagevariable>
 		</type>
 		<!-- /location -->
 

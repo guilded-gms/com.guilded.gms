@@ -12,7 +12,7 @@ use wcf\data\DatabaseObjectList;
  * @subpackage	data.event
  * @category	Guilded 2.0
  */
-class EventDateList extends DatabaseObjectList {
+class EventList extends DatabaseObjectList {
 	/**
 	 * @see	wcf\data\DatabaseObjectList::$className
 	 */

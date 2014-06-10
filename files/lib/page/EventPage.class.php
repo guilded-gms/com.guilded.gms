@@ -85,7 +85,7 @@ class EventPage extends AbstractPage {
 
 		// add meta tags
 		MetaTagHandler::getInstance()->addTag('og:title', 'og:title', $this->eventDate->getTitle() . ' (' . $this->eventDate->startTime . ') - ' . WCF::getLanguage()->get(PAGE_TITLE), true);
-		MetaTagHandler::getInstance()->addTag('og:url', 'og:url', LinkHandler::getInstance()->getLink('Event', array('application' => 'gms', 'object' => $this->eventDate)), true);
+		MetaTagHandler::getInstance()->addTag('og:url', 'og:url', LinkHandler::getInstance()->getLink('Event', array('application' => 'gms', 'object' => $this->eventDate, 'appendSession' => false)), true);
 		MetaTagHandler::getInstance()->addTag('og:type', 'og:type', 'article', true);
 		MetaTagHandler::getInstance()->addTag('og:description', 'og:description', StringUtil::decodeHTML(StringUtil::stripHTML($this->eventDate->description)), true);
 		// @todo og:image, article:expiration_time

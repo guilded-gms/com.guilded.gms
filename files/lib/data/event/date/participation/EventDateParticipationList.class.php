@@ -17,4 +17,34 @@ class EventDateParticipationList extends DatabaseObjectList {
 	 * @see	wcf\data\DatabaseObjectList::$className
 	 */
 	public $className = 'gms\data\event\date\participation\EventDateParticipation';
+
+	/**
+	 * participants by state
+	 * @var	array
+	 */
+	protected $participants = array();
+
+	/**
+	 * Returns all participants by given status.
+	 *
+	 * @param	integer	$status
+	 * @return	array
+	 */
+	public function getParticipantsByStatus($status = EventDateParticipation::STATUS_YES) {
+		if (!isset($this->participants[$status])) {
+			$this->participants[$status] = array();
+
+			if (empty($this->objects)) {
+				$this->readObjects();
+			}
+
+			foreach ($this->objects as $object) {
+				if ($object->status === $status) {
+					$this->participants[$status][] = $object;
+				}
+			}
+		}
+
+		return $this->participants[$status];
+	}
 }

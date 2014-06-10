@@ -1,2 +1,2 @@
-<!-- @todo -->
+{* @todo add template code *}
 {@$template}

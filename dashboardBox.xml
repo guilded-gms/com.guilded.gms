@@ -13,5 +13,6 @@
 			<classname><![CDATA[gms\system\dashboard\box\GuildRecruitmentDashboardBox]]></classname>
 			<boxtype>sidebar</boxtype>
 		</dashboardbox>
+		<!-- @todo upcoming events -->
 	</import>
 </data>

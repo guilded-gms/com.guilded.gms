@@ -226,4 +226,16 @@ class Guild extends GMSDatabaseObject implements IRouteController, IBreadcrumbPr
 			'forceFrontend' => true
 		));
 	}
+
+	/**
+	 * Returns image tag of guild emblem.
+	 *
+	 * @param	integer	$width
+	 * @return	string
+	 */
+	public function getImageTag($width = 32) {
+		// @todo get emblem
+
+		return '<span class="icon icon-picture" style="width: '.$width.'px; height: '.$width.'px"></span>';
+	}
 }

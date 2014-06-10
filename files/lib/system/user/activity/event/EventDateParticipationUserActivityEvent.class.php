@@ -32,7 +32,9 @@ class EventDateParticipationUserActivityEvent extends SingletonFactory implement
 
 				$text = WCF::getLanguage()->getDynamicVariable('gms.user.event.date.recentActivity.participation', array('eventDate' => $eventDates[$event->objectID]));
 				$event->setTitle($text);
-				$event->setDescription($eventDates[$event->objectID]->getDescription());  // @todo show details
+				$event->setDescription(WCF::getTPL()->fetch('__userActivityEventDateParticipation', 'gms', array(
+					'eventDate' => $eventDates[$event->objectID]
+				)));
 			}
 			else {
 				$event->setIsOrphaned();

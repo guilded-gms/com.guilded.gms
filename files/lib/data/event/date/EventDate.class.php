@@ -69,7 +69,7 @@ class EventDate extends DatabaseObject implements IRouteController, IBreadcrumbP
 	public function getParticipantList() {
 		if (empty($this->participants)) {
 			$participationList = new EventDateParticipationList();
-			$participationList->getConditionBuilder()->add('event_participation.eventDateID = ?', array($this->eventID));
+			$participationList->getConditionBuilder()->add('event_participation.eventID = ?', array($this->eventID));
 			$participationList->readObjects();
 		}
 
@@ -98,7 +98,7 @@ class EventDate extends DatabaseObject implements IRouteController, IBreadcrumbP
 	 * @see	\wcf\system\breadcrumb\IBreadcrumbProvider::getBreadcrumb()
 	 */
 	public function getBreadcrumb() {
-		return new Breadcrumb($this->getEvent()->getTitle(), $this->getLink());
+		return new Breadcrumb($this->getTitle(), $this->getLink());
 	}
 
 	/**

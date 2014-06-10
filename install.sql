@@ -104,7 +104,7 @@ CREATE TABLE gms1_game_combatant (
 	gameID 			INT(10) NOT NULL,
 	instanceID		INT(10) NOT NULL,
 	identifier		VARCHAR(255),
-	title		   VARCHAR(255),
+	title			VARCHAR(255),
 	icon	   		VARCHAR(255),
 	isEnabled		TINYINT(1) DEFAULT 1,
 	UNIQUE KEY(gameID, title)
@@ -118,7 +118,7 @@ CREATE TABLE gms1_game_talent (
 	gameID 			INT(10) NOT NULL,
 	classificationID			INT(10) NOT NULL,
 	identifier		VARCHAR(255),
-	title		   VARCHAR(255),
+	title			VARCHAR(255),
 	icon	   		VARCHAR(255),
 	isEnabled		TINYINT(1) DEFAULT 1,
 	UNIQUE KEY(gameID, title)
@@ -404,20 +404,20 @@ CREATE TABLE gms1_guild_recruitment_option_value  (
 
 DROP TABLE IF EXISTS gms1_event;
 CREATE TABLE gms1_event(
-	eventID			INT(10) AUTO_INCREMENT PRIMARY KEY,
-	categoryID		INT(10) DEFAULT NULL,
-	objectTypeID	INT(10),	-- com.guilded.gms.event.type
-	userID			INT(10),
-	title			VARCHAR(255),
-	description		VARCHAR(255),
-	startTime		INT(10),
-	endTime			INT(10),
-	deadlineTime	INT(10),
-	repeatDaily		INT(10),
-	repeatWeekly	INT(10),
-	repeatMonthly	INT(10),
-	isClosed		TINYINT(1) DEFAULT 0,
-	additionalData	TEXT
+	eventID				INT(10) AUTO_INCREMENT PRIMARY KEY,
+	categoryID			INT(10) DEFAULT NULL,
+	objectTypeID		INT(10),	-- com.guilded.gms.event.type
+	userID				INT(10),
+	title				VARCHAR(255),
+	description			VARCHAR(255),
+	startTime			INT(10),
+	endTime				INT(10),
+	deadlineTime		INT(10),
+	repeatDaily			INT(10),
+	repeatWeekly		INT(10),
+	repeatMonthly		INT(10),
+	isClosed			TINYINT(1) DEFAULT 0,
+	additionalData		TEXT
 ) ENGINE=INNODB CHARSET=utf8;
 
 DROP TABLE IF EXISTS gms1_event_date;

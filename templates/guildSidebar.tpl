@@ -1,10 +1,12 @@
+{hascontent}
 <fieldset>
 	<legend class="invisible">{lang}gms.guild.emblem{/lang}</legend>
 
 	<div class="guildProfileEmblem">
-		<div class="framed"><span class="icon icon-picture" style="width: 180px; height: 180px"></span></div>
+		<div class="framed">{content}{@$guild->getImageTag(180)}{/content}</div>
 	</div>
 </fieldset>
+{/hascontent}
 
 <fieldset>
 	<legend>{lang}gms.guild.information{/lang}</legend>
@@ -19,7 +21,6 @@
 	</div>
 </fieldset>
 
-{* @todo validate html *}
 {if $__boxSidebar|isset && $__boxSidebar}
 	{@$__boxSidebar}
 {/if}

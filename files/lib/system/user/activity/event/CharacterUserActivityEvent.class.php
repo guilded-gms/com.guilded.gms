@@ -32,7 +32,9 @@ class CharacterUserActivityEvent extends SingletonFactory implements IUserActivi
 
 				$text = WCF::getLanguage()->getDynamicVariable('gms.user.character.recentActivity.new', array('character' => $characters[$event->objectID]));
 				$event->setTitle($text);
-				$event->setDescription($characters[$event->objectID]->getDescription()); // @todo show specs
+				$event->setDescription(WCF::getTPL()->fetch('__userActivityCharacter', 'gms', array(
+					'character' => $characters[$event->objectID]
+				)));
 			}
 			else {
 				$event->setIsOrphaned();
