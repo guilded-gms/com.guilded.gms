@@ -37,13 +37,13 @@
 		<fieldset>
 			<legend>{lang}gms.character.information{/lang}</legend>
 			
-			<dl{if $errorType.characterName|isset} class="formError"{/if}>
+			<dl{if $errorField == 'characterName'} class="formError"{/if}>
 				<dt><label for="characterName">{lang}gms.character.characterName{/lang}</label></dt>
 				<dd>
 					<input type="text" id="characterName" name="characterName" value="{$characterName}" autofocus="autofocus" class="medium" />
 					{if $errorType.characterName|isset}
 						<small class="innerError">
-							{if $errorType.characterName == 'empty'}
+							{if $errorType == 'empty'}
 								{lang}wcf.global.form.error.empty{/lang}
 							{else}
 								{lang}gms.character.characterName.error.{@$errorType}{/lang}

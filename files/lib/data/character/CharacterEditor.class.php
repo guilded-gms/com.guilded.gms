@@ -27,7 +27,7 @@ class CharacterEditor extends DatabaseObjectEditor {
 		$character = parent::create($parameters);
 
 		// create default values for user options
-		self::createDefaultOptions($character);
+		self::createDefaultOptions($character->characterID);
 
 		return $character;
 	}

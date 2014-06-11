@@ -1,7 +1,7 @@
 {include file='documentHeader'}
 
 <head>
-	<title>{lang title=$object->getTitle()}gms.calendar.title{/lang} - {PAGE_TITLE|language}</title>
+	<title>{lang}gms.calendar.title{/lang} - {PAGE_TITLE|language}</title>
 	
 	{include file='headInclude'}
 

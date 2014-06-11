@@ -27,6 +27,11 @@ class GuildPage extends AbstractPage {
 	public $neededPermissions = array('user.gms.guild.canView');
 
 	/**
+	 * @see	\wcf\page\AbstractPage::$activeMenuItem
+	 */
+	public $activeMenuItem = 'gms.header.menu.guild';
+
+	/**
 	 * Guild id
 	 * @var integer
 	 */

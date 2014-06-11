@@ -2,6 +2,7 @@
 namespace gms\form;
 use gms\data\character\CharacterAction;
 use gms\data\game\Game;
+use gms\system\character\CharacterHandler;
 use gms\system\game\GameHandler;
 use wcf\acp\form\AbstractOptionListForm;
 use wcf\system\breadcrumb\Breadcrumb;
@@ -150,7 +151,9 @@ class CharacterAddForm extends AbstractOptionListForm {
 				'name' => $this->characterName,
 				'gameID' => $this->gameID,
 				'userID' => WCF::getUser()->userID,
-				'time' => TIME_NOW
+				'username' => WCF::getUser()->username,
+				'time' => TIME_NOW,
+				'isPrimary' => (CharacterHandler::getInstance()->getPrimaryCharacter($this->gameID))
 			)),
 			'options' => $optionValues
 		));

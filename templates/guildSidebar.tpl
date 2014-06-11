@@ -1,19 +1,19 @@
 {hascontent}
-<fieldset>
-	<legend class="invisible">{lang}gms.guild.emblem{/lang}</legend>
+	<fieldset>
+		<legend class="invisible">{lang}gms.guild.emblem{/lang}</legend>
 
-	<div class="guildProfileEmblem">
-		<div class="framed">{content}{@$guild->getImageTag(180)}{/content}</div>
-	</div>
-</fieldset>
+		<div class="guildProfileEmblem">
+			<div class="framed">{content}{@$guild->getImageTag(180)}{/content}</div>
+		</div>
+	</fieldset>
 {/hascontent}
 
 <fieldset>
 	<legend>{lang}gms.guild.information{/lang}</legend>
 
 	<div>
-		<dl class="plain inlineDataList">
-			<dt><a href="{link controller='Guild' object=$guild}#members{/link}">{lang}gms.guild.characters{/lang}</a></dt>
+		<dl class="plain statsDataList">
+			<dt><a href="{link controller='Guild' object=$guild application='gms'}#characters{/link}">{lang}gms.guild.characters{/lang}</a></dt>
 			<dd>{#$guild->getCharacters()|count}</dd>
 
 			{event name='statistics'}

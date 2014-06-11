@@ -21,6 +21,9 @@
 	<optionalpackages>
 		<optionalpackage file="optional/com.guilded.gms.game.wow.tgz">com.guilded.gms.game.wow</optionalpackage>
 		<optionalpackage file="optional/com.guilded.gms.game.dneu.tgz">com.guilded.gms.game.dneu</optionalpackage>
+		<optionalpackage file="optional/com.guilded.gms.game.gw2.tgz">com.guilded.gms.game.gw2</optionalpackage>
+		<optionalpackage file="optional/com.guilded.gms.game.swtor.tgz">com.guilded.gms.game.swtor</optionalpackage>
+		<optionalpackage file="optional/com.guilded.gms.game.wildstar.tgz">com.guilded.gms.game.wildstar</optionalpackage>
 		<!--<optionalpackage file="optional/com.cls-design.style.altitude.tar">com.cls-design.style.altitude</optionalpackage>-->
 	</optionalpackages>
 	
@@ -32,8 +35,12 @@
 		<instruction type="acpTemplate">acptemplates.tar</instruction>
 
 		<instruction type="packageInstallationPlugin">packageInstallationPlugin.xml</instruction>
+		<instruction type="objectTypeDefinition">objectTypeDefinition.xml</instruction>
+		<instruction type="objectType">objectType.xml</instruction>
 		<instruction type="aclOption">aclOption.xml</instruction>
 		<instruction type="acpMenu">acpMenu.xml</instruction>
+		<instruction type="calendarMenu">calendarMenu.xml</instruction>
+		<instruction type="pageMenu">pageMenu.xml</instruction>
 		<instruction type="bbcode">bbcode.xml</instruction>
 		<instruction type="characterOption">characterOption.xml</instruction>
 		<instruction type="characterProfileMenu">characterProfileMenu.xml</instruction>
@@ -42,8 +49,6 @@
 		<instruction type="dashboardBox">dashboardBox.xml</instruction>
 		<instruction type="guildOption">guildOption.xml</instruction>
 		<instruction type="guildProfileMenu">guildProfileMenu.xml</instruction>
-		<instruction type="objectTypeDefinition">objectTypeDefinition.xml</instruction>
-		<instruction type="objectType">objectType.xml</instruction>
 		<instruction type="option">option.xml</instruction>
 		<instruction type="templateListener">templateListener.xml</instruction>
 		<instruction type="userGroupOption">userGroupOption.xml</instruction>

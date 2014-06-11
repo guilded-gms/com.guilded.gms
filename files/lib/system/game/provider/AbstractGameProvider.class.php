@@ -1,5 +1,6 @@
 <?php
 namespace gms\system\game\provider;
+use wcf\system\exception\SystemException;
 use wcf\util\FileUtil;
 use wcf\util\HTTPRequest;
 use wcf\util\JSON;
@@ -88,6 +89,7 @@ abstract class AbstractGameProvider implements IGameProvider {
 	 * Sending request and sets response data.
 	 *
 	 * @param	string	$url
+	 * @throws	\wcf\system\exception\SystemException
 	 */
 	protected function sendRequest($url) {
 		// reset actual data

@@ -14,7 +14,7 @@ use wcf\acp\form\AbstractCategoryAddForm;
  */
 class EventCategoryAddForm extends AbstractCategoryAddForm {
 	/**
-	 * @see	\wcf\page\IPage::$activeMenuItem
+	 * @see	\wcf\page\IPage::$neededPermissions
 	 */	
 	public $neededPermissions = array('admin.gms.event.canManage');
 

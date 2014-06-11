@@ -1,6 +1,7 @@
 <?php
 namespace gms\system\menu\calendar;
 use gms\data\event\EventDateList;
+use gms\system\cache\builder\CalendarMenuCacheBuilder;
 use wcf\system\event\EventHandler;
 use wcf\system\menu\user\profile\UserProfileMenu;
 

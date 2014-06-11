@@ -1,5 +1,6 @@
 <?php
 use wcf\data\package\update\server\PackageUpdateServerAction;
+use wcf\data\package\update\PackageUpdateAction;
 use wcf\data\user\group\UserGroup;
 use wcf\system\dashboard\DashboardHandler;
 use wcf\system\WCF;
@@ -66,7 +67,7 @@ if (!$row) {
 	$objectAction->executeAction();
 
 	// check for updates
-	$objectAction = new PackageUpdateServerAction(array(), 'searchForUpdates', array(
+	$objectAction = new PackageUpdateAction(array(), 'searchForUpdates', array(
 		'ignoreCache' => true
 	));
 	$objectAction->executeAction();

@@ -437,8 +437,8 @@ CREATE TABLE gms1_event_date(
 DROP TABLE IF EXISTS gms1_event_date_participation;
 CREATE TABLE gms1_event_date_participation(
 	participationID		INT(10) AUTO_INCREMENT PRIMARY KEY,
-	eventDateID			INT(10),
-	userID				INT(10),
+	eventDateID			INT(10) NOT NULL,
+	userID				INT(10) NOT NULL,
 	characterID			INT(10),
 	time				INT(10),
 	statusTime			INT(10),	-- last status update
@@ -533,7 +533,7 @@ ALTER TABLE gms1_guild_recruitment_application ADD FOREIGN KEY (guildID) REFEREN
 
 ALTER TABLE gms1_event_date ADD FOREIGN KEY (eventID) REFERENCES gms1_event (eventID) ON DELETE CASCADE;
 
-ALTER TABLE gms1_event_date_participation ADD FOREIGN KEY (eventDateID) REFERENCES gms1_event_date (eventDateID) ON DELETE CASCADE;
+ALTER TABLE gms1_event_date_participation ADD FOREIGN KEY (eventDateID) REFERENCES gms1_event_date (dateID) ON DELETE CASCADE;
 ALTER TABLE gms1_event_date_participation ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE CASCADE;
 ALTER TABLE gms1_event_date_participation ADD FOREIGN KEY (characterID) REFERENCES gms1_character (characterID) ON DELETE CASCADE;
 

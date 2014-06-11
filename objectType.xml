@@ -204,6 +204,10 @@
 
 		<!-- acl -->
 		<type>
+			<name>com.guilded.gms.credit.category</name>
+			<definitionname>com.woltlab.wcf.acl</definitionname>
+		</type>
+		<type>
 			<name>com.guilded.gms.event.category</name>
 			<definitionname>com.woltlab.wcf.acl</definitionname>
 		</type>
