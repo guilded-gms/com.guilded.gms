@@ -102,7 +102,7 @@
 		<item name="gms.character.option.category.profile"><![CDATA[Profil]]></item>
 		<item name="gms.character.option.category.profile.general"><![CDATA[Allgemein]]></item>
 		<item name="gms.character.option.category.profile.details"><![CDATA[Details]]></item>
-		<item name="gms.character.option.about"><![CDATA[Über]]></item>
+		<item name="gms.character.option.about"><![CDATA[Über {@$character->characterName}]]></item>
 		<item name="gms.character.option.level"><![CDATA[Stufe]]></item>
 		<item name="gms.character.option.classes"><![CDATA[Klasse(n)]]></item>
 		<item name="gms.character.option.races"><![CDATA[Rasse(n)]]></item>
@@ -117,7 +117,7 @@
 		<item name="gms.character.content.about.empty"><![CDATA[Keine Daten vorhanden]]></item>
 
 		<item name="gms.character.profile.menu.activity"><![CDATA[Aktivitäten]]></item>
-		<item name="gms.character.profile.menu.about"><![CDATA[Über]]></item>
+		<item name="gms.character.profile.menu.about"><![CDATA[Über {@$guild->guildName}]]></item>
 
 		<item name="gms.character.activity.reached.maximumLevel"><![CDATA[{@$character->characterName} hat Stufe {#$object->maxLevel} erreicht.]]></item>
 	</category>

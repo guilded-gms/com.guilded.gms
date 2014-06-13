@@ -13,32 +13,32 @@ class EventDateCommentManager extends AbstractCommentManager {
 	/**
 	 * @see	\wcf\system\comment\manager\AbstractCommentManager::$permissionAdd
 	 */
-	protected $permissionAdd = 'user.gms.event.comment.canAddComment';
+	protected $permissionAdd = 'user.gms.event.canAddComment';
 
 	/**
 	 * @see	\wcf\system\comment\manager\AbstractCommentManager::$permissionDelete
 	 */
-	protected $permissionDelete = 'user.gms.event.comment.canDeleteComment';
+	protected $permissionDelete = 'user.gms.event.canDeleteComment';
 
 	/**
 	 * @see	\wcf\system\comment\manager\AbstractCommentManager::$permissionEdit
 	 */
-	protected $permissionEdit = 'user.gms.event.comment.canEditComment';
+	protected $permissionEdit = 'user.gms.event.canEditComment';
 
 	/**
 	 * @see	\wcf\system\comment\manager\AbstractCommentManager::$permissionCanModerate
 	 */
-	protected $permissionCanModerate = 'mod.gms.event.comment.canManage';
+	protected $permissionCanModerate = 'mod.gms.event.canManage';
 
 	/**
 	 * @see	\wcf\system\comment\manager\AbstractCommentManager::$permissionModDelete
 	 */
-	protected $permissionModDelete = 'mod.gms.event.comment.canManage';
+	protected $permissionModDelete = 'mod.gms.event.canManage';
 
 	/**
 	 * @see	\wcf\system\comment\manager\AbstractCommentManager::$permissionModEdit
 	 */
-	protected $permissionModEdit = 'mod.gms.event.comment.canManage';
+	protected $permissionModEdit = 'mod.gms.event.canManage';
 
 	/**
 	 * Returns a link to given object type id and object id.

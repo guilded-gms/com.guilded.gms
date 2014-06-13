@@ -20,19 +20,17 @@
 
 <div class="container marginTop shadow">
 	<ol class="containerList guildList">
-		{*
 		{foreach from=$objects item=guild}
 			<li>
 				<div class="box48">
-					<a href="{link controller='Guild' object=$guild application='gms'}{/link}" title="{$guild->name}" class="framed">IMAGE</a>
+					<a href="{link controller='Guild' object=$guild application='gms'}{/link}" title="{@$guild->getTitle()}" class="framed">{@$guild->getImageTag(48)}</a>
 						
-					<div>
-						
+					<div class="boxHeadline">
+						<h3>{@$guild->getTitle()}</h3>
 					</div>
 				</div>
 			</li>
 		{/foreach}
-		*}
 	</ol>
 </div>
 

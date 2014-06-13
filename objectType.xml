@@ -68,6 +68,12 @@
 			<controller>gms\page\GuildPage</controller>
 			<languagevariable>gms.user.usersOnline.location.GuildPage</languagevariable>
 		</type>
+		<type>
+			<name>com.guilded.gms.GuildListPage</name>
+			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
+			<controller>gms\page\GuildListPage</controller>
+			<languagevariable>gms.user.usersOnline.location.GuildListPage</languagevariable>
+		</type>
 		<!-- /location -->
 
 		<!-- dashboard -->
@@ -97,6 +103,12 @@
 		</type>
 		<type>
 			<name>com.guilded.gms.GuildPage</name>
+			<definitionname>com.woltlab.wcf.user.dashboardContainer</definitionname>
+			<allowcontent>0</allowcontent>
+			<allowsidebar>1</allowsidebar>
+		</type>
+		<type>
+			<name>com.guilded.gms.GuildListPage</name>
 			<definitionname>com.woltlab.wcf.user.dashboardContainer</definitionname>
 			<allowcontent>0</allowcontent>
 			<allowsidebar>1</allowsidebar>
@@ -178,6 +190,11 @@
 			<name>com.guilded.gms.event.date.comment</name>
 			<definitionname>com.woltlab.wcf.comment.commentableContent</definitionname>
 			<classname>gms\system\comment\manager\EventDateCommentManager</classname>
+		</type>
+		<type>
+			<name>com.guilded.gms.guild.recruitment.application.comment</name>
+			<definitionname>com.woltlab.wcf.comment.commentableContent</definitionname>
+			<classname>gms\system\comment\manager\GuildRecruitmentApplicationCommentManager</classname>
 		</type>
 		<!-- /comment -->
 

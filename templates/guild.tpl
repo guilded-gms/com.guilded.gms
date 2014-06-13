@@ -41,13 +41,13 @@
 <section id="profileContent" class="marginTop tabMenuContainer" data-active="{$__wcf->getGuildProfileMenu()->getActiveMenuItem()->getIdentifier()}">
 	<nav class="tabMenu">
 		<ul>
-			{foreach from=$__wcf->getGuildProfileMenu()->getMenuItems() item=menuItem}
+			{foreach from=$__wcf->getGuildProfileMenu()->getAccessibleMenuItems($guild->getDecoratedObject()) item=menuItem}
 				<li><a href="{$__wcf->getAnchor($menuItem->getIdentifier())}" title="{lang}{@$menuItem->menuItem}{/lang}">{lang}gms.guild.profile.menu.{@$menuItem->menuItem}{/lang}</a></li>
 			{/foreach}
 		</ul>
 	</nav>
 	
-	{foreach from=$__wcf->getGuildProfileMenu()->getMenuItems() item=menuItem}
+	{foreach from=$__wcf->getGuildProfileMenu()->getAccessibleMenuItems($guild->getDecoratedObject()) item=menuItem}
 		<div id="{$menuItem->getIdentifier()}" class="container tabMenuContent" data-menu-item="{$menuItem->menuItem}">
 			{if $menuItem === $__wcf->getGuildProfileMenu()->getActiveMenuItem()}
 				{@$profileContent}

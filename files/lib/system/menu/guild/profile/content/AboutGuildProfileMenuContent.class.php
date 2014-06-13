@@ -8,18 +8,6 @@ use wcf\system\WCF;
 
 class AboutGuildProfileMenuContent extends SingletonFactory implements IGuildProfileMenuContent {
 	/**
-	 * cache name
-	 * @var	string
-	 */
-	public $cacheName = 'guildOption';
-	
-	/**
-	 * cache class name
-	 * @var	string
-	 */
-	public $cacheClass = 'wcf\system\cache\builder\OptionCacheBuilder';
-	
-	/**
 	 * guild option handler object
 	 * @var	\gms\system\option\guild\GuildOptionHandler
 	 */
@@ -31,7 +19,7 @@ class AboutGuildProfileMenuContent extends SingletonFactory implements IGuildPro
 	protected function init() {
 		EventHandler::getInstance()->fireAction($this, 'shouldInit');
 		
-		$this->optionHandler = new GuildOptionHandler($this->cacheName, $this->cacheClass, false, '', 'profile');
+		$this->optionHandler = new GuildOptionHandler(false, false, 'profile');
 		$this->optionHandler->showEmptyOptions(true);
 		
 		EventHandler::getInstance()->fireAction($this, 'didInit');

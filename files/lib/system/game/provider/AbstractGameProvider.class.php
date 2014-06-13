@@ -59,7 +59,7 @@ abstract class AbstractGameProvider implements IGameProvider {
 		$url = $this->baseUrl;
 
 		//add paths
-		foreach($route as $item) {
+		foreach ($route as $item) {
 			$url .= FileUtil::addLeadingSlash(urlencode($item));
 		}
 

@@ -78,7 +78,7 @@ class GuildPage extends AbstractPage {
 		parent::readData();
 
 		// add breadcrumbs
-		WCF::getBreadcrumbs()->add(new Breadcrumb(WCF::getLanguage()->get('gms.guild.guilds'), LinkHandler::getInstance()->getLink('GuildList')));
+		WCF::getBreadcrumbs()->add(new Breadcrumb(WCF::getLanguage()->get('gms.guild.guilds'), LinkHandler::getInstance()->getLink('GuildList', array('application' => 'gms'))));
 
 		// get profile content
 		$activeMenuItem = GuildProfileMenu::getInstance()->getActiveMenuItem();

@@ -1,8 +1,12 @@
 <?php
 namespace gms\page;
+use wcf\data\user\online\UsersOnlineList;
 use wcf\page\AbstractPage;
+use wcf\system\cache\builder\UserStatsCacheBuilder;
 use wcf\system\dashboard\DashboardHandler;
 use wcf\system\menu\page\PageMenu;
+use wcf\system\MetaTagHandler;
+use wcf\system\request\LinkHandler;
 use wcf\system\user\collapsible\content\UserCollapsibleContentHandler;
 use wcf\system\WCF;
 
@@ -28,14 +32,47 @@ class IndexPage extends AbstractPage {
 	public $enableTracking = true;
 
 	/**
+	 * users online list
+	 * @var	\wcf\data\user\online\UsersOnlineList
+	 */
+	public $usersOnlineList = null;
+
+	/**
+	 * simple forum statistics
+	 * @var	array
+	 */
+	public $stats = array();
+
+	/**
 	 * @see	\wcf\page\IPage::readData()
 	 */
 	public function readData() {
 		parent::readData();
 
+		// stats
+		if (GMS_INDEX_ENABLE_STATS) {
+			$this->stats = array_merge(
+				UserStatsCacheBuilder::getInstance()->getData()
+			);
+		}
+
 		// remove default breadcrumb entry
 		if (PageMenu::getInstance()->getLandingPage()->menuItem == $this->activeMenuItem) {
 			WCF::getBreadcrumbs()->remove(0);
+
+			MetaTagHandler::getInstance()->addTag('og:url', 'og:url', LinkHandler::getInstance()->getLink('', array('application' => 'gms', 'appendSession' => false)), true);
+			MetaTagHandler::getInstance()->addTag('og:type', 'og:type', 'website', true);
+			MetaTagHandler::getInstance()->addTag('og:title', 'og:title', WCF::getLanguage()->get(PAGE_TITLE), true);
+			MetaTagHandler::getInstance()->addTag('og:description', 'og:description', WCF::getLanguage()->get(PAGE_DESCRIPTION), true);
+		}
+
+		// users online
+		if (MODULE_USERS_ONLINE && GMS_INDEX_ENABLE_ONLINE_LIST) {
+			$this->usersOnlineList = new UsersOnlineList();
+			$this->usersOnlineList->readStats();
+			$this->usersOnlineList->checkRecord();
+			$this->usersOnlineList->getConditionBuilder()->add('session.userID IS NOT NULL');
+			$this->usersOnlineList->readObjects();
 		}
 	}
 
@@ -50,7 +87,9 @@ class IndexPage extends AbstractPage {
 		WCF::getTPL()->assign(array(
 			'sidebarCollapsed' => UserCollapsibleContentHandler::getInstance()->isCollapsed('com.woltlab.wcf.collapsibleSidebar', 'com.guilded.gms.IndexPage'),
 			'sidebarName' => 'com.guilded.gms.IndexPage',
-			'allowSpidersToIndexThisPage' => true
+			'allowSpidersToIndexThisPage' => true,
+			'stats' => $this->stats,
+			'usersOnlineList' => $this->usersOnlineList,
 		));
 	}
 }
