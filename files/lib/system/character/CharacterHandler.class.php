@@ -42,8 +42,8 @@ class CharacterHandler extends SingletonFactory {
 	/**
 	 * Returns primary character.
 	 *
-	 * @param $gameID
-	 * @return null
+	 * @param	integer	$gameID
+	 * @return	null
 	 */
 	public function getPrimaryCharacter($gameID = GMS_DEFAULT_GAME_ID) {
 		foreach ($this->getCharacters() as $character) {

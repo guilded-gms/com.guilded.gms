@@ -7,7 +7,7 @@
 	<script data-relocate="true">
 		//<![CDATA[
 		$(function() {
-			var availableGames = { {implode from=$availableGames key=gameID item=game}{@$gameID}: { title: '{$game->getTitle()}', icon: '{$game->getIcon(24)}' }{/implode} };
+			var availableGames = { {implode from=$availableGames key=__gameID item=__game}{@$__gameID}: { title: '{$__game->getTitle()}', icon: '{@$__game->getIcon(24)}' }{/implode} };
 			new GMS.Character.OptionHandler('characterName', '.optionList', availableGames, {@$gameID});
 		});
 		//]]>
@@ -41,7 +41,7 @@
 				<dt><label for="characterName">{lang}gms.character.characterName{/lang}</label></dt>
 				<dd>
 					<input type="text" id="characterName" name="characterName" value="{$characterName}" autofocus="autofocus" class="medium" />
-					{if $errorType.characterName|isset}
+					{if $errorField == 'characterName'}
 						<small class="innerError">
 							{if $errorType == 'empty'}
 								{lang}wcf.global.form.error.empty{/lang}

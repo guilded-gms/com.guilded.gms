@@ -153,7 +153,7 @@ class CharacterAddForm extends AbstractOptionListForm {
 				'userID' => WCF::getUser()->userID,
 				'username' => WCF::getUser()->username,
 				'time' => TIME_NOW,
-				'isPrimary' => (CharacterHandler::getInstance()->getPrimaryCharacter($this->gameID))
+				'isPrimary' => (CharacterHandler::getInstance()->getPrimaryCharacter($this->gameID) === null)
 			)),
 			'options' => $optionValues
 		));

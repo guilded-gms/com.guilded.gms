@@ -102,7 +102,7 @@
 		<item name="gms.character.option.category.profile"><![CDATA[Profil]]></item>
 		<item name="gms.character.option.category.profile.general"><![CDATA[Allgemein]]></item>
 		<item name="gms.character.option.category.profile.details"><![CDATA[Details]]></item>
-		<item name="gms.character.option.about"><![CDATA[Über {@$character->characterName}]]></item>
+		<item name="gms.character.option.about"><![CDATA[Über]]></item>
 		<item name="gms.character.option.level"><![CDATA[Stufe]]></item>
 		<item name="gms.character.option.classes"><![CDATA[Klasse(n)]]></item>
 		<item name="gms.character.option.races"><![CDATA[Rasse(n)]]></item>
@@ -138,7 +138,7 @@
 
 		<item name="gms.guild.content.about.empty"><![CDATA[Keine Daten vorhanden]]></item>
 
-		<item name="gms.guild.profile.menu.about"><![CDATA[Über]]></item>
+		<item name="gms.guild.profile.menu.about"><![CDATA[Über {@$character->characterName}]]></item>
 		<item name="gms.guild.profile.menu.characters"><![CDATA[Charaktere]]></item>
 		<item name="gms.guild.profile.menu.applications"><![CDATA[Bewerbungen]]></item>
 		<item name="gms.guild.profile.menu.instance.progress"><![CDATA[Instanzfortschritt]]></item>

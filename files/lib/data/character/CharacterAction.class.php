@@ -1,6 +1,7 @@
 <?php
 namespace gms\data\character;
 use gms\system\character\activity\CharacterActivityHandler;
+use gms\system\character\CharacterHandler;
 use wcf\data\AbstractDatabaseObjectAction;
 use wcf\system\database\util\PreparedStatementConditionBuilder;
 use wcf\system\exception\PermissionDeniedException;

@@ -50,8 +50,8 @@ class CharacterEditor extends DatabaseObjectEditor {
 			if (!empty($row['defaultValue'])) {
 				$sql = "INSERT INTO	gms".WCF_N."_character_option_value (characterID, optionID, optionValue)
 						VALUES (?, ?, ?)";
-				$statement = WCF::getDB()->prepareStatement($sql);
-				$statement->execute(array($characterID, $row['optionID'], $row['defaultValue']));
+				$optionStatement = WCF::getDB()->prepareStatement($sql);
+				$optionStatement->execute(array($characterID, $row['optionID'], $row['defaultValue']));
 			}
 		}
 
@@ -61,12 +61,16 @@ class CharacterEditor extends DatabaseObjectEditor {
 	/**
 	 * Updates character options.
 	 *
-	 * @param	array		$options
+	 * @param	array	$options
 	 */
 	public function updateOptions(array $options = array()) {
 		WCF::getDB()->beginTransaction();
 
 		foreach ($options as $optionID => $optionValue) {
+			if (is_array($optionValue)) {
+				$optionValue = implode(',', $optionValue);
+			}
+
 			$sql = "INSERT IGNORE INTO gms".WCF_N."_character_option_value(optionValue, characterID, optionID)
 					VALUES (?, ?, ?)";
 			$statement = WCF::getDB()->prepareStatement($sql);
@@ -80,7 +84,7 @@ class CharacterEditor extends DatabaseObjectEditor {
 	 * @see	\wcf\data\IEditableObject::deleteAll()
 	 */
 	public static function deleteAll(array $objectIDs = array()) {
-		// unmark users
+		// unmark characters
 		ClipboardHandler::getInstance()->unmark($objectIDs, ClipboardHandler::getInstance()->getObjectTypeID('com.guilded.gms.character'));
 	
 		return parent::deleteAll($objectIDs);

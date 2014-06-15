@@ -308,7 +308,7 @@ DROP TABLE IF EXISTS gms1_character_option_value;
 CREATE TABLE gms1_character_option_value  (
 	characterID 		INT(10) NOT NULL,
 	optionID 			INT(10) NOT NULL,
-	optionValue			MEDIUMTEXT NOT NULL,
+	optionValue			MEDIUMTEXT,
 	UNIQUE KEY characterID (characterID, optionID)
 ) ENGINE=INNODB CHARSET=utf8;
 
@@ -341,7 +341,7 @@ CREATE TABLE gms1_guild_recruitment_tender(
 	tenderID			INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	gameID				INT(10) NOT NULL,
 	guildID				INT(10) NOT NULL,
-	classificationID	 			INT(10) NOT NULL,
+	classificationID	INT(10) NOT NULL,
 	roleID				INT(10) DEFAULT 0,
 	talentID			INT(10) DEFAULT 0,
 	quantity			INT(10),
@@ -523,6 +523,9 @@ ALTER TABLE gms1_guild ADD FOREIGN KEY (groupID) REFERENCES wcf1_user_group (gro
 ALTER TABLE gms1_character ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE CASCADE;
 ALTER TABLE gms1_character ADD FOREIGN KEY (gameID) REFERENCES gms1_game (gameID) ON DELETE CASCADE;
 ALTER TABLE gms1_character ADD FOREIGN KEY (guildID) REFERENCES gms1_guild (guildID) ON DELETE SET NULL;
+
+ALTER TABLE gms1_character_option_value ADD FOREIGN KEY (characterID) REFERENCES gms1_character (characterID) ON DELETE CASCADE;
+ALTER TABLE gms1_character_option_value ADD FOREIGN KEY (optionID) REFERENCES gms1_character_option (optionID) ON DELETE CASCADE;
 
 ALTER TABLE gms1_guild_rank ADD FOREIGN KEY (guildID) REFERENCES gms1_guild (guildID) ON DELETE CASCADE;
 
