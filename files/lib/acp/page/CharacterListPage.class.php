@@ -20,6 +20,11 @@ class CharacterListPage extends SortablePage {
 	public $neededPermissions = array('admin.gms.character.canManage');
 	
 	/**
+	 * @see	\wcf\page\AbstractPage::$activeMenuItem
+	 */
+	public $activeMenuItem = 'gms.acp.menu.link.gms.character.list';
+	
+	/**
 	 * @see	\wcf\page\SortablePage::$defaultSortField
 	 */
 	public $defaultSortField = 'name';
