@@ -1,8 +1,8 @@
 <fieldset>
 	<legend class="invisible">{lang}gms.character.image{/lang}</legend>
 
-	<div class="characterProfileImage">
-		<div class="framed"><span class="icon icon-picture" style="width: 180px; height: 180px"></span></div>
+	<div class="characterProfileImage framed">
+		<span class="icon icon-picture" style="width: 180px; height: 180px"></span>
 	</div>
 </fieldset>
 

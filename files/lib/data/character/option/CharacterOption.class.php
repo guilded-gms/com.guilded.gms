@@ -2,6 +2,7 @@
 namespace gms\data\character\option;
 use gms\data\character\Character;
 use wcf\data\option\Option;
+use wcf\system\WCF;
 
 /**
  * Represents a character option.
@@ -25,18 +26,18 @@ class CharacterOption extends Option {
 	protected static $databaseTableIndexName = 'optionID';
 
 	/**
+	 * character object
+	 * @var	\gms\data\character\Character
+	 */
+	public $character = null;
+
+	/**
 	 * @see	\wcf\data\IStorableObject::getDatabaseTableName()
 	 */
 	public static function getDatabaseTableName() {
 		return 'gms'.WCF_N.'_'.static::$databaseTableName;
 	}
 
-	/**
-	 * character object
-	 * @var	\gms\data\character\Character
-	 */
-	public $character = null;
-	
 	/**
 	 * Sets target character object.
 	 * 
@@ -45,7 +46,26 @@ class CharacterOption extends Option {
 	public function setCharacter(Character $character) {
 		$this->character = $character;
 	}
-	
+
+	/**
+	 * @see	\wcf\data\option\Option::getOptions()
+	 */
+	public static function getOptions() {
+		$sql = "SELECT	*
+				FROM	gms".WCF_N."_character_option";
+		$statement = WCF::getDB()->prepareStatement($sql);
+		$statement->execute();
+
+		$options = array();
+
+		while ($row = $statement->fetchArray()) {
+			$option = new CharacterOption(null, $row);
+			$options[$option->optionID] = $option;
+		}
+
+		return $options;
+	}
+
 	/**
 	 * @see	\wcf\data\option\Option::isVisible()
 	 */

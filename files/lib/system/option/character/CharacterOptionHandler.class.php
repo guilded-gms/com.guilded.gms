@@ -77,7 +77,8 @@ class CharacterOptionHandler extends OptionHandler {
 			
 			$this->didInit = true;
 		}
-		
+
+		// @todo implement
 		foreach ($this->options as $option) {
 			$characterOption = 'characterOption' . $option->optionID;
 			$this->optionValues[$option->optionName] = $this->character->{$characterOption};

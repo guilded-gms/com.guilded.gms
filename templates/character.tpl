@@ -40,7 +40,7 @@
 
 <header class="boxHeadline userHeadline">
 	<h1><a href="{link controller='Character' object=$character application='gms'}{/link}">{$character->getTitledName()}</a></h1>
-	<p>{if $character->getGuild() !== null}<a href="{link controller='Guild' object=$character->getGuild() application='gms'}{/link}">{$character->getGuild()->getTitle()}</a> - {/if}{@$character->getGame()->getTitle()}</p>
+	<p>{if $character->getGuild() && $character->getGuild()->guildID}<a href="{link controller='Guild' object=$character->getGuild() application='gms'}{/link}">{$character->getGuild()->getTitle()}</a> - {/if}{@$character->getGame()->getTitle()}</p>
 
 	<nav class="jsMobileNavigation buttonGroupNavigation">
 		<ul class="buttonGroup">{*

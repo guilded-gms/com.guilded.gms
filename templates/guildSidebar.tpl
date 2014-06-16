@@ -2,8 +2,8 @@
 	<fieldset>
 		<legend class="invisible">{lang}gms.guild.emblem{/lang}</legend>
 
-		<div class="guildProfileEmblem">
-			<div class="framed">{content}{@$guild->getImageTag(180)}{/content}</div>
+		<div class="guildProfileImage framed">
+			{content}{@$guild->getImageTag(180)}{/content}
 		</div>
 	</fieldset>
 {/hascontent}

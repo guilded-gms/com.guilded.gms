@@ -117,7 +117,7 @@
 		<item name="gms.character.content.about.empty"><![CDATA[Keine Daten vorhanden]]></item>
 
 		<item name="gms.character.profile.menu.activity"><![CDATA[Aktivitäten]]></item>
-		<item name="gms.character.profile.menu.about"><![CDATA[Über {@$guild->guildName}]]></item>
+		<item name="gms.character.profile.menu.about"><![CDATA[Über {@$character->name}]]></item>
 
 		<item name="gms.character.activity.reached.maximumLevel"><![CDATA[{@$character->characterName} hat Stufe {#$object->maxLevel} erreicht.]]></item>
 	</category>
@@ -138,7 +138,7 @@
 
 		<item name="gms.guild.content.about.empty"><![CDATA[Keine Daten vorhanden]]></item>
 
-		<item name="gms.guild.profile.menu.about"><![CDATA[Über {@$character->characterName}]]></item>
+		<item name="gms.guild.profile.menu.about"><![CDATA[Über {@$guild->guildName}]]></item>
 		<item name="gms.guild.profile.menu.characters"><![CDATA[Charaktere]]></item>
 		<item name="gms.guild.profile.menu.applications"><![CDATA[Bewerbungen]]></item>
 		<item name="gms.guild.profile.menu.instance.progress"><![CDATA[Instanzfortschritt]]></item>
