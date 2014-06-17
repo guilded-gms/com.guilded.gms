@@ -1,7 +1,7 @@
-{include file='header' pageTitle='gms.acp.menu.link.gms.character.list'}
+{include file='header' pageTitle='gms.acp.character.list'}
 
 <header class="boxHeadline">
-	<h1>{lang}gms.acp.menu.link.gms.character.list{/lang}</h1>
+	<h1>{lang}gms.acp.character.list{/lang}</h1>
 	
 	<script type="text/javascript">
 		//<![CDATA[
@@ -27,7 +27,7 @@
 {hascontent}
 	<div class="tabularBox tabularBoxTitle marginTop">
 		<header>
-			<h2>{lang}gms.acp.menu.link.gms.character.list{/lang} <span class="badge badgeInverse">{#$items}</span></h2>
+			<h2>{lang}gms.acp.character.list{/lang} <span class="badge badgeInverse">{#$items}</span></h2>
 		</header>
 		
 		<table class="table">
