@@ -1,7 +1,6 @@
 <?php
 namespace gms\system\event\type;
 use gms\system\event\type\EventType;
-use gms\system\event\type\IEventType;
 use wcf\system\WCF;
 
 /**

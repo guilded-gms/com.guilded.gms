@@ -2,7 +2,6 @@
 namespace gms\data\character\group;
 use wcf\data\DatabaseObjectEditor;
 use wcf\system\clipboard\ClipboardHandler;
-use wcf\system\WCF;
 
 /**
  * CharacterGroup Editor.

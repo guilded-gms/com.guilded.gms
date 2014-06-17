@@ -1,7 +1,7 @@
 <?php
 namespace gms\system\option\character;
-use gms\data\guild\option\GuildOption;
 use gms\data\guild\Guild;
+use gms\data\guild\option\GuildOption;
 use gms\system\option\guild\IGuildOptionOutput;
 use wcf\system\WCF;
 use wcf\util\OptionUtil;

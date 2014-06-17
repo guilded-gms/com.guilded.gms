@@ -1,12 +1,12 @@
 <?php
 namespace gms\data\character;
 use gms\data\game\classification\GameClassificationList;
+use gms\data\game\Game;
 use gms\data\game\race\GameRaceList;
 use gms\data\game\role\GameRoleList;
-use gms\data\game\Game;
-use gms\data\guild\rank\GuildRank;
-use gms\data\guild\Guild;
 use gms\data\GMSDatabaseObject;
+use gms\data\guild\Guild;
+use gms\data\guild\rank\GuildRank;
 use wcf\data\user\User;
 use wcf\data\user\UserProfile;
 use wcf\system\breadcrumb\Breadcrumb;

@@ -1,7 +1,6 @@
 <?php
 namespace gms\data\credit;
 use wcf\data\DatabaseObjectEditor;
-use wcf\system\WCF;
 
 /**
  * Editor of credits

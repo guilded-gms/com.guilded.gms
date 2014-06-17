@@ -1,29 +1,45 @@
 <?php
 namespace gms\data\character\profile\menu\item;
-use wcf\data\user\profile\menu\item\UserProfileMenuItem;
+use gms\data\GMSDatabaseObject;
 use wcf\system\exception\SystemException;
 use wcf\util\ClassUtil;
 
 /**
  * Represents an character profile menu item.
+ *
+ * @author	Jeffrey Reichardt
+ * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
+ * @license	CC BY-NC-SA 3.0 <http://creativecommons.org/licenses/by-nc-sa/3.0/deed>
+ * @package	com.guilded.gms
+ * @subpackage	data.character.menu.item
+ * @category	Guilded 2.0
  */
-class CharacterProfileMenuItem extends UserProfileMenuItem {
+class CharacterProfileMenuItem extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */
 	protected static $databaseTableName = 'character_profile_menu_item';
 
 	/**
-	 * @see	\wcf\data\IStorableObject::getDatabaseTableName()
+	 * content manager
+	 * @var	\gms\system\menu\calendar\content\ICalendarMenuContent
 	 */
-	public static function getDatabaseTableName() {
-		return 'gms'.WCF_N.'_'.static::$databaseTableName;
+	protected $contentManager = null;
+
+	/**
+	 * Returns the item identifier, dots are replaced by underscores.
+	 *
+	 * @return	string
+	 */
+	public function getIdentifier() {
+		return str_replace('.', '_', $this->menuItem);
 	}
 
 	/**
 	 * Returns the content manager for this menu item.
 	 *
-	 * @return	\wcf\system\menu\character\profile\content\ICharacterProfileMenuContent
+	 * @throws	\wcf\system\exception\SystemException
+	 * @return	\gms\system\menu\character\profile\content\ICharacterProfileMenuContent
 	 */
 	public function getContentManager() {
 		if ($this->contentManager === null) {

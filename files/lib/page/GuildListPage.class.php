@@ -3,10 +3,8 @@ namespace gms\page;
 use wcf\page\SortablePage;
 use wcf\system\dashboard\DashboardHandler;
 use wcf\system\menu\page\PageMenu;
-use wcf\system\request\LinkHandler;
 use wcf\system\user\collapsible\content\UserCollapsibleContentHandler;
 use wcf\system\WCF;
-use wcf\util\HeaderUtil;
 
 /**
  * Shows the guild list page.

@@ -1,8 +1,7 @@
 <?php
 namespace gms\system\option\character;
-use gms\data\character\option\CharacterOption;
 use gms\data\character\Character;
-use wcf\system\WCF;
+use gms\data\character\option\CharacterOption;
 
 /**
  * CharacterOptionOutputRankTitle is an implementation of ICharacterOptionOutput for the output the rank title and name.

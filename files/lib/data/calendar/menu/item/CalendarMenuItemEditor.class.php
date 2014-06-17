@@ -1,7 +1,6 @@
 <?php
 namespace gms\data\calendar\menu\item;
 use wcf\data\DatabaseObjectEditor;
-use wcf\system\WCF;
 
 /**
  * Editor for calendar menu item (view).

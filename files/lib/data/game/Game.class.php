@@ -8,7 +8,6 @@ use gms\data\game\race\GameRaceList;
 use gms\data\game\role\GameRoleList;
 use gms\data\GMSDatabaseObject;
 use gms\system\game\provider\GameProviderHandler;
-use gms\system\GMSCore;
 use wcf\data\package\Package;
 use wcf\system\request\IRouteController;
 use wcf\system\WCF;

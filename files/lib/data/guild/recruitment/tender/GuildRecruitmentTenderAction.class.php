@@ -1,7 +1,6 @@
 <?php
 namespace gms\data\guild\recruitment\tender;
 use wcf\data\AbstractDatabaseObjectAction;
-use wcf\system\WCF;
 
 /**
  * Recruitment tender related actions.

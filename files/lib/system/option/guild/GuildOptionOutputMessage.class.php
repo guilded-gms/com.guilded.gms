@@ -1,7 +1,7 @@
 <?php
 namespace gms\system\option\guild;
-use gms\data\guild\option\GuildOption;
 use gms\data\guild\Guild;
+use gms\data\guild\option\GuildOption;
 use wcf\system\bbcode\MessageParser;
 
 class GuildOptionOutputMessage implements IGuildOptionOutput {
@@ -24,6 +24,7 @@ class GuildOptionOutputMessage implements IGuildOptionOutput {
 	 */
 	public function getOutput(Guild $guild, GuildOption $option, $value) {
 		MessageParser::getInstance()->setOutputType('text/html');
+
 		return MessageParser::getInstance()->parse($value);
 	}
 }

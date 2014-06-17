@@ -1,7 +1,6 @@
 <?php
 namespace gms\data\game\server;
 use wcf\data\DatabaseObjectEditor;
-use wcf\system\WCF;
 
 /**
  * GameServer editor.

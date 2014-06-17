@@ -1,8 +1,8 @@
 <?php
 namespace gms\data\alliance;
 use gms\data\character\CharacterList;
-use gms\data\guild\GuildList;
 use gms\data\GMSDatabaseObject;
+use gms\data\guild\GuildList;
 use wcf\system\request\IRouteController;
 
 /**

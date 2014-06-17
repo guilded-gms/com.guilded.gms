@@ -1,11 +1,7 @@
 <?php
 namespace gms\system\option;
 use gms\data\game\classification\GameClassificationList;
-use gms\data\game\Game;
 use wcf\data\option\Option;
-use wcf\system\option\SelectOptionType;
-use wcf\system\WCF;
-use wcf\util\OptionUtil;
 
 /**
  * Select Option for game-classes.

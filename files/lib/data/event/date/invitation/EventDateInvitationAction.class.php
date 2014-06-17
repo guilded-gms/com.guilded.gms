@@ -3,7 +3,6 @@ namespace gms\data\event\date\invitation;
 use gms\data\event\date\participation\EventDateParticipation;
 use gms\data\event\date\participation\EventDateParticipationEditor;
 use wcf\data\AbstractDatabaseObjectAction;
-use wcf\system\WCF;
 
 /**
  * 

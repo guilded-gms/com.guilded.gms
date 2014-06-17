@@ -2,7 +2,6 @@
 namespace gms\data\event\date\invitation;
 use gms\data\event\date\participation\EventDateParticipation;
 use wcf\data\DatabaseObject;
-use wcf\system\WCF;
 
 /**
  * Represents an event invitation.

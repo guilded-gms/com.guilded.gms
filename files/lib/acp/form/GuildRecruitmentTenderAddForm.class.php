@@ -1,8 +1,8 @@
 <?php
 namespace gms\acp\form;
+use gms\data\guild\Guild;
 use gms\data\guild\recruitment\tender\GuildRecruitmentTender;
 use gms\data\guild\recruitment\tender\GuildRecruitmentTenderAction;
-use gms\data\guild\Guild;
 use wcf\form\AbstractForm;
 use wcf\system\exception\UserInputException;
 use wcf\system\WCF;

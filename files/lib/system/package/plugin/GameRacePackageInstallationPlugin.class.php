@@ -7,7 +7,6 @@ use wcf\system\exception\SystemException;
 use wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin;
 use wcf\system\WCF;
 use wcf\util\ArrayUtil;
-use wcf\util\StringUtil;
 
 /**
  * Package-installation-plugin implementation for game race.

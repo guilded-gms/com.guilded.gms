@@ -1,7 +1,7 @@
 <?php
 namespace gms\system\option\character;
-use gms\data\character\option\CharacterOption;
 use gms\data\character\Character;
+use gms\data\character\option\CharacterOption;
 
 /**
  * Interface for CharacterOption output.

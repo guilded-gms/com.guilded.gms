@@ -1,6 +1,5 @@
 <?php
 namespace gms\data\game\faction;
-use gms\data\game\Game;
 use gms\data\GMSDatabaseObject;
 
 /**

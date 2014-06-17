@@ -1,7 +1,7 @@
 <?php
 namespace gms\system\option\character;
-use gms\data\character\option\ViewableCharacterOption;
 use gms\data\character\Character;
+use gms\data\character\option\ViewableCharacterOption;
 use gms\data\game\Game;
 use gms\system\option\IGameOptionType;
 use wcf\data\option\category\OptionCategory;

@@ -6,8 +6,8 @@ use wcf\page\AbstractPage;
 use wcf\system\breadcrumb\Breadcrumb;
 use wcf\system\dashboard\DashboardHandler;
 use wcf\system\exception\IllegalLinkException;
-use wcf\system\user\collapsible\content\UserCollapsibleContentHandler;
 use wcf\system\request\LinkHandler;
+use wcf\system\user\collapsible\content\UserCollapsibleContentHandler;
 use wcf\system\WCF;
 
 /**

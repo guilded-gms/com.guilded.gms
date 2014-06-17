@@ -1,7 +1,6 @@
 <?php
 namespace gms\data\event\date\invitation;
 use wcf\data\DatabaseObjectEditor;
-use wcf\system\WCF;
 
 /**
  * 

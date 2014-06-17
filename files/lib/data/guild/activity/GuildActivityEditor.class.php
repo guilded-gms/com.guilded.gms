@@ -1,7 +1,6 @@
 <?php
 namespace gms\data\guild\activity;
 use wcf\data\DatabaseObjectEditor;
-use wcf\system\WCF;
 
 /**
  * Editor for guild activity.

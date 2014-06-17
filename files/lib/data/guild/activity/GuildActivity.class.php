@@ -1,7 +1,6 @@
 <?php
 namespace gms\data\guild\activity;
 use gms\data\GMSDatabaseObject;
-use wcf\system\WCF;
 
 /**
  * Represents a guild activity.

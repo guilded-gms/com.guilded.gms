@@ -1,11 +1,11 @@
 <?php
 namespace gms\acp\form;
-use gms\data\guild\rank\GuildRankAction;
 use gms\data\guild\Guild;
+use gms\data\guild\rank\GuildRankAction;
 use wcf\form\AbstractForm;
 use wcf\system\exception\UserInputException;
-use wcf\util\StringUtil;
 use wcf\system\WCF;
+use wcf\util\StringUtil;
 
 /**
  * Shows guild rank add form.

@@ -1,8 +1,8 @@
 <?php
 namespace gms\data\character;
+use wcf\data\DatabaseObjectDecorator;
 use wcf\data\user\User;
 use wcf\data\user\UserProfile;
-use wcf\data\DatabaseObjectDecorator;
 use wcf\system\breadcrumb\Breadcrumb;
 use wcf\system\breadcrumb\IBreadcrumbProvider;
 use wcf\system\request\LinkHandler;

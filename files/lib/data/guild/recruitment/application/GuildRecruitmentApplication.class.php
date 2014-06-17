@@ -3,7 +3,6 @@ namespace gms\data\guild\recruitment\application;
 use gms\data\GMSDatabaseObject;
 use gms\data\guild\Guild;
 use gms\data\guild\recruitment\tender\GuildRecruitmentTender;
-use wcf\system\WCF;
 
 /**
  * Represents a guild application.

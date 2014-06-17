@@ -1,7 +1,6 @@
 <?php
 namespace gms\data\calendar\menu\item;
 use wcf\data\AbstractDatabaseObjectAction;
-use wcf\system\WCF;
 
 /**
  * Calendar menu item (view)-related actions.

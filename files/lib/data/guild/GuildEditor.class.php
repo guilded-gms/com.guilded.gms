@@ -2,7 +2,6 @@
 namespace gms\data\guild;
 use wcf\data\DatabaseObjectEditor;
 use wcf\system\clipboard\ClipboardHandler;
-use wcf\system\WCF;
 
 /**
  * Editor of guild

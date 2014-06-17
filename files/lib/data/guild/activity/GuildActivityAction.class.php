@@ -1,8 +1,6 @@
 <?php
 namespace gms\data\guild\activity;
 use wcf\data\AbstractDatabaseObjectAction;
-use wcf\system\WCF;
-use wcf\util\StringUtil;
 
 /**
  * GuildActivity-related actions..

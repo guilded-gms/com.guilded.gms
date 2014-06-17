@@ -1,8 +1,8 @@
 <?php
 namespace gms\system\option\character;
-use gms\data\character\option\CharacterOption;
 use gms\data\character\Character;
 use gms\data\character\CharacterProfile;
+use gms\data\character\option\CharacterOption;
 use wcf\system\WCF;
 
 /**

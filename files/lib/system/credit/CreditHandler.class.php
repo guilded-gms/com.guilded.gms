@@ -1,8 +1,8 @@
 <?php
 namespace gms\system\credit;
-use wcf\system\SingletonFactory;
 use wcf\data\object\type\ObjectTypeCache;
 use wcf\system\cache\CacheHandler;
+use wcf\system\SingletonFactory;
 
 /**
  * Handles credits of DatabaseObjects.

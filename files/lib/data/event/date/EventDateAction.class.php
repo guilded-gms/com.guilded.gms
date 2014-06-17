@@ -1,7 +1,6 @@
 <?php
 namespace gms\data\event\date;
 use wcf\data\AbstractDatabaseObjectAction;
-use wcf\system\WCF;
 
 /**
  * EventDate-related actions.

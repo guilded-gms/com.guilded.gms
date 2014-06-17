@@ -1,6 +1,5 @@
 <?php
 namespace gms\system\option;
-use gms\data\game\Game;
 use gms\data\guild\GuildList;
 
 /**

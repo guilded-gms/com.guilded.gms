@@ -1,11 +1,11 @@
 <?php
 namespace gms\data\guild;
 use gms\data\character\CharacterList;
-use gms\data\game\server\GameServer;
 use gms\data\game\Game;
+use gms\data\game\server\GameServer;
+use gms\data\GMSDatabaseObject;
 use gms\data\guild\recruitment\application\GuildRecruitmentApplicationList;
 use gms\data\guild\recruitment\tender\GuildRecruitmentTenderList;
-use gms\data\GMSDatabaseObject;
 use wcf\system\breadcrumb\Breadcrumb;
 use wcf\system\breadcrumb\IBreadcrumbProvider;
 use wcf\system\request\IRouteController;

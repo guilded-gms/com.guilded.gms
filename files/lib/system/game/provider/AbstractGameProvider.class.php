@@ -3,7 +3,6 @@ namespace gms\system\game\provider;
 use wcf\system\exception\SystemException;
 use wcf\util\FileUtil;
 use wcf\util\HTTPRequest;
-use wcf\util\JSON;
 
 /**
  * Abstract implementation for game data provider.

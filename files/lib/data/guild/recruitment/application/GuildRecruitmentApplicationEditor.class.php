@@ -1,7 +1,6 @@
 <?php
 namespace gms\data\guild\recruitment\application;
 use wcf\data\DatabaseObjectEditor;
-use wcf\system\WCF;
 
 /**
  * Editor for Applications.

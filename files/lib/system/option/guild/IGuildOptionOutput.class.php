@@ -1,7 +1,7 @@
 <?php
 namespace gms\system\option\guild;
-use gms\data\guild\option\GuildOption;
 use gms\data\guild\Guild;
+use gms\data\guild\option\GuildOption;
 
 interface IGuildOptionOutput {
 	/**

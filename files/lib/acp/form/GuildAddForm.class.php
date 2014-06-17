@@ -4,8 +4,6 @@ use gms\data\guild\Guild;
 use gms\data\guild\GuildAction;
 use gms\data\guild\GuildList;
 use gms\system\game\GameHandler;
-use wcf\data\option\Option;
-use wcf\data\option\OptionEditor;
 use wcf\system\exception\UserInputException;
 use wcf\system\WCF;
 use wcf\system\WCFACP;

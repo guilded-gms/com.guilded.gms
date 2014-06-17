@@ -1,7 +1,6 @@
 <?php
 namespace gms\data\alliance;
 use wcf\data\DatabaseObjectEditor;
-use wcf\system\WCF;
 
 /**
  * The alliance editor
