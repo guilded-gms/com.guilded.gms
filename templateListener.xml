@@ -6,7 +6,7 @@
 			<environment>user</environment>
 			<templatename>header</templatename>
 			<eventname>topMenu</eventname>
-			<templatecode><![CDATA[{include file='characterPanel' application='gms'}]]></templatecode>
+			<templatecode><![CDATA[{include file='__characterPanel' application='gms'}]]></templatecode>
 		</templatelistener>
 
 		<templatelistener name="javascriptInclude">
@@ -28,6 +28,13 @@
 			<templatename>header</templatename>
 			<eventname>headerLogo</eventname>
 			<templatecode><![CDATA[{include file='__headerLogo' application='gms'}]]></templatecode>
+		</templatelistener>
+
+		<templatelistener name="characterMessageSidebarAfterCredits">
+			<environment>user</environment>
+			<templatename>messageSidebar</templatename>
+			<eventname>afterCredits</eventname>
+			<templatecode><![CDATA[{include file='__messageSidebarCharacter'}]]></templatecode>
 		</templatelistener>
 		<!-- /environment: user -->
 

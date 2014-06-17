@@ -39,6 +39,11 @@
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
 			</option>
+			<option name="gms_module_role_play">
+				<categoryname>module.community</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
 			<option name="gms_module_instance_progress">
 				<categoryname>module.community</categoryname>
 				<optiontype>boolean</optiontype>
