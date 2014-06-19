@@ -1,15 +1,13 @@
 {include file='header' pageTitle='gms.acp.character.list'}
-
+<script data-relocate="true">
+	//<![CDATA[
+	$(function() {
+		new WCF.Action.Delete('gms\\data\\character\\CharacterAction', '.jsCharacterRow');
+	});
+		//]]>
+</script>
 <header class="boxHeadline">
 	<h1>{lang}gms.acp.character.list{/lang}</h1>
-	
-	<script type="text/javascript">
-		//<![CDATA[
-		$(function() {
-			new WCF.Action.Delete('wcf\\data\\guild\character\\CharacterAction', '.jsCharacterRow');
-		});
-		//]]>
-	</script>
 </header>
 
 <div class="contentNavigation">
@@ -60,7 +58,7 @@
 							<td class="columnTitle columnCharacterName"><a href="{link controller='CharacterEdit' id=$object->characterID application='gms'}{/link}" name="{lang}gms.acp.character.edit{/lang}">{$object->getTitle()}</a></td>
 							<td class="columnText columnUser"><a href="{link controller='UserEdit' id=$object->getUserProfile()->userID application='gms'}{/link}" name="{lang}wcf.acp.user.edit{/lang}">{@$object->username}</a></td>
                             <td class="columnText columnCharacterGameID">{@$object->getGame()->getImageTag(16)}</td>
-                            <td class="columnText columnCharacterGuild"><a href="{link controller='GuildEdit' id=$object->guildID application='gms'}{/link}" name="{lang}gms.acp.guild.edit{/lang}">{@$object->getGuild()}</a></td>							
+                            <td class="columnText columnCharacterGuild"><a href="{link controller='GuildEdit' id=$object->guildID application='gms'}{/link}" name="{lang}gms.acp.guild.edit{/lang}">{@$object->getGuild()->name}</a></td>							
                             <td class="columnText columnCharacterLevel">{#$object->level}</td>
                             <td class="columnText columnCharacterRace">{@$object->getPrimaryRace()->getImageTag(16)} {@$object->getPrimaryRace()->getTitle()}</td>
                             <td class="columnText columnCharacterClass">{@$object->getPrimaryClass()->getImageTag(16)} {@$object->getPrimaryClass()->getTitle()}</td>
