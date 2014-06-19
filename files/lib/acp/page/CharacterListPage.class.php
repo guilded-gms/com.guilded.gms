@@ -2,7 +2,6 @@
 namespace gms\acp\page;
 use wcf\page\SortablePage;
 use wcf\system\menu\acp\ACPMenu;
-use wcf\system\WCF;
 
 /**
  * Shows character list.
@@ -38,7 +37,7 @@ class CharacterListPage extends SortablePage {
 	/**
 	 * @see	\wcf\page\SortablePage::$validSortFields
 	 */
-	public $validSortFields = array('name', 'characterID', 'gameID','level');
+	public $validSortFields = array('name', 'characterID', 'gameID');
 	
 	/**
 	 * @see	\wcf\page\MultipleLinkPage::$objectListClassName
@@ -50,13 +49,14 @@ class CharacterListPage extends SortablePage {
 	 */
 	public function initObjectList() {
 		parent::initObjectList();
+		
+		$this->sqlOrderBy = (($this->sortField == 'gameID' || $this->sortField == 'level') ? 'character_option.' : 'character_table.').$this->sortField." ".$this->sortOrder;	
 	}
 	
 	/**
 	 * @see	\wcf\page\MultipleLinkPage::readObjects()
 	 */
 	protected function readObjects() {
-		$this->sqlOrderBy = (($this->sortField == 'gameID' || $this->sortField == 'level') ? 'character_option.' : 'character_table.').$this->sortField." ".$this->sortOrder;	
 		parent::readObjects();	
 	}
 	
