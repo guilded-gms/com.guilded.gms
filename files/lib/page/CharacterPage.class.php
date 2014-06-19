@@ -52,7 +52,7 @@ class CharacterPage extends AbstractPage {
 		if (isset($_REQUEST['id'])) $this->characterID = intval($_REQUEST['id']);
 
 		$this->character = CharacterProfile::getCharacterProfile($this->characterID);
-		if (!$this->character->characterID) {
+		if (!$this->characterID) {
 			throw new IllegalLinkException();
 		}
 	}
