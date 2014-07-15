@@ -60,6 +60,15 @@
 				<admindefaultvalue>1</admindefaultvalue>
 			</option>
 			<!-- /admin.gms.game -->
+			
+			<!-- mod.gms.character -->
+			<option name="mod.gms.character.canManage">
+				<categoryname>mod.gms.character</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /mod.gms.character -->
 
 			<!-- user.gms.character -->
 			<option name="user.gms.character.canManage">

@@ -25,6 +25,11 @@ class CharacterListPage extends SortablePage {
 	public $activeMenuItem = 'gms.acp.menu.link.gms.character.list';
 	
 	/**
+	 * @see	\wcf\page\MultipleLinkPage::$itemsPerPage
+	 */
+	public $itemsPerPage = 20;
+	
+	/**
 	 * @see	\wcf\page\SortablePage::$defaultSortField
 	 */
 	public $defaultSortField = 'name';
@@ -45,7 +50,14 @@ class CharacterListPage extends SortablePage {
 	public function initObjectList() {
 		parent::initObjectList();
 		
-		$this->sqlOrderBy = "character_table.".$this->sortField." ".$this->sortOrder;
+		$this->sqlOrderBy = (($this->sortField == 'gameID' || $this->sortField == 'level') ? 'character_option.' : 'character_table.').$this->sortField." ".$this->sortOrder;	
+	}
+	
+	/**
+	 * @see	\wcf\page\MultipleLinkPage::readObjects()
+	 */
+	protected function readObjects() {
+		parent::readObjects();	
 	}
 	
 	/**
@@ -57,4 +69,5 @@ class CharacterListPage extends SortablePage {
 		
 		parent::show();
 	}
+	
 }
