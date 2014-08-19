@@ -57,4 +57,3 @@ class GameInstancePage extends AbstractPage {
 		));
 	}
 }
-

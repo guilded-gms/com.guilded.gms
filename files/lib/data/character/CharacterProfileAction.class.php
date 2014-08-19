@@ -44,13 +44,11 @@ class CharacterProfileAction extends CharacterAction {
 	 */
 	public function getCharacterProfile() {
 		$characterID = reset($this->objectIDs);
-		
-		WCF::getTPL()->assign(array(
-			'character' => CharacterProfile::getCharacterProfile($characterID)
-		));
-		
+
 		return array(
-			'template' => WCF::getTPL()->fetch('characterProfilePreview')
+			'template' => WCF::getTPL()->fetch('characterProfilePreview', 'gms', array(
+				'character' => CharacterProfile::getCharacterProfile($characterID)
+			))
 		);
 	}
 }

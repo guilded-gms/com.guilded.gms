@@ -50,7 +50,7 @@ class GuildRecruitmentDashboardBox extends AbstractSidebarDashboardBox {
 	 * @see	\wcf\system\dashboard\box\AbstractContentDashboardBox::render()
 	 */
 	protected function render() {
-		if (!count($this->tenderList)) {
+		if (!GMS_MODULE_RECRUITMENT || !count($this->tenderList)) {
 			return '';
 		}
 		

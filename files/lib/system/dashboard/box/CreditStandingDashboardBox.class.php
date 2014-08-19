@@ -38,6 +38,10 @@ class CreditStandingDashboardBox extends AbstractSidebarDashboardBox {
 	 * @see	wcf\system\dashboard\box\AbstractDashboardBoxContent::render()
 	 */
 	protected function render() {
+		if (!GMS_MODULE_CREDIT_SYSTEM || !count($this->creditTypeList)) {
+			return '';
+		}
+
 		WCF::getTPL()->assign(array(
 			'creditTypeList' => $this->creditTypeList
 		));
