@@ -138,12 +138,12 @@
 		<item name="gms.guild.noCharacters"><![CDATA[Keine Mitglieder vorhanden.]]></item>
 
 		<item name="gms.guild.option.category.profile"><![CDATA[Profil]]></item>
-		<item name="gms.guild.option.category.profile.system"><![CDATA[System]]></item>
+		<item name="gms.guild.option.category.profile.general"><![CDATA[Allgemein]]></item>
 		<item name="gms.guild.option.server"><![CDATA[Server]]></item>
 
 		<item name="gms.guild.content.about.empty"><![CDATA[Keine Daten vorhanden]]></item>
 
-		<item name="gms.guild.profile.menu.about"><![CDATA[Über {@$guild->guildName}]]></item>
+		<item name="gms.guild.profile.menu.about"><![CDATA[Über {@$guild->name}]]></item>
 		<item name="gms.guild.profile.menu.characters"><![CDATA[Charaktere]]></item>
 		<item name="gms.guild.profile.menu.applications"><![CDATA[Bewerbungen]]></item>
 		<item name="gms.guild.profile.menu.instance.progress"><![CDATA[Instanzfortschritt]]></item>
@@ -187,7 +187,7 @@
 		<item name="wcf.acp.option.gms_index_enable_stats"><![CDATA[Allgemeine Statistik anzeigen]]></item>
 		<item name="wcf.acp.option.gms_index_enable_online_list"><![CDATA[Benutzer-Online-Liste anzeigen]]></item>
 		<item name="wcf.acp.option.gms_guild_recruitment_decline_character"><![CDATA[Abgelehnte Charaktere löschen]]></item>
-		<item name="wcf.acp.option.gms_calendar_list_items"><![CDATA[Einträge in Listenansicht]]></
+		<item name="wcf.acp.option.gms_calendar_list_items"><![CDATA[Einträge in Listenansicht]]></item>
 		<item name="wcf.acp.option.gms_module_recruitment"><![CDATA[Rekrutierung]]></item>
 		<item name="wcf.acp.option.gms_module_recruitment.description"><![CDATA[Aktiviert Gesuche und Bewerbungen.]]></item>
 		<item name="wcf.acp.option.gms_module_calendar"><![CDATA[Kalender]]></item>

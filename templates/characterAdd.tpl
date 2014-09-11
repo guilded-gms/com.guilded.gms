@@ -9,7 +9,7 @@
 		$(function() {
 			var availableGames = { {implode from=$availableGames key=__gameID item=__game}{@$__gameID}: { title: '{$__game->getTitle()}', icon: '{@$__game->getIcon(24)}' }{/implode} };
 			new GMS.Character.OptionHandler('characterName', '.optionList', availableGames, {@$gameID});
-		});
+		})
 		//]]>
 	</script>
 </head>

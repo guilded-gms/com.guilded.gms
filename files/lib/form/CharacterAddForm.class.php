@@ -78,7 +78,7 @@ class CharacterAddForm extends AbstractOptionListForm {
 	 * id of selected game
 	 * @var integer
 	 */
-	public $gameID = 0;
+	public $gameID = GMS_DEFAULT_GAME_ID;
 
 	/**
 	 * list of enabled games
@@ -153,7 +153,7 @@ class CharacterAddForm extends AbstractOptionListForm {
 				'userID' => WCF::getUser()->userID,
 				'username' => WCF::getUser()->username,
 				'time' => TIME_NOW,
-				'isPrimary' => (CharacterHandler::getInstance()->getPrimaryCharacter($this->gameID) === null)
+				'isPrimary' => intval((CharacterHandler::getInstance()->getPrimaryCharacter($this->gameID) === null))
 			)),
 			'options' => $optionValues
 		));
@@ -191,6 +191,14 @@ class CharacterAddForm extends AbstractOptionListForm {
 		foreach ($this->games as $key => $game) {
 			if (!$game->isEnabled) unset($this->games[$key]);
 		}
+
+		if (empty($_POST)) {
+			if (!$this->gameID) {
+				// set first game in list as default
+				$game = reset($this->games);
+				$this->gameID = $game->gameID;
+			}
+		}
 	}
 	
 	/**
@@ -205,7 +213,7 @@ class CharacterAddForm extends AbstractOptionListForm {
 			'activeTabMenuItem' => $this->activeTabMenuItem,
 			'activeMenuItem' => $this->activeMenuItem,
 			'availableGames' => $this->games,
-			'gameID' => GMS_DEFAULT_GAME_ID
+			'gameID' => $this->gameID
 		));
 	}
 	

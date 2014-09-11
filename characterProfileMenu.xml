@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data xmlns="http://www.guilded.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.guilded.eu http://www.guilded.eu/XSD/characterProfileMenu.xsd">
 	<import>
-		<characterprofilemenuitem name="about">
-			<classname>gms\system\menu\character\profile\content\AboutCharacterProfileMenuContent</classname>
+		<characterprofilemenuitem name="activity">
+			<classname>gms\system\menu\character\profile\content\ActivityCharacterProfileMenuContent</classname>
 			<showorder>1</showorder>
 		</characterprofilemenuitem>
 
-		<characterprofilemenuitem name="activity">
-			<classname>gms\system\menu\character\profile\content\ActivityCharacterProfileMenuContent</classname>
+		<characterprofilemenuitem name="about">
+			<classname>gms\system\menu\character\profile\content\AboutCharacterProfileMenuContent</classname>
 			<showorder>1</showorder>
 		</characterprofilemenuitem>
 	</import>

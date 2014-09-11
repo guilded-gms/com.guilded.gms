@@ -293,9 +293,9 @@ class Game extends GMSDatabaseObject implements IRouteController {
 	 * @return	string
 	 */
 	public function getImageTag($size = 48) {
-		$iconPath = $this->getIcon(32);
+		$iconPath = $this->getIcon($size);
 		if (!empty($iconPath)) {
-			return '<img src="' . $iconPath . '" style="width: '.$size.'px; height: '.$size.'px" alt="' . $this->getTitle() . '" />';
+			return '<img src="' . $iconPath . '" style="width: '.$size.'px; height: '.$size.'px" alt="' . $this->getTitle() . '" title="' . $this->getTitle() . '" alt="' . $this->getTitle() . '" class="jsTooltip" />';
 		}
 
 		return '';

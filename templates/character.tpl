@@ -38,19 +38,24 @@
 
 {include file='header' sidebarOrientation='left'}
 
-<header class="boxHeadline userHeadline">
-	<h1><a href="{link controller='Character' object=$character application='gms'}{/link}">{$character->getTitledName()}</a></h1>
-	<p>{if $character->getGuild() && $character->getGuild()->guildID}<a href="{link controller='Guild' object=$character->getGuild() application='gms'}{/link}">{$character->getGuild()->getTitle()}</a> - {/if}{@$character->getGame()->getTitle()}</p>
+<div class="box48">
+	{@$character->getPrimaryClass()->getImageTag(32)} {* @todo 48px *}
 
-	<nav class="jsMobileNavigation buttonGroupNavigation">
-		<ul class="buttonGroup">{*
-			*}{if $character->canEdit()}<li><a class="button" href="{link controller='CharacterEdit' id=$character->characterID application='gms'}{/link}" title="{lang}gms.character.edit{/lang}"><span class="icon icon16 icon-pencil"></span> <span>{lang}wcf.global.button.edit{/lang}</span></a></li>{/if}{*
+	<header class="boxHeadline userHeadline">
+		<h1><a href="{link controller='Character' object=$character application='gms'}{/link}">{$character->getTitledName()}</a></h1>
+		<p>{if $character->getGuild() && $character->getGuild()->guildID}<a href="{link controller='Guild' object=$character->getGuild() application='gms'}{/link}">{$character->getGuild()->getTitle()}</a> - {/if}{@$character->getGame()->getTitle()}</p>
+
+		<nav class="jsMobileNavigation buttonGroupNavigation">
+			<ul class="buttonGroup">{*
+			*}{if $character->canEdit()}<li><a class="button jsTooltip" href="{link controller='CharacterEdit' id=$character->characterID application='gms'}{/link}" title="{lang}gms.character.edit{/lang}"><span class="icon icon16 icon-pencil"></span> <span>{lang}wcf.global.button.edit{/lang}</span></a></li>{/if}{*
+			*}{if $character->canDelete()}<li><a class="button jsButtonDelete jsTooltip" title="{lang}gms.character.delete{/lang}"><span class="icon icon16 icon-remove"></span> <span>{lang}wcf.global.button.delete{/lang}</span></a></li>{/if}{* @todo implement delete
 			*}{event name='buttons'}{*
 		*}</ul>
-	</nav>
+		</nav>
 
-	{event name='headlineData'}
-</header>
+		{event name='headlineData'}
+	</header>
+</div>
 
 {include file='userNotice'}
 

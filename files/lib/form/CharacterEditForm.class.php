@@ -70,7 +70,7 @@ class CharacterEditForm extends CharacterAddForm {
 			$options = $this->optionHandler->getCategoryOptions();
 			
 			foreach ($options as $option) {
-				$value = $this->character->getOption($option['object']->optionName);
+				$value = $this->character->{$option['object']->optionName};
 				if ($value !== null) {
 					$this->optionValues[$option['object']->optionName] = $value;
 				}

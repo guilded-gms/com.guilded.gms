@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data xmlns="http://www.guilded.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.guilded.eu http://www.guilded.eu/XSD/guildProfileMenu.xsd">
 	<import>
+		<!--
+		@todo implement this
+		<characterprofilemenuitem name="activity">
+			<classname>gms\system\menu\guild\profile\content\ActivityGuildProfileMenuContent</classname>
+			<showorder>1</showorder>
+		</characterprofilemenuitem>
+		-->
+
 		<guildprofilemenuitem name="about">
 			<classname>gms\system\menu\guild\profile\content\AboutGuildProfileMenuContent</classname>
 			<showorder>1</showorder>

@@ -7,7 +7,7 @@
 			</category>
 			
 			<!-- profile -->
-			<category name="profile.system">
+			<category name="profile.general">
 				<parent>profile</parent>
 			</category>
 			<!-- /profile -->
@@ -16,7 +16,7 @@
 		<options>
 			<!-- system -->
 			<option name="server">
-				<categoryname>profile.system</categoryname>
+				<categoryname>profile.general</categoryname>
 				<optiontype>text</optiontype>
 				<visible>15</visible>
 				<editable>3</editable>

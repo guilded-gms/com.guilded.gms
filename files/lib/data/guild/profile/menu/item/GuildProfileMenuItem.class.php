@@ -27,15 +27,17 @@ class GuildProfileMenuItem extends GMSDatabaseObject {
 
 	/**
 	 * content manager
-	 * @var	\gms\system\menu\guild\profile\content\IGuildProfileContent
+	 * @var	\gms\system\menu\guild\profile\content\IGuildProfileMenuContent
 	 */
 	protected $contentManager = null;
 
 	/**
-	 * @see	\wcf\data\IStorableObject::getDatabaseTableName()
+	 * Returns the item identifier, dots are replaced by underscores.
+	 *
+	 * @return	string
 	 */
-	public static function getDatabaseTableName() {
-		return 'gms'.WCF_N.'_'.static::$databaseTableName;
+	public function getIdentifier() {
+		return str_replace('.', '_', $this->menuItem);
 	}
 
 	/**

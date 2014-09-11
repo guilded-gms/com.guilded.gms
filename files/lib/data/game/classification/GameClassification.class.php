@@ -60,6 +60,6 @@ class GameClassification extends GMSDatabaseObject {
 	 * @return	string
 	 */
 	public function getImageTag($size = 32) {
-		return '<img src="' . WCF::getPath('gms') . 'icon/' . $this->getGame()->title . '/' . $this->icon . $size . '.png' . '" alt="" title="' . $this->getTitle() . '" />';
+		return '<img src="' . WCF::getPath('gms') . 'icon/' . $this->getGame()->title . '/' . $this->icon . $size . '.png' . '" alt="' . $this->getTitle() . '" title="' . $this->getTitle() . '" class="jsTooltip" />';
 	}
 }
