@@ -4,7 +4,7 @@
 		<categories>
 			<!-- guilded -->
 			<category name="guilded"></category>
-			<category name="guilded.general">
+			<category name="guilded.settings">
 				<parent>guilded</parent>
 			</category>
 			<category name="guilded.index">
@@ -61,11 +61,11 @@
 
 			<!-- guilded.general -->
 			<option name="gms_default_game_id">
-				<categoryname>guilded.general</categoryname>
+				<categoryname>guilded.settings</categoryname>
 				<optiontype>GameSelect</optiontype>
 			</option>
 			<option name="gms_default_guild_id">
-				<categoryname>guilded.general</categoryname>
+				<categoryname>guilded.settings</categoryname>
 				<optiontype>GuildSelect</optiontype>
 			</option>
 			<!-- /guilded.general -->

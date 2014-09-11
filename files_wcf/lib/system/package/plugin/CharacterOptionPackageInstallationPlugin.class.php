@@ -1,9 +1,9 @@
 <?php
-namespace gms\system\package\plugin;
-use gms\data\guild\option\category\GuildOptionCategory;
-use gms\data\guild\option\category\GuildOptionCategoryEditor;
-use gms\data\guild\option\GuildOption;
-use gms\data\guild\option\GuildOptionEditor;
+namespace wcf\system\package\plugin;
+use gms\data\character\option\category\CharacterOptionCategory;
+use gms\data\character\option\category\CharacterOptionCategoryEditor;
+use gms\data\character\option\CharacterOption;
+use gms\data\character\option\CharacterOptionEditor;
 use wcf\system\exception\SystemException;
 use wcf\system\package\plugin\AbstractOptionPackageInstallationPlugin;
 use wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin;
@@ -11,7 +11,7 @@ use wcf\system\WCF;
 use wcf\util\StringUtil;
 
 /**
- * Package-installation-plugin implementation for guild option.
+ * Package-installation-plugin implementation for character option.
  *
  * @author	Jeffrey Reichardt
  * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
@@ -20,11 +20,11 @@ use wcf\util\StringUtil;
  * @subpackage	system.package.plugin
  * @category	Guilded 2.0
  */
-class GuildOptionPackageInstallationPlugin extends AbstractOptionPackageInstallationPlugin {
+class CharacterOptionPackageInstallationPlugin extends AbstractOptionPackageInstallationPlugin {
 	/**
 	 * @see	\wcf\system\package\plugin\AbstractPackageInstallationPlugin::$tableName
 	 */
-	public $tableName = 'guild_option';
+	public $tableName = 'character_option';
 
 	/**
 	 * @see	\wcf\system\package\plugin\AbstractPackageInstallationPlugin::$application
@@ -50,8 +50,8 @@ class GuildOptionPackageInstallationPlugin extends AbstractOptionPackageInstalla
 
 		if (!empty($options)) {
 			$sql = "DELETE FROM	gms".WCF_N."_".$this->tableName."
-					WHERE	optionName = ? AND
-							packageID = ?";
+				WHERE		optionName = ?
+				AND packageID = ?";
 			$statement = WCF::getDB()->prepareStatement($sql);
 
 			foreach ($options as $option) {
@@ -72,7 +72,7 @@ class GuildOptionPackageInstallationPlugin extends AbstractOptionPackageInstalla
 		if (!empty($categories)) {
 			// delete options for given categories
 			$sql = "DELETE FROM	gms".WCF_N."_".$this->tableName."
-					WHERE	categoryName = ?";
+				WHERE		categoryName = ?";
 			$statement = WCF::getDB()->prepareStatement($sql);
 			foreach ($categories as $category) {
 				$statement->execute(array($category));
@@ -80,8 +80,8 @@ class GuildOptionPackageInstallationPlugin extends AbstractOptionPackageInstalla
 
 			// delete categories
 			$sql = "DELETE FROM	wcf".WCF_N."_".$this->tableName."_category
-					WHERE	categoryName = ? AND
-							packageID = ?";
+				WHERE		categoryName = ?
+				AND		packageID = ?";
 			$statement = WCF::getDB()->prepareStatement($sql);
 
 			foreach ($categories as $category) {
@@ -167,9 +167,9 @@ class GuildOptionPackageInstallationPlugin extends AbstractOptionPackageInstalla
 		// append show order if explicitly stated
 		if ($category['showOrder'] !== null) $data['showOrder'] = $category['showOrder'];
 		
-		$guildOptionCategory = GuildOptionCategory::getCategoryByName($category['categoryName'], $this->installation->getPackageID());
-		if ($guildOptionCategory->categoryID) {
-			$categoryEditor = new GuildOptionCategoryEditor($guildOptionCategory);
+		$characterOptionCategory = CharacterOptionCategory::getCategoryByName($category['categoryName'], $this->installation->getPackageID());
+		if ($characterOptionCategory->categoryID) {
+			$categoryEditor = new CharacterOptionCategoryEditor($characterOptionCategory);
 			$categoryEditor->update($data);
 		}
 		else {
@@ -177,7 +177,7 @@ class GuildOptionPackageInstallationPlugin extends AbstractOptionPackageInstalla
 			$data['packageID'] = $this->installation->getPackageID();
 			$data['categoryName'] = $category['categoryName'];
 			
-			GuildOptionCategoryEditor::create($data);
+			CharacterOptionCategoryEditor::create($data);
 		}
 	}
 	
@@ -204,7 +204,7 @@ class GuildOptionPackageInstallationPlugin extends AbstractOptionPackageInstalla
 		$showOrder = $this->getShowOrder($showOrder, $categoryName, 'categoryName');
 		if (isset($option['permissions'])) $permissions = $option['permissions'];
 		if (isset($option['options'])) $options = $option['options'];
-
+		
 		// check if optionType exists
 		$className = 'wcf\system\option\\'.StringUtil::firstCharToUpperCase($optionType).'OptionType';
 		if (!class_exists($className)) {
@@ -213,7 +213,7 @@ class GuildOptionPackageInstallationPlugin extends AbstractOptionPackageInstalla
 				throw new SystemException("unable to find class '".$className."'");
 			}
 		}
-		
+
 		// collect additional tags and their values
 		$additionalData = array();
 		foreach ($option as $tag => $value) {
@@ -222,9 +222,9 @@ class GuildOptionPackageInstallationPlugin extends AbstractOptionPackageInstalla
 		
 		// get optionID if it was installed by this package already
 		$sql = "SELECT	*
-			FROM	gms".WCF_N."_".$this->tableName."
-			WHERE	optionName = ?
-			AND	packageID = ?";
+				FROM	gms".WCF_N."_".$this->tableName."
+				WHERE	(optionName = ?) AND
+						(packageID = ?)";
 		$statement = WCF::getDB()->prepareStatement($sql);
 		$statement->execute(array(
 			$optionName,
@@ -240,7 +240,7 @@ class GuildOptionPackageInstallationPlugin extends AbstractOptionPackageInstalla
 			'validationPattern' => $validationPattern,
 			'selectOptions' => $selectOptions,
 			'enableOptions' => $enableOptions,
-			'required' => $required,		
+			'required' => $required,
 			'outputClass' => $outputClass,
 			'showOrder' => $showOrder,
 			'disabled' => $disabled,
@@ -251,16 +251,16 @@ class GuildOptionPackageInstallationPlugin extends AbstractOptionPackageInstalla
 		
 		// update option
 		if (!empty($result['optionID']) && $this->installation->getAction() == 'update') {
-			$guildOption = new GuildOption(null, $result);
-			$guildOptionEditor = new GuildOptionEditor($guildOption);
-			$guildOptionEditor->update($data);
+			$characterOption = new CharacterOption(null, $result);
+			$characterOptionEditor = new CharacterOptionEditor($characterOption);
+			$characterOptionEditor->update($data);
 		}
 		// insert new option
 		else {
 			// append option name
 			$data['optionName'] = $optionName;
 			$data['packageID'] = $this->installation->getPackageID();
-			GuildOptionEditor::create($data);
+			CharacterOptionEditor::create($data);
 		}
 	}
 

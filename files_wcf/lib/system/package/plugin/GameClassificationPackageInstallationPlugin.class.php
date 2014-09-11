@@ -1,5 +1,5 @@
 <?php
-namespace gms\system\package\plugin;
+namespace wcf\system\package\plugin;
 use gms\data\game\Game;
 use gms\data\game\race\GameRace;
 use gms\data\game\role\GameRole;

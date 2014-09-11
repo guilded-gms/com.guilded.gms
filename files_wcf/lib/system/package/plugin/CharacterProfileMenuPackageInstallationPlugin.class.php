@@ -1,5 +1,5 @@
 <?php
-namespace gms\system\package\plugin;
+namespace wcf\system\package\plugin;
 use wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin;
 use wcf\system\WCF;
 
@@ -39,8 +39,8 @@ class CharacterProfileMenuPackageInstallationPlugin extends AbstractXMLPackageIn
 	 */
 	protected function handleDelete(array $items) {
 		$sql = "DELETE FROM	gms".WCF_N."_".$this->tableName."
-			WHERE		menuItem = ?
-					AND packageID = ?";
+				WHERE	menuItem = ? AND
+						packageID = ?";
 		$statement = WCF::getDB()->prepareStatement($sql);
 		foreach ($items as $item) {
 			$statement->execute(array(
@@ -73,9 +73,9 @@ class CharacterProfileMenuPackageInstallationPlugin extends AbstractXMLPackageIn
 	 */
 	protected function findExistingItem(array $data) {
 		$sql = "SELECT	*
-			FROM	gms".WCF_N."_".$this->tableName."
-			WHERE	menuItem = ?
-				AND packageID = ?";
+				FROM	gms".WCF_N."_".$this->tableName."
+				WHERE	menuItem = ? AND
+						packageID = ?";
 		$parameters = array(
 			$data['menuItem'],
 			$this->installation->getPackageID()

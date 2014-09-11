@@ -1,5 +1,5 @@
 <?php
-namespace gms\system\package\plugin;
+namespace wcf\system\package\plugin;
 use gms\data\guild\GuildEditor;
 use wcf\data\option\OptionEditor;
 use wcf\data\package\Package;
@@ -26,12 +26,23 @@ class GamePackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin
 	 * @see	\wcf\system\package\plugin\AbstractPackageInstallationPlugin::$application
 	 */
 	public $application = 'gms';
+
+	/**
+	 * @see	\wcf\system\package\plugin\AbstractPackageInstallationPlugin::$tableName
+	 */
+	public $tableName = 'game';
+
+	/**
+	 * @see	\wcf\system\package\plugin\AbstractPackageInstallationPlugin::$tagName
+	 */
+	public $tagName = 'game';
 	
 	/**
 	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::handleDelete()
 	 */
 	protected function handleDelete(array $items) {
-		$sql = "DELETE FROM	gms".WCF_N."_".$this->tableName." WHERE title = ?";
+		$sql = "DELETE FROM	gms".WCF_N."_".$this->tableName."
+				WHERE title = ?";
 		$statement = WCF::getDB()->prepareStatement($sql);
 
 		foreach ($items as $item) {
@@ -61,9 +72,9 @@ class GamePackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin
 	 * @see	\wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin::findExistingItem()
 	 */
 	protected function findExistingItem(array $data) {
-		$sql = "SELECT	*
-				FROM gms".WCF_N."_".$this->tableName."
-				WHERE title = ?";
+		$sql = "SELECT  *
+				FROM    gms".WCF_N."_".$this->tableName."
+				WHERE   title = ?";
 		$parameters = array(
 			Package::getAbbreviation($this->installation->getPackage()->getName())
 		);
@@ -89,8 +100,8 @@ class GamePackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin
 
 			if ($row !== false) {
 				$sql = "UPDATE	wcf".WCF_N."_option
-				SET		optionValue = ?
-				WHERE	optionName = ?";
+						SET		optionValue = ?
+						WHERE	optionName = ?";
 				$statement = WCF::getDB()->prepareStatement($sql);
 				$statement->execute(array($row['gameID'], 'gms_default_game_id'));
 
@@ -101,8 +112,8 @@ class GamePackageInstallationPlugin extends AbstractXMLPackageInstallationPlugin
 				));
 
 				$sql = "UPDATE	wcf".WCF_N."_option
-				SET		optionValue = ?
-				WHERE	optionName = ?";
+						SET		optionValue = ?
+						WHERE	optionName = ?";
 				$statement = WCF::getDB()->prepareStatement($sql);
 				$statement->execute(array($guild->guildID, 'gms_default_guild_id'));
 

@@ -27,6 +27,11 @@
 		<item name="gms.acp.game.delete.sure"><![CDATA[Wollen Sie das Spiel „{@$title}“ wirklich löschen?]]></item>
 	</category>
 
+	<category name="gms.acp.character">
+		<item name="gms.acp.character.list"><![CDATA[Charaktere auflisten]]></item>
+		<item name="gms.acp.character.add"><![CDATA[Charakter hinzufügen]]></item>
+	</category>
+
 	<category name="gms.acp.guild">
 		<item name="gms.acp.guild.list"><![CDATA[Gilden auflisten]]></item>
 		<item name="gms.acp.guild.add"><![CDATA[Gilde hinzufügen]]></item>
@@ -161,6 +166,8 @@
 
 	<category name="wcf.user">
 		<item name="wcf.user.profile.menu.characters"><![CDATA[Charaktere]]></item>
+		<item name="wcf.user.recentActivity.com.guilded.gms.user.recentActivityEvent.character"><![CDATA[Charakter]]></item>
+		<item name="wcf.user.recentActivity.com.guilded.gms.user.recentActivityEvent.event.date.participation"><![CDATA[Anmeldung]]></item>
 	</category>
 
 	<category name="wcf.user.option">
@@ -169,7 +176,7 @@
 
 	<category name="wcf.acp.option">
 		<item name="wcf.acp.option.category.guilded"><![CDATA[Guilded]]></item>
-		<item name="wcf.acp.option.category.guilded.general"><![CDATA[Allgemein]]></item>
+		<item name="wcf.acp.option.category.guilded.settings"><![CDATA[Einstellungen]]></item>
 		<item name="wcf.acp.option.category.guilded.index"><![CDATA[Startseite]]></item>
 		<item name="wcf.acp.option.category.guilded.index.general"><![CDATA[Allgemein]]></item>
 		<item name="wcf.acp.option.category.guilded.recruitment"><![CDATA[Rekrutierung]]></item>
@@ -180,11 +187,17 @@
 		<item name="wcf.acp.option.gms_index_enable_stats"><![CDATA[Allgemeine Statistik anzeigen]]></item>
 		<item name="wcf.acp.option.gms_index_enable_online_list"><![CDATA[Benutzer-Online-Liste anzeigen]]></item>
 		<item name="wcf.acp.option.gms_guild_recruitment_decline_character"><![CDATA[Abgelehnte Charaktere löschen]]></item>
+		<item name="wcf.acp.option.gms_calendar_list_items"><![CDATA[Einträge in Listenansicht]]></
 		<item name="wcf.acp.option.gms_module_recruitment"><![CDATA[Rekrutierung]]></item>
+		<item name="wcf.acp.option.gms_module_recruitment.description"><![CDATA[Aktiviert Gesuche und Bewerbungen.]]></item>
 		<item name="wcf.acp.option.gms_module_calendar"><![CDATA[Kalender]]></item>
+		<item name="wcf.acp.option.gms_module_calendar.description"><![CDATA[Aktiviert den Event- und Raidplaner.]]></item>
 		<item name="wcf.acp.option.gms_module_credit_system"><![CDATA[Punktesystem]]></item>
+		<item name="wcf.acp.option.gms_module_credit_system.description"><![CDATA[@todo]]></item>
 		<item name="wcf.acp.option.gms_module_instance_progress"><![CDATA[Gegner- und Instanzfortschritt]]></item>
-		<item name="wcf.acp.option.gms_calendar_list_items"><![CDATA[Einträge in Listenansicht]]></item>
+		<item name="wcf.acp.option.gms_module_instance_progress.description"><![CDATA[Aktiviert den Gegner- und Instanzfortschritt.]]></item>
+		<item name="wcf.acp.option.gms_module_role_play"><![CDATA[Rollenspiel]]></item>
+		<item name="wcf.acp.option.gms_module_role_play.description"><![CDATA[@todo]]></item>item>
 	</category>
 
 	<category name="wcf.acp.group">

@@ -1,6 +1,6 @@
 <?php
 namespace gms\data\guild\profile\menu\item;
-use wcf\data\user\profile\menu\item\UserProfileMenuItem;
+use gms\data\GMSDatabaseObject;
 use wcf\system\exception\SystemException;
 use wcf\util\ClassUtil;
 
@@ -14,11 +14,22 @@ use wcf\util\ClassUtil;
  * @subpackage	data.guild.profile.menu.item
  * @category	Guilded 2.0
  */
-class GuildProfileMenuItem extends UserProfileMenuItem {
+class GuildProfileMenuItem extends GMSDatabaseObject {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */
 	protected static $databaseTableName = 'guild_profile_menu_item';
+
+	/**
+	 * @see	\wcf\data\DatabaseObject::$databaseTableIndexName
+	 */
+	protected static $databaseTableIndexName = 'menuItemID';
+
+	/**
+	 * content manager
+	 * @var	\gms\system\menu\guild\profile\content\IGuildProfileContent
+	 */
+	protected $contentManager = null;
 
 	/**
 	 * @see	\wcf\data\IStorableObject::getDatabaseTableName()
@@ -30,7 +41,7 @@ class GuildProfileMenuItem extends UserProfileMenuItem {
 	/**
 	 * Returns the content manager for this menu item.
 	 *
-	 * @return	\wcf\system\menu\guild\profile\content\IGuildProfileMenuContent
+	 * @return	\gms\system\menu\guild\profile\content\IGuildProfileMenuContent
 	 */
 	public function getContentManager() {
 		if ($this->contentManager === null) {

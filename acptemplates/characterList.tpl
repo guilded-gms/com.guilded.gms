@@ -15,7 +15,7 @@
 	
 	<nav>
 		<ul>
-			<li><a href="{link controller='CharacterAdd' application='gms'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}gms.character.add{/lang}</span></a></li>
+			<li><a href="{link controller='CharacterAdd' application='gms'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}gms.acp.character.add{/lang}</span></a></li>
 			
 			{event name='contentNavigationButtonsTop'}
 		</ul>
@@ -31,6 +31,7 @@
 		<table class="table">
 			<thead>
 				<tr>
+					{* @todo fix lang vars *}
 					<th class="columnID columnCharacterID{if $sortField == 'characterID'} active {@$sortOrder}{/if}" colspan="2"><a href="{link controller='CharacterList' application='gms'}pageNo={@$pageNo}&sortField=characterID&sortOrder={if $sortField == 'characterID' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.objectID{/lang}</a></th>
 					<th class="columnTitle columnCharacterName{if $sortField == 'name'} active {@$sortOrder}{/if}"><a href="{link controller='CharacterList' application='gms'}pageNo={@$pageNo}&sortField=name&sortOrder={if $sortField == 'name' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.global.name{/lang}</a></th>
 					<th class="columnText columnUsername{if $sortField == 'username'} active {@$sortOrder}{/if}"><a href="{link controller='CharacterList' application='gms'}pageNo={@$pageNo}&sortField=username&sortOrder={if $sortField == 'username' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.user.username{/lang}</a></th>
@@ -39,7 +40,7 @@
 					<th class="columnText columnCharacterLevel{if $sortField == 'level'} active {@$sortOrder}{/if}"><a href="{link controller='CharacterList' application='gms'}pageNo={@$pageNo}&sortField=level&sortOrder={if $sortField == 'level' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}gms.character.option.level{/lang}</a></th>
                     <th class="columnText columnCharacterRace{if $sortField == 'characterRace'} active {@$sortOrder}{/if}"><a href="{link controller='CharacterList' application='gms'}pageNo={@$pageNo}&sortField=characterRace&sortOrder={if $sortField == 'characterRace' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}gms.character.option.races{/lang}</a></th>
 					<th class="columnText columnCharacterClass{if $sortField == 'characterClass'} active {@$sortOrder}{/if}"><a href="{link controller='CharacterList' application='gms'}pageNo={@$pageNo}&sortField=characterClass&sortOrder={if $sortField == 'characterClass' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}gms.character.option.classes{/lang}</a></th>
-					<th class="columnDate columnCharacterTime{if $sortField == 'characterTime'} active {@$sortOrder}{/if}" colspan="2"><a href="{link controller='CharacterList' application='gms'}pageNo={@$pageNo}&sortField=characterTime&sortOrder={if $sortField == 'characterTime' && $sortOrder == 'ASC'}DESC{else}ASC{/if}{/link}">{lang}wcf.acp.cache.list.mtime{/lang}</a></th>
+
 					{event name='columnHeads'}
 				</tr>
 			</thead>
@@ -62,7 +63,6 @@
                             <td class="columnText columnCharacterLevel">{#$object->level}</td>
                             <td class="columnText columnCharacterRace">{@$object->getPrimaryRace()->getImageTag(16)} {@$object->getPrimaryRace()->getTitle()}</td>
                             <td class="columnText columnCharacterClass">{@$object->getPrimaryClass()->getImageTag(16)} {@$object->getPrimaryClass()->getTitle()}</td>
-							<td class="columnDate columnCharacterTime">{@$object->time|time}</td>
 
 							{event name='columns'}
 						</tr>

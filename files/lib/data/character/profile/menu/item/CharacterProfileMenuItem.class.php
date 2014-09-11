@@ -5,7 +5,7 @@ use wcf\system\exception\SystemException;
 use wcf\util\ClassUtil;
 
 /**
- * Represents an character profile menu item.
+ * Represents a character profile menu item.
  *
  * @author	Jeffrey Reichardt
  * @copyright	2012-2014 DevLabor UG (haftungsbeschränkt)
@@ -19,6 +19,11 @@ class CharacterProfileMenuItem extends GMSDatabaseObject {
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */
 	protected static $databaseTableName = 'character_profile_menu_item';
+
+	/**
+	 * @see	\wcf\data\DatabaseObject::$databaseTableIndexName
+	 */
+	protected static $databaseTableIndexName = 'menuItemID';
 
 	/**
 	 * content manager

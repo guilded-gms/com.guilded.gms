@@ -1,5 +1,5 @@
 <?php
-namespace gms\system\package\plugin;
+namespace wcf\system\package\plugin;
 use wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin;
 use wcf\system\WCF;
 

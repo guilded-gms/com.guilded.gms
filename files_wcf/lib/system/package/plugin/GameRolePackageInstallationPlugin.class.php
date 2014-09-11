@@ -1,5 +1,5 @@
 <?php
-namespace gms\system\package\plugin;
+namespace wcf\system\package\plugin;
 use gms\data\game\Game;
 use wcf\data\package\Package;
 use wcf\system\package\plugin\AbstractXMLPackageInstallationPlugin;
