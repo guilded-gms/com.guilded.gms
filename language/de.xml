@@ -85,6 +85,13 @@
 		<item name="wcf.user.menu.profile.character"><![CDATA[Charaktere]]></item>
 	</category>
 
+	<category name="gms.calendar.menu">
+		<item name="gms.calendar.menu.monthly"><![CDATA[Monat]]></item>
+		<item name="gms.calendar.menu.weekly"><![CDATA[Woche]]></item>
+		<item name="gms.calendar.menu.daily"><![CDATA[Tag]]></item>
+		<item name="gms.calendar.menu.list"><![CDATA[Terminübersicht]]></item>
+	</category>
+
 	<category name="wcf.search">
 		<item name="wcf.search.type.com.guilded.gms.character"><![CDATA[Charaktere]]></item>
 		<item name="wcf.search.type.com.guilded.gms.guild"><![CDATA[Gilden]]></item>

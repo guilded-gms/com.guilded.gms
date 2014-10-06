@@ -2,7 +2,7 @@
 namespace gms\data\event\date;
 use gms\data\event\date\participation\EventDateParticipationList;
 use gms\data\event\Event;
-use wcf\data\DatabaseObject;
+use gms\data\GMSDatabaseObject;
 use wcf\system\breadcrumb\Breadcrumb;
 use wcf\system\breadcrumb\IBreadcrumbProvider;
 use wcf\system\request\IRouteController;
@@ -18,7 +18,7 @@ use wcf\system\request\LinkHandler;
  * @subpackage	data.event.date
  * @category	Guilded 2.0
  */
-class EventDate extends DatabaseObject implements IRouteController, IBreadcrumbProvider {
+class EventDate extends GMSDatabaseObject implements IRouteController, IBreadcrumbProvider {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */

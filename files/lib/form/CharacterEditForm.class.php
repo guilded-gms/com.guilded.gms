@@ -17,6 +17,8 @@ use wcf\system\WCF;
  * @package	com.guilded.gms
  * @subpackage	form
  * @category	Guilded 2.0
+ *
+ * @todo set edit values
  */
 class CharacterEditForm extends CharacterAddForm {
 	/**
@@ -110,6 +112,7 @@ class CharacterEditForm extends CharacterAddForm {
 		$this->character = new CharacterEditor(new Character($returnValues['objectIDs'][0]));
 
 		// fire activity maxLevel
+		// @todo do this in CharacterAction
 		if ($this->character->getDecoratedObject()->getGame()->maxLevel == $this->character->level) {
 			CharacterActivityHandler::getInstance()->fireEvent('reached.maximumLevel', $this->character, $this->character->getDecoratedObject()->getGame());
 		}

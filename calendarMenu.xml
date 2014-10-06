@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data xmlns="http://www.guilded.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.guilded.eu http://www.guilded.eu/XSD/calendarMenu.xsd">
 	<import>
-		<calendarmenuitem name="list">
-			<classname>gms\system\menu\calendar\content\ListCalendarMenuContent</classname>
-			<showorder>1</showorder>
-		</calendarmenuitem>
-		<calendarmenuitem name="daily">
-			<classname>gms\system\menu\calendar\content\DailyCalendarMenuContent</classname>
-			<showorder>2</showorder>
-		</calendarmenuitem>
-		<calendarmenuitem name="weekly">
-			<classname>gms\system\menu\calendar\content\WeeklyCalendarMenuContent</classname>
-			<showorder>3</showorder>
-		</calendarmenuitem>
-		<calendarmenuitem name="monthly">
-			<classname>gms\system\menu\calendar\content\MonthlyCalendarMenuContent</classname>
-			<showorder>4</showorder>
-		</calendarmenuitem>
+        <calendarmenuitem name="monthly">
+            <classname>gms\system\menu\calendar\content\MonthlyCalendarMenuContent</classname>
+            <showorder>4</showorder>
+        </calendarmenuitem>
+        <calendarmenuitem name="weekly">
+            <classname>gms\system\menu\calendar\content\WeeklyCalendarMenuContent</classname>
+            <showorder>3</showorder>
+        </calendarmenuitem>
+        <calendarmenuitem name="daily">
+            <classname>gms\system\menu\calendar\content\DailyCalendarMenuContent</classname>
+            <showorder>2</showorder>
+        </calendarmenuitem>
+        <calendarmenuitem name="list">
+            <classname>gms\system\menu\calendar\content\ListCalendarMenuContent</classname>
+            <showorder>1</showorder>
+        </calendarmenuitem>
 	</import>
 </data>

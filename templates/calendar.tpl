@@ -60,7 +60,7 @@
 
 	{foreach from=$menuItems item=menuItem}
 		<div id="{$menuItem->getIdentifier()}" class="container tabMenuContent" data-menu-item="{$menuItem->menuItem}">
-			{@$menuItem->getContent()}
+			{@$menuItem->getContentManager()->getContent()}
 		</div>
 	{/foreach}
 </section>
