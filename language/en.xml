@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="en">
+	<category name="wcf.acp.index">
+		<item name="wcf.acp.index.system.software.gmsVersion"><![CDATA[Guilded-Version]]></item>
+	</category>
+
+	<category name="gms.header.menu">
+		<item name="gms.header.menu.index"><![CDATA[Home]]></item>
+		<item name="gms.header.menu.guild"><![CDATA[Guild]]></item>
+		<item name="gms.header.menu.calendar"><![CDATA[Calendar ]]></item>
+	</category>
+
+	<category name="gms.game">
+		<!-- server -->
+		<item name="gms.game.server.type.pve"><![CDATA[PvE]]></item>
+		<item name="gms.game.server.type.pvp"><![CDATA[PvP]]></item>
+		<item name="gms.game.server.type.rp"><![CDATA[RP]]></item>
+		<item name="gms.game.server.type.rppvp"><![CDATA[RP-PvP]]></item>
+		<!-- item -->
+		<item name="gms.game.item.notFound"><![CDATA[Item not found]]></item>
+	</category>
+
+	<category name="gms.acp.game">
+		<item name="gms.acp.game.list"><![CDATA[List Games]]></item>
+		<item name="gms.acp.game.add"><![CDATA[Add Game]]></item>
+		<item name="gms.acp.game.edit"><![CDATA[Edit Game]]></item>
+		<item name="gms.acp.game.delete.sure"><![CDATA[Do you really want to delete „{@$title}“ ?]]></item>
+	</category>
+
+	<category name="gms.acp.character">
+		<item name="gms.acp.character.list"><![CDATA[List Charakter]]></item>
+		<item name="gms.acp.character.add"><![CDATA[Add a Chrakter]]></item>
+	</category>
+
+	<category name="gms.acp.guild">
+		<item name="gms.acp.guild.list"><![CDATA[List Guilds]]></item>
+		<item name="gms.acp.guild.add"><![CDATA[Add Guild]]></item>
+		<item name="gms.acp.guild.edit"><![CDATA[Edit Guild]]></item>
+		<item name="gms.acp.guild.name"><![CDATA[Designation]]></item>
+		<item name="gms.acp.guild.gameID"><![CDATA[Game]]></item>
+		<item name="gms.acp.guild.delete.sure"><![CDATA[Do you really want to delete the guild "{$ guild-> getTitle ()}"?]]></item>
+		<item name="gms.acp.guild.isPublic"><![CDATA[Publish content]]></item>
+		<item name="gms.acp.guild.isPublic.description"><![CDATA[Set this option if the information (characters, Rekruitierung, etc.) to the guild on the page.]]></item>
+		<!-- rank -->
+		<item name="gms.acp.guild.rank.list"><![CDATA[List rank]]></item>
+		<item name="gms.acp.guild.rank.add"><![CDATA[Add rank]]></item>
+		<item name="gms.acp.guild.rank.edit"><![CDATA[Edit rank]]></item>
+		<item name="gms.acp.guild.rank.delete.sure"><![CDATA[@todo]]></item>
+		<item name="gms.acp.guild.rank.name"><![CDATA[Designation]]></item>
+		<item name="gms.acp.guild.rank.guildID"><![CDATA[Guild]]></item>
+		<!-- recruitment -->
+		<item name="gms.acp.guild.recruitment.tender.list"><![CDATA[Gesuche auflisten]]></item>
+		<item name="gms.acp.guild.recruitment.tender.add"><![CDATA[Gesuch hinzufügen]]></item>
+		<item name="gms.acp.guild.recruitment.tender.edit"><![CDATA[Gesuch bearbeiten]]></item>
+		<item name="gms.acp.guild.recruitment.tender.delete.sure"><![CDATA[@todo]]></item>
+		<item name="gms.acp.guild.recruitment.tender.amount"><![CDATA[Anzahl]]></item>
+		<item name="gms.acp.guild.recruitment.tender.priority"><![CDATA[Priorität]]></item>
+		<item name="gms.acp.guild.recruitment.tender.guildID"><![CDATA[Gilde]]></item>
+	</category>
+
+	<category name="gms.acp.menu">
+		<item name="gms.acp.menu.link.gms"><![CDATA[Guilded]]></item>
+		<item name="gms.acp.menu.link.gms.game"><![CDATA[Spiele]]></item>
+		<item name="gms.acp.menu.link.gms.game.list"><![CDATA[Spiele auflisten]]></item>
+		<item name="gms.acp.menu.link.gms.game.add"><![CDATA[Spiel hinzufügen]]></item>
+		<item name="gms.acp.menu.link.gms.guild"><![CDATA[Gilden]]></item>
+		<item name="gms.acp.menu.link.gms.guild.list"><![CDATA[Gilden auflisten]]></item>
+		<item name="gms.acp.menu.link.gms.guild.add"><![CDATA[Gilde hinzufügen]]></item>
+		<item name="gms.acp.menu.link.gms.guild.rank"><![CDATA[Ränge]]></item>
+		<item name="gms.acp.menu.link.gms.guild.rank.list"><![CDATA[Ränge auflisten]]></item>
+		<item name="gms.acp.menu.link.gms.guild.rank.add"><![CDATA[Rang hinzufügen]]></item>
+		<item name="gms.acp.menu.link.gms.guild.recruitment.tender"><![CDATA[Gesuche]]></item>
+		<item name="gms.acp.menu.link.gms.guild.recruitment.tender.list"><![CDATA[Gesuche auflisten]]></item>
+		<item name="gms.acp.menu.link.gms.guild.recruitment.tender.add"><![CDATA[Gesuch hinzufügen]]></item>
+		<item name="gms.acp.menu.link.gms.character"><![CDATA[Charaktere]]></item>
+		<item name="gms.acp.menu.link.gms.character.list"><![CDATA[Charaktere auflisten]]></item>
+		<item name="gms.acp.menu.link.gms.character.add"><![CDATA[Charakter hinzufügen]]></item>
+		<item name="gms.acp.menu.link.gms.event"><![CDATA[Ereignisse]]></item>
+		<item name="gms.acp.menu.link.gms.event.category"><![CDATA[Kategorien]]></item>
+		<item name="gms.acp.menu.link.gms.event.category.list"><![CDATA[Kategorien auflisten]]></item>
+		<item name="gms.acp.menu.link.gms.event.category.add"><![CDATA[Kategorie hinzufügen]]></item>
+	</category>
+
+	<category name="wcf.user.menu">
+		<item name="wcf.user.menu.profile.character"><![CDATA[Charaktere]]></item>
+	</category>
+
+	<category name="wcf.search">
+		<item name="wcf.search.type.com.guilded.gms.character"><![CDATA[Charaktere]]></item>
+		<item name="wcf.search.type.com.guilded.gms.guild"><![CDATA[Gilden]]></item>
+	</category>
+
+	<category name="gms.character">
+		<item name="gms.character.profile.title"><![CDATA[Charakter-Profil von „{@$title}“]]></item>
+		<item name="gms.character.add"><![CDATA[Charakter hinzufügen]]></item>
+		<item name="gms.character.edit"><![CDATA[Charakter bearbeiten]]></item>
+		<item name="gms.character.profile"><![CDATA[Charakter-Profil]]></item>
+		<item name="gms.character.characters"><![CDATA[Charaktere]]></item>
+		<item name="gms.character.isPrimary"><![CDATA[Als Hauptcharakter markiert]]></item>
+		<item name="gms.character.noPrimary"><![CDATA[(Charakter wählen)]]></item>
+		<item name="gms.character.information"><![CDATA[Information]]></item>
+		<item name="gms.character.characterName"><![CDATA[Name]]></item>
+		<item name="gms.character.characterName.description"><![CDATA[Wählen Sie das Spiel aus und geben Sie den Namen des Charakters an.]]></item>
+		<item name="gms.character.delete.sure"><![CDATA[@todo]]></item>
+		<item name="gms.character.image"><![CDATA[Bild]]></item>
+
+		<item name="gms.character.option.category.profile"><![CDATA[Profil]]></item>
+		<item name="gms.character.option.category.profile.general"><![CDATA[Allgemein]]></item>
+		<item name="gms.character.option.category.profile.details"><![CDATA[Details]]></item>
+		<item name="gms.character.option.about"><![CDATA[Über]]></item>
+		<item name="gms.character.option.level"><![CDATA[Stufe]]></item>
+		<item name="gms.character.option.classes"><![CDATA[Klasse(n)]]></item>
+		<item name="gms.character.option.races"><![CDATA[Rasse(n)]]></item>
+		<item name="gms.character.option.roles"><![CDATA[Rolle(n)]]></item>
+		<item name="gms.character.option.guildID"><![CDATA[Gilde]]></item>
+		<item name="gms.character.option.rankTitle"><![CDATA[Titel]]></item>
+		<item name="gms.character.option.rankTitle.description"><![CDATA[Sie können <strong>%s</strong> als Platzhalter für den Namen verwenden. Aus <strong>Großmarschall %s</strong> wird <strong>Großmarschall Kivah</strong>.]]></item>
+		<item name="gms.character.option.gender"><![CDATA[Geschlecht]]></item>
+		<item name="gms.character.gender.male"><![CDATA[männlich]]></item>
+		<item name="gms.character.gender.female"><![CDATA[weiblich]]></item>
+
+		<item name="gms.character.content.about.empty"><![CDATA[Keine Daten vorhanden]]></item>
+
+		<item name="gms.character.profile.menu.activity"><![CDATA[Aktivitäten]]></item>
+		<item name="gms.character.profile.menu.about"><![CDATA[Über {@$character->name}]]></item>
+
+		<item name="gms.character.activity.reached.maximumLevel"><![CDATA[{@$character->characterName} hat Stufe {#$object->maxLevel} erreicht.]]></item>
+	</category>
+
+	<category name="gms.guild">
+		<item name="gms.guild.profile.title"><![CDATA[Gilden-Profil von „{@$title}“]]></item>
+		<item name="gms.guild.add"><![CDATA[Gilde hinzufügen]]></item>
+		<item name="gms.guild.edit"><![CDATA[Gilde bearbeiten]]></item>
+		<item name="gms.guild.emblem"><![CDATA[Emblem]]></item>
+		<item name="gms.guild.guilds"><![CDATA[Gilden]]></item>
+		<item name="gms.guild.information"><![CDATA[Information]]></item>
+		<item name="gms.guild.characters"><![CDATA[Charaktere]]></item>
+		<item name="gms.guild.noCharacters"><![CDATA[Keine Mitglieder vorhanden.]]></item>
+
+		<item name="gms.guild.option.category.profile"><![CDATA[Profil]]></item>
+		<item name="gms.guild.option.category.profile.general"><![CDATA[Allgemein]]></item>
+		<item name="gms.guild.option.server"><![CDATA[Server]]></item>
+
+		<item name="gms.guild.content.about.empty"><![CDATA[Keine Daten vorhanden]]></item>
+
+		<item name="gms.guild.profile.menu.about"><![CDATA[Über {@$guild->name}]]></item>
+		<item name="gms.guild.profile.menu.characters"><![CDATA[Charaktere]]></item>
+		<item name="gms.guild.profile.menu.applications"><![CDATA[Bewerbungen]]></item>
+		<item name="gms.guild.profile.menu.instance.progress"><![CDATA[Instanzfortschritt]]></item>
+
+		<item name="gms.guild.recruitment.tender.priority.1"><![CDATA[niedrig]]></item>
+		<item name="gms.guild.recruitment.tender.priority.2"><![CDATA[mittel]]></item>
+		<item name="gms.guild.recruitment.tender.priority.3"><![CDATA[hoch]]></item>
+	</category>
+
+	<category name="gms.index">
+		<item name="gms.index.stats"><![CDATA[Statistik]]></item>
+		<item name="gms.index.stats.detail"><![CDATA[@todo]]></item>
+		<item name="gms.index.copyright"><![CDATA[<a href="http://www.guilded.eu/"{if EXTERNAL_LINK_TARGET_BLANK} target="_blank"{/if}><strong>Guilded{if SHOW_VERSION_NUMBER} {@PACKAGE_VERSION}{/if}</strong>, entwickelt vom <strong>Guilded Team</strong></a>]]></item>
+	</category>
+
+	<category name="gms.calendar">
+		<item name="gms.calendar.title"><![CDATA[Kalender]]></item>
+		<item name="gms.calendar.events"><![CDATA[Ereignisse]]></item>
+	</category>
+
+	<category name="wcf.user">
+		<item name="wcf.user.profile.menu.characters"><![CDATA[Charaktere]]></item>
+		<item name="wcf.user.recentActivity.com.guilded.gms.user.recentActivityEvent.character"><![CDATA[Charakter]]></item>
+		<item name="wcf.user.recentActivity.com.guilded.gms.user.recentActivityEvent.event.date.participation"><![CDATA[Anmeldung]]></item>
+	</category>
+
+	<category name="wcf.user.option">
+		<item name="wcf.user.option.hideCharacters"><![CDATA[Charaktere verstecken]]></item>
+	</category>
+
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.category.guilded"><![CDATA[Guilded]]></item>
+		<item name="wcf.acp.option.category.guilded.settings"><![CDATA[Einstellungen]]></item>
+		<item name="wcf.acp.option.category.guilded.index"><![CDATA[Startseite]]></item>
+		<item name="wcf.acp.option.category.guilded.index.general"><![CDATA[Allgemein]]></item>
+		<item name="wcf.acp.option.category.guilded.recruitment"><![CDATA[Rekrutierung]]></item>
+		<item name="wcf.acp.option.category.guilded.calendar"><![CDATA[Kalender]]></item>
+		<item name="wcf.acp.option.gms_install_date"><![CDATA[Installationsdatum]]></item>
+		<item name="wcf.acp.option.gms_default_game_id"><![CDATA[Spiel [Standard]]]></item>
+		<item name="wcf.acp.option.gms_default_guild_id"><![CDATA[Gilde [Standard]]]></item>
+		<item name="wcf.acp.option.gms_index_enable_stats"><![CDATA[Allgemeine Statistik anzeigen]]></item>
+		<item name="wcf.acp.option.gms_index_enable_online_list"><![CDATA[Benutzer-Online-Liste anzeigen]]></item>
+		<item name="wcf.acp.option.gms_guild_recruitment_decline_character"><![CDATA[Abgelehnte Charaktere löschen]]></item>
+		<item name="wcf.acp.option.gms_calendar_list_items"><![CDATA[Einträge in Listenansicht]]></item>
+		<item name="wcf.acp.option.gms_module_recruitment"><![CDATA[Rekrutierung]]></item>
+		<item name="wcf.acp.option.gms_module_recruitment.description"><![CDATA[Aktiviert Gesuche und Bewerbungen.]]></item>
+		<item name="wcf.acp.option.gms_module_calendar"><![CDATA[Kalender]]></item>
+		<item name="wcf.acp.option.gms_module_calendar.description"><![CDATA[Aktiviert den Event- und Raidplaner.]]></item>
+		<item name="wcf.acp.option.gms_module_credit_system"><![CDATA[Punktesystem]]></item>
+		<item name="wcf.acp.option.gms_module_credit_system.description"><![CDATA[@todo]]></item>
+		<item name="wcf.acp.option.gms_module_instance_progress"><![CDATA[Gegner- und Instanzfortschritt]]></item>
+		<item name="wcf.acp.option.gms_module_instance_progress.description"><![CDATA[Aktiviert den Gegner- und Instanzfortschritt.]]></item>
+		<item name="wcf.acp.option.gms_module_role_play"><![CDATA[Rollenspiel]]></item>
+		<item name="wcf.acp.option.gms_module_role_play.description"><![CDATA[@todo]]></item>item>
+	</category>
+
+	<category name="wcf.acp.group">
+		<item name="wcf.acp.group.option.category.user.gms"><![CDATA[Guilded]]></item>
+		<item name="wcf.acp.group.option.category.user.gms.alliance"><![CDATA[Allianzen]]></item>
+		<item name="wcf.acp.group.option.category.user.gms.character"><![CDATA[Charaktere]]></item>
+		<item name="wcf.acp.group.option.category.user.gms.guild"><![CDATA[Gilden]]></item>
+		<item name="wcf.acp.group.option.category.user.gms.event"><![CDATA[@todo]]></item>
+		<item name="wcf.acp.group.option.category.mod.gms"><![CDATA[Guilded]]></item>
+		<item name="wcf.acp.group.option.category.mod.gms.character"><![CDATA[Charaktere]]></item>
+		<item name="wcf.acp.group.option.category.mod.gms.guild"><![CDATA[Gilden]]></item>
+		<item name="wcf.acp.group.option.category.mod.gms.event"><![CDATA[Ereignisse]]></item>
+		<item name="wcf.acp.group.option.category.admin.gms"><![CDATA[Guilded]]></item>
+		<item name="wcf.acp.group.option.category.admin.gms.game"><![CDATA[Spiele]]></item>
+		<item name="wcf.acp.group.option.category.admin.gms.alliance"><![CDATA[Allianzen]]></item>
+		<item name="wcf.acp.group.option.category.admin.gms.character"><![CDATA[Charaktere]]></item>
+		<item name="wcf.acp.group.option.category.admin.gms.event"><![CDATA[Ereignisse]]></item>
+		<item name="wcf.acp.group.option.category.admin.gms.guild"><![CDATA[Gilden]]></item>
+		<item name="wcf.acp.group.option.user.gms.alliance.canViewProfile"><![CDATA[Kann Profil ansehen]]></item>
+		<item name="wcf.acp.group.option.user.gms.character.canManage"><![CDATA[Kann Charaktere verwalten]]></item>
+		<item name="wcf.acp.group.option.user.gms.character.canView"><![CDATA[Kann Profil ansehen]]></item>
+		<item name="wcf.acp.group.option.user.gms.character.canViewList"><![CDATA[Kann Liste ansehen]]></item>
+		<item name="wcf.acp.group.option.user.gms.guild.canView"><![CDATA[Kann Profil ansehen]]></item>
+		<item name="wcf.acp.group.option.user.gms.guild.canViewList"><![CDATA[Kann Liste ansehen]]></item>
+		<item name="wcf.acp.group.option.user.gms.guild.canApply"><![CDATA[Kann sich für Gildenbeitritt bewerben]]></item>
+		<item name="wcf.acp.group.option.user.gms.event.canView"><![CDATA[Kann Ereignis sehen]]></item>
+		<item name="wcf.acp.group.option.user.gms.event.canViewCalendar"><![CDATA[Kann Kalender ansehen]]></item>
+		<item name="wcf.acp.group.option.mod.gms.guild.canManageRecruitment"><![CDATA[Kann Bewerbungen verwalten]]></item>
+		<item name="wcf.acp.group.option.admin.gms.game.canManage"><![CDATA[Kann Spiele verwalten]]></item>
+		<item name="wcf.acp.group.option.admin.gms.character.canManage"><![CDATA[Kann Charaktere verwalten]]></item>
+		<item name="wcf.acp.group.option.admin.gms.alliance.canManage"><![CDATA[Kann Allianzen verwalten]]></item>
+		<item name="wcf.acp.group.option.admin.gms.guild.canManage"><![CDATA[Kann Gilden verwalten]]></item>
+		<item name="wcf.acp.group.option.admin.gms.guild.canManageRank"><![CDATA[Kann Ränge verwalten]]></item>
+		<item name="wcf.acp.group.option.admin.gms.guild.canManageRecruitment"><![CDATA[Kann Gesuche verwalten]]></item>
+		<item name="wcf.acp.group.option.admin.gms.event.canManage"><![CDATA[Kann Ereignisse verwalten]]></item>
+	</category>
+
+	<category name="wcf.dashboard">
+		<item name="wcf.dashboard.objectType.com.guilded.gms.IndexPage"><![CDATA[Startseite]]></item>
+		<item name="wcf.dashboard.objectType.com.guilded.gms.GuildPage"><![CDATA[Gilden-Seite]]></item>
+		<item name="wcf.dashboard.objectType.com.guilded.gms.CharacterPage"><![CDATA[Charakter-Seite]]></item>
+		<item name="wcf.dashboard.box.com.guilded.gms.game.serverStatus"><![CDATA[Server-Status]]></item>
+		<item name="wcf.dashboard.box.com.guilded.gms.credit.standing"><![CDATA[Punktestand]]></item>
+		<item name="wcf.dashboard.box.com.guilded.gms.guild.recruitment"><![CDATA[Rekrutierung]]></item>
+	</category>
+</language>
